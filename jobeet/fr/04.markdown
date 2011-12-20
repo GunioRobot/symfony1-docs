@@ -16,7 +16,7 @@ hier. Actuellement, ce module a déjà tout le code utile pour Jobeet :
  * Une page pour supprimer un job
 
 Bien que le code est prêt à être utilisé tel qu'il est, nous devons modifier les
-Templates afin que nos pages correspondent à notre maquette. 
+Templates afin que nos pages correspondent à notre maquette.
 
 L'architecture ~MVC~
 --------------------
@@ -406,7 +406,7 @@ Le modèle renvoie un tableau d'objet de type `JobeetJob` que l'on affecte à la
 <doctrine>
 Analysons de plus près le code : la méthode `executeIndex()` (le Contrôleur)
 appelle la Table `JobeetJob` pour créer une requête renvoyant tous les jobs.
-La Table renvoie une 'Doctrine_Collection` d'objets de type `JobettJob` que l'on affecte 
+La Table renvoie une 'Doctrine_Collection` d'objets de type `JobettJob` que l'on affecte
 à la propriété `jobeet_jobs` de l'objet courant.
 </doctrine>
 
@@ -609,7 +609,7 @@ du layout :
     [php]
     <title>Jobeet - Your best job board</title>
 
-Mais pour un job, nous aimerions avoir des informations plus utiles telles que le 
+Mais pour un job, nous aimerions avoir des informations plus utiles telles que le
 nom de la société et le type d'emploi.
 
 Avec symfony, quand une zone du layout dépend du template à afficher, vous devez utiliser
@@ -800,7 +800,7 @@ sur des fonctions PHP et des variables globales PHP.
 
 ### La requête
 
-La classe `sfWebRequest` redéfinit les tableaux globaux PHP ~`$_SERVER`~, 
+La classe `sfWebRequest` redéfinit les tableaux globaux PHP ~`$_SERVER`~,
 ~`$_COOKIE`~, ~`$_GET`~, ~`$_POST`~, et ~`$_FILES`~ :
 
  Nom de la méthode    | Équivalent PHP
@@ -853,7 +853,7 @@ La classe `sfWebResponse` redéfinit les méthodes PHP `~header|HTTP Headers~()`
 (`setContent()`) et de l'envoyer au navigateur (`send()`).
 
 Plus tôt aujourd'hui, nous avons vu comment gérer les feuilles de style et les JavaScripts dans le
-fichier `view.yml` et dans les templates. Finalement, ces deux techniques utilisent les méthodes 
+fichier `view.yml` et dans les templates. Finalement, ces deux techniques utilisent les méthodes
 `addStylesheet()` et `addJavascript()` de l'objet réponse.
 
 >**TIP**

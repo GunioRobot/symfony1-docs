@@ -747,4 +747,4 @@ configurazione un sacco di convenzioni da imparare, essa consente alle applicazi
 symfony di essere compatibili con un grandissimo numero di piattaforme e di ambienti.
 Una volta in grado di padroneggiare la configurazione di symfony, nessun server potrà
 rifiutarsi di eseguire le nostre applicazioni!
- 
+

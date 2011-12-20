@@ -3,7 +3,7 @@ Jour 14 : Les Flux
 
 Hier, vous avez commencé à développer votre première application symfony. Ne vous arrêtez
 pas maintenant. Car vous en apprendrez davantage sur symfony, essayez d'ajouter de nouvelles
-fonctionnalités à votre application, l'héberger quelque part, et la partager avec la communauté. 
+fonctionnalités à votre application, l'héberger quelque part, et la partager avec la communauté.
 
 Passons à quelque chose de complètement différent aujourd'hui.
 
@@ -405,7 +405,7 @@ Quant au flux principal des emplois, nous avons besoin de la date du dernier emp
 
 Comme avec de nombreuses fonctionnalités de symfony, le support du format natif vou
 permet d'ajouter des flux à vos sites Web sans effort.
- 
+
 Aujourd'hui, nous avons amélioré l'expérience du demandeur d'emploi. Demain, nous allons
 voir comment assurer une plus grande exposition aux annonceurs en leur fournissant un service Web.
 

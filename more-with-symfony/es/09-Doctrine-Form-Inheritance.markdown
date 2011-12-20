@@ -288,7 +288,7 @@ tablas es una buena solución para manejar una docena de conjuntos de datos
 idénticos de forma que se puedan reaprovechar métodos y propiedades para evitar
 la duplicación de código.
 
-El segundo ejemplo muestra cómo hacer uso de la ~herencia concreta de tablas~ 
+El segundo ejemplo muestra cómo hacer uso de la ~herencia concreta de tablas~
 en los formularios creando un modelo simple que gestione archivos numéricos.
 
 Por último, el tercer ejemplo muestra cómo utilizar la herencia de tablas con
@@ -847,7 +847,7 @@ del módulo.
 Los dos módulos del backend ya están listos para utilizarlos y personalizar su
 comportamiento. No obstante, en este capítulo no se trata la configuración de los
 módulos generados automáticamente. Afortunadamente existe mucha documentación
-sobre este aspecto, como por ejemplo la 
+sobre este aspecto, como por ejemplo la
 [Referencia de Symfony](http://www.symfony-project.org/reference/1_3/en/06-Admin-Generator).
 
 #### Modificando la posición de un elemento
@@ -1046,14 +1046,14 @@ Reemplaza su contenido actual por el siguiente código:
                   ) ?>
                 <?php endif; ?>
                 <?php echo format_number_choice(
-                  '[0] no result|[1] 1 result|(1,+Inf] %1% results', 
+                  '[0] no result|[1] 1 result|(1,+Inf] %1% results',
                   array('%1%' => $pager->getNbResults()),
                   $pager->getNbResults(), 'sf_admin'
                 ) ?>
                 <?php if ($pager->haveToPaginate()): ?>
                   <?php echo __('(page %%page%%/%%nb_pages%%)', array(
-                    '%%page%%' => $pager->getPage(), 
-                    '%%nb_pages%%' => $pager->getLastPage()), 
+                    '%%page%%' => $pager->getPage(),
+                    '%%nb_pages%%' => $pager->getLastPage()),
                     'sf_admin'
                   ) ?>
                 <?php endif; ?>
@@ -1071,14 +1071,14 @@ Reemplaza su contenido actual por el siguiente código:
                   'helper' => $helper
               )) ?>
               <?php include_partial(
-                $sf_request->getParameter('module').'/list_td_tabular', 
+                $sf_request->getParameter('module').'/list_td_tabular',
                 array(
                   'sf_'. $sf_request->getParameter('module') .'_item' => $item
               )) ?>
                 <?php include_partial(
                   $sf_request->getParameter('module').'/list_td_actions',
                   array(
-                    'sf_'. $sf_request->getParameter('module') .'_item' => $item, 
+                    'sf_'. $sf_request->getParameter('module') .'_item' => $item,
                     'helper' => $helper
                 )) ?>
             </tr>
@@ -1090,15 +1090,15 @@ Reemplaza su contenido actual por el siguiente código:
       <script type="text/javascript">
         /* <![CDATA[ */
         function checkAll() {
-          var boxes = document.getElementsByTagName('input'); 
-          for (var index = 0; index < boxes.length; index++) { 
-            box = boxes[index]; 
+          var boxes = document.getElementsByTagName('input');
+          for (var index = 0; index < boxes.length; index++) {
+            box = boxes[index];
             if (
-              box.type == 'checkbox' 
-              && 
+              box.type == 'checkbox'
+              &&
               box.className == 'sf_admin_batch_checkbox'
-            ) 
-            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked 
+            )
+            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked
           }
           return true;
         }
@@ -1116,7 +1116,7 @@ módulo y coloca el siguiente código en cada uno:
       'sort' => $sort,
       'colspan' => 5
     )) ?>
-    
+
 -
 
     // apps/backend/modules/shopping/templates/_list.php

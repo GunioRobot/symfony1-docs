@@ -195,7 +195,7 @@ jQuery はページをリロードしませんが、DOM 要素の `#jobs` をレ
         {
           return $this->renderText('No results.');
         }
-        
+
         return $this->renderPartial('job/list', array('jobs' => $this->jobs));
       }
     }

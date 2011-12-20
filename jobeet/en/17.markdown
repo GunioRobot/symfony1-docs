@@ -39,9 +39,9 @@ On the Zend Lucene documentation page, the library is described as follows:
 -
 
 >**NOTE**
->Today is not a tutorial about the Zend Lucene library, but how to integrate it 
+>Today is not a tutorial about the Zend Lucene library, but how to integrate it
 >into the Jobeet website; or more generally, how to integrate
->~third-party libraries|Third-Party Libraries~ into a symfony project. If you 
+>~third-party libraries|Third-Party Libraries~ into a symfony project. If you
 >want more information about this technology, please refer to the
 >[Zend Lucene documentation](http://framework.zend.com/manual/en/zend.search.lucene.html).
 
@@ -302,7 +302,7 @@ deleted job from the index:
     public function delete(PropelPDO $con = null)
     {
       $index = JobeetJobPeer::getLuceneIndex();
-   
+
       foreach ($index->find('pk:'.$this->getId()) as $hit)
       {
         $index->delete($hit->id);
@@ -401,7 +401,7 @@ And the corresponding action:
     }
 
 >**NOTE**
->The new `forwardUnless()` method forwards the user to the `index` action of the 
+>The new `forwardUnless()` method forwards the user to the `index` action of the
 >`job` module if the `query` request parameter does not exist or is empty.
 >
 >It's just an alias for the following longer statement:
@@ -606,10 +606,10 @@ Along this day, we implemented a full search engine with many features in less
 than an hour. Every time you want to add a new feature to your projects, check
 that it has not yet been solved somewhere else.
 
-First, check if something is not implemented natively in the 
-[symfony framework](http://www.symfony-project.org/api/1_4/). Then, check the 
-[symfony plugins](http://www.symfony-project.org/plugins/). And don't forget to 
-check the [Zend Framework libraries](http://framework.zend.com/manual/en/) and 
+First, check if something is not implemented natively in the
+[symfony framework](http://www.symfony-project.org/api/1_4/). Then, check the
+[symfony plugins](http://www.symfony-project.org/plugins/). And don't forget to
+check the [Zend Framework libraries](http://framework.zend.com/manual/en/) and
 the [ezComponent](http://ezcomponents.org/docs) ones too.
 
 Tomorrow we will use some unobtrusive JavaScripts to enhance the responsiveness

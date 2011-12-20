@@ -1,7 +1,7 @@
 Giorno 10: Form
 ===============
 
-La seconda settimana di Jobeet si è conclusa con l'inizio di una panoramica e 
+La seconda settimana di Jobeet si è conclusa con l'inizio di una panoramica e
 l'introduzione del symfony test framework. Continueremo oggi con il framework dei form.
 
 Il Framework dei form
@@ -9,7 +9,7 @@ Il Framework dei form
 
 Ogni sito web ha dei ~form|Form~; dal semplice form di contatto a quelli più completi con
 decine di campi. Scrivere form è uno dei compiti più complessi e noiosi per uno
-sviluppatore web: deve scrivere il form HTML, implementare le regole per la 
+sviluppatore web: deve scrivere il form HTML, implementare le regole per la
 validazione di ogni campo, processare i valori per salvarli nel database, visualizzare
 i messaggi d'errore, ripopolare i campi in caso di errori e molto altro...
 
@@ -50,14 +50,14 @@ definito con la seguente classe:
       }
     }
 
-I campi del form vengono configurati nel metodo `configure()` utilizzando i 
+I campi del form vengono configurati nel metodo `configure()` utilizzando i
 metodi `setValidators()` e `setWidgets()`.
 
 >**TIP**
 >Il form framework viene distribuito assieme a molti
 >[widgets](http://www.symfony-project.org/api/1_4/widget) e
 >[validatori](http://www.symfony-project.org/api/1_4/validator). Le API
->li descrivono in modo piuttosto completo con tutte le opzioni, gli errori e i 
+>li descrivono in modo piuttosto completo con tutte le opzioni, gli errori e i
 >messaggi d'errore di default.
 
 I nomi delle classi dei widget e dei validatori sono autoesplicativi: il campo
@@ -91,7 +91,7 @@ automaticamente anche il task `propel:build --forms`:
 
 Il task `propel:build --forms` genera le classi dei form nella cartella `lib/form/`.
 L'organizzazione di questi file generati è simile a quella di `lib/model/`. Ogni
-classe del modello ha una relativa classe per un form (per esempio `JobeetJob` 
+classe del modello ha una relativa classe per un form (per esempio `JobeetJob`
 ha `JobeetJobForm`) che inizialmente è vuota, visto che eredita la struttura dalla
 classe base dei form:
 
@@ -288,7 +288,7 @@ Poi usiamo `sfWidgetFormChoice` per il widget della colonna `type`:
     ));
 
 `sfWidgetFormChoice` rappresenta un widget per la selezione che può essere
-creato da un widget diverso in accordo ad alcune opzioni di configurazione 
+creato da un widget diverso in accordo ad alcune opzioni di configurazione
 (`expanded` e `multiple`):
 
  * Menù a tendina (`<select>`): `array('multiple' => false, 'expanded' => false)`
@@ -302,7 +302,7 @@ creato da un widget diverso in accordo ad alcune opzioni di configurazione
 >del database.
 
 Anche se si ritiene che nessuno possa inviare un valore non valido, un hacker potrebbe
-bypassare facilmente le opzioni del widget, usando strumenti come [curl](http://curl.haxx.se/) 
+bypassare facilmente le opzioni del widget, usando strumenti come [curl](http://curl.haxx.se/)
 o la [Web Developer Toolbar](http://chrispederick.com/work/web-developer/) di Firefox.
 Cambiamo il validatore per restringere le possibilità di scelta:
 
@@ -368,7 +368,7 @@ cambiamo il percorso utilizzato nel template `showSuccess`:
     <img src="/uploads/jobs/<?php echo $job->getLogo() ?>" alt="<?php echo $job->getCompany() ?> logo" />
 
 >**TIP**
->Se in un form esiste il metodo `generateLogoFilename()`, verrà chiamato dal 
+>Se in un form esiste il metodo `generateLogoFilename()`, verrà chiamato dal
 >validatore e il risultato sovrascriverà il nome file di default del `logo`.
 >Al metodo viene passato l'oggetto `sfValidatedFile` come parametro.
 

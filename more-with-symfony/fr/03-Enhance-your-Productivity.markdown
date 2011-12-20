@@ -21,9 +21,9 @@ Cependant, les toutes premières étapes de création d'un nouveau projet sont g
 Depuis symfony 1.3, le processus de création d'un projet peut être entièrement  personnalisé et automatisé.
 
 >**NOTE**
->Comme toutes les tâches de symfony sont des classes, il est particulièrement 
->facile de les personnaliser et de les étendre. En revanche, la tâche 
->`generate:project` est plus difficilement personnalisable car il n'existe pas 
+>Comme toutes les tâches de symfony sont des classes, il est particulièrement
+>facile de les personnaliser et de les étendre. En revanche, la tâche
+>`generate:project` est plus difficilement personnalisable car il n'existe pas
 >encore de projet lorsqu'elle est exécutée.
 
 La tâche `generate:project` accepte une option `--installer` correspondant à un chemin absolu vers un script PHP qui sera exécuté au cours du processus de création du projet.
@@ -33,10 +33,10 @@ La tâche `generate:project` accepte une option `--installer` correspondant à u
 Le script `/somewhere/my_installer.php` est exécuté dans le contexte de l'instance `sfGeneratProjectTask` afin de bénéficier des méthodes de la tâche en utilisant l'objet `$this`. Les sections suivantes décrivent toutes les méthodes disponibles pour personnaliser le processus de création d'un projet.
 
 >**TIP**
->Si l'import de fichiers grâce aux URLs est configuré dans le fichier de 
->`php.ini` pour la fonction native `include()`, alors le chemin du script 
->d'installation peut être remplacé par une URL. Néanmoins, il convient de rester 
->très prudent en utilisant cette méthode, en particulier quand le contenu du 
+>Si l'import de fichiers grâce aux URLs est configuré dans le fichier de
+>`php.ini` pour la fonction native `include()`, alors le chemin du script
+>d'installation peut être remplacé par une URL. Néanmoins, il convient de rester
+>très prudent en utilisant cette méthode, en particulier quand le contenu du
 >script d'installation est peu, voire pas du tout, connu.
 >
 >      $ symfony generate:project
@@ -78,7 +78,7 @@ Pour installer une version spécifique d'un plugin, il suffit simplement de lui 
     $this->runTask('plugin:install', 'sfDoctrineGuardPlugin', array('release' => '10.0.0', 'stability' => beta'));
 
 >**TIP**
->L'exécution d'une tâche comprise dans un plugin nouvellement installé est 
+>L'exécution d'une tâche comprise dans un plugin nouvellement installé est
 >possible à condition de recharger la liste des tâches avant de l'utiliser.
 >
 >     [php]
@@ -138,14 +138,14 @@ Le script d'installation est également capable de réaliser des modifications s
 >**SIDEBAR**
 >Le Processus de Création de la Sandbox
 >
->Le bac à sable de symfony est un projet préfabriqué, incluant une application 
->prête à l'emploi et une base de données SQLite préconfigurée. Son processus de 
->création est réalisé à partir d'un script d'installation que quiconque peut 
+>Le bac à sable de symfony est un projet préfabriqué, incluant une application
+>prête à l'emploi et une base de données SQLite préconfigurée. Son processus de
+>création est réalisé à partir d'un script d'installation que quiconque peut
 >utiliser pour générer sa propre sandbox comme l'illustre le code ci-dessous.
 >
 >     $ php symfony generate:project --installer=/path/to/symfony/data/bin/sandbox_installer.php
 >
->Etudier le contenu du fichier `symfony/data/bin/sandbox_installer.php` permet 
+>Etudier le contenu du fichier `symfony/data/bin/sandbox_installer.php` permet
 >d'avoir un bon exemple du fonctionnement des scripts d'installation.
 
 Le script d'installation est un pur fichier PHP. Par conséquent, il peut réaliser à peu près tout ce dont désire le développeur. Les scripts d'installation sont un moyen sûr et rapide de personnaliser et d'industrialiser la création de projets symfony, tout en protégeant le développeur des étapes manquantes. Ces fichiers peuvent également être partagés avec les autres membres de la communauté symfony.
@@ -164,28 +164,28 @@ Enfin, il faut savoir que certains EDIs comme PHPEdit ou bien Netbeans en savent
 >**SIDEBAR**
 >Les Editeurs de Texte
 >
->Certains utilisateurs préfèrent utiliser un éditeur de texte pour développer, 
->principalement parce que les éditeurs de texte sont plus rapides que n'importe 
->quel autre EDI. Cependant, les éditeurs de texte offrent bien moins de 
->fonctionnalités par rapport aux EDIs. La plupart des éditeurs offrent toutefois 
->des plugins / extensions qui peuvent être utilisés pour améliorer l'expérience 
->utilisateur et rendre le logiciel plus efficace avec PHP et les projets 
+>Certains utilisateurs préfèrent utiliser un éditeur de texte pour développer,
+>principalement parce que les éditeurs de texte sont plus rapides que n'importe
+>quel autre EDI. Cependant, les éditeurs de texte offrent bien moins de
+>fonctionnalités par rapport aux EDIs. La plupart des éditeurs offrent toutefois
+>des plugins / extensions qui peuvent être utilisés pour améliorer l'expérience
+>utilisateur et rendre le logiciel plus efficace avec PHP et les projets
 >symfony.
 >
->Par exemple, de nombreux utilisateurs de Linux tendent à utiliser VIM pour 
->toutes leurs tâches de travail. Pour ces développeurs, une extension est 
->disponible : [vim-symfony](http://github.com/geoffrey/vim-symfony). VIM-symfony 
->est un jeu de scripts qui intègrent symfony dans l'éditeur. En utilisant 
->vim-symfony, il est ainsi possible de créer facilement des macros et des 
->commandes vim pour rationaliser les développements symfony. Cet outil embarque 
->de plus un jeu de commandes par défaut qui mettent un certain nombre de 
->fichiers de configuration à portée de main du développeur (schéma, routage, 
->etc) ainsi qu'une manière de passer simplement des actions aux vues 
+>Par exemple, de nombreux utilisateurs de Linux tendent à utiliser VIM pour
+>toutes leurs tâches de travail. Pour ces développeurs, une extension est
+>disponible : [vim-symfony](http://github.com/geoffrey/vim-symfony). VIM-symfony
+>est un jeu de scripts qui intègrent symfony dans l'éditeur. En utilisant
+>vim-symfony, il est ainsi possible de créer facilement des macros et des
+>commandes vim pour rationaliser les développements symfony. Cet outil embarque
+>de plus un jeu de commandes par défaut qui mettent un certain nombre de
+>fichiers de configuration à portée de main du développeur (schéma, routage,
+>etc) ainsi qu'une manière de passer simplement des actions aux vues
 >(templates).
 >
->Certains développeurs Mac OS X préfèrent utiliser TextMate et peuvent donc 
->ainsi installer le [bundle](http://github.com/denderello/symfony-tmbundle) 
->symfony, qui offre un certain nombre de macros et de raccourcis qui aident 
+>Certains développeurs Mac OS X préfèrent utiliser TextMate et peuvent donc
+>ainsi installer le [bundle](http://github.com/denderello/symfony-tmbundle)
+>symfony, qui offre un certain nombre de macros et de raccourcis qui aident
 >économiser du temps au quotidien.
 
 #### Utiliser un EDI qui supporte symfony
@@ -271,7 +271,7 @@ Symfony est un framework riche en fonctionnalités, et de ce fait, il n'est pas 
 
 ### API en Ligne
 
-La manière la plus rapide de trouver de la documentation à propos d'une classe 
+La manière la plus rapide de trouver de la documentation à propos d'une classe
 ou d'une méthode de symfony consiste à parcourir l'[API](http://www.symfony-project.org/api/1_3/) en ligne.
 
 Le moteur de recherche intégré à l'API en ligne est encore plus intéressant. La recherche permet de trouver rapidement une classe ou bien une méthode avec seulement quelques frappes de clavier. Après seulement quelques lettres saisies dans la boîte de recherche, une boîte de résultats apparaîtra aussi vite avec davantage de suggestions très pratiques.
@@ -297,7 +297,7 @@ Si l'on souhaite lister toutes les classes d'un paquetage, il suffit de saisir l
 Pour les utilisateurs de Firefox, le moteur de recherche de l'API en ligne de symfony apparaîtra automatiquement dans la barre des moteurs de recherches du navigateur. Un clic sur le lien "API OpenSearch" depuis la documentation de l'API en ligne permet de l'ajouter à la boîte de recherche du navigateur.
 
 >**NOTE**
->Un billet a été rédigé sur le [blog](http://www.symfony-project.org/blog/2009/02/24/opensearch-support-for-the-symfony-api) de symfony qui présente comment le moteur de recherche de l'API 
+>Un billet a été rédigé sur le [blog](http://www.symfony-project.org/blog/2009/02/24/opensearch-support-for-the-symfony-api) de symfony qui présente comment le moteur de recherche de l'API
 >s'intègre à Firefox à l'aide d'un screencast.
 
 ### Les Feuilles de Triche
@@ -324,7 +324,7 @@ Le livre est consultable gratuitement [en ligne](http://www.symfony-project.org/
 
 ### Outils en Ligne
 
-Le début de ce chapitre a montré que symfony fournit un large éventail d'outils pour aider le développeur à démarrer rapidement. Arrivé au terme de son développement, un projet symfony doit alors être déployé sur le serveur de production. Pour s'assurer qu'un projet est prêt au déploiement, la [checklist](http://symfony-check.org/) en ligne du déploiement couvre les principaux points importants à vérifier avant de basculer l'application 
+Le début de ce chapitre a montré que symfony fournit un large éventail d'outils pour aider le développeur à démarrer rapidement. Arrivé au terme de son développement, un projet symfony doit alors être déployé sur le serveur de production. Pour s'assurer qu'un projet est prêt au déploiement, la [checklist](http://symfony-check.org/) en ligne du déploiement couvre les principaux points importants à vérifier avant de basculer l'application
 en production.
 
 Déboguer Plus Vite
@@ -335,9 +335,9 @@ Lorsqu'une erreur se produit en environnement de développement, symfony affiche
 De plus, en définissant le paramètre ~`sf_file_link_format`~ du fichier de configuration `settings.yml` (voir ci-dessous), les noms des fichiers deviennent automatiquement cliquables dans la trace de débogage de symfony. Ces derniers s'ouvriront ensuite dans l'éditeur ou EDI configuré, et le curseur sera automatiquement positionné à la ligne où l'erreur a été générée. C'est un excellent exemple d'une toute petite fonctionnalité qui peut faire économiser un temps précieux aux développeurs lorsqu'ils font face à un problème.
 
 >**NOTE**
->Les panneaux dédiés à la vue et aux logs de la barre de débogage affichent eux 
->aussi les noms de fichiers (particulièrement lorsque l'extension xDebug est 
->activée) qui deviennent cliquables lorsque le paramètre `sf_file_link_format` 
+>Les panneaux dédiés à la vue et aux logs de la barre de débogage affichent eux
+>aussi les noms de fichiers (particulièrement lorsque l'extension xDebug est
+>activée) qui deviennent cliquables lorsque le paramètre `sf_file_link_format`
 >est défini.
 
 Par défaut, le paramètre `sf_file_link_format` n'est pas configuré et symfony utilise la valeur de la directive de configuration  [`xdebug.file_link_format`](http://xdebug.org/docs/all_settings#file_link_format) si elle existe. Le paramètre `xdebug.file_link_format` du `php.ini` permet à des versions récentes de xDebug d'ajouter des liens pour tous les noms de fichiers présents dans la pile des appels.
@@ -352,9 +352,9 @@ La valeur du paramètre `sf_file_link_format` dépend à la fois de l'EDI et du 
 Le jeton `%f` est remplacé par symfony par le chemin absolu vers le fichier tandis que la chaîne `%l` est remplacée par le numéro de la ligne concernée. Pour les utilisateurs de VIM, la configuration est un peu plus évoluée et décrite en ligne pour [symfony](http://geekblog.over-blog.com/article-symfony-open-exceptions-files-in-remote-vim-sessions-37895120.html) et [XDebug](http://www.koch.ro/blog/index.php?/archives/77-Firefox,-VIM,-Xdebug-Jumping-to-the-error-line.html).
 
 >**NOTE**
->N'hésitez pas à utiliser votre moteur de recherche favoris afin d'apprendre 
->comment configurer votre EDI. Vous pouvez ainsi rechercher la configuration 
->des paramètres `sf_file_link_format` et `sf_file_link_format` dans la mesure où 
+>N'hésitez pas à utiliser votre moteur de recherche favoris afin d'apprendre
+>comment configurer votre EDI. Vous pouvez ainsi rechercher la configuration
+>des paramètres `sf_file_link_format` et `sf_file_link_format` dans la mesure où
 >ils fonctionnent de la même manière.
 
 Tester plus Vite

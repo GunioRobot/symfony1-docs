@@ -163,16 +163,16 @@ Or on Windows:
     c:\> cd c:\development\sfprojects\jobeet
 
 >**NOTE**
->Windows users are advised to run symfony and to setup their new project in a 
->path which contains no spaces. Avoid using the `Documents and Settings` 
+>Windows users are advised to run symfony and to setup their new project in a
+>path which contains no spaces. Avoid using the `Documents and Settings`
 >directory, including anywhere under `My Documents`.
 
 -
 
 >**TIP**
->If you create the symfony project directory under the web root directory, you 
->won't need to configure your web server.  Of course, for production 
->environments, we strongly advise you to configure your web server as explained 
+>If you create the symfony project directory under the web root directory, you
+>won't need to configure your web server.  Of course, for production
+>environments, we strongly advise you to configure your web server as explained
 >in the web server configuration section.
 
 ### Choosing the Symfony Version
@@ -227,7 +227,7 @@ embed symfony into your project in the `lib/vendor/` directory:
     $ svn pe svn:externals lib/vendor/
 
 >**NOTE**
->Importing your project in a new Subversion repository is explained at the end 
+>Importing your project in a new Subversion repository is explained at the end
 >of this day.
 
 If everything goes well, this command will run your favorite editor to give you

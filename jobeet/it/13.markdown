@@ -8,10 +8,10 @@ sviluppatore di creare interfacce di backend in pochi minuti.
 Oggi scopriremo come symfony gestisce i dati persistenti tra le richieste
 HTTP. Come dovreste sapere, il protocollo HTTP è senza stato, il che significa
 che ogni richiesta è indipendente da quelle che la precedono o la seguono.
-I siti web moderni hanno bisogno di mantenere i dati persistenti tra le varie 
+I siti web moderni hanno bisogno di mantenere i dati persistenti tra le varie
 richieste, per migliorare la user experience dell'utente.
 
-Una ~sessione|Sessione~ utente può essere identificata usando un ~cookie|Cookie~. In symfony 
+Una ~sessione|Sessione~ utente può essere identificata usando un ~cookie|Cookie~. In symfony
 lo sviluppatore non ha bisogno di manipolare la sessione in modo diretto,
 piuttosto utilizza l'oggetto ~`sfUser`~, che rappresenta l'utente finale
 dell'applicazione.
@@ -19,7 +19,7 @@ dell'applicazione.
 Flash utente
 ------------
 
-Abbiamo già visto l'oggetto utente in azione con i flash. Un ~flash|Flash~ è un 
+Abbiamo già visto l'oggetto utente in azione con i flash. Un ~flash|Flash~ è un
 messaggio salvato nella sessione dell'utente, che viene cancellato automaticamente
 dopo la prima richiesta successiva. È molto comodo quando si ha bisogno
 di mostrare un messaggio all'utente dopo un ~rinvio|Rinvio~. L'admin generator
@@ -69,7 +69,7 @@ Jobeet vengono visualizzati dal `layout.php`:
 Nei template la sessione utente è accessibile dalla variabile speciale `$sf_user`.
 
 >**NOTE**
->Alcuni oggetti di symfony sono sempre accessibili nei template senza il 
+>Alcuni oggetti di symfony sono sempre accessibili nei template senza il
 >bisogno di passarli dall'action: `$sf_request`, `$sf_user` e `$sf_response`.
 
 Attributi utente
@@ -78,7 +78,7 @@ Attributi utente
 Sfortunatamente le user story di Jobeet non richiedono che qualcosa possa
 essere incluso nella ~sessione|Sessione~. Quindi aggiungiamo un nuovo requisito:
 per rendere più semplice la navigazione le ultime tre offerte visualizzate
-dall'utente dovranno essere mostrate nel menù con i link per tornare 
+dall'utente dovranno essere mostrate nel menù con i link per tornare
 alla pagina dell'offerta.
 
 Quando un utente accede alla pagina di un'offerta di lavoro l'oggetto stesso
@@ -110,16 +110,16 @@ dell'utente e salvato nella sessione:
 >Avremmo potuto salvare gli oggetti `JobeetJob` direttamente nella sessione.
 >Vi scoraggiamo fortemente di agire in questo modo perché le variabili di sessione
 >vengono serializzate tra le richieste. Quando la sessione viene caricata
->gli oggetti `JobeetJob` vengono de-serializzati e possono presentare dati 
+>gli oggetti `JobeetJob` vengono de-serializzati e possono presentare dati
 >incoerenti se nel frattempo sono stati modificati o cancellati.
 
 ### `getAttribute()`, `setAttribute()`
 
-Dato un identificatore il metodo `sfUser::getAttribute()`prende i valori 
-dalla sessione utente. Al contrario il metodo `setAttribute()` salva 
+Dato un identificatore il metodo `sfUser::getAttribute()`prende i valori
+dalla sessione utente. Al contrario il metodo `setAttribute()` salva
 qualsiasi variabile PHP nella sessione con l'identificatore passato.
 
-Il metodo `getAttribute()` prende un valore opzionale per segnalare se 
+Il metodo `getAttribute()` prende un valore opzionale per segnalare se
 l'identificatore passato non è ancora stato definito.
 
 >**NOTE**
@@ -224,7 +224,7 @@ dei lavori:
             ->execute()
           ;
         }
-        
+
         return array();
       }
 </doctrine>
@@ -257,7 +257,7 @@ per azzerare la cronologia:
     }
 
 Gli attributi dell'utente sono gestiti da un oggetto della classe
-`sfParameterHolder`. I metodi `getAttribute()` e `setAttribute()` 
+`sfParameterHolder`. I metodi `getAttribute()` e `setAttribute()`
 sono scorciatoie per `getParameterHolder()->get()` e `getParameterHolder()->set()`.
 Siccome il metodo `remove()` non ha scorciatoie in `sfUser`, occorre
 usare direttamente l'oggetto contenitore dei parametri.
@@ -443,7 +443,7 @@ l'ultima versione stabile. Per installare una versione specifica di un plugin,
 usare l'opzione `--release`.
 
 <propel>
-La 
+La
 [pagina dei plugin](http://www.symfony-project.org/plugins/sfGuardPlugin?tab=plugin_all_releases)
 elenca tutte le versioni disponibili, raggruppate per versione di symfony.
 
@@ -453,7 +453,7 @@ dal sito di symfony ed estrarlo, oppure creare un collegamento `svn:externals` a
 suo [repository di Subversion](http://svn.symfony-project.com/plugins/sfGuardPlugin).
 </propel>
 <doctrine>
-La 
+La
 [pagina dei plugin](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin?tab=plugin_all_releases)
 elenca tutte le versioni disponibili, raggruppate per versione di symfony.
 

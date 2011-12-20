@@ -98,7 +98,7 @@ Il sistema di credenziali di symfony è semplice e potente. Una credenziale è u
 stringa che può rappresentare tutto quello di cui si ha bisogno per descrivere il modello
 di sicurezza dell'applicazione (come gruppi e permessi).
 
-La chiave `credentials` supporta operazioni booleane per descrivere complessi 
+La chiave `credentials` supporta operazioni booleane per descrivere complessi
 requisiti di credenziali, utilizzando la notazione array.
 
 Se un utente deve avere la credenziale A **e** la credenziale B, inserire le

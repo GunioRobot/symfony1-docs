@@ -8,15 +8,15 @@ Nel capitolo precedente, è stata creata una cartella che ospita il progetto.
 Se essa è stata creata all'interno della cartella radice del server web,
 è già possibile accedere al progetto stesso tramite un browser web.
 
-Ovviamente, non essendoci una configurazione specifica, quanto fatto finora è molto facile 
-e veloce da impostare, ma se si provasse per esempio ad accedere al file `config/databases.yml` 
+Ovviamente, non essendoci una configurazione specifica, quanto fatto finora è molto facile
+e veloce da impostare, ma se si provasse per esempio ad accedere al file `config/databases.yml`
 tramite il browser web si comprenderebbero le conseguenze negative di tale attitudine.
-Se un utente venisse a conoscenza che il sito web in questione è sviluppato 
+Se un utente venisse a conoscenza che il sito web in questione è sviluppato
 con symfony, avrebbe facilmente accesso a file che contengono informazioni sensibili.
 
 **Mai utilizzare questa tipologia di configurazione su un server di produzione**,
 si invita alla lettura della sezione successiva per comprendere come configurare
-correttamente il proprio web server. 
+correttamente il proprio web server.
 
 Modalità sicura
 ----------------
@@ -27,9 +27,9 @@ ad esempio fogli di stile, JavaScript e immagini.
 Come opzione predefinita, si raccomanda di posizionare queste tipologie di file all'interno
 della cartella `web/`.
 
-All'interno di questa cartella sono presenti alcune sottocartelle delle varie 
+All'interno di questa cartella sono presenti alcune sottocartelle delle varie
 risorse web (`css/` e `images/`) e i due file front controller.
-Questi ultimi sono gli unici file PHP che devono essere posizionati all'interno 
+Questi ultimi sono gli unici file PHP che devono essere posizionati all'interno
 della cartella web. Tutti gli altri file PHP devono essere nascosti, non raggiungibili
 dal browser web, che è una buona soluzione per la sicurezza dell'applicativo.
 
@@ -86,8 +86,8 @@ numeri superiori a `1024`, in quanto non richiedono privilegi di amministratore.
 >**SIDEBAR**
 >Configurazione di un dominio dedicato
 >
->Nel caso in cui si fosse amministratori del server stesso, è meglio 
->creare e configurare degli host virtuali, piuttosto che aggiungere una nuova porta 
+>Nel caso in cui si fosse amministratori del server stesso, è meglio
+>creare e configurare degli host virtuali, piuttosto che aggiungere una nuova porta
 >ogniqualvolta si voglia iniziare un progetto. Invece di scegliere una porta e
 >aggiungere la direttiva `Listen`, scegliere un dominio e aggiungere la direttiva
 >`ServerName`:
@@ -106,7 +106,7 @@ numeri superiori a `1024`, in quanto non richiedono privilegi di amministratore.
 >
 >     127.0.0.1 sfproject.localhost
 
-### Testare la nuova configurazione 
+### Testare la nuova configurazione
 
 Riavviare Apache e controllare che sia possibile l'accesso alla nuova applicazione,
 aprendo un browser web e digitando `http://localhost:8080/index.php/` oppure
@@ -120,13 +120,13 @@ nella precedente sezione.
 >`index.php/` dall'URL. Questo è possibile grazie alle regole di riscrittura presenti nel file
 >`web/.htaccess`.
 
-È possibile accedere all'applicativo nell'ambiente di sviluppo (vedere la 
+È possibile accedere all'applicativo nell'ambiente di sviluppo (vedere la
 sezione successiva per maggiori informazioni sui diversi ambienti). Digitare il
 seguente URL:
 
     http://sfproject.localhost/frontend_dev.php/
 
-Dovrebbe essere visibile nell'angolo in alto a destra la web debug toolbar, con 
+Dovrebbe essere visibile nell'angolo in alto a destra la web debug toolbar, con
 delle piccole icone, se tutto è stato configurato correttamente,
 grazie all' `sf/` alias.
 
@@ -135,5 +135,5 @@ grazie all' `sf/` alias.
 >**NOTE**
 >La creazione e configurazione del progetto è leggermente differente se si volesse
 >utilizzare symfony in combinazione col server IIS in ambiente Windows.
->Le istruzioni di configurazioni sono disponibili nella 
+>Le istruzioni di configurazioni sono disponibili nella
 >[relativa guida](http://www.symfony-project.com/cookbook/1_0/web_server_iis).

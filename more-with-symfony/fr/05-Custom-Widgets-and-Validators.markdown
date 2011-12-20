@@ -13,19 +13,19 @@ Au Coeur des Widgets et Validateurs
 Un objet de la classe ~`sfWidgetForm`~ représente une implémentation visuelle de la manière dont les données relatives seront éditées. Une chaîne de caractères par exemple pourrait être éditée à partir d'un champ texte ou bien à l'aide d'un éditeur WYSIWIG avancé. Afin d'être entièrement configurable, la classe `sfWidgetForm` dispose de deux propriétés importantes : les `options` et les attributs (`attributes`).
 
  * Les `options` sont utilisées pour configurer le widget. Une option peut servir par exemple à recevoir une requête de base de données à utiliser afin d'alimenter une liste déroulante.
- 
+
  * Les attributs (`attributes`) sont les attributs HTML ajoutés à l'élément lors du rendu.
 
 De plus, la classe `sfWidgetForm` implémente deux méthodes importantes :
 
  * La méthode `configure()` définit les options *optionnelles* et celles qui sont *obligatoires*. Alors que la rédéfinition du constructeur ne constitue pas une bonne pratique en soit, la méthode `configure()` peut quant à elle être redéfinie en toute sécurité.
- 
+
  * La méthode `render()` génère la sortie HTML du widget. Elle requiert un premier paramètre obligatoire, le nom du widget, et un second paramètre optionnel, sa valeur.
 
 >**NOTE**
->Un objet `sfWidgetForm` ne sait absolument rien de son nom ou de sa valeur. Le 
->composant est seulement responsable du rendu du widget. Le nom et la valeur 
->sont gérés par un objet `sfFormFieldSchema` qui fait le lien entre les données 
+>Un objet `sfWidgetForm` ne sait absolument rien de son nom ou de sa valeur. Le
+>composant est seulement responsable du rendu du widget. Le nom et la valeur
+>sont gérés par un objet `sfFormFieldSchema` qui fait le lien entre les données
 >et les widgets.
 
 ### Présentation de la Classe `sfValidatorBase`
@@ -55,10 +55,10 @@ Un validateur peut aussi être utilisé comme un composant indépendant pour vé
     }
 
 >**NOTE**
->Lorsqu'un formulaire est associé aux valeurs transmises dans la requête, 
->l'objet `sfForm` conserve les références aux valeurs teintées originales ainsi 
->qu'aux valeurs filtrées. Les valeurs originales sont utilisées lorsque le 
->formulaire est réaffiché, alors que les valeurs nettoyées sont employées par 
+>Lorsqu'un formulaire est associé aux valeurs transmises dans la requête,
+>l'objet `sfForm` conserve les références aux valeurs teintées originales ainsi
+>qu'aux valeurs filtrées. Les valeurs originales sont utilisées lorsque le
+>formulaire est réaffiché, alors que les valeurs nettoyées sont employées par
 >l'application (par exemple pour hydrater et sauvegarder l'objet).
 
 ### L'Attribut `options`
@@ -170,13 +170,13 @@ Le validateur `sfValidatorTrilean` définit trois options dans sa méthode `conf
 
 La méthode `doClean()` vérifie si la valeur fournie correspond à une valeur valide, puis retourne la bonne valeur filtrée parmi les trois. Si aucune valeur ne correspond alors la méthode lance une exception `sfValidatorError` qui correspond à la classe standard pour toute les exceptions de validation.
 
-La dernière méthode, `isEmpty()`, est écrasée car le comportement par défaut est de retourner `true` si `null` est fourni en entrée. Comme le widget en cours autorise la valeur `null`, cette méthode doit toujours retourner `false` dans ce cas. 
+La dernière méthode, `isEmpty()`, est écrasée car le comportement par défaut est de retourner `true` si `null` est fourni en entrée. Comme le widget en cours autorise la valeur `null`, cette méthode doit toujours retourner `false` dans ce cas.
 
 >**Note**:
->Si `isEmpty()` retourne `true`, la méthode `doClean()` du validateur n'est 
+>Si `isEmpty()` retourne `true`, la méthode `doClean()` du validateur n'est
 >jamais appelée.
 
-Ce premier widget était très simple à réaliser, cependant, il a introduit certaines bases importantes pour la suite. 
+Ce premier widget était très simple à réaliser, cependant, il a introduit certaines bases importantes pour la suite.
 
 Le Widget Google Address Map
 ----------------------------
@@ -198,7 +198,7 @@ Quel est le but de ce composant ? Le widget doit fournir une méthode simple pou
  * L'utilisateur clique sur la carte
  * La latitude et la longitude sont mises à jour.
  * Une demande d'adresse est envoyée au service de géo-positionnement.
- 
+
 *Les champs suivants ont besoin d'être envoyés et gérés par le formulaire* :
 
  * `latitude` : nombre à virgule flottante, entre 90 et -90 ;
@@ -207,7 +207,7 @@ Quel est le but de ce composant ? Le widget doit fournir une méthode simple pou
 
 Les spécifications fonctionnelles sont maintenant définies, et voici la liste des éléments techniques utilisés dans la suite de ce chapitre :
 
- * Services Google Maps et Geocoding : affichent la carte et récupèrent les 
+ * Services Google Maps et Geocoding : affichent la carte et récupèrent les
  informations d'une adresse,
  * jQuery : gère les interactions javascript entre le formulaire et la carte,
  * sfForm : rend la carte et les champs textes.
@@ -221,7 +221,7 @@ L'option la plus importante est ici l'option `template.html` qui définit commen
 Un autre point important à noter est la définition des médias externes utilisés par le widget. Là encore, le framework de formulaires permet d'implémenter deux méthodes :
 
  * `getJavascripts()` : retourne un tableau de fichiers JavaScript,
- 
+
  * `getStylesheets()` : retourne un tableau de feuilles de style où la clé du tableau est le chemin du fichier et la valeur le type de media.
 
 Pour fonctionner correctement, le widget a besoin de code JavaScript dans le but de gérer les interactions entre la carte Google et les champs du widget. Le widget doit donc seulement implémenter la méthode `getJavascript()`.
@@ -321,10 +321,10 @@ Le widget n'est pas responsable du chargement des services Google. Il est en eff
 Le widget fait appel à la méthode `generateId()` pour générer le champ `id` de chaque élément. La variable `$name` est fournie par la classe `sfFormFieldSchema`. Par conséquent, le nom du widget est composé du nom du formulaire, des schémas de widgets imbriqués et finalement du nom du champ défini par la méthode `configure()`.
 
 >**NOTE**
->Par exemple, si le nom du formulaire est `user`, le widget schéma imbriqué (via 
->un formulaire imbriqué) est `location`, et le nom du champ est `address`. Alors 
->le nom final du champ sera `user[location][address]` et l'`id` sera 
->`user_location_address`. Pour résumer, `$this->generateId($name.'[latitude]')` 
+>Par exemple, si le nom du formulaire est `user`, le widget schéma imbriqué (via
+>un formulaire imbriqué) est `location`, et le nom du champ est `address`. Alors
+>le nom final du champ sera `user[location][address]` et l'`id` sera
+>`user_location_address`. Pour résumer, `$this->generateId($name.'[latitude]')`
 >générera un `id` valide et unique pour le champ `latitude`.
 
 Les différentes valeurs des identifiants sont importantes car elles sont passées au bloc JavaScript par l'intermédiaire de la variable `template.js` afin que le  Javascript puisse gérer les différents éléments du widget.
@@ -366,10 +366,10 @@ La partie JavaScript du widget utilise les différents attributs `id` et les att
 
  * `init()` initialise les variables et les événements ;
 
- * `lookupCallback()`, méthode *statique* utilisée pour trouver la 
+ * `lookupCallback()`, méthode *statique* utilisée pour trouver la
  longitude et la latitude en fonction de l'adresse ;
 
- * `reverseLookupCallback()`, méthode *statique* utilisée pour 
+ * `reverseLookupCallback()`, méthode *statique* utilisée pour
  retrouver l'adresse à partir de la longitude et de la latitude.
 
 Le code JavaScript se trouve dans l'Annexe A. Toutes les informations complémentaires sur le fonctionnement des services Google peuvent être trouvées sur le site officiel de Google Maps [API](http://code.google.com/apis/maps/).
@@ -409,9 +409,9 @@ Le validateur doit vérifier plusieurs points importants. Pour rappel, il est im
     }
 
 >**NOTE**
->En cas d'erreur, un validateur lance toujours une exception de type 
->`sfValidatorError`. C'est pour cette raison que le code de validation de chaque 
->valeur du tableau est encapsulé dans un bloc `try/catch`. Une exception globale 
+>En cas d'erreur, un validateur lance toujours une exception de type
+>`sfValidatorError`. C'est pour cette raison que le code de validation de chaque
+>valeur du tableau est encapsulé dans un bloc `try/catch`. Une exception globale
 >de type `invalid` est ensuite retournée en cas d'erreur sur l'un des champs.
 
 ### Test du Validateur

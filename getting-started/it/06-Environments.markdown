@@ -3,7 +3,7 @@ Gli ambienti
 
 Guardando nella cartella `web/`, ci saranno due file PHP:
 `index.php` e `frontend_dev.php`. Questi file sono chiamati **front controller**
-e vengono utilizzati per gestire tutte le richieste fatte all'applicazione. 
+e vengono utilizzati per gestire tutte le richieste fatte all'applicazione.
 Ma perché avere due front controller per ogni applicazione?
 
 Entrambi i file puntano alla stessa applicazione, ma per **ambienti** differenti.
@@ -21,14 +21,14 @@ direttamente sul server di produzione, sono necessari diversi ambienti:
   * L'**ambiente di produzione**: Quest'ultimo ambiente è quello che
     verrà usato dagli **utenti finali**.
 
-Cosa rende ogni ambiente differente? Ad esempio, nell'ambiente di sviluppo, 
-l'applicazione deve registrare tutti dettagli delle richieste per rendere 
-più facile il debug del codice, contemporaneamente deve avere la cache 
-disabilitata per permettere di vedere subito i risultati del proprio lavoro. 
+Cosa rende ogni ambiente differente? Ad esempio, nell'ambiente di sviluppo,
+l'applicazione deve registrare tutti dettagli delle richieste per rendere
+più facile il debug del codice, contemporaneamente deve avere la cache
+disabilitata per permettere di vedere subito i risultati del proprio lavoro.
 In sostanza l'ambiente di sviluppo deve essere ottimizzato per gli sviluppatori.
-Il miglior esempio che si può dare è quello delle eccezioni del framework. Per 
-aiutare lo sviluppatore a controllare il proprio codice velocemente, symfony 
-mostra l'eccezione per la richiesta fatta, con tutte le informazioni a essa 
+Il miglior esempio che si può dare è quello delle eccezioni del framework. Per
+aiutare lo sviluppatore a controllare il proprio codice velocemente, symfony
+mostra l'eccezione per la richiesta fatta, con tutte le informazioni a essa
 correlate, direttamente all'interno del browser:
 
 ![Una eccezione nell'ambiente di sviluppo](http://www.symfony-project.org/images/jobeet/1_2/01/exception_dev.png)
@@ -41,7 +41,7 @@ ottimizzato per le prestazioni e per la user experience.
 ![Una eccezione nell'ambiente di produzione](http://www.symfony-project.org/images/jobeet/1_2/01/exception_prod.png)
 
 >**NOTE**
->Se vengono aperti i file di front controller, si potrà notare che il contenuto 
+>Se vengono aperti i file di front controller, si potrà notare che il contenuto
 >degli stessi è uguale a eccezione dei parametri che definiscono l'ambiente:
 >
 >     [php]
@@ -53,8 +53,8 @@ ottimizzato per le prestazioni e per la user experience.
 >     $configuration = ProjectConfiguration::getApplicationConfiguration('frontend', 'prod', false);
 >     sfContext::createInstance($configuration)->dispatch();
 
-La toolbar di web debug è un altro grande esempio dell'utilizzo degli ambienti. 
-Questa è presente in tutte le pagine dell'ambiente di sviluppo e dà accesso a 
-molte informazioni cliccando sulle differenti aree, ad esempio: i parametri di configurazione 
-dell'attuale applicazione, i log per la richiesta http corrente, le richieste SQL 
+La toolbar di web debug è un altro grande esempio dell'utilizzo degli ambienti.
+Questa è presente in tutte le pagine dell'ambiente di sviluppo e dà accesso a
+molte informazioni cliccando sulle differenti aree, ad esempio: i parametri di configurazione
+dell'attuale applicazione, i log per la richiesta http corrente, le richieste SQL
 eseguite sul database, informazioni sulla memoria e sul tempo di esecuzione.

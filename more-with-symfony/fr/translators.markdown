@@ -13,7 +13,7 @@ Hugo Hamon est un autodidacte passionné des technologies web depuis la fin de l
 Guillaume Bretou
 ----------------
 
-Guillaume BRETOU est un ingénieur en informatique qui a étudié à Polytech Paris Sud (ex IFIPS). Passionné du web et du PHP, il utilise ce langage depuis le début de son cursus informatique. Il a pu travailler pour divers grands comptes dont la société Arianespace pour laquelle il a réalisé plusieurs applications avec le framework Symfony. Il travaille aujourd'hui chez Sensio Labs en tant que développeur symfony. 
+Guillaume BRETOU est un ingénieur en informatique qui a étudié à Polytech Paris Sud (ex IFIPS). Passionné du web et du PHP, il utilise ce langage depuis le début de son cursus informatique. Il a pu travailler pour divers grands comptes dont la société Arianespace pour laquelle il a réalisé plusieurs applications avec le framework Symfony. Il travaille aujourd'hui chez Sensio Labs en tant que développeur symfony.
 
 **Son twitter : *http://twitter.com/gbretou**
 

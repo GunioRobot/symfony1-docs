@@ -364,7 +364,7 @@ SQL                                                          | Criteria
 ------------------------------------------------------------ | -----------------------------------------------
 `WHERE column = value`                                       | `->add(column, value);`
 `WHERE column <> value`                                      | `->add(column, value, Criteria::NOT_EQUAL);`
-**Other Comparison Operators**                               | 
+**Other Comparison Operators**                               |
 `> , <`                                                      | `Criteria::GREATER_THAN, Criteria::LESS_THAN`
 `>=, <=`                                                     | `Criteria::GREATER_EQUAL, Criteria::LESS_EQUAL`
 `IS NULL, IS NOT NULL`                                       | `Criteria::ISNULL, Criteria::ISNOTNULL`

@@ -104,8 +104,8 @@ O usar la tarea `test:unit`:
 
 ![Tests on the command line](http://www.symfony-project.org/images/jobeet/1_4/08/cli_tests.png)
 
->**Note**: Los comandos de linea de Windows desafortunadamente no pueden resaltar los resultados 
->de la prueba en colores rojo ni verde. Pero su utilizas Cygwin, puedes forzar a Symfony a usar 
+>**Note**: Los comandos de linea de Windows desafortunadamente no pueden resaltar los resultados
+>de la prueba en colores rojo ni verde. Pero su utilizas Cygwin, puedes forzar a Symfony a usar
 >colores pasando la opción `--color` a la tarea.
 
 
@@ -169,8 +169,8 @@ La descripción de la prueba es también una herramienta importante cuando trata
 >Al escribir pruebas, es fácil olvidar una porción del código.
 >
 >Para ayudarte a comprobar que todo el código está bien probado, symfony
->proporciona  la tarea `test:coverage`. Para esta tarea pasale un archivo o directorio test 
->y un archivo o directorio lib un directorio como argumentos y te dirá el porcentaje de código 
+>proporciona  la tarea `test:coverage`. Para esta tarea pasale un archivo o directorio test
+>y un archivo o directorio lib un directorio como argumentos y te dirá el porcentaje de código
 >de tu sistema que la prueba cubre:
 >
 >     $ php symfony test:coverage test/unit/JobeetTest.php lib/Jobeet.class.php
@@ -179,7 +179,7 @@ La descripción de la prueba es también una herramienta importante cuando trata
 >
 >     $ php symfony test:coverage --detailed test/unit/JobeetTest.php lib/Jobeet.class.php
 >
->Ten en cuenta que cuando la tarea te indica que el código esta completamente 
+>Ten en cuenta que cuando la tarea te indica que el código esta completamente
 >probado, simplemente significa que cada línea ha sido ejecutada, no que todos los
 >casos de uso han sido probados.
 >
@@ -247,7 +247,7 @@ No se puede pensar en todos casos de uso al escribir pruebas, y eso está bien.
 Pero cuando descubres uno, tienes que escribir una prueba antes de arreglar tu código. También significa que tu código va mejorar con el tiempo, lo que siempre es algo bueno.
 
 >**SIDEBAR**
->Hacia un mejor Método `slugify` 
+>Hacia un mejor Método `slugify`
 >
 >Probablemente sabes que Symfony ha sido creado por Franceses, así que
 >vamos a agregar una prueba con una palabra francesa que contiene un "acento":
@@ -255,7 +255,7 @@ Pero cuando descubres uno, tienes que escribir una prueba antes de arreglar tu c
 >     [php]
 >     $t->is(Jobeet::slugify('Développeur Web'), 'developpeur-web', '::slugify() removes accents');
 >
->La prueba debe fallar. En lugar de sustituir `é` por `e`, el Método `slugify()` 
+>La prueba debe fallar. En lugar de sustituir `é` por `e`, el Método `slugify()`
 >lo ha sustituido por un guión (`-`). Eso es un problema difícil, llamado
 >*Transliteración*. Esperemos que, si tiene "iconv" instalado, haga el trabajo
 >para nosotros. Reemplaza el código del método `slugify` con lo siguiente:
@@ -307,7 +307,7 @@ Pero cuando descubres uno, tienes que escribir una prueba antes de arreglar tu c
 >     }
 
 
-Pruebas Unitarias y ##ORM## 
+Pruebas Unitarias y ##ORM##
 ---------------------------
 
 ### Configuración de la Base de datos
@@ -375,7 +375,7 @@ Ahora que hemos configurado la base de datos, podemos iniciarla usando la tarea 
 
 ### Datos de Prueba
 
-Ahora que ya tenemos una base de datos sólo para pruebas, tenemos que llenarla con datos de prueba. Durante el día 3 aprendimos a utilizar la tarea `propel:data-load`, pero en las pruebas es necesario volver a cargar los datos cada vez que ejecutamos las pruebas para conocer el estado inicial de la base de datos. 
+Ahora que ya tenemos una base de datos sólo para pruebas, tenemos que llenarla con datos de prueba. Durante el día 3 aprendimos a utilizar la tarea `propel:data-load`, pero en las pruebas es necesario volver a cargar los datos cada vez que ejecutamos las pruebas para conocer el estado inicial de la base de datos.
 
 <propel>
 La tarea `propel:data-load` internamente utiliza la clase [`sfPropelData`](http://www.symfony-project.org/api/1_2/sfPropelData)
@@ -390,11 +390,11 @@ La tarea `doctrine:data-load` internamente utiliza el método `Doctrine_Core::lo
 
     [php]
     Doctrine_Core::loadData(sfConfig::get('sf_test_dir').'/fixtures');
-    
+
 </doctrine>
 
 >**NOTE**
->El objeto `sfConfig` puede ser utilizado para obtener la ruta completa de un 
+>El objeto `sfConfig` puede ser utilizado para obtener la ruta completa de un
 >sub-directorio del proyecto. Uso que permite a la estructura de directorio por defecto ser
 >personalizada.
 
@@ -554,7 +554,7 @@ Escribir pruebas para el método `save()` es ligeramente más complejo:
 
 Ahora puedes añadir pruebas para todas las demás clases de ##ORM##. Como ahora te acostumbraste al proceso de la escritura de pruebas unitarias, debería ser bastante fácil. Comprueba el repositorio para el día de hoy si quieres ver los archivos de datos que hemos creado, y los pruebas unitarias asociadas (bajo la etiqueta `release_day_08`).
 
-Set de Pruebas Unitarias 
+Set de Pruebas Unitarias
 ------------------------
 
 La tarea `test:unit` también se puede utilizar para poner en marcha todas las pruebas unitarias para un proyecto:
@@ -567,7 +567,7 @@ Esta tarea muestra si ha pasado o ha fallado cada uno de los archivos de pruebas
 
 >**TIP**
 >Si la tarea `test:unit` devuelve un estado "dubious" para un archivo, esto indica
->que el script se detuvo/murió antes de llegar al final. Ejecutando un archivo de pruebas en forma 
+>que el script se detuvo/murió antes de llegar al final. Ejecutando un archivo de pruebas en forma
 >individual te dará el mensaje de error exacto.
 
 Nos vemos mañana
@@ -584,7 +584,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

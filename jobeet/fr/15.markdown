@@ -99,7 +99,7 @@ généré :
         {
           $this->setToken(sha1($this->getEmail().rand(11111, 99999)));
         }
-        
+
         return parent::save($conn);
       }
 
@@ -498,12 +498,12 @@ Dans ce test, vous remarquerez trois nouvelles méthodes :
   * `matches()` : Pour le format non-HTML, elle contrôle que la réponse correspond à l'expression régulière passée en argument
 
 >**TIP**
->La méthode `isValid()` accepte un booléen en guise de premier paramètre qui 
+>La méthode `isValid()` accepte un booléen en guise de premier paramètre qui
 >permet de valider la réponse XML contre sa définition XSD.
 >
 >    $browser->with('response')->isValid(true);
 >
->Cette méthode accepte également une chaîne représentant le chemin absolu vers 
+>Cette méthode accepte également une chaîne représentant le chemin absolu vers
 >un fichier XSD propriétaire contre lequel la réponse XML doit être validée.
 >
 >    $browser->with('response')->isValid('/path/to/schema/xsd');
@@ -629,8 +629,8 @@ Ouvrez le fichier `JobeetAffiliateForm` pour personnaliser le ~formulaire|Formul
       public function configure()
       {
         $this->useFields(array(
-          'url', 
-          'email', 
+          'url',
+          'email',
           'jobeet_categories_list'
         ));
 <propel>
@@ -950,7 +950,7 @@ Si vous vous rappelez les exigences du jour 2 :
 
   "L'affilié peut également limiter le nombre d'emplois qui seront retourné et affiner
   sa requête en spécifiant une catégorie."
-  
+
 La mise en œuvre de cette fonctionnalité est si facile que nous allons vous
 permettre de le faire ce soir.
 

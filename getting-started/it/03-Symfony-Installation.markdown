@@ -67,7 +67,7 @@ per la versione appena scelta,
 [symfony 1.4](http://www.symfony-project.org/installation/1_4) per esempio.
 
 Nella sezione "**Download as an Archive**" sono disponibili gli archivi nei formati
-`.tgz` o `.zip`. Scaricare l'archivio nella cartella appena creata 
+`.tgz` o `.zip`. Scaricare l'archivio nella cartella appena creata
 `lib/vendor/`, scompattarlo e rinominare la cartella in `symfony`:
 
     $ cd lib/vendor

@@ -18,7 +18,7 @@ the form framework.
 >Another reusable component is the routing framework. Copy the `lib/routing/`
 >directory in your non-symfony project, and benefit from pretty URLs for free.
 >
->The components that are symfony independent form the 
+>The components that are symfony independent form the
 >**~symfony platform|Symfony Platform~**:
 >
 >![The symfony platform](http://www.symfony-project.org/images/jobeet/1_4/11/platform.png)

@@ -14,7 +14,7 @@ dal team ufficiale e contengono alcuni validatori molto utili.
 
 >**TIP**
 >Anche se non si usa il framework MVC di symfony, si possono usare
->i validatori definiti nei plugin 
+>i validatori definiti nei plugin
 >[`sfFormExtraPlugin`](http://svn.symfony-project.com/plugins/sfFormExtraPlugin),
 >`sfPropelPlugin` e `sfDoctrinePlugin`, inserendo le cartelle
 >`validator/` nel proprio progetto.
@@ -95,9 +95,9 @@ prima che qualsiasi validatore sia caricato, ad esempio nel metodo `setup()`:
     }
 
 I messaggi di errore possono contenere dei segnaposto. Questi sono
-delle stringhe di testo racchiuse tra il carattere `%`. 
+delle stringhe di testo racchiuse tra il carattere `%`.
 I segnaposto sono sostituiti a runtime. Tutti i messaggi di errore
-hanno accesso alle variabili grezze usando il segnaposto `%value%`. 
+hanno accesso alle variabili grezze usando il segnaposto `%value%`.
 Ogni messaggio di errore può, inoltre, definire un segnaposto specifico.
 
 >**NOTE**
@@ -336,7 +336,7 @@ Validatori di date
 *Validatore schema**: No
 
 Il validatore `sfValidatorDate` controlla date semplici e con orari (le
-date con orari sono abilitate con l'opzione `with_time`). 
+date con orari sono abilitate con l'opzione `with_time`).
 Oltre che controllare la validità del formato della data può forzare un
 intervallo di date su cui controllare.
 
@@ -514,7 +514,7 @@ precedente.
 | --------------- | ------ | -----------
 | `halt_on_error` | `n/a`  | Indica se fermarsi al primo errore o meno (`false` di default)
 
-L'ordine dei validatori è importante se l'opzione `halt_on_error` è impostata a 
+L'ordine dei validatori è importante se l'opzione `halt_on_error` è impostata a
 `true`.
 
 La lista di validatori inclusi può essere inoltre gestita usando i metodi
@@ -563,15 +563,15 @@ Un campo è semplicemente un validatore a cui è assegnato un nome:
 >**NOTE**
 >Un form è definito dal validatore schema della classe `sfValidatorSchema`.
 
-Questo validatore accetta solamente un array come valore di input e lancia una 
+Questo validatore accetta solamente un array come valore di input e lancia una
 `InvalidArgumentException` se questo non si verifica.
 
-Il validatore può avere un pre-validatore, che viene eseguito prima di tutti gli 
-altri validatori, e un post-validatore, che viene eseguito sui valori puliti dopo 
+Il validatore può avere un pre-validatore, che viene eseguito prima di tutti gli
+altri validatori, e un post-validatore, che viene eseguito sui valori puliti dopo
 tutti gli altri validatori.
 
 I validatori pre-validatore e post-validatore sono a loro volta dei validatori schema
-che ricevono tutti i valori. Possono essere impostati con i metodi 
+che ricevono tutti i valori. Possono essere impostati con i metodi
 `setPreValidator()` e `setPostValidator()`:
 
     [php]
@@ -599,7 +599,7 @@ inclusi:
 
     unset($vs['name']);
 
-Si può accedere ai validatori schema contenuti usando la notazione degli 
+Si può accedere ai validatori schema contenuti usando la notazione degli
 array:
 
     [php]
@@ -721,7 +721,7 @@ cambiato utilizzando l'opzione `column`.
 Il validatore `sfValidatorPropelUnique` controlla l'unicità di una colonna o di un
 gruppo di colonne (opzione `column`) per un modello Propel.
 
-Se l'unicità è su più colonne, l'errore può essere globale 
+Se l'unicità è su più colonne, l'errore può essere globale
 impostando l'opzione `throw_global_error`.
 
 | Opzione              | Errore | Descrizione
@@ -733,7 +733,7 @@ impostando l'opzione `throw_global_error`.
 | `connection`         | n/a    | La connessione Propel da usare (`null` di default)
 | `throw_global_error` | n/a    | Se lanciare un errore globale (`false` di default) o un errore legato al primo dei campi specificati nell'opzione `column`
 
-Validatori Doctrine 
+Validatori Doctrine
 -------------------
 
 ### `sfValidatorDoctrineChoice`
@@ -766,7 +766,7 @@ cambiato utilizzando l'opzione `column`.
 Il validatore `sfValidatorDoctrineUnique` controlla l'unicità di una colonna o di un
 gruppo di colonne (opzione `column`) per un modello Doctrine.
 
-Se l'unicità è su più colonne, l'errore può essere lanciato globalmente 
+Se l'unicità è su più colonne, l'errore può essere lanciato globalmente
 impostando l'opzione `throw_global_error`.
 
 | Opzione              | Errore | Descrizione

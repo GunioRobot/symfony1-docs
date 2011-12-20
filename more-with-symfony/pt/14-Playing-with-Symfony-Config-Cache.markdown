@@ -3,9 +3,9 @@
 
 *por Kris Wallsmith*
 
-Um dos meus objetivos pessoais como desenvolvedor symfony é tornar o mais eficiente 
+Um dos meus objetivos pessoais como desenvolvedor symfony é tornar o mais eficiente
 possível o fluxo de trabalho de cada um de meus colegas em qualquer projeto. Embora eu conheça
-nosso código de cor, esta não é uma expectativa razoável para 
+nosso código de cor, esta não é uma expectativa razoável para
 todos do time. Felizmente, o symfony fornece mecanismos para isolar e
 centralizar funcionalidades dentro de um projeto, tornando fácil para outros fazer
 mudanças com um *footprint* leve.
@@ -89,7 +89,7 @@ mudança:
       'min_length' => 'Você não 'escreveu' o suficiente',
     )));
 
-Viu o problema? Ops! Eu usei um apóstrofo simples dentro de uma string com apóstrofo simples. 
+Viu o problema? Ops! Eu usei um apóstrofo simples dentro de uma string com apóstrofo simples.
 Claro que você ou eu nunca cometeríamos um erro bobo desses, mas o que um
 um desenvolvedor de *template* fuçando dentro de uma classe de formulário não faria?
 
@@ -100,7 +100,7 @@ a assinatura de um construtor de um validador?
 
 Tenho certeza de que todos podemos concordar que a resposta a estas perguntas é não.
 Desenvolvedores de *template* fazem um monte de trabalho valioso, mas é simplesmente absurdo
-esperar que alguém que não está escrevendo o código do aplicativo compreenda o funcionamento interno 
+esperar que alguém que não está escrevendo o código do aplicativo compreenda o funcionamento interno
 do *framework* de formulário do symfony.
 
 YAML: Uma Solução
@@ -725,7 +725,7 @@ inclui os formulários embutidos) em paralelo.
 
 >**NOTE**
 >Os campos nos objetos de formulários embutidos não devem ser modificados depois de terem sido
->embutidos. Formulários embutidos são armazenados no formulário pai para efeitos de 
+>embutidos. Formulários embutidos são armazenados no formulário pai para efeitos de
 >processamento, mas não têm nenhum efeito sobre a forma como o formulário pai é renderizado.
 
 Com suporte para formulários embutidos pronto, nossos testes agora devem passar. Execute

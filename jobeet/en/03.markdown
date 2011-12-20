@@ -127,7 +127,7 @@ agnostic, let's create the schema file by hand by editing the empty
         email:        { type: string(255), notnull: true }
         expires_at:   { type: timestamp, notnull: true }
       relations:
-        JobeetCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: JobeetJobs } 
+        JobeetCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: JobeetJobs }
 
     JobeetAffiliate:
       actAs: { Timestampable: ~ }
@@ -198,12 +198,12 @@ Each column is described with the following information:
     `bigint`, `double`, `float`, `real`, `decimal`, `char`, `varchar(size)`,
     `longvarchar`, `date`, `time`, `timestamp`, `blob`, and `clob`)
   * `required`: Set it to `true` if you want the column to be required
-  * ~`index|Database indexes`~: Set it to `true` if you want to create an index 
-    for the column or to `unique` if you want a unique index to be created on 
+  * ~`index|Database indexes`~: Set it to `true` if you want to create an index
+    for the column or to `unique` if you want a unique index to be created on
     the column.
   * `primaryKey`: Define a column as the ~primary key|Primary Key~ for the
     table.
-  * `foreignTable`, `foreignReference`: Define a column to be a 
+  * `foreignTable`, `foreignReference`: Define a column to be a
     ~foreign key|Foreign Key~ to another table.
 
 For columns set to `~`, which means `null` in YAML (`id`, `created_at`, and
@@ -211,7 +211,7 @@ For columns set to `~`, which means `null` in YAML (`id`, `created_at`, and
 and timestamp for `created_at` and `updated_at`).
 
 >**NOTE**
->The `onDelete` attribute defines the `ON DELETE` 
+>The `onDelete` attribute defines the `ON DELETE`
 >~behavior|Integrity constraints~ of foreign keys,
 >and Propel supports `CASCADE`, `SETNULL`, and `RESTRICT`. For instance, when
 >a `job` record is deleted, all the `jobeet_category_affiliate` related
@@ -342,8 +342,8 @@ directory that can be used to interact with the database.
 By browsing the generated files, you have probably noticed that Propel generates
 four classes per ~table|Table (Database)~. For the `jobeet_job` table:
 
-  * `JobeetJob`: An object of this class **represents a single 
-                 ~record|Database Record~** of the `jobeet_job` table. The 
+  * `JobeetJob`: An object of this class **represents a single
+                 ~record|Database Record~** of the `jobeet_job` table. The
                  class is empty by default.
   * `BaseJobeetJob`: The parent class of `JobeetJob`. Each time you run
                      `propel:build --model`, this class is overwritten, so all
@@ -365,7 +365,7 @@ generates three classes per table. For the `jobeet_job` table:
                 `jobeet_job` table. The class is empty by default.
  * `BaseJobeetJob`: The parent class of `JobeetJob`. Each time you run
                     `doctrine:build --model`, this class is overwritten, so all
-                    ~customizations|Customization~ must be done in the 
+                    ~customizations|Customization~ must be done in the
                     `JobeetJob` class.
 
  * `JobeetJobTable`: The class defines methods that mostly return
@@ -741,8 +741,8 @@ That's all. I have warned you in the introduction. Today, we have barely written
 
 If you still have some energy left, feel free to read the generated code for the
 module and the model and try to understand how it works. If not, don't worry and
-sleep well, as tomorrow we will talk about one of the most used paradigm in web 
-frameworks, the 
+sleep well, as tomorrow we will talk about one of the most used paradigm in web
+frameworks, the
 [MVC design pattern](http://en.wikipedia.org/wiki/Model-view-controller).
 
 __ORM__

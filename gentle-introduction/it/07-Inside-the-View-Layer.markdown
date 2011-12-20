@@ -84,7 +84,7 @@ Alcuni helper sono disponibili per impostazione predefinita su ogni template, se
   * `Partial`: Helper che permettono l'inclusione di frammenti di template
   * `Cache`: Manipolazione di frammenti di codice presenti nella cache
 
-L'elenco degli helper standard, caricato in modalità predefinita per ogni template, è configurabile nel file `settings.yml`. Quindi, ad esempio se non si dovessero utilizzare gli helper del gruppo `Cache`, o se si dovessero sempre utilizzare quelli del gruppo `Text`, si può modificare di conseguenza l'impostazione `standard_helpers`. Ciò permetterà di accelerare leggermente l'applicazione. Non è possibile rimuovere i primi quattro gruppi di helper della lista precedente (`Helper`, `Tag`, `Url` e `Asset`), perché essi sono obbligatori affiché il motore di template funzioni correttamente. Di conseguenza, essi non compaiono neppure nella lista degli helper standard. 
+L'elenco degli helper standard, caricato in modalità predefinita per ogni template, è configurabile nel file `settings.yml`. Quindi, ad esempio se non si dovessero utilizzare gli helper del gruppo `Cache`, o se si dovessero sempre utilizzare quelli del gruppo `Text`, si può modificare di conseguenza l'impostazione `standard_helpers`. Ciò permetterà di accelerare leggermente l'applicazione. Non è possibile rimuovere i primi quattro gruppi di helper della lista precedente (`Helper`, `Tag`, `Url` e `Asset`), perché essi sono obbligatori affiché il motore di template funzioni correttamente. Di conseguenza, essi non compaiono neppure nella lista degli helper standard.
 
 >**TIP**
 >Se si dovesse utilizzare un helper fuori dal template, è possibile caricare un gruppo di helper da qualsiasi parte chiamando `sfProjectConfiguration::getActive()->loadHelpers($helpers)`, dove `$helpers` è il nome del gruppo di helper o un di nomi di gruppi di helper. Ad esempio, se si vuole usare `auto_link_text()` in una azione, bisogna prima chiamare `sfProjectConfiguration::getActive()->loadHelpers('Text')`.
@@ -220,7 +220,7 @@ Ma questo non è un modo molto pulito per gestire un frammento, soprattutto perc
   * Se la logica è leggera, basterà includere un file template che ha accesso ad alcuni dati che gli vengono passati. Per questo si userà un partial.
   * Se la logica è più pesante (ad esempio, se è necessario accedere al modello dei dati e/o modificare il contenuto in base alla sessione), è preferibile separare la presentazione dalla logica. Per questo, si userà un component.
   * Se il frammento ha lo scopo di sostituire una parte specifica del layout, per il quale può già esistere un contenuto predefinito, si userà uno slot.
-	
+
 L'inserimento di questi frammenti si ottiene con gli helper del gruppo `Partial`. Questi helper sono disponibili da ogni template symfony, senza aver bisogno della dichiarazione iniziale.
 
 ### Partial
@@ -238,7 +238,7 @@ Un template può includere partial se è nello stesso modulo , in un altro modul
 Listato 7-7 - Includere un partial in un template del modulo `miomodulo`
 
     [php]
-    // Include il partial frontend/modules/miomodulo/templates/_miopartial1.php 
+    // Include il partial frontend/modules/miomodulo/templates/_miopartial1.php
     // Poiché il template e il partial sono nello stesso modulo,
     // si può omettere il nome del modulo
     <?php include_partial('miopartial1') ?>
@@ -299,7 +299,7 @@ Listato 7-10 - Il partial ora può usare la variabile, in `miomodulo/templates/_
 
 ### Component
 
-Nel Capitolo 2, il primo script di esempio è stato spezzato in due parti per separare la logica dalla presentazione. Proprio come il pattern MVC si applica alle azioni e ai template, può essere necessario dividere un partial in una parte di logica e in una parte di presentazione. In tal caso, è necessario utilizzare un componente. 
+Nel Capitolo 2, il primo script di esempio è stato spezzato in due parti per separare la logica dalla presentazione. Proprio come il pattern MVC si applica alle azioni e ai template, può essere necessario dividere un partial in una parte di logica e in una parte di presentazione. In tal caso, è necessario utilizzare un componente.
 
 Un componente è come una azione, salvo il fatto che è molto più veloce. La logica di un componente è all'interno di una classe che eredita da `sfComponents`, situata in un file `actions/components.class.php`.  La sua presentazione è è messa in un partial. I metodi di una classe `sfComponents` iniziano con la parola `execute`, proprio come le azioni e possono passare variabili ai loro controparti della presentazione nello stesso modo con cui le azioni passano variabili. I partial che vengono utilizzati come presentazione per componenti sono nominati con lo stesso nome del componente (senza l'`execute`, ma con una sottolineatura iniziale). La Tabella 7-1 compara le convenzioni per i nomi per azioni e componenti.
 
@@ -313,7 +313,7 @@ Nomi per i metodi                    | `executeMiaAzione()`   | `executeMioCompo
 Nomi dei file con la presentazione   | `miaAzioneSuccess.php` | `_mioComponente.php`
 
 >**TIP**
->Così come è possibile separare i file delle azioni, la classe `sfComponents` ha una controparte `sfComponent` che permette ai singoli file dei componenti lo stesso tipo di sintassi. 
+>Così come è possibile separare i file delle azioni, la classe `sfComponents` ha una controparte `sfComponent` che permette ai singoli file dei componenti lo stesso tipo di sintassi.
 
 Per esempio, supponiamo di avere una barra laterale che mostra le ultime notizie di un dato soggetto, a seconda del profilo dell'utente, che viene riutilizzato in diverse pagine. Le query necessarie a ottenere le notizie sono troppo complesse per apparire in una semplice partial, quindi hanno bisogno di essere spostate in un qualcosa simile a una azione, un componente. La figura 7-3 mostra questo esempio
 
@@ -384,7 +384,7 @@ Listato 7-13 - Passare i parametri a un componente e ai suoi template
     echo $foo;
      => 'bar'
 
-Si possono includere componenti in componenti, o nel layout globale, così come in ogni normale template. Come nelle azioni, i metodi `execute` dei componenti possono passare variabili ai relativi partial e avere accesso alle stesse scorciatoie. Ma le similitudini si fermano qua. Un componente non gestisce la sicurezza o la validazione, non può essere chiamato da Internet (solo dall'applicazione stessa) e non ha le varie possibilità di return. Questo è il motivo per cui un componente nell'esecuzione è più veloce di un'azione. 
+Si possono includere componenti in componenti, o nel layout globale, così come in ogni normale template. Come nelle azioni, i metodi `execute` dei componenti possono passare variabili ai relativi partial e avere accesso alle stesse scorciatoie. Ma le similitudini si fermano qua. Un componente non gestisce la sicurezza o la validazione, non può essere chiamato da Internet (solo dall'applicazione stessa) e non ha le varie possibilità di return. Questo è il motivo per cui un componente nell'esecuzione è più veloce di un'azione.
 
 ### Gli slot
 
@@ -688,7 +688,7 @@ Listato 7-26 - Inclusione dei file
     indexSuccess:
       stylesheets: [mystyle1, mystyle2]
       javascripts: [myscript]
-      
+
 -
 
     [php]
@@ -767,11 +767,11 @@ Listato 7-33 - Definire la posizione di un file incluso
       stylesheets: [special: { position: first }]
 
 -
-    
+
     [php]
     // In una azione
     $this->getResponse()->addStylesheet('special', 'first');
-    
+
     // In un template
     <?php use_stylesheet('special', 'first') ?>
 
@@ -785,14 +785,14 @@ Listato 7-34 - Inclusione di un foglio di stile con Style Sheet con nome inalter
       stylesheets: [main, paper: { raw_name: true }]
 
 -
-    
+
     [php]
     // In una azione
     $this->getResponse()->addStylesheet('main', '', array('raw_name' => true));
-    
+
     // In un template
     <?php use_stylesheet('main', '', array('raw_name' => true)) ?>
-    
+
     // La vista risultante
     <link rel="stylesheet" type="text/css" href="main" />
 
@@ -806,14 +806,14 @@ Listato 7-35 - Inclusione di un foglio di stile specificando il media
       stylesheets: [main, paper: { media: print }]
 
 -
-    
+
     [php]
     // In una azione
     $this->getResponse()->addStylesheet('paper', '', array('media' => 'print'));
-    
+
     // In un template
     <?php use_stylesheet('paper', '', array('media' => 'print')) ?>
-    
+
     // La vista risultante
     <link rel="stylesheet" type="text/css" media="print" href="/css/paper.css" />
 
@@ -840,7 +840,7 @@ Listato 7-36 - Definizione di un layout
     [php]
     // In una azione
     $this->setLayout('mio_layout');
-    
+
     // In un template
     <?php decorate_with('mio_layout') ?>
 
@@ -852,13 +852,13 @@ Listato 7-37 - Rimozione del layout
     // In `view.yml`
     indexSuccess:
       has_layout: false
-    
+
 -
 
     [php]
     // In una azione
     $this->setLayout(false);
-    
+
     // In un template
     <?php decorate_with(false) ?>
 
@@ -975,7 +975,7 @@ Listato 7-39 - L'escape funziona anche per gli array e gli oggetti
      => sfOutputEscaperObjectDecorator
 
 Questo spiega perché alcune normali funzioni PHP (come `array_shift()`, `print_r()` e altre) non funzionano più con gli array esacpizzati. Ma questi possono essere acceduti utilizzando `[]`, essere attraversati usando `foreach` e restituire il corretto risultato con `count()`. E in ogni caso nei template i dati dovrebbero essere a sola lettura, quindi la maggior parte degli accessi verrà fatta utilizzando metodi che funzionano correttamente.
-	 
+
 C'è ancora un modo per recuperare i dati raw attraverso l'oggetto `$sf_data`. Inoltre, i metodi di oggetti sotto escape vengono alterati per accettare un parametro aggiuntivo: un metodo di escape. Così si può scegliere un metodo alternativo per fare l'escape ogni volta che si visualizza una variabile in un template, oppure optare per l'helper `ESC_RAW` per disattivare l'escape. Vedere il Listato 7-40 come esempio.
 
 Listato 7-40 - I metodi degli oggetti sotto escape accettano un parametro aggiuntivo

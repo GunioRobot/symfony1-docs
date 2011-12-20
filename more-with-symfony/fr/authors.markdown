@@ -95,7 +95,7 @@ En tant que bloggeur, Ryan aime partager des solutions et enseigner des méthode
 Laurent Bonnet
 --------------
 
-Laurent est architecte de plate-forme web chez Microsoft qui se concentre sur les infrastructures, le développement et le design de fermes de serveurs à haute disponibilité. 
+Laurent est architecte de plate-forme web chez Microsoft qui se concentre sur les infrastructures, le développement et le design de fermes de serveurs à haute disponibilité.
 
 Son nom de code Microsoft est lorenbo, et a été créé en janvier 1992, lorsqu'il a rejoint l'entreprise en tant qu'ingénieur logiciel en assistance aux développeurs sur des noyaux Windows NT. Il rejoint le monde du développement en 1994 pour mettre en place le programme de direction régionale, où il a recruté des intégrateurs spécialisés pour représenter Microsoft lors de séminaires et de
 conférences.

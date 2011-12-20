@@ -41,26 +41,26 @@ Listato 4-1 - Schema del database
         updated_at:   ~
         _uniques:
           unique_slug: [slug]
-     
+
       author:
         id:           ~
         first_name:   varchar(20)
         last_name:    varchar(20)
         email:        { type: varchar(255), required: true }
         active:       boolean
-     
+
       category:
         id:           ~
         name:         { type: varchar(255), required: true }
-     
+
       tag:
         id:           ~
         name:         { type: varchar(255), required: true }
-     
+
       article_tag:
         article_id:   { type: integer, foreignTable: article, foreignReference: id, primaryKey: true, onDelete: cascade }
         tag_id:       { type: integer, foreignTable: tag, foreignReference: id, primaryKey: true, onDelete: cascade }
- 
+
 Ecco le relazioni tra le tabelle:
 
   * Relazione 1-n tra la tabella `article` e la tabella `author`:
@@ -192,21 +192,21 @@ Listato 4-3 - Classe `BaseAuthorForm`, che rappresenta il form della tabella `au
           'last_name'  => new sfWidgetFormInputText(),
           'email'      => new sfWidgetFormInputText(),
         ));
-     
+
         $this->setValidators(array(
           'id'         => new sfValidatorPropelChoice(array('model' => 'Author', 'column' => 'id', 'required' => false)),
           'first_name' => new sfValidatorString(array('max_length' => 20, 'required' => false)),
           'last_name'  => new sfValidatorString(array('max_length' => 20, 'required' => false)),
           'email'      => new sfValidatorString(array('max_length' => 255)),
         ));
-     
+
         $this->widgetSchema->setNameFormat('author[%s]');
-     
+
         $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
-     
+
         parent::setup();
       }
-     
+
       public function getModelName()
       {
         return 'Author';
@@ -317,42 +317,42 @@ Listato 4-4 - La classe `authorActions` generata dal task
       {
         $this->authorList = AuthorPeer::doSelect(new Criteria());
       }
-     
+
       public function executeCreate()
       {
         $this->form = new AuthorForm();
-     
+
         $this->setTemplate('edit');
       }
-     
+
       public function executeEdit($request)
       {
         $this->form = new AuthorForm(AuthorPeer::retrieveByPk($request->getParameter('id')));
       }
-     
+
       public function executeUpdate($request)
       {
         $this->forward404Unless($request->isMethod('post'));
-     
+
         $this->form = new AuthorForm(AuthorPeer::retrieveByPk($request->getParameter('id')));
-     
+
         $this->form->bind($request->getParameter('author'));
         if ($this->form->isValid())
         {
           $author = $this->form->save();
-     
+
           $this->redirect('author/edit?id='.$author->getId());
         }
-     
+
         $this->setTemplate('edit');
       }
-     
+
       public function executeDelete($request)
       {
         $this->forward404Unless($author = AuthorPeer::retrieveByPk($request->getParameter('id')));
-     
+
         $author->delete();
-     
+
         $this->redirect('author/index');
       }
     }
@@ -376,29 +376,29 @@ Listato 4-5 - La classe `authorActions` generata con l'opzione `--non-atomic-act
       {
         $this->authorList = AuthorPeer::doSelect(new Criteria());
       }
-     
+
       public function executeEdit($request)
       {
         $this->form = new AuthorForm(AuthorPeer::retrieveByPk($request->getParameter('id')));
-     
+
         if ($request->isMethod('post'))
         {
           $this->form->bind($request->getParameter('author'));
           if ($this->form->isValid())
           {
             $author = $this->form->save();
-     
+
             $this->redirect('author/edit?id='.$author->getId());
           }
         }
       }
-     
+
       public function executeDelete($request)
       {
         $this->forward404Unless($author = AuthorPeer::retrieveByPk($request->getParameter('id')));
-     
+
         $author->delete();
-     
+
         $this->redirect('author/index');
       }
     }
@@ -419,7 +419,7 @@ Listato 4-6 - Il template `editSuccess`
     // apps/frontend/modules/author/templates/editSuccess.class.php
     <?php $author = $form->getObject() ?>
     <h1><?php echo $author->isNew() ? 'New' : 'Edit' ?> Author</h1>
-     
+
     <form action="<?php echo url_for('author/edit'.(!$author->isNew() ? '?id='.$author->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
       <table>
         <tfoot>
@@ -537,10 +537,10 @@ Listato 4-8 - Personalizzare i validatori e i widget
       public function configure()
       {
         // ...
-     
+
         $this->validatorSchema['slug']->setOption('required', false);
         $this->validatorSchema['content']->setOption('min_length', 5);
-     
+
         $this->widgetSchema['content']->setAttributes(array('rows' => 10, 'cols' => 40));
       }
     }
@@ -570,7 +570,7 @@ Listato 4-9 - Usare il validatore `sfValidatorPropelUnique` per verificare l'uni
       public function setup()
       {
         // ...
-     
+
         $this->validatorSchema->setPostValidator(
           new sfValidatorPropelUnique(array('model' => 'Article', 'column' => array('slug')))
         );
@@ -599,10 +599,10 @@ Listato 4-10 - Personalizzare il widget `sfWidgetPropelSelect`
       public function configure()
       {
         // ...
-     
+
         $authorCriteria = new Criteria();
         $authorCriteria->add(AuthorPeer::ACTIVE, true);
-     
+
         $this->widgetSchema['author_id']->setOption('criteria', $authorCriteria);
       }
     }
@@ -621,10 +621,10 @@ Listato 4-11 - Personalizzare il validatore `sfValidatorPropelChoice`
       public function configure()
       {
         // ...
-     
+
         $authorCriteria = new Criteria();
         $authorCriteria->add(AuthorPeer::ACTIVE, true);
-     
+
         $this->widgetSchema['author_id']->setOption('criteria', $authorCriteria);
         $this->validatorSchema['author_id']->setOption('criteria', $authorCriteria);
       }
@@ -645,11 +645,11 @@ Listato 4-12 - Rifattorizzare i `criteria` nel modello
       {
         $criteria = new Criteria();
         $criteria->add(AuthorPeer::ACTIVE, true);
-     
+
         return $criteria;
       }
     }
-     
+
     class ArticleForm extends BaseArticleForm
     {
       public function configure()
@@ -732,12 +732,12 @@ Listato 4-16 - Definizione degli status disponibili nella classe `ArticlePeer`
     class ArticlePeer extends BaseArticlePeer
     {
       static protected $statuses = array('draft', 'online', 'offline');
-     
+
       static public function getStatuses()
       {
         return self::$statuses;
       }
-     
+
       // ...
     }
 
@@ -767,9 +767,9 @@ Listato 4-18 - Modifica del validatore del campo `status`
       public function configure()
       {
         $statuses = ArticlePeer::getStatuses();
-     
+
         $this->widgetSchema['status'] = new sfWidgetFormSelect(array('choices' => $statuses));
-     
+
         $this->validatorSchema['status'] = new sfValidatorChoice(array('choices' => array_keys($statuses)));
       }
     }
@@ -789,7 +789,7 @@ Listato 4-19 - Cancellare un campo
       {
         unset($this->validatorSchema['created_at']);
         unset($this->widgetSchema['created_at']);
-     
+
         unset($this->validatorSchema['updated_at']);
         unset($this->widgetSchema['updated_at']);
       }
@@ -823,18 +823,18 @@ Listato 4-21 - form `ArticleForm`
       public function configure()
       {
         $authorCriteria = AuthorPeer::getActiveAuthorsCriteria();
-     
+
         // widget
         $this->widgetSchema['content']->setAttributes(array('rows' => 10, 'cols' => 40));
         $this->widgetSchema['status'] = new sfWidgetFormSelect(array('choices' => ArticlePeer::getStatuses()));
         $this->widgetSchema['author_id']->setOption('criteria', $authorCriteria);
-     
+
         // validatori
         $this->validatorSchema['slug']->setOption('required', false);
         $this->validatorSchema['content']->setOption('min_length', 5);
         $this->validatorSchema['status'] = new sfValidatorChoice(array('choices' => array_keys(ArticlePeer::getStatuses())));
         $this->validatorSchema['author_id']->setOption('criteria', $authorCriteria);
-     
+
         unset($this['created_at']);
         unset($this['updated_at']);
       }
@@ -862,7 +862,7 @@ automatizzazione è utile per diverse ragioni:
     ripetitivo e ridondante. Egli può quindi focalizzarsi sulla
     personalizzazione dei validatori e dei widget, secondo le specifiche
     business rule del progetto.
-  
+
   * Inoltre, quando lo schema del database viene aggiornato, i form generati
     sono aggiornati automaticamente. Lo sviluppatore deve solo raffinare la
     personalizzazione che ha già eseguito.
@@ -895,17 +895,17 @@ il costruttore:
     [php]
     // creazione di un nuovo oggetto
     $authorForm = new AuthorForm();
-     
+
     print $authorForm->getObject()->getId(); // visualizza null
     print $authorForm->isNew();              // visualizza true
-     
+
     // modifica di un oggetto esistente
     $author = AuthorPeer::retrieveByPk(1);
     $authorForm = new AuthorForm($author);
-     
+
     print $authorForm->getObject()->getId(); // visualizza 1
     print $authorForm->isNew();              // visualizza false
- 
+
 ### Gestire il ciclo di vita
 
 Come abbiamo osservato all'inizio del capitolo, l'azione `edit`, mostrata
@@ -918,19 +918,19 @@ Listato 4-23 - Il metodo `executeEdit` del modulo `author`
     class authorActions extends sfActions
     {
       // ...
-     
+
       public function executeEdit($request)
       {
         $author = AuthorPeer::retrieveByPk($request->getParameter('id'));
         $this->form = new AuthorForm($author);
-     
+
         if ($request->isMethod('post'))
         {
           $this->form->bind($request->getParameter('author'));
           if ($this->form->isValid())
           {
             $author = $this->form->save();
-     
+
             $this->redirect('author/edit?id='.$author->getId());
           }
         }
@@ -946,7 +946,7 @@ descritto nei capitoli precedenti, possiamo puntualizzare alcune differenze:
         [php]
         $author = AuthorPeer::retrieveByPk($request->getParameter('id'));
         $this->form = new AuthorForm($author);
-  
+
   * Il formato dell'attributo `name` dei widget è personalizzato automaticamente
     per consentire il recupero dei dati inviati in un array PHP che prende il
     nome dalla tabella relativa (`author`):
@@ -959,7 +959,7 @@ descritto nei capitoli precedenti, possiamo puntualizzare alcune differenze:
 
         [php]
         $author = $this->form->save();
-    
+
 ### Creare e modificare un oggetto Propel
 
 Il codice del Listato 4-23 gestisce con un solo metodo la creazione e la
@@ -988,7 +988,7 @@ modifica di oggetti della classe `Author`:
         relativo alla chiave primaria
 
       * L'oggetto `form` quindi è collegato all'oggetto appena trovato
-      
+
       * La chiamata a `$this->form->save()` aggiorna l'oggetto `Author`
         quando un form valido viene inviato
 
@@ -1024,14 +1024,14 @@ ogni aggiornamento in una transazione.
 >       public function executeCreate(sfWebRequest $request)
 >       {
 >         $this->form = new ArticleForm();
->      
+>
 >         if ($request->isMethod('post') && $this->form->bindAndSave($request->getParameter('article')))
 >         {
 >           $this->redirect('article/created');
 >         }
 >       }
 >     }
-     
+
 ### Gestione dell'invio di file
 
 Il metodo `save()` aggiorna automaticamente gli oggetti Propel, ma non può
@@ -1072,7 +1072,7 @@ Listato 4-25 - Modifica del campo `file` del form `ArticleForm`.
       public function configure()
       {
         // ...
-     
+
         $this->widgetSchema['file'] = new sfWidgetFormInputFile();
         $this->validatorSchema['file'] = new sfValidatorFile();
       }
@@ -1092,7 +1092,7 @@ Listato 4-26 - Salvataggio dell'oggetto `article` e file caricato nell'azione
     {
       $author = ArticlePeer::retrieveByPk($request->getParameter('id'));
       $this->form = new ArticleForm($author);
-     
+
       if ($request->isMethod('post'))
       {
         $this->form->bind($request->getParameter('article'), $request->getFiles('article'));
@@ -1101,9 +1101,9 @@ Listato 4-26 - Salvataggio dell'oggetto `article` e file caricato nell'azione
           $file = $this->form->getValue('file');
           $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
           $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-     
+
           $article = $this->form->save();
-     
+
           $this->redirect('article/edit?id='.$article->getId());
         }
       }
@@ -1142,18 +1142,18 @@ Listato 4-27 - Sovrascrivere il metodo `save()` della classe `ArticleForm`
     class ArticleForm extends BaseFormPropel
     {
       // ...
-     
+
       public function save(PropelPDO $con = null)
       {
         if (file_exists($this->getObject()->getFile()))
         {
           unlink($this->getObject()->getFile());
         }
-     
+
         $file = $this->getValue('file');
         $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-     
+
         return parent::save($con);
       }
     }
@@ -1188,10 +1188,10 @@ generato inzialmente dal task `propel:generate-crud`.
 >         {
 >           $this->setSlugFromTitle();
 >         }
->      
+>
 >         return parent::save($con);
 >       }
->      
+>
 >       protected function setSlugFromTitle()
 >       {
 >         // ...
@@ -1200,7 +1200,7 @@ generato inzialmente dal task `propel:generate-crud`.
 >
 >Lo scopo principale di questa rifattorizzazione è quello di rispettare
 >la separazione tra i livelli applicativi, specialmente la riusabilità
->degli sviluppi.   
+>degli sviluppi.
 
 ### Personalizzare il metodo `doSave()`
 
@@ -1219,18 +1219,18 @@ Listato 4-28 - Sovrascrivere il metodo `doSave()` nel form `ArticleForm`
     class ArticleForm extends BaseFormPropel
     {
       // ...
-     
+
       protected function doSave(PropelPDO $con = null)
       {
         if (file_exists($this->getObject()->getFile()))
         {
           unlink($this->getObject()->getFile());
         }
-     
+
         $file = $this->getValue('file');
         $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-     
+
         return parent::doSave($con);
       }
     }
@@ -1258,13 +1258,13 @@ Listato 4-29 - Sovrascrivere il metodo `updateObject()` e la classe `ArticleForm
     class ArticleForm extends BaseFormPropel
     {
       // ...
-     
+
       public function updateObject($values = null)
       {
         $object = parent::updateObject($values);
-     
+
         $object->setFile(str_replace(sfConfig::get('sf_upload_dir').'/', '', $object->getFile()));
-     
+
         return $object;
       }
     }

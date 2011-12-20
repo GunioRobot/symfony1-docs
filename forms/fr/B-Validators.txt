@@ -118,7 +118,7 @@ appelant la méthode `setCharset()` :
 
 Un schéma de validateur est un validateur qui enveloppe un ou plusieurs autres validateurs.
 
-Quand une erreur survient, un schéma de validateur lève une exception 
+Quand une erreur survient, un schéma de validateur lève une exception
 `sfValidatorErrorSchema`.
 
 
@@ -339,11 +339,11 @@ Le validateur accepte plusieurs types d'entrées :
 
  * un tableau composé des clés suivantes : `year`, `month`, `day`, `hour`,
    `minute` et `second`
- * une chaîne correspondante à l'expression régulière `date_format` si fournie (par 
+ * une chaîne correspondante à l'expression régulière `date_format` si fournie (par
    exemple `~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~`)
  * une chaîne qui peut être analysée par la fonction PHP `strtotime()`
  * un entier, représentant un timestamp
- 
+
 La valeur saisie est convertie en une date en appliquant les formats
 `date_output` ou `datetime_output`.
 

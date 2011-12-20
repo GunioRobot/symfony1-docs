@@ -387,8 +387,8 @@ XFBML tags can be rendered outside of facebook.com. And, as was just described,
 the only difference between FBML and XFBML tags is the layout.
 Therefore, this solution enables FBML tags to be rendered locally, as long as there
 is an Internet connection. Furthermore, with a development environment visible
-on the Internet, such as a server or a simple computer with port 80 open, even the parts 
-relying on Facebook's authentication system will work outside of the facebook.com domain 
+on the Internet, such as a server or a simple computer with port 80 open, even the parts
+relying on Facebook's authentication system will work outside of the facebook.com domain
 thanks to Facebook connect. This allows to test the entire application before uploading it on Facebook.
 
 ### The simple Hello You Application

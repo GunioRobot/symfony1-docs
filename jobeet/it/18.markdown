@@ -107,7 +107,7 @@ il bottone di ricerca
 Feedback all'utente
 -------------------
 
-Ogni volta che si fa una chiamata AJAX, la pagina non sarà aggiornata 
+Ogni volta che si fa una chiamata AJAX, la pagina non sarà aggiornata
 subito. Il browser aspetterà la ~risposta|Risposta HTTP~ del server prima di
 aggiornare la pagina. Nel frattempo, occorre fornire un ~feedback visuale|Feedback visuale~
 all'utente, per informarlo che sta succedendo qualcosa.
@@ -256,7 +256,7 @@ una semplice stringa di testo.
         {
           return $this->renderText('No results.');
         }
-        
+
         return $this->renderPartial('job/list', array('jobs' => $this->jobs));
       }
     }

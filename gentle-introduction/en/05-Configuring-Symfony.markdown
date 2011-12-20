@@ -47,7 +47,7 @@ Listing 5-1 - YAML Files Forbid Tabs
       mail:
         webmaster: webmaster@example.com
 
-If your parameters are strings starting or ending with spaces, 
+If your parameters are strings starting or ending with spaces,
 contain special characters (such as the "octothorpe" (#) or comma),
 or key words such as "true, false" (where a string is intended) you must
 enclose the value in single quotes, as shown in Listing 5-2.
@@ -200,7 +200,7 @@ If your application suddenly stops working after a configuration change, you sho
 
         income: 12,345   # Until you convert it, this is still a string
 
-        
+
 Overview of the Configuration Files
 -----------------------------------
 

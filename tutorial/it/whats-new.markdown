@@ -752,7 +752,7 @@ Consente di registrare dei parametri predefiniti per ogni rotta generata:
 CLI
 ---
 
-### Colorazione dell'Otput 
+### Colorazione dell'Otput
 
 Symfony prova a indovinare se la console supporta i colori, quando si usano
 gli strumenti della CLI. Ma a volte symfony si sbaglia; ad esempio quando si
@@ -911,7 +911,7 @@ sottoinsieme di tabelle.
 #### Delete Model Files
 
 Spesso si cambiano modelli, li si rinomina, si rimuovono quelli non più
-usati e via dicendo nello schema YAML. Quando lo si fa, si resta con 
+usati e via dicendo nello schema YAML. Quando lo si fa, si resta con
 modelli, form e filtri orfani. Ora si possono pulire manualmente i file
 generati da un modello usando il task `doctrine:delete-model-files`.
 
@@ -1169,7 +1169,7 @@ e `setPippoPluto()`, dove `PippoPluto` è un nome di campo in CamelCase.
 
 ### Usare una versione diversa di Doctrine
 
-L'uso di una diversa versione di Doctrine è facile, basta impostare 
+L'uso di una diversa versione di Doctrine è facile, basta impostare
 `sf_doctrine_dir` in `ProjectConfiguration`:
 
     [php]
@@ -1275,7 +1275,7 @@ Il contenuto della richiesta è ora accessibile tramite il metodo
 ### Parametri `PUT` e `DELETE`
 
 Quando una richiesta arriva con metodo HTTP `PUT` o `DELETE` e il
-content-type impostato a `application/x-www-form-urlencoded`, symfony 
+content-type impostato a `application/x-www-form-urlencoded`, symfony
 ora analizza il body grezzo e rende i parametri accessibili come
 normali parametri `POST`.
 

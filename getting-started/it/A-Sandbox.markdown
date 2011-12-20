@@ -8,7 +8,7 @@ un progetto reale, dovreste andare al capitolo sull'
 
 Il modo più veloce per sperimentare symfony è installare la sandbox di symfony. La
 sandbox è un modo facilissimo per installare un progetto symfony pronto all'uso, già
-configurato con alcuni pratici default. Questa è un ottima modalità per sperimentare symfony 
+configurato con alcuni pratici default. Questa è un ottima modalità per sperimentare symfony
 senza doversi preoccupare delle problematiche di una installazione che rispetti le best practice
 dello sviluppo web.
 

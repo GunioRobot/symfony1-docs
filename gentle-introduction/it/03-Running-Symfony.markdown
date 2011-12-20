@@ -7,7 +7,7 @@ Symfony richiede almeno PHP 5.2.4. Per verificare qual è la versione installata
 
     $ php -v
 
-    PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10) 
+    PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10)
     Copyright (c) 1997-2009 The PHP Group
     Zend Engine v2.3.0, Copyright (c) 1998-2009 Zend Technologies
 
@@ -178,7 +178,7 @@ subversion):
 Ogni volta che esce un nuovo rilascio (annunciato sul
 [blog](http://www.symfony-project.org/blog/) di symfony), bisogna cambiare l'URL
 alla nuova versione.
-	
+
 Se si vuole seguire la strada meno conservativa ed essere aggiornati alle ultime
 modifiche, usare il ramo 1.4:
 
@@ -355,7 +355,7 @@ web, si può già accedere al progetto utilizzando un browser.
 Naturalmente, siccome non c'è bisogno di configurazione, è molto veloce da impostare, ma provando ad
 accedere al file `config/databases.yml` dal browser si capiscono subito le
 conseguenze di una tale configurazione. Se l'utente sa che il sito web è
-sviluppato con symfony, avrà accesso a un sacco di file sensibili. 
+sviluppato con symfony, avrà accesso a un sacco di file sensibili.
 
 **Mai e poi mai usare questa configurazione su un server di produzione**. Leggere la prossima
 sezione per imparare a configurare il server web in modo corretto.

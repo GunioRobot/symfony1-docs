@@ -88,7 +88,7 @@ Listato 2-2 - Aggiungere validatori alla classe `ContactForm`
     class ContactForm extends sfForm
     {
       protected static $subjects = array('Subject A', 'Subject B', 'Subject C');
-     
+
       public function configure()
       {
         $this->setWidgets(array(
@@ -98,7 +98,7 @@ Listato 2-2 - Aggiungere validatori alla classe `ContactForm`
           'message' => new sfWidgetFormTextarea(),
         ));
         $this->widgetSchema->setNameFormat('contact[%s]');
-     
+
         $this->setValidators(array(
           'name'    => new sfValidatorString(array('required' => false)),
           'email'   => new sfValidatorEmail(),
@@ -148,7 +148,7 @@ Listato 2-3 - Implementare la validazione nel modulo `contact`
       public function executeIndex($request)
       {
         $this->form = new ContactForm();
-     
+
         if ($request->isMethod('post'))
         {
           $this->form->bind($request->getParameter('contact'));
@@ -158,7 +158,7 @@ Listato 2-3 - Implementare la validazione nel modulo `contact`
           }
         }
       }
-     
+
       public function executeThankyou()
       {
       }
@@ -182,7 +182,7 @@ Il Listato 2-3 introduce molti nuovi concetti:
         if ($request->isMethod('post'))
         {
            $this->form->bind($request->getParameter('contact'));
-       
+
   * Una volta che il form è vincolato, è possibile verificare
     la sua validità usando il metodo  `isValid()`:
 
@@ -194,7 +194,7 @@ Il Listato 2-3 introduce molti nuovi concetti:
             {
              $this->redirect('contact/thankyou?'.http_build_query($this->form->getValues()));
             }
-     
+
       * Altrimenti, il template `indexSuccess` viene mostrato come
         all'inizio. Il processo di validazione aggiunge dei messaggi
         di errore nel form, da mostrare all'utente.
@@ -324,11 +324,11 @@ Listato 2-4 - Personalizzare i messaggi di errore
     class ContactForm extends sfForm
     {
       protected static $subjects = array('Subject A', 'Subject B', 'Subject C');
-     
+
       public function configure()
       {
         // ...
-     
+
         $this->setValidators(array(
           'name'    => new sfValidatorString(array('required' => false)),
           'email'   => new sfValidatorEmail(array(), array('invalid' => 'The email address is invalid.')),
@@ -337,7 +337,7 @@ Listato 2-4 - Personalizzare i messaggi di errore
         ));
       }
     }
- 
+
 Figura 2-5 - Messaggi di errore personalizzati
 
 ![Messaggi di errore personalizzati](http://www.symfony-project.org/images/forms_book/en/02_05.png "Messaggi di errore personalizzati")
@@ -365,7 +365,7 @@ Listato 2-5 - Personalizzare i messaggi di errore con valori dinamici
       public function configure()
       {
         // ...
-     
+
         $this->setValidators(array(
           'name'    => new sfValidatorString(array('required' => false)),
           'email'   => new sfValidatorEmail(array(), array('invalid' => 'Email address is invalid.')),
@@ -377,7 +377,7 @@ Listato 2-5 - Personalizzare i messaggi di errore con valori dinamici
         ));
       }
     }
- 
+
 Figura 2-7 - Messaggi di errore personalizzati con valori dinamici
 
 ![Messaggi di errore personalizzati con valori dinamici](http://www.symfony-project.org/images/forms_book/en/02_07.png "Messaggi di errore personalizzati con valori dinamici")
@@ -415,20 +415,20 @@ Listato 2-6 - La classe `user`
       protected
         $name = '',
         $is_admin = false;
-     
+
       public function setFields($fields)
       {
         if (isset($fields['name']))
         {
           $this->name = $fields['name'];
         }
-     
+
         if (isset($fields['is_admin']))
         {
           $this->is_admin = $fields['is_admin'];
         }
       }
-     
+
       // ...
     }
 
@@ -448,7 +448,7 @@ Listato 2-7 - Form per `User`
       {
         $this->setWidgets(array('name' => new sfWidgetFormInputString()));
         $this->widgetSchema->setNameFormat('user[%s]');
-     
+
         $this->setValidators(array('name' => new sfValidatorString()));
       }
     }
@@ -465,16 +465,16 @@ Listato 2-8 - Implementazione del modulo `user`
       public function executeIndex($request)
       {
         $this->form = new UserForm();
-     
+
         if ($request->isMethod('post'))
         {
           $this->form->bind($request->getParameter('user'));
           if ($this->form->isValid())
           {
             $user = // retrieving the current user
-     
+
             $user->setFields($this->form->getValues());
-     
+
             $this->redirect('...');
           }
         }
@@ -514,7 +514,7 @@ seguente codice:
       'subject' => new sfValidatorChoice(array('choices' => array_keys(self::$subjects))),
       'message' => new sfValidatorString(array('min_length' => 4)),
     )));
- 
+
 `sfValidatorSchema` ha due regole di validazione abilitate di
 default per proteggere l'insieme di validatori. Tali regole
 possono essere configurate con le opzioni `allow_extra_fields`
@@ -555,13 +555,13 @@ Listato 2-9 - Disabilitare la protezione `allow_extra_fields`
       public function configure()
       {
         // ...
-     
+
         $this->setValidators(array(
           'email'   => new sfValidatorEmail(),
           'subject' => new sfValidatorChoice(array('choices' => array_keys(self::$subjects))),
           'message' => new sfValidatorString(array('min_length' => 4)),
         ));
-     
+
         $this->validatorSchema->setOption('allow_extra_fields', true);
       }
     }
@@ -591,13 +591,13 @@ Listato 2-10 - Disabilitare la protezione `filter_extra_fields`
       public function configure()
       {
         // ...
-     
+
         $this->setValidators(array(
           'email'   => new sfValidatorEmail(),
           'subject' => new sfValidatorChoice(array('choices' => array_keys(self::$subjects))),
           'message' => new sfValidatorString(array('min_length' => 4)),
         ));
-     
+
         $this->validatorSchema->setOption('allow_extra_fields', true);
         $this->validatorSchema->setOption('filter_extra_fields', false);
       }
@@ -633,7 +633,7 @@ Listato 2-11 - Uso del validatore `sfValidatorAnd`
      public function configure()
      {
         // ...
-     
+
         $this->setValidators(array(
           // ...
           'name' => new sfValidatorAnd(array(
@@ -660,7 +660,7 @@ Listato 2-12 - Combinare diversi operatori logici
      public function configure()
      {
         // ...
-     
+
         $this->setValidators(array(
           // ...
           'name' => new sfValidatorOr(array(
@@ -673,7 +673,7 @@ Listato 2-12 - Combinare diversi operatori logici
         ));
       }
     }
- 
+
 Validatori globali
 ------------------
 
@@ -771,7 +771,7 @@ Listato 2-16 - Combinare diversi post-validatori con un validatore logico
       new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again'),
     )));
 
-Invio di file 
+Invio di file
 -------------
 
 Trattare gli invii di file in PHP, come in ogni altro linguaggio
@@ -790,7 +790,7 @@ Listato 2-17 - Aggiungere un campo `file` al form `ContactForm`
     class ContactForm extends sfForm
     {
       protected static $subjects = array('Subject A', 'Subject B', 'Subject C');
-     
+
       public function configure()
       {
         $this->setWidgets(array(
@@ -801,7 +801,7 @@ Listato 2-17 - Aggiungere un campo `file` al form `ContactForm`
           'file'    => new sfWidgetFormInputFile(),
         ));
         $this->widgetSchema->setNameFormat('contact[%s]');
-     
+
         $this->setValidators(array(
           'name'    => new sfValidatorString(array('required' => false)),
           'email'   => new sfValidatorEmail(),
@@ -811,7 +811,7 @@ Listato 2-17 - Aggiungere un campo `file` al form `ContactForm`
         ));
       }
     }
- 
+
 Quando in una form c'è un widget `sfWidgetFormInputFile` che consente
 l'invio di un file, dobbiamo anche aggiungere l'attributo `enctype`
 al tag `form`, come mostrato nel Listato 2-18.
@@ -828,7 +828,7 @@ Listato 2-18 - Modificare il template per considerare il campo `file`
         </tr>
       </table>
     </form>
- 
+
 >**NOTE**
 >Se si genera dinamicamente il template associato al form, il
 >metodo `isMultipart()` dell'oggetto `form` restituisce
@@ -848,7 +848,7 @@ Listato 2-19 - Passare i file caricati al metodo `bind()`
       public function executeIndex($request)
       {
         $this->form = new ContactForm();
-     
+
         if ($request->isMethod('post'))
         {
           $this->form->bind($request->getParameter('contact'), $request->getFiles('contact'));
@@ -856,12 +856,12 @@ Listato 2-19 - Passare i file caricati al metodo `bind()`
           {
             $values = $this->form->getValues();
             // do something with the values
-     
+
             // ...
           }
         }
       }
-     
+
       public function executeThankyou()
       {
       }
@@ -880,11 +880,11 @@ Listato 2-20 - Usare l'oggetto `sfValidatedFile`
     if ($this->form->isValid())
     {
       $file = $this->form->getValue('file');
-     
+
       $filename = 'uploaded_'.sha1($file->getOriginalName());
       $extension = $file->getExtension($file->getOriginalExtension());
       $file->save(sfConfig::get('sf_upload_dir').'/'.$filename.$extension);
-     
+
       // ...
     }
 

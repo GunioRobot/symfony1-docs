@@ -16,10 +16,10 @@ aggiornati gli utenti di Jobeet.
 Formati
 -------
 
-Il framework symfony ha un supporto nativo per ~formati|Formati~ e ~tipi mime|Tipi mime~. Questo 
+Il framework symfony ha un supporto nativo per ~formati|Formati~ e ~tipi mime|Tipi mime~. Questo
 significa che gli stessi Model e Controller possono avere diversi ~template|Template~
 in base al formato richiesto. Il formato di default è HTML, tuttavia symfony
-supporta molti altri ~formati in modo nativo|Formati nativi~ come `txt`, `js`, `css`, `json`, 
+supporta molti altri ~formati in modo nativo|Formati nativi~ come `txt`, `js`, `css`, `json`,
 `xml`, `rdf` o `atom`.
 
 Il formato può essere impostato usando il metodo `setRequestFormat()`
@@ -39,7 +39,7 @@ Questo URL è equivalente a:
 
     http://www.jobeet.com.localhost/frontend_dev.php/job.html
 
-Entrambi gli URL sono equivalenti perché le rotte generate dalla classe 
+Entrambi gli URL sono equivalenti perché le rotte generate dalla classe
 `sfPropelRouteCollection` hanno `sf_format` come estensione e perché
 il formato standard è `html`. Potete verificarlo personalmente
 utilizzando il task `app:routes`.
@@ -104,7 +104,7 @@ le ultime offerte inserite, create il template `indexSuccess.atom.php`:
 >     [php]
 >     $this->setTemplate('foo');
 
-Di default symfony cambia la risposta ~`Content-Type`~ in accordo al formato, 
+Di default symfony cambia la risposta ~`Content-Type`~ in accordo al formato,
 per tutti i formati non-HTML il layout viene disabilitato. Per un feed Atom
 symfony cambia il `Content-Type` a `application/atom+xml; charset=utf-8`.
 
@@ -248,7 +248,7 @@ logo della società.
 
 >**TIP**
 >Creando un feed, il ~debug|Debug~ è più semplice se si usano gli strumenti da
->linea di comando come 
+>linea di comando come
 >[`curl`](http://curl.haxx.se/) o
 >[`wget`](http://www.gnu.org/software/wget/), in modo da vedere
 >l'attuale contenuto del feed.
@@ -258,7 +258,7 @@ logo della società.
 Uno degli scopi  di Jobeet è quello di aiutare le persone a trovare lavori
 più specializzati. Quindi abbiamo bisogno di fornire un ~feed|Feed~ per ogni categoria.
 
-Primo, aggiorniamo la rotta `category` per aggiungere il supporto per i 
+Primo, aggiorniamo la rotta `category` per aggiungere il supporto per i
 differenti formati:
 
     [yml]
@@ -285,7 +285,7 @@ Aggiornate i link ai feed di categoria nei ~template|Template~:
       <a href="<?php echo url_for('category', array('sf_subject' => $category, 'sf_format' => 'atom')) ?>">Feed</a>
     </div>
 
-L'ultimo passo è creare il template `showSuccess.atom.php`. Ma visto che 
+L'ultimo passo è creare il template `showSuccess.atom.php`. Ma visto che
 questo feed dovrà elencare le offerte di lavoro possiamo ~rifattorizzare|Rifattorizzare~
 il codice che genera i dati per il feed creando un partial `_list.atom.php`.
 Come per il formato `html` i ~partial|Partial~ sono specifici per il formato:
@@ -410,7 +410,7 @@ Come per molte feature di symfony il supporto nativo vi permette di aggiungere
 feed al proprio sito, senza particolari sforzi.
 
 Oggi abbiamo migliorato l'esperienza di ricerca di lavoro. Domani vedremo come
-dare maggiore possibilità di inserimento a chi pubblica offerte di lavoro 
+dare maggiore possibilità di inserimento a chi pubblica offerte di lavoro
 fornendo un Web Service.
 
 __ORM__

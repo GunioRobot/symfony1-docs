@@ -192,7 +192,7 @@ tester methods against the `sfWebResponse` object:
  | `isValid()`        | Checks if a response is well-formed XML (you also validate the response again its document type be passing `true` as an argument)
 
 >**NOTE**
->We will describe more testers classes in the coming days 
+>We will describe more testers classes in the coming days
 >(for forms, user, cache, ...).
 
 Running Functional Tests
@@ -284,7 +284,7 @@ file. Replace the code with the following one:
 
 As with `lime`, an informational message can be inserted by calling the `info()`
 method to make the output more readable. To verify the exclusion of expired jobs
-from the homepage, we check that the ~CSS selector~ 
+from the homepage, we check that the ~CSS selector~
 `.jobs td.position:contains("expired")` does not match anywhere in the response
 HTML content (remember that in the fixture files, the only expired job we have
 contains "expired" in the position). When the second argument of the

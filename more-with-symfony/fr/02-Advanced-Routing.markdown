@@ -18,24 +18,24 @@ Dans ce chapitre, une société fictive - Sympal Builder - désire mettre en pla
 
 >**NOTE**
 >Le nom `Sympal` est emprunté du nom de l'application
->[Sympal](http://www.sympalphp.org/) développée par Jonathan Wage. Sympal est un 
->framework de gestion de contenu bâti sur un socle technique symfony et 
+>[Sympal](http://www.sympalphp.org/) développée par Jonathan Wage. Sympal est un
+>framework de gestion de contenu bâti sur un socle technique symfony et
 >Doctrine.
 
 Ce projet dispose de deux besoins fonctionnels basiques et obligatoires :
 
-  * Les utilisateurs doivent être capables de créer des pages web et spécifier 
+  * Les utilisateurs doivent être capables de créer des pages web et spécifier
     pour chacune d'entre elles un titre, un contenu et une URL correspondante.
 
-  * L'application entière doit être construite à l'intérieur d'un seul projet  
-    symfony qui gère à la fois les applications `frontend` et `backend` de tous 
-    les clients du site. La détermination du client est basée sur le 
-    sous-domaine demandé et afin de permettre le chargement des bonnes 
+  * L'application entière doit être construite à l'intérieur d'un seul projet
+    symfony qui gère à la fois les applications `frontend` et `backend` de tous
+    les clients du site. La détermination du client est basée sur le
+    sous-domaine demandé et afin de permettre le chargement des bonnes
     informations dans l'application.
 
 >**NOTE**
->Pour créer cette application, le serveur web aura besoin de rediriger toutes 
->les requêtes des sous-domaines `*.sympalbuilder.com` vers le même document 
+>Pour créer cette application, le serveur web aura besoin de rediriger toutes
+>les requêtes des sous-domaines `*.sympalbuilder.com` vers le même document
 >racine, le répertoire web du projet symfony.
 
 ### Le Modèle de Données et les Données
@@ -70,8 +70,8 @@ La base de données du projet se compose de deux tables `Client` et `Page`. Chaq
           type:     unique
 
 >**NOTE**
->Bien que les indexes sur chaque table ne soient pas nécessaires, il est tout de 
->même important de les définir dans la mesure où la base de données sera 
+>Bien que les indexes sur chaque table ne soient pas nécessaires, il est tout de
+>même important de les définir dans la mesure où la base de données sera
 >fréquemment interrogée sur ces colonnes.
 
 Pour commencer à donner naissance au projet, il est nécessaire d'avoir dès le départ quelques jeux de données de test dans le fichier `data/fixtures/fixtures.yml` :
@@ -128,12 +128,12 @@ Mécanismes Internes du Framework de Routage
 
 Dans symfony, une **route** est un objet de type ~`sfRoute`~ qui dispose de deux rôles importants :
 
- * Générer une URL : par exemple, si un paramètre `slug` est passé à une règle  
-   `page_show`, alors la route doit être capable de générer une véritable URL 
+ * Générer une URL : par exemple, si un paramètre `slug` est passé à une règle
+   `page_show`, alors la route doit être capable de générer une véritable URL
    correspondante (`/location` par exemple).
 
- * Reconnaître une URL entrante : en lui fournissant l'url d'une requête 
-   entrante, chaque route doit être capable de déterminer si l'URL correspond 
+ * Reconnaître une URL entrante : en lui fournissant l'url d'une requête
+   entrante, chaque route doit être capable de déterminer si l'URL correspond
    aux contraintes de la route.
 
 Les informations de chaque route individuelle sont généralement déclarées à l'intérieur de chaque répertoire `config/` d'une application, et plus précisément dans le fichier `app/yourappname/config/routing.yml`. Il est important de se rappeler que chaque route est *un objet de type `sfRoute`*. Par conséquent, comment ces quelques données YAML simples deviennent de véritables  objets `sfRoute` ?
@@ -158,11 +158,11 @@ Le code compilé se trouve en effet dans le fichier `cache/yourappname/envname/c
     ));
 
 >**TIP**
->Le nom de la classe de chaque route est défini grâce à la clé `class` du 
->fichier `routing.yml`. Si aucune clé `class` n'est spécifiée, la route par 
->défaut sera issue de la classe `sfRoute`. Une autre classe spécifique plus 
->commune est `sfRequestRoute` qui offre au développeur la possibilité de créer 
->des routes dites RESTful. Une liste complète des classes de route et des 
+>Le nom de la classe de chaque route est défini grâce à la clé `class` du
+>fichier `routing.yml`. Si aucune clé `class` n'est spécifiée, la route par
+>défaut sera issue de la classe `sfRoute`. Une autre classe spécifique plus
+>commune est `sfRequestRoute` qui offre au développeur la possibilité de créer
+>des routes dites RESTful. Une liste complète des classes de route et des
 >options disponibles existe dans le [guide de référence de symfony](http://www.symfony-project.org/reference/1_3/en/10-Routing).
 
 ### Faire Correspondre une Requête Entrante à une Route Spécifique
@@ -287,18 +287,18 @@ En exécutant un simple remplacement de chaine, il est possible d'isoler la port
 En revanche, si un objet `Client` répondant au sous-domaine courant existe dans la base de données, alors un tableau contenant un paramètre supplémentaire `client_id` est fusionné avec le tableau original retourné.
 
 >**TIP**
->Le tableau `$context` passé à la méthode `matchesUrl()` est prérempli 
->d'informations utiles concernant la requête courante, incluant l'hôte (`host`), 
->un booléen `is_secure`, le `request_uri`, la méthode (`method`) HTTP et bien 
+>Le tableau `$context` passé à la méthode `matchesUrl()` est prérempli
+>d'informations utiles concernant la requête courante, incluant l'hôte (`host`),
+>un booléen `is_secure`, le `request_uri`, la méthode (`method`) HTTP et bien
 >plus encore.
 
 Ceci étant fait, on peut se demander ce que la nouvelle classe de route personnalisée a vraiment accompli. La classe `acClientObjectRoute` réalise désormais les tâches suivantes :
 
- * La variable entrante `$url` correspondra à la route uniquement si l'hôte 
+ * La variable entrante `$url` correspondra à la route uniquement si l'hôte
    contient un sous-domaine appartenant à l'un des objets `Client` du modèle.
 
- * Si la route répond, alors un paramètre additionnel `client_id` pour l'objet 
-   de modèle correspondant est retourné dans le tableau, qui sera ensuite 
+ * Si la route répond, alors un paramètre additionnel `client_id` pour l'objet
+   de modèle correspondant est retourné dans le tableau, qui sera ensuite
    fusionné dans les paramètres de la requête.
 
 ### Profiter de la Route Personnalisée
@@ -317,7 +317,7 @@ Maintenant que le bon paramètre `client_id` est retourné par la classe `acClie
     }
 
 >**NOTE**
->La méthode `findOneBySlugAndClientId()` est un nouveau type de [finders  magiques](http://www.doctrine-project.org/upgrade/1_2#Expanded%20Magic%20Finder>s%20to%20Multiple%20Fields) introduit dans Doctrine 1.2 qui permet d'interroger 
+>La méthode `findOneBySlugAndClientId()` est un nouveau type de [finders  magiques](http://www.doctrine-project.org/upgrade/1_2#Expanded%20Magic%20Finder>s%20to%20Multiple%20Fields) introduit dans Doctrine 1.2 qui permet d'interroger
 >une table en s'appuyant sur plusieurs champs.
 
 Aussi simple que cela puisse paraître, le framework de routage propose une solution encore plus élégante. Il suffit dans un premier temps d'ajouter la méthode ci-dessous à la classe `acClientObjectRoute`.
@@ -343,9 +343,9 @@ Mais comment tout cela fonctionne-t-il ? Les routes d'objet comme `sfDoctrineRou
 Or dans cette application, la route `page_show` doit également s'appuyer sur la valeur de la colonne `client_id` afin de récupérer les objets correspondants. Pour ce faire, il aura seulement fallu surcharger la méthode ~`sfObjectRoute::getRealVariables()`~ qui est automatiquement appelée à l'intérieur de l'objet pour déterminer sur quelles colonnes la requête SQL doit être exécutée. En ajoutant le champ `client_id` au tableau, l'objet `acClientObjectRoute` interrogera la base de données en se basant sur ces deux colonnes `slug` et `client_id`.
 
 >**NOTE**
->Les routes d'objets ignorent automatiquement toutes les variables qui ne 
->correspondent pas à des colonnes réelles. Par exemple, si la clé `url` contient 
->une variable `:page` tandis qu'aucune colonne `page` n'existe dans la table 
+>Les routes d'objets ignorent automatiquement toutes les variables qui ne
+>correspondent pas à des colonnes réelles. Par exemple, si la clé `url` contient
+>une variable `:page` tandis qu'aucune colonne `page` n'existe dans la table
 >associée, alors cette variable sera ignorée.
 
 En l'état actuel des choses, la classe de route personnalisée accomplit tout ce qui est nécessaire sans trop d'effort. Cette nouvelle route sera réutilisée dans les prochaines sections pour créer une interface d'administration spécifique à chaque client.
@@ -376,10 +376,10 @@ Comme on peut le constater, le paramètre `client_id` a été automatiquement aj
 Lorsqu'une route d'objet est générée, elle s'attend à retrouver toutes les informations nécessaires en appelant la méthode `doConvertObjectToArray()`. Par défaut, le paramètre `client_id` est retourné dans le tableau `$parameters`. Désormais, en supprimant ce paramètre du tableau, cela permet ainsi d'éviter de le voir réapparaître dans l'url générée. Il est important de se souvenir que la route d'objet peut s'offrir ce luxe dans la mesure où l'information du `Client` est contenue dans le sous-domaine lui-même.
 
 >**TIP**
->Le traitement de la méthode `doConvertObjectToArray()` peut entièrement être 
->redéfini et géré par les soins du développeur en ajoutant une méthode 
->`toParams()` à la classe de modèle. Cette méthode se doit de retourner un 
->tableau des paramètres qui doivent figurer au moment de la génération de la 
+>Le traitement de la méthode `doConvertObjectToArray()` peut entièrement être
+>redéfini et géré par les soins du développeur en ajoutant une méthode
+>`toParams()` à la classe de modèle. Cette méthode se doit de retourner un
+>tableau des paramètres qui doivent figurer au moment de la génération de la
 >route.
 
 Les Collections de Routes
@@ -722,6 +722,6 @@ Enfin, il arrive parfois qu'il faille rendre un paramètre spécifique disponibl
 Conclusion
 ----------
 
-La principale responsabilité du framework de routage de symfony était à l'origine de faire correspondre URLs et de générer des URLs. Cependant, il a finalement très vite évolué vers un système entièrement personnalisable et capable de s'adapter à la plupart des besoins d'URLs complexes dans un projet. 
+La principale responsabilité du framework de routage de symfony était à l'origine de faire correspondre URLs et de générer des URLs. Cependant, il a finalement très vite évolué vers un système entièrement personnalisable et capable de s'adapter à la plupart des besoins d'URLs complexes dans un projet.
 
 En prenant le contrôle sur les objets de route, la structure spéciale d'une URL peut ainsi être abstraite en dehors de la logique métier, et conservée entièrement à l'intérieur de la route à laquelle elle appartient. Il en résulte alors davantage de contrôle, de flexibilité et un code beaucoup plus maniable.

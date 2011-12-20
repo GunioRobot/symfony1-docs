@@ -186,7 +186,7 @@
             ->execute()
           ;
         }
-        
+
         return array();
       }
 </doctrine>
@@ -384,7 +384,7 @@ symfony フレークワークの大きな強みの1つは[プラグインのエ�
 </propel>
 <doctrine>
         $this->enablePlugins(array(
-          'sfDoctrinePlugin', 
+          'sfDoctrinePlugin',
           'sfDoctrineGuardPlugin'
         ));
 </doctrine>

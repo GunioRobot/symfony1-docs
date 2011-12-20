@@ -9,11 +9,11 @@ Sono inizializzati nel file di configurazione `factories.yml` e sempre accessibi
     // restituisce il factory per l'oggetto User
     sfContext::getInstance()->getUser();
 
-Per una applicazione il file di configurazione `factories.yml` può essere trovato nella cartella 
+Per una applicazione il file di configurazione `factories.yml` può essere trovato nella cartella
 `apps/NOME_APP/config/`.
 
 Come abbiamo detto durante l'introduzione, il file `factories.yml` è
-[**consapevole dell'ambiente**](#chapter_03_consapevolezza_dell_ambiente), beneficia del 
+[**consapevole dell'ambiente**](#chapter_03_consapevolezza_dell_ambiente), beneficia del
 [**meccanismo di configurazione a cascata**](#chapter_03_configurazione_a_cascata),
 e può includere [**costanti**](#chapter_03_costanti).
 
@@ -41,11 +41,11 @@ per configurare i corrispettivi oggetti:
       param: { ARRAY DI PARAMETRI }
 
 La possibilità di modificare i factory significa che è possibile usare una classe
-personalizzata per istanziare un oggetto del core di symfony, piuttosto che la classe 
+personalizzata per istanziare un oggetto del core di symfony, piuttosto che la classe
 predefinita. È inoltre possibile cambiare il comportamento di queste classi,
 modificando i parametri inviati alle stesse.
 
-Se la classe di un factory non può essere caricata automaticamente, deve essere definito 
+Se la classe di un factory non può essere caricata automaticamente, deve essere definito
 un parametro `file`, che sarà utilizzato per indicare il percorso della classe che verrà
 automaticamente usato prima che il factory sia creato:
 
@@ -56,7 +56,7 @@ automaticamente usato prima che il factory sia creato:
 
 >**NOTE**
 >Il file di configurazione `factories.yml` viene salvato in cache come file PHP; Il processo
->è automaticamente gestito dalla [classe](#chapter_14_config_handlers_yml) 
+>è automaticamente gestito dalla [classe](#chapter_14_config_handlers_yml)
 > ~`sfFactoryConfigHandler`~.
 
 <div class="pagebreak"></div>
@@ -112,7 +112,7 @@ Factory
 
    * [`cache_key_use_vary_headers`](chapter_05_sub_cache_key_use_vary_headers)
    * [`cache_key_use_host_name`](chapter_05_sub_cache_key_use_host_name)
-   
+
  * [`view_cache`](#chapter_05_view_cache)
  * [`i18n`](#chapter_05_i18n)
 
@@ -304,7 +304,7 @@ sulle classi di trasporto built-in e i loro differenti parametri.
 
 ### ~`path_info_array`~
 
-L'opzione `path_info_array` definisce l'array PHP globale che sarà usato per recuperare informazioni. 
+L'opzione `path_info_array` definisce l'array PHP globale che sarà usato per recuperare informazioni.
 In alcune configurazioni il valore predefinito potrebbe essere cambiato da `SERVER` ad `ENV`.
 
 ### ~`path_info_key`~
@@ -318,7 +318,7 @@ a `HTTP_X_REWRITE_URL`.
 ### ~`formats`~
 
 L'opzione `formats` definisce un array di estensioni di file e il corrispettivo
-`Content-Type`. È usata automaticamente dal framework per gestire il `Content-Type` di una risposta, 
+`Content-Type`. È usata automaticamente dal framework per gestire il `Content-Type` di una risposta,
 in base all'estensione dell'URI richiesta.
 
 ### ~`relative_url_root`~
@@ -353,8 +353,8 @@ cambiamenti.
 ### ~`send_http_headers`~
 
 L'opzione `send_http_headers` specifica quando deve essere inviato un
-header di risposta insieme al contenuto della risposta. Questa opzione è particolarmente 
-comoda per fare test, in quanto gli header sono inviati tramite la funzione PHP 
+header di risposta insieme al contenuto della risposta. Questa opzione è particolarmente
+comoda per fare test, in quanto gli header sono inviati tramite la funzione PHP
 `header()`, che invia un warning se si sta provando ad inviare header dopo qualche tipo
 di output.
 
@@ -366,8 +366,8 @@ delle volte.
 
 ### ~`http_protocol`~
 
-L'opzione `http_protocol` definisce la versione del protocollo HTTP da utilizzare 
-per la risposta. Come valore predefinito utilizza `$_SERVER['SERVER_PROTOCOL']` 
+L'opzione `http_protocol` definisce la versione del protocollo HTTP da utilizzare
+per la risposta. Come valore predefinito utilizza `$_SERVER['SERVER_PROTOCOL']`
 altrimenti usa `HTTP/1.0`.
 
 `user`
@@ -397,12 +397,12 @@ L'opzione `timeout` definisce il timeout per l'autenticazione utente.
 Non è correlata al timeout della sessione. Il valore predefinito rimuove l'autenticazione
 ad un utente dopo 30 minuti di inattività.
 
-Questa impostazione è usata solo dalle classi user che ereditano dalla classe base 
+Questa impostazione è usata solo dalle classi user che ereditano dalla classe base
 `sfBasicSecurityUser`, come nel caso della classe generata dal sistema `myUser`.
 
 >**NOTE**
 >Per evitare comportamenti inaspettati, la classe user forza automaticamente la massima durata
->per il garbage collector delle sessioni (`session.gc_maxlifetime`) in modo che 
+>per il garbage collector delle sessioni (`session.gc_maxlifetime`) in modo che
 >sia maggiore, o uguale, al timeout.
 
 ### ~`use_flash`~
@@ -411,8 +411,8 @@ L'opzione `use_flash` abilita o disabilita il componente flash.
 
 ### ~`default_culture`~
 
-L'opzione `default_culture` definisce la direttiva di traduzione da usare per 
-l'utente che entra nel sito per la prima volta. Se non dichiarato, utilizza il valore 
+L'opzione `default_culture` definisce la direttiva di traduzione da usare per
+l'utente che entra nel sito per la prima volta. Se non dichiarato, utilizza il valore
 `default_culture` impostato nel file `settings.yml`.
 
 >**CAUTION**
@@ -445,7 +445,7 @@ una richiesta HTTP e l'altra.
 
 ### ~`auto_start`~
 
-L'opzione `auto_start` abilita o disabilita la partenza automatica della sessione di PHP 
+L'opzione `auto_start` abilita o disabilita la partenza automatica della sessione di PHP
 (usando la funzione `session_start()` del linguaggio).
 
 ### ~`session_name`~
@@ -475,7 +475,7 @@ con il valore delle seguenti opzioni:
                                 flag `httponly` quando imposta il cookie di sessione.
 
 >**NOTE**
->La descrizione di ciascuna opzione proviene dalla descrizione della funzione 
+>La descrizione di ciascuna opzione proviene dalla descrizione della funzione
 >`session_set_cookie_params()` presente sul sito web di PHP
 
 ### ~`session_cache_limiter`~

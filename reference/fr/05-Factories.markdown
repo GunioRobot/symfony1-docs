@@ -271,7 +271,7 @@ et trois sont fournis par défaut :
 
   * ~`Swift_MailTransport`~ : Utilise la fonction native PHP `mail()` pour envoyer
     des messages.
- 
+
   * ~`Swift_NullTransport`~: Désactive complètement le transport (utile avec la stratégie `none`
     pour contourner la connexion au serveur de messagerie).
 
@@ -706,7 +706,7 @@ paramètre d'optimisation de performance.
 
 En règle générale, la valeur `false` est mieux lorsque vous utilisez une classe de cache
 basée sur un fichier (`sfFileCache` par exemple), et la valeur `true` est mieux
-lorsque vous utilisez une classe de cache basée sur la mémoire (`sfAPCCache` par exemple). 
+lorsque vous utilisez une classe de cache basée sur la mémoire (`sfAPCCache` par exemple).
 
 `logger`
 --------

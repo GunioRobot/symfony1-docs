@@ -190,7 +190,7 @@ faut donc modifier l'appel de `url_for()` dans `indexSuccess.php` par :
     url_for('job/show?id='.$job->getId().'&company='.$job->getCompany().
       '&location='.$job->getLocation().'&position='.$job->getPosition())
 
-Une ~URI interne|URI interne~ peut aussi être définie dans un tableau :	  
+Une ~URI interne|URI interne~ peut aussi être définie dans un tableau :
 
     [php]
     url_for(array(
@@ -602,7 +602,7 @@ La tâche `app:routes` affiche toutes les routes d'une application donnée :
 
     $ php symfony app:routes frontend
 
-Il est également possible d'obtenir des informations de ~debog~age en passant le 
+Il est également possible d'obtenir des informations de ~debog~age en passant le
 nom de la route en argument :
 
     $ php symfony app:routes frontend job_edit
@@ -611,7 +611,7 @@ Routes par défaut
 -----------------
 
 Définir des ~route|Route~s pour toutes les URLs est une bonne méthode de travail. Puisque
-la route `job` définit toutes les routes nécessaires pour l'utilisation de 
+la route `job` définit toutes les routes nécessaires pour l'utilisation de
 l'application Jobeet, nous pouvons supprimer ou commenter les routes par défaut
 dans le fichier de configuration `routing.yml` :
 

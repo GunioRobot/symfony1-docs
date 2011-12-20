@@ -4,7 +4,7 @@ Giorno 3: Il ~Modello dei dati~
 Quelli di voi che non vedono l'ora di aprire l'editor di testo e scrivere
 un po' di PHP saranno contenti di sapere che il tutorial di oggi darà la
 possibilità di fare un po' di sviluppo. Definiremo il modello dei dati di Jobeet,
-utilizzeremo un ORM per interagire con il database e creeremo il primo modulo 
+utilizzeremo un ORM per interagire con il database e creeremo il primo modulo
 della nostra applicazione. Siccome symfony fa il grosso del lavoro per noi,
 avremo un modulo completamente funzionante scrivendo solo poche righe di
 codice PHP.
@@ -14,7 +14,7 @@ Il ~modello~ relazionale
 ------------------------
 
 Le user story che abbiamo scritto ieri descrivono le entità principali
-del nostro progetto: annunci di lavoro, affiliati, categorie. Di seguito 
+del nostro progetto: annunci di lavoro, affiliati, categorie. Di seguito
 abbiamo il corrispondente diagramma Entità-Relazione:
 
 ![Diagramma E-R](http://www.symfony-project.org/images/jobeet/1_4/03/diagram.png)
@@ -52,7 +52,7 @@ descrittivo: analizzando un database esistente o creandone uno a mano.
 >e di generare direttamente uno `schema.xml` (con [DB Designer 4 TO Propel Schema
 >Converter](http://blog.tooleshed.com/docs/dbd2propel/transform.php)).
 
-Siccome il database non esiste ancora e non vogliamo prendere decisioni su 
+Siccome il database non esiste ancora e non vogliamo prendere decisioni su
 di esso (come realizzarlo), creeremo lo schema a mano modificando un file vuoto
 ~`config/schema.yml`|Schema del database~:
 
@@ -100,7 +100,7 @@ di esso (come realizzarlo), creeremo lo schema a mano modificando un file vuoto
           ➥ onDelete: cascade }
 </propel>
 <doctrine>
-Siccome il database non esiste ancora e non vogliamo prendere decisioni su 
+Siccome il database non esiste ancora e non vogliamo prendere decisioni su
 di esso (come realizzarlo), creeremo lo schema a mano modificando un file vuoto
 `config/schema.yml`:
 
@@ -129,7 +129,7 @@ di esso (come realizzarlo), creeremo lo schema a mano modificando un file vuoto
         email:        { type: string(255), notnull: true }
         expires_at:   { type: timestamp, notnull: true }
       relations:
-        JobeetCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: JobeetJobs } 
+        JobeetCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: JobeetJobs }
 
     JobeetAffiliate:
       actAs: { Timestampable: ~ }
@@ -157,7 +157,7 @@ di esso (come realizzarlo), creeremo lo schema a mano modificando un file vuoto
 
 >**TIP**
 >Se si è deciso di creare le tabelle scrivendo il codice SQL, occorre sapere che
->si può generare il corrispondente file di configurazione `schema.yml` 
+>si può generare il corrispondente file di configurazione `schema.yml`
 >utilizzando il task `propel:build-schema`.
 >
 >     $ php symfony propel:build-schema
@@ -167,14 +167,14 @@ di esso (come realizzarlo), creeremo lo schema a mano modificando un file vuoto
 >prova a eseguire questo task ora, non funzionerà, perché non sa per
 >quale database costruire lo schema.
 
-Lo schema è la traduzione diretta del diagramma entità-relazioni nel 
+Lo schema è la traduzione diretta del diagramma entità-relazioni nel
 formato YAML.
 
 >**SIDEBAR**
 >Il formato ~YAML~
 >
 >Secondo il sito ufficiale di [YAML](http://yaml.org/), YAML
->"è uno standard di serializzazione dei dati human friendly per tutti i 
+>"è uno standard di serializzazione dei dati human friendly per tutti i
 >linguaggi di programmazione"
 >
 >Detto in altro modo, YAML è un semplice linguaggio per descrivere dati
@@ -202,7 +202,7 @@ colonne. Ogni colonna è descritta con le seguenti informazioni:
     `bigint`, `double`, `float`, `real`, `decimal`, `char`, `varchar(size)`,
      `longvarchar`, `date`, `time`, `timestamp`, `blob` e `clob`)
   * `required`: Impostarlo a `true` se la colonna è obbligatoria (not null)
-  * `~index|Indici del database~`: Impostarlo a `true` se si vuole creare un indice per 
+  * `~index|Indici del database~`: Impostarlo a `true` se si vuole creare un indice per
      la colonna o a `unique` se si vuole una chiave univoca per la colonna.
   * `primaryKey`: Definisce una colonna come ~chiave primaria|Chiave primaria~ per la tabella.
   * `foreignTable`, `foreignReference`: Definisce una colonna come
@@ -215,9 +215,9 @@ configurazione (chiave primaria per `id` e timestamp per
 
 >**NOTE**
 >L'attributo `onDelete` definisce il ~comportamento|Vincoli di integrità~ `ON DELETE`
->delle chiavi esterne, Propel supporta `CASCADE`, `SETNULL` e `RESTRICT`. Per esempio quando un 
+>delle chiavi esterne, Propel supporta `CASCADE`, `SETNULL` e `RESTRICT`. Per esempio quando un
 >record `job` viene eliminato, tutti i record `jobeet_category_affiliate`
->associati verranno automaticamente eliminati dal database, o da Propel se 
+>associati verranno automaticamente eliminati dal database, o da Propel se
 >il sottostante engine non dovesse supportare tale funzionalità.
 </propel>
 <doctrine>
@@ -231,7 +231,7 @@ configurazione (chiave primaria per `id` e timestamp per
 
 >**NOTE**
 >L'attributo `onDelete` definisce il comportamento `ON DELETE` delle chiavi esterne,
->Doctrine supporta `CASCADE`, `SET NULL` e `RESTRICT`. Per esempio quando un 
+>Doctrine supporta `CASCADE`, `SET NULL` e `RESTRICT`. Per esempio quando un
 >record `job` viene eliminato, tutti i record `jobeet_category_affiliate`
 >associati verranno automaticamente eliminati dal database.
 </doctrine>
@@ -256,12 +256,12 @@ Per questo tutorial useremo ~MySQL~.
 
 Occorre dire a symfony di usare questo database per Jobeet:
 
-    $ php symfony configure:database 
+    $ php symfony configure:database
       ➥ "mysql:host=localhost;dbname=jobeet" root mYsEcret
 
 Il task `configure:database` accetta tre parametri: il
 [~DSN di PDO~](http://www.php.net/manual/it/pdo.drivers.php), il nome utente
-e la password per accedere al database. Se non si ha bisogno di password 
+e la password per accedere al database. Se non si ha bisogno di password
 per accedere al database nel server di sviluppo, basta
 omettere il terzo parametro.
 
@@ -660,7 +660,7 @@ oggetto del modello (ad esempio il modulo `job`).
 Symfony è in grado di generare automaticamente per un modello dato un modulo che fornisce
 delle feature basilari di manipolazione:
 
-    $ php symfony propel:generate-module --with-show 
+    $ php symfony propel:generate-module --with-show
       ➥ --non-verbose-templates frontend job JobeetJob
 
 Il comando `propel:generate-module` genera un modulo `job` nell'applicazione `frontend`
@@ -728,7 +728,7 @@ metodo `__toString()`, come sotto.
     {
       public function __toString()
       {
-        return sprintf('%s at %s (%s)', $this->getPosition(), 
+        return sprintf('%s at %s (%s)', $this->getPosition(),
          ➥ $this->getCompany(), $this->getLocation());
       }
     }

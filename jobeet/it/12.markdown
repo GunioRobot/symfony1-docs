@@ -1,11 +1,11 @@
 Giorno 12: Admin Generator
 ==========================
 
-Con l'aggiunta fatta ieri su Jobeet, l'applicazione frontend è ora totalmente 
+Con l'aggiunta fatta ieri su Jobeet, l'applicazione frontend è ora totalmente
 utilizzabile da chi cerca e da chi offre lavoro. È giunto il momento di parlare
 un po' dell'applicazione backend.
 
-Oggi, grazie alla funzionalità di symfony rappresentata dall'~admin generator|Admin generator~, 
+Oggi, grazie alla funzionalità di symfony rappresentata dall'~admin generator|Admin generator~,
 svilupperemo un'interfaccia di backend completa per Jobeet in una sola ora.
 
 Creazione del Backend
@@ -31,7 +31,7 @@ L'applicazione backend è ora disponibile all'indirizzo
 `http://www.jobeet.com.localhost/backend_dev.php` per l'ambiente `dev`.
 
 >**NOTE**
->Quando avete creato l'applicazione frontend il front controller di produzione 
+>Quando avete creato l'applicazione frontend il front controller di produzione
 >è stato chiamato `index.php`. Siccome si può avere un solo file `index.php`
 >per cartella, symfony crea un file `index.php` per il primo front controller
 >di produzione e chiama gli altri con il nome dell'applicazione.
@@ -45,13 +45,13 @@ trova, che attualmente è quella di backend`.
 Ma abbiamo visto nel giorno 8 che le impostazioni possono essere configurate
 a diversi livelli. Spostando il contenuto del file `apps/frontend/config/app.yml`
 in `config/app.yml`, le impostazioni saranno condivise da tutte le applicazioni
-e il problema sarà risolto. Fate questo cambiamento ora, visto che useremo 
-le classi del modello molto spesso nell'admin generator, quindi avremo bisogno 
+e il problema sarà risolto. Fate questo cambiamento ora, visto che useremo
+le classi del modello molto spesso nell'admin generator, quindi avremo bisogno
 delle variabili definite in `app.yml` nell'applicazione backend.
 
 >**TIP**
 >Il task `propel:data-load` considera anche l'opzione `--application`. Quindi,
->se avete bisogno di qualche impostazione particolare da un'~applicazione|Applicazione~ 
+>se avete bisogno di qualche impostazione particolare da un'~applicazione|Applicazione~
 >piuttosto che un'altra, la strada da usare è la seguente:
 >
 >     $ php symfony propel:data-load --application=frontend
@@ -60,7 +60,7 @@ Moduli di Backend
 -----------------
 
 Per l'applicazione di frontend il task `propel:generate-module` è stato utilizzato
-per creare un semplice modulo CRUD basato sul modello di una classe. Per il 
+per creare un semplice modulo CRUD basato sul modello di una classe. Per il
 backend il task `propel:generate-admin` verrà usato per generare un'interfaccia
 completamente funzionante per il modello di una classe:
 
@@ -87,7 +87,7 @@ Non dovrebbe sorprendere che la classe usata per la rotta dall'~admin generator|
 sia `sfPropelRouteCollection` dato che il principale obiettivo dell'interfaccia
 di admin è la gestione del ciclo di vita degli oggetti del modello.
 
-La definizione della rotta definisce inoltre alcune opzioni che non abbiamo 
+La definizione della rotta definisce inoltre alcune opzioni che non abbiamo
 visto prima:
 
   * `prefix_path`: Definisce il prefisso al path per le rotte generate (per
@@ -104,7 +104,7 @@ visto prima:
 >
 >     $ php symfony help propel:generate-admin
 >
->Vi fornirà tutti gli parametri e le opzioni del task, oltre ad alcuni classici 
+>Vi fornirà tutti gli parametri e le opzioni del task, oltre ad alcuni classici
 >esempi di utilizzo.
 
 Aspetto del Backend
@@ -115,8 +115,8 @@ Immediatamente potete usare i moduli generati:
     http://www.jobeet.com.localhost/backend_dev.php/job
     http://www.jobeet.com.localhost/backend_dev.php/category
 
-I moduli di amministrazione hanno molte più feature di quelli più semplici 
-generati nei giorni scorsi. Senza scrivere una riga di PHP, ogni modulo 
+I moduli di amministrazione hanno molte più feature di quelli più semplici
+generati nei giorni scorsi. Senza scrivere una riga di PHP, ogni modulo
 mette a disposizione queste grandi funzionalità:
 
   * La lista degli oggetti è **paginata**
@@ -205,12 +205,12 @@ Alla fine cambiate l'~homepage|Homepage~ di default nel file `routing.yml`:
       url:   /
       param: { module: job, action: index }
 
-La Cache di symfony 
+La Cache di symfony
 -------------------
 
 Se siete abbastanza curiosi, avrete probabilmente già aperto i file generati
 dai task che trovate nella cartella `apps/backend/modules/`. Se non l'avete
-fatto, apriteli ora. Sorpresa! Le cartelle dei `templates` sono vuote e i 
+fatto, apriteli ora. Sorpresa! Le cartelle dei `templates` sono vuote e i
 file `actions.class.php` sono anch'essi quasi vuoti:
 
     [php]
@@ -224,7 +224,7 @@ file `actions.class.php` sono anch'essi quasi vuoti:
 
 Come fa a funzionare? Se guardate più attentamente, noterete che la classe
 `jobActions` estende `autoJobActions`. La classe `autoJobActions` è generata
-automaticamente da symfony, se non esiste. La trovate nella cartella 
+automaticamente da symfony, se non esiste. La trovate nella cartella
 `cache/backend/dev/modules/autoJob/`, che contiene il "vero" modulo:
 
     [php]
@@ -245,7 +245,7 @@ automaticamente da symfony, se non esiste. La trovate nella cartella
 Il modo di lavorare dell'admin generator dovrebbe farvi tornare in mente qualcosa
 di già visto. Infatti è abbastanza simile a quanto abbiamo imparato sul modello
 e sulle classi dei form. Basandosi sullo schema del modello, symfony genera le classi
-del modello e dei form. Per l'admin generator i moduli generati possono essere 
+del modello e dei form. Per l'admin generator i moduli generati possono essere
 configurati modificando il file `config/generator.yml` che trovate nel modulo:
 
     [yml]
@@ -840,14 +840,14 @@ tramite il metodo `getObject()`.
 
 ### `class`
 
-Dato che il form sarà utilizzato dagli amministratori, abbiamo visualizzato più 
+Dato che il form sarà utilizzato dagli amministratori, abbiamo visualizzato più
 informazioni rispetto al form dei lavori utilizzato dagli utenti.
-Ma per il momento alcuni di questi non appaiono nel form dato che sono stati 
+Ma per il momento alcuni di questi non appaiono nel form dato che sono stati
 rimossi dalla classe `JobeetJobForm`.
 
 Per avere dei form differenti per il frontend e il backend, dobbiamo creare due
 classi form differenti. Creiamo la classe `BackendJobeetJobForm` che estende la
-classe `JobeetJobForm`. Dato che non vogliamo avere gli stessi campi nascosti, 
+classe `JobeetJobForm`. Dato che non vogliamo avere gli stessi campi nascosti,
 dobbiamo rifattorizzare la classe `JobeetJobForm` per spostare la dichiarazione
 di `unset()` in un metodo che sarà ridefinito in `BackendJobeetJobForm`:
 
@@ -913,9 +913,9 @@ settando l'opzione `class`:
       form:
         class: BackendJobeetJobForm
 
-Il form `edit` ha ancora qualche piccola seccatura. Il logo caricato non appare da 
+Il form `edit` ha ancora qualche piccola seccatura. Il logo caricato non appare da
 nessuna parte e non è possibile rimuoverlo.
-Il widget `sfWidgetFormInputFileEditable` aggiunge la possibilità di editare un 
+Il widget `sfWidgetFormInputFileEditable` aggiunge la possibilità di editare un
 semplice widget per il caricamento di file:
 
     [php]
@@ -978,11 +978,11 @@ Configurazione dei filtri
 
 Configurare i filtri è praticamente identico al configurare le viste per i form.
 Come dato di fatto, i filtri sono esattamente dei form. E come per i form, le relative
-classi sono state generate dal task `propel:build --all`. 
+classi sono state generate dal task `propel:build --all`.
 I filtri possono essere rigenerati con il task `propel:build --filters`.
 
 Le ~classi dei filtri|Form (classi dei filtri)~ per i form sono posizionate nella cartella `lib/filter` e
-a ogni classe del modello è associata una classe filtro per il form 
+a ogni classe del modello è associata una classe filtro per il form
 (`JobeetJobFormFilter` per `JobeetJobForm`).
 
 Rimuoviamole completamente per il modulo `category`:
@@ -1034,7 +1034,7 @@ anche possibile sovrascrivere i metodi generati:
  | `getSort()`            | Restituisce la colonna di ordinamento corrente
  | `setSort()`            | Imposta la colonna di ordinamento corrente
 
-Siccome ogni metodo generato esegue solo una cosa, è semplice cambiarne un 
+Siccome ogni metodo generato esegue solo una cosa, è semplice cambiarne un
 comportamento senza dover copiare e incollare troppo codice.
 
 Personalizzazione dei Template
@@ -1045,7 +1045,7 @@ agli attributi `class` e `id` aggiunti nel codice HTML dall'admin generator.
 
 Come per le classi, è anche possibile sovrascrivere i template originali.
 Dato che i template sono semplici file PHP e non classi PHP, un template può
-essere sovrascritto creando nel modulo un template con lo stesso nome 
+essere sovrascritto creando nel modulo un template con lo stesso nome
 (per esempio nella cartella `apps/backend/modules/job/templates/` per il
 modulo di amministrazione `job`):
 
@@ -1166,21 +1166,21 @@ Le configurazioni finali per l'admin di jobeet sono le seguenti:
       new:
         title: New Category
 
-Con solo questi due file di configurazione, in una manciata di minuti abbiamo 
+Con solo questi due file di configurazione, in una manciata di minuti abbiamo
 sviluppato un'ottima interfaccia di backend per Jobeet.
 
 >**TIP**
->Già sapete che quando qualcosa è configurabile da un file YAML, c'è anche la 
+>Già sapete che quando qualcosa è configurabile da un file YAML, c'è anche la
 >possibilità di usare del semplice codice PHP. Per l'admin generator si può modificare
->il file `apps/backend/modules/job/lib/jobGeneratorConfiguration.class.php`. 
->Questo file dà le stesse opzioni del file YAML, ma con un'interfaccia PHP. 
+>il file `apps/backend/modules/job/lib/jobGeneratorConfiguration.class.php`.
+>Questo file dà le stesse opzioni del file YAML, ma con un'interfaccia PHP.
 >Per imparare i nomi dei metodi, guardate le classi base generate in
 >`cache/backend/dev/modules/autoJob/lib/BaseJobGeneratorConfiguration.class.php`.
 
 A domani
 --------
 
-In solo un'ora, abbiamo costruito un'interfaccia per il backend del progetto 
+In solo un'ora, abbiamo costruito un'interfaccia per il backend del progetto
 Jobeet perfettamente funzionante. E per di più abbiamo scritto meno di 50
 linee di codice PHP. Non male per così tante feature!
 

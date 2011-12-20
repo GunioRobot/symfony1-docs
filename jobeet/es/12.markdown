@@ -5,7 +5,7 @@ Con la cambios que se hizo ayer en Jobeet, la aplicación frontend  esta ahora c
 
 Hoy, gracias a la funcionalidad del Generador de Admin de symfony, vamos a desarrollar una completa interfaz para el backend de Jobeet en sólo una hora.
 
-Creación del Backend 
+Creación del Backend
 --------------------
 
 El primer paso es crear la aplicación backend. Si tu memoria te sirve bien, deberías recordar cómo hacerlo con la tarea `generate:app`:
@@ -17,7 +17,7 @@ La aplicación backend ya está disponible en
 `http://www.jobeet.com.localhost/backend_dev.php/` para el entorno `dev`.
 
 >**NOTE**
->Cuando creaste la aplicación frontend, el controlador frontal de producción fue 
+>Cuando creaste la aplicación frontend, el controlador frontal de producción fue
 >llamado `index.php`. Como sólo puede tener un `index.php` por directorio,
 >symfony crea un `index.php` para el primer controlador frontal de producción
 >y nombra a los otros con el nombre de la aplicación.
@@ -78,7 +78,7 @@ Definición de la ruta también define algunas opciones que no hemos visto antes
 >Te dará de la tarea, todos los argumentos y opciones, así como algunos clásicos
 >Ejemplos de Uso.
 
-Aspecto del Backend 
+Aspecto del Backend
 -------------------
 
 De buenas a primeras, ya puedes utilizar los módulos generados:
@@ -175,7 +175,7 @@ Eventualmente, cambia la página de inicio por defecto en symfony en `routing.ym
 El Cache de Symfony
 -------------------
 
-Si eres lo suficientemente curioso, probablemente ya has abierto los archivos generados por la tarea bajo el directorio `apps/backend/modules/`. Si no, por favor abrelos ahora. ¡Sorpresa! Los directorios `templates` están vacíos, y los archivos 
+Si eres lo suficientemente curioso, probablemente ya has abierto los archivos generados por la tarea bajo el directorio `apps/backend/modules/`. Si no, por favor abrelos ahora. ¡Sorpresa! Los directorios `templates` están vacíos, y los archivos
 `actions.class.php` están bastante vacíos y:
 
     [php]
@@ -187,7 +187,7 @@ Si eres lo suficientemente curioso, probablemente ya has abierto los archivos ge
     {
     }
 
-¿Cómo es posiblemente que funcione? Si hechas un vistazo más de cerca, te darás cuenta de que la clase 
+¿Cómo es posiblemente que funcione? Si hechas un vistazo más de cerca, te darás cuenta de que la clase
 `jobActions` hereda de `autoJobActions`. La clase `autoJobActions` es
 generada automáticamente por symfony si no existe. Que se encuentra en el directorio `cache/backend/dev/modules/autoJob/`, la cual contiene el módulo "real":
 
@@ -244,7 +244,7 @@ Como se verá hoy, la personalización de los módulos generados de administraci
 >En producción, tendrás que borrar la caché manualmente
 >con la tarea `cache:clear` (o borrar todo lo que encuentres en /cache).
 
-La Configuración del Backend 
+La Configuración del Backend
 ----------------------------
 
 Un módulo de administración puede ser personalizado con la edición de la clave `config` del archivo `generator.yml`. La configuración está organizada en siete secciones:
@@ -335,10 +335,10 @@ following:
  * `filter` hereda de `fields`
 
 >**NOTE**
->Para las secciones form (`form`, `edit`, y `new`), las opciones `label` y `help` 
+>Para las secciones form (`form`, `edit`, y `new`), las opciones `label` y `help`
 >sobreescriben las definidas en las clases form.
 
-Configuración de la vista List 
+Configuración de la vista List
 ------------------------------
 
 ### `display`
@@ -383,11 +383,11 @@ que es el otro layout de serie:
         params:  |
           %%is_activated%% <small>%%category_id%%</small> - %%company%%
            (<em>%%email%%</em>) is looking for a %%=position%% (%%location%%)
-           
+
 En `stacked`, cada objeto está representado por una única cadena, que se define por la opción `params`.
 
 >**NOTE**
->La opción `display` sigue siendo necesaria ya que define las columnas que 
+>La opción `display` sigue siendo necesaria ya que define las columnas que
 >ordenarán según el criterio del usuario.
 
 ### Las Columnas "Virtuales"
@@ -658,7 +658,7 @@ El método `doSelectJoinJobeetCategory()` agrega un join entre las tablas `job` 
 <doctrine>
         table_method: retrieveBackendJobList
 
-Ahora debes crear el método `retrieveBackendJobList` en `JobeetJobTable` 
+Ahora debes crear el método `retrieveBackendJobList` en `JobeetJobTable`
 situado en `lib/model/doctrine/JobeetJobTable.class.php`.
 
     [php]
@@ -745,7 +745,7 @@ Crea este partial con el siguiente contenido:
 En el partial, tienes acceso al actual form (`$form`) y el objeto relacionado es accesible a través del método `getObject()`.
 
 >**NOTE**
->También puede delegar la visualización a un componente con el prefijo 
+>También puede delegar la visualización a un componente con el prefijo
 >de un tilde (`~`) al nombre del campo.
 
 ### `class`
@@ -880,7 +880,7 @@ Configuración de Filtros
 
 La configuración de los filtros es la misma que la configuración de las vistas forms. Como cuestión de hecho, los filtros son sólo forms. Y como para los forms, las clases se han generado por la tarea `propel:build --all`. También puedes volver a generarlas con la tarea `propel:build --filters`.
 
-Estas clases se encuentran en el directorio `lib/filter/` y cada uno de clase del modelo tiene asociada una clase de filtros (`JobeetJobFormFilter` para 
+Estas clases se encuentran en el directorio `lib/filter/` y cada uno de clase del modelo tiene asociada una clase de filtros (`JobeetJobFormFilter` para
 `JobeetJobForm`).
 
 Vamos a eliminarlas por completo para el módulo `category`:
@@ -920,13 +920,13 @@ Cuando la configuración no es suficiente, puedes agregar nuevos métodos a la c
  | `executeBatch()`       | Ejecuta una acción por lote
  | `executeBatchDelete()` | Ejecuta la acción por lote `_delete`
  | `processForm()`        | Procesa el formualrio Job
- | `getFilters()`         | Devuelve los filtros actuales 
+ | `getFilters()`         | Devuelve los filtros actuales
  | `setFilters()`         | Establece los filtros
  | `getPager()`           | Devuelve el paginador de la lista
  | `getPage()`            | Obtiene la página de la lista
- | `setPage()`            | Establece la página de la lista 
- | `buildCriteria()`      | Construye el `Criteria` para la lista 
- | `addSortCriteria()`    | agrega un `Criteria` ordenado para la lista 
+ | `setPage()`            | Establece la página de la lista
+ | `buildCriteria()`      | Construye el `Criteria` para la lista
+ | `addSortCriteria()`    | agrega un `Criteria` ordenado para la lista
  | `getSort()`            | Devuelve la columna utilizada para ordenar
  | `setSort()`            | Establece la columna utilizada para ordenar
 
@@ -944,16 +944,16 @@ En cuanto a las clases, también puedes sobreescribir las plantillas originales.
  | ---------------------------- | -------------------------------------
  | `_assets.php`                | Muestra CSS y JS a usar por las plantillas
  | `_filters.php`               | Muestra los filtros
- | `_filters_field.php`         | Muestra un único filtro de campo 
- | `_flashes.php`               | Muestra los mensajes flash 
+ | `_filters_field.php`         | Muestra un único filtro de campo
+ | `_flashes.php`               | Muestra los mensajes flash
  | `_form.php`                  | Muestra el formulario
  | `_form_actions.php`          | Muestra las acciones del formulario
  | `_form_field.php`            | Muestra un único campo de formulario
  | `_form_fieldset.php`         | Muestra un fieldset de formulario
- | `_form_footer.php`           | Muestra el pie de página del formulario 
- | `_form_header.php`           | Muestra cabecera del formulario 
+ | `_form_footer.php`           | Muestra el pie de página del formulario
+ | `_form_header.php`           | Muestra cabecera del formulario
  | `_list.php`                  | Muestra la lista
- | `_list_actions.php`          | Muestra las acciones de lista 
+ | `_list_actions.php`          | Muestra las acciones de lista
  | `_list_batch_actions.php`    | Muestra la lista de acciones por lotes
  | `_list_field_boolean.php`    | Muestra un único campo booleano en la lista
  | `_list_footer.php`           | Muestra el pie de página de lista
@@ -1099,7 +1099,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

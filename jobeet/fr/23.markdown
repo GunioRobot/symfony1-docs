@@ -342,6 +342,6 @@ symfony pour vos projets, envisager de rejoindre la communauté symfony :
   * Abonnez-vous à la [mailing-list des utilisateurs](http://groups.google.com/group/symfony-users)
   * Abonnez-vous au [flux du blog](http://feeds.feedburner.com/symfony/blog) officiel
   * Abonnez-vous au [flux planète](http://feeds.feedburner.com/symfony/planet) de symfony
-  * Venez et chattez sur le canal [IRC #symfony](irc://irc.freenode.net/symfony) de freenode 
+  * Venez et chattez sur le canal [IRC #symfony](irc://irc.freenode.net/symfony) de freenode
 
 __ORM__

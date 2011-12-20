@@ -8,7 +8,7 @@ essere cambiati.
 ----------------
 
 La configurazione `autoload.yml` determina quali cartelle necessitano di essere
-autocaricate da symfony. Ogni cartella è scansionata per classi e 
+autocaricate da symfony. Ogni cartella è scansionata per classi e
 interfaccie PHP.
 
 Come discusso in sede di introduzione, il file `autoload.yml` trae beneficio dal
@@ -17,7 +17,7 @@ può includere [**costanti**](#chapter_03_costanti).
 
 >**NOTE**
 >Il file di configurazione `autoload.yml` è messo in cache come file PHP; il
->processo è gestito automaticamente dalla [classe](#chapter_14_config_handlers_yml) 
+>processo è gestito automaticamente dalla [classe](#chapter_14_config_handlers_yml)
 >~`sfAutoloadConfigHandler`~.
 
 La configurazione predefinita va bene per la maggior parte dei progetti:
@@ -150,7 +150,7 @@ può includere [**costanti**](#chapter_03_costanti).
 --------------
 
 Il file di configurazione `module.yml` consente la configurazione di un modulo. Questo
-file di configurazione è utilizzato raramente e può contenere solo le voci definite 
+file di configurazione è utilizzato raramente e può contenere solo le voci definite
 di seguito.
 
 Il file `module.yml` richiede di essere memorizzato nella sotto-cartella `config/` di un

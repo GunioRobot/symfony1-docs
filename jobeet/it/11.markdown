@@ -1,11 +1,11 @@
 Giorno 11: Testare i Form
 =========================
 
-Ieri abbiamo creato il nostro primo form con symfony. Gli utenti possono ora 
+Ieri abbiamo creato il nostro primo form con symfony. Gli utenti possono ora
 inserire una nuova offerta di lavoro si Jobeet, però abbiamo finito il
 tempo a disposizione prima che potessimo aggiungere alcuni test.
 
-È quello che faremo oggi. Nel mentre impareremo ancora qualcosa sul 
+È quello che faremo oggi. Nel mentre impareremo ancora qualcosa sul
 framework dei form.
 
 >**SIDEBAR**
@@ -29,7 +29,7 @@ framework dei form.
 Inviare un Form
 ---------------
 
-Aprite il file `jobActionsTest` per aggiungere i ~test~ per la creazione di 
+Aprite il file `jobActionsTest` per aggiungere i ~test~ per la creazione di
 un'offerta di lavoro e per il processo di validazione.
 
 Alla fine del file aggiungete il seguente codice per avere la pagina di creazione
@@ -49,12 +49,12 @@ offerta:
 
 Abbiamo già usato il metodo `click()` per simulare i click sui link. Lo stesso
 metodo `click()` può essere usato per inviare un ~form~. Per un form, potete passare
-i valori da inviare per ogni campo come secondo parametro di un metodo. Come 
+i valori da inviare per ogni campo come secondo parametro di un metodo. Come
 un vero browser, l'oggetto browser si occuperà di fondere i valori di default
 con i valori inviati dal form.
 
 Ma per inviare i valori dei campi abbiamo bisogno di conoscere i loro nomi. Se
-aprite il codice sorgente, oppure utilizzate la Web Developer Toolbar di Firefox con 
+aprite il codice sorgente, oppure utilizzate la Web Developer Toolbar di Firefox con
 la funzione "Forms > Display Form Details", potrete vedere che il nome del campo
 `company` è `jobeet_job[company]`.
 
@@ -129,7 +129,7 @@ per gli errori.
 
 Se fate un errore nel test e il test non passa, potete usare l'istruzione
 `with('response')->~debug~()` vista durante il giorno 9. Ma dovrete analizzare l'HTML
-generato per verificare i messaggi d'errore. Non è molto conveniente. Il 
+generato per verificare i messaggi d'errore. Non è molto conveniente. Il
 form tester mette a disposizione un metodo `debug()`, che mostra lo stato del
 form e tutti i messaggi d'errore associati:
 
@@ -195,8 +195,8 @@ nel database corrispondano al criterio passato come parametro.
       ))->
     end()
 
-Il criterio può essere un array di valori come qui sopra o un'istanza di 
-`Criteria` per query più complesse. Potete verificare l'esistenza di oggetti 
+Il criterio può essere un array di valori come qui sopra o un'istanza di
+`Criteria` per query più complesse. Potete verificare l'esistenza di oggetti
 corrispondenti al criterio con un booleano come terzo parametro
 (il default è `true`) o il numero di oggetti corrispondenti passando un intero.
 
@@ -646,7 +646,7 @@ Scriviamo un test per simulare l'inserimento di un lavoro con un campo `token`:
 Quando si invia il form, si deve ricevere un errore globale `extra_fields`.
 Questo perché per default i form non consentono campi ulteriori tra i
 valori inviati. Anche per questo tutti i campi del form devono avere
-un validatore associato. 
+un validatore associato.
 
 >**TIP**
 >Si possono inviare campi addizionali comodamente dal browser, usando
@@ -689,7 +689,7 @@ che tutte le variabili usate nel template subiscono un escaping per impostazione
 predefinita. Se si prova a inviare la descrizione di un lavoro con alcuni tag
 HTML dentro, si noterà che quando symfony mostra la pagina del lavoro,
 i tag HTML della descrizione non sono interpretati, ma mostrati come
-testo semplice. 
+testo semplice.
 
 Dopo abilita la protezione da CSRF. Quando si fornisce
 questa opzione, tutti i form includono un campo nascosto `_csrf_token`.
@@ -715,7 +715,7 @@ Task di manutenzione
 
 Anche se symfony è un framework per il web, possiede uno strumento
 a ~linea di comando~. L'abbiamo già usato per creare la struttura di
-cartelle di default del progetto e dell'applicazione, ma anche per 
+cartelle di default del progetto e dell'applicazione, ma anche per
 generare vari file del modello. Aggiungere un nuovo ~task~ è molto
 semplice, perché gli strumenti usati da symfony sono
 pacchettizzati in un framework.

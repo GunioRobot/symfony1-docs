@@ -16,7 +16,7 @@ información sobre la vista y los emails enviados.
 Desde Symfony 1.2 los programadores pueden crear sus propios *paneles de
 depuración web* y añadirlos a la barra de depuración web. Este capítulo muestra
 cómo crear un nuevo *panel de depuración web* y después se explican todas sus
-opciones y posibles configuraciones.  Además, el plugin 
+opciones y posibles configuraciones.  Además, el plugin
 [ac2009WebDebugPlugin](http://www.symfony-project.org/plugins/ac2009WebDebugPlugin)
 contiene diversos paneles de depuración muy útiles y que utilizan algunas de
 las técnicas mostradas en este capítulo.
@@ -44,11 +44,11 @@ tienes que crearlo):
       {
         return 'Documentation';
       }
-      
+
       public function getPanelContent()
       {
         $content = 'Placeholder Panel Content';
-        
+
         return $content;
       }
     }
@@ -107,7 +107,7 @@ panel en la barra:
 
 >**TIP**
 >Desde Symfony 1.3, es posible utilizar en la URL un parámetro llamado
->`sfWebDebugPanel` para mostrar desplegado un determinado panel web al 
+>`sfWebDebugPanel` para mostrar desplegado un determinado panel web al
 >cargar la página. Si por ejemplo se añade `?sfWebDebugPanel=documentation`
 >al final de la URL, se abrirá automáticamente el panel que se acaba de crear.
 >Esta característica puede ser muy útil cuando se crean paneles propios.
@@ -299,7 +299,7 @@ El siguiente ejemplo muestra la lista de todos los mensajes de log de la clase
 
 Una de las novedades de Symfony 1.3 es que se puede pinchar sobre el nombre de
 un archivo en la barra de depuración web para abrirlo con nuestro editor de
-texto favorito. Puedes obtener más información en el artículo 
+texto favorito. Puedes obtener más información en el artículo
 *["What's new"](http://www.symfony-project.org/tutorial/1_3/en/whats-new)* de
 Symfony 1.3.
 

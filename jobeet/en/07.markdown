@@ -26,7 +26,7 @@ it at the beginning of the routing file:
 
 >**TIP**
 >Whenever you start implementing a new feature, it is a good practice to first
->think about the ~URL~ and create the associated ~route|Route~. And it is 
+>think about the ~URL~ and create the associated ~route|Route~. And it is
 >mandatory if you removed the default routing rules.
 
 A route can use any column from its related object as a parameter. It can also
@@ -289,7 +289,7 @@ as well. Let's override the `setName()` method:
 <doctrine>
 >**NOTE**
 >The setting of the slug column is taken care of automatically when you save a
->record. The slug is built using the value of the `name` field and set to the 
+>record. The slug is built using the value of the `name` field and set to the
 >object.
 </doctrine>
 

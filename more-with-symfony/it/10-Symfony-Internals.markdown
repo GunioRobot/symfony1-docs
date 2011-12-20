@@ -21,7 +21,7 @@ Che cosa succede esattamente in questo file? In poche righe di codice, symfony
 recupera la configurazione dell'applicazione e crea un'istanza di `sfContext`,
 che è responsabile per l'invio della richiesta. La configurazione dell'applicazione
 è necessaria quando si crea l'oggetto `sfContext`, che è il motore
-applicazione-dipendente dietro symfony.  
+applicazione-dipendente dietro symfony.
 
 >**TIP**
 >Symfony dà già un po' di controllo su quello che succede qui, consentendo
@@ -272,7 +272,7 @@ aggiungere parametri personalizzati globali per tutti i template.
 
 Si supponga di decidere che ogni singolo template che si usa, debba avere accesso
 a un particolare oggetto, per esempio un oggetto helper.  Si potrebbe quindi
-aggiungere il seguente codice a `ProjectConfiguration`: 
+aggiungere il seguente codice a `ProjectConfiguration`:
 
     [php]
     public function setup()
@@ -318,7 +318,7 @@ analizzare realmente i file YAML (questa funzione viene eseguita da `sfYaml`).
 Invece, ogni gestore di configurazione crea una serie di direttive PHP sulla
 base delle informazioni YAML e salva queste direttive in un file PHP, che può
 essere efficacemente incluso in seguito. La versione *compilata* di ciascun file
-di configurazione YAML, può essere trovata nella cartella della cache. 
+di configurazione YAML, può essere trovata nella cartella della cache.
 
 Il gestore di configurazione usato più comunemente è certamente
 [`sfDefineEnvironmentConfigHandler`](http://trac.symfony-project.org/browser/branches/1.3/lib/config/sfDefineEnvironmentConfigHandler.class.php),

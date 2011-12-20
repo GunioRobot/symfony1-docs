@@ -7,7 +7,7 @@ Symfony requires at least PHP 5.2.4. Make sure you have it installed by opening 
 
     $ php -v
 
-    PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10) 
+    PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10)
     Copyright (c) 1997-2009 The PHP Group
     Zend Engine v2.3.0, Copyright (c) 1998-2009 Zend Technologies
 
@@ -199,11 +199,11 @@ On Windows:
     c:\> cd ..\..
     c:\> php lib\vendor\symfony\data\bin\symfony -V
 
-After you have created your project (below), running this command also 
+After you have created your project (below), running this command also
 displays the path to the symfony installation directory, which is stored
 in `config/ProjectConfiguration.class.php`.
 
-If when you check this, the path to symfony is an absolute one (which should 
+If when you check this, the path to symfony is an absolute one (which should
 not be by default if you follow the below instructions), change it so it reads
 like follows for better portability:
 
@@ -321,7 +321,7 @@ creates the default directory structure needed for the application under the
 >
 >If you know nothing about
 >[XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) or
->[CSRF](http://en.wikipedia.org/wiki/CSRF), take the time to learn more about 
+>[CSRF](http://en.wikipedia.org/wiki/CSRF), take the time to learn more about
 >these security vulnerabilities.
 
 ### Directory Structure Rights
@@ -359,7 +359,7 @@ section to learn how to configure your web server properly.
 
 ### The secure Way
 
-A good web practice is to only put the files that need to be accessed by a 
+A good web practice is to only put the files that need to be accessed by a
 web browser under the web root directory , such as stylesheets, JavaScripts and
 images. By default, we recommend storing these files under the `web/`
 sub-directory of a symfony project.

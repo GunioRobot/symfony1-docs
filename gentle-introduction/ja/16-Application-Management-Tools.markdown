@@ -434,7 +434,7 @@ symfony を利用してカスタムコマンドライン機能を作成する別
       protected function execute($arguments = array(), $options = array())
       {
         // ここにコードを追加する
-        
+
       }
     }
 

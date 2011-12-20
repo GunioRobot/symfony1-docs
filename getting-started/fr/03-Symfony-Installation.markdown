@@ -94,7 +94,7 @@ la possibilité de configurer les sources extérieures Subversion.
 Si vous êtes conservateur, liez votre projet à une version release (un tag de
 subversion) :
 
-    svn checkout http://svn.symfony-project.com/tags/RELEASE_1_4_0 
+    svn checkout http://svn.symfony-project.com/tags/RELEASE_1_4_0
 
 Chaque fois qu'une nouvelle version sort (comme annoncé sur le
 [blog](http://www.symfony-project.org/blog/) de Symfony), vous devrez modifier l'URL

@@ -291,7 +291,7 @@ symfony の主要な部分に関する情報に素早くアクセスしたいの
 
 ### オフラインドキュメント
 
-コンフィギュレーションに関する質問は symfony リファレンスによってもっとよく回答されています。 
+コンフィギュレーションに関する質問は symfony リファレンスによってもっとよく回答されています。
 symfony を開発するときはぜひこの本を手元に置いておくべきです。この本はとても詳細な目次、用語の索引、章内部の相互参照、表などのおかげで利用可能なすべてのコンフィギュレーションを見つけるための最速の手段です。
 
 [オンライン](http://www.symfony-project.org/reference/1_4/ja/)で読む、[印刷されたもの](http://books.sensiolabs.com/book/the-symfony-1-4-reference-guide)を購入する、もしくは [PDF](http://www.symfony-project.org/get/pdf/reference-1.4-en.pdf) バージョンをダウンロードできます。

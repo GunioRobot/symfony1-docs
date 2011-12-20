@@ -68,7 +68,7 @@ symfony のフォームフレームワークを使うと、開発者は、オブ
 
 >**NOTE**
 >~`sfForm::useFields()`~ は symfony 1.3 の新しい機能で、フォームでどのフィールドを使い、どの順番で表示するのかを厳密に指定できます。HIDDEN でなく、このメソッドに指定されていない他のフィールドは、フォームから削除されます。
-    
+
 ここまでは、通常のフォームのセットアップと変わりません。次は、これらのフォームを1つに結合します。
 
 フォームを埋め込む
@@ -263,7 +263,7 @@ symfony では、2 つの異なるオブジェクトで各フォーム*フィー
       [caption]       => sfValidatorString,
     )
 
-~`sfForm::embedForm()`~ メソッドでは、空の `ProductPhotoCollectionForm` オブジェクトの `widgetSchema` 配列と `validatorSchema` 配列に、各 `ProductPhotoForm` の `widgetSchema` 配列と `validatorSchema` 配列を単純に追加します。 
+~`sfForm::embedForm()`~ メソッドでは、空の `ProductPhotoCollectionForm` オブジェクトの `widgetSchema` 配列と `validatorSchema` 配列に、各 `ProductPhotoForm` の `widgetSchema` 配列と `validatorSchema` 配列を単純に追加します。
 
 ラッパーフォーム (`ProductPhotoCollectionForm`) への埋め込み処理が完了すると、ラッパーフォームの `widgetSchema` 配列と `validatorSchema` 配列は多次元配列になり、2つの `ProductPhotoForm` のウィジェットとバリデータが格納されています。
 
@@ -562,7 +562,7 @@ symfony では、2 つの異なるオブジェクトで各フォーム*フィー
 Doctrine フォームを簡単に埋め込む
 ----------------------------------
 
-symfony 1.3 の新機能として、一対多のリレーションシップをフォームに自動的に埋め込みできる ~`sfFormDoctrine::embedRelation()`~ メソッドがあります。たとえば、`Product` に関連する新しい `ProductPhotos` を2つアップロードできるだけでなく、関連する既存の `ProductPhoto` オブジェクトをユーザーが編集できるようにする場合を考えます。 
+symfony 1.3 の新機能として、一対多のリレーションシップをフォームに自動的に埋め込みできる ~`sfFormDoctrine::embedRelation()`~ メソッドがあります。たとえば、`Product` に関連する新しい `ProductPhotos` を2つアップロードできるだけでなく、関連する既存の `ProductPhoto` オブジェクトをユーザーが編集できるようにする場合を考えます。
 
 `embedRelation()` メソッドを使うと、既存の `ProductPhoto` オブジェクトごとに `ProductPhotoForm` オブジェクトを1つ追加します:
 
@@ -614,7 +614,7 @@ symfony 1.3 の新機能として、一対多のリレーションシップを�
       ),
     )
 
-![既存の写真が2つある製品フォーム](http://www.symfony-project.org/images/more-with-symfony/advanced_forms_03.png "既存の写真が 2 つある製品フォーム")    
+![既存の写真が2つある製品フォーム](http://www.symfony-project.org/images/more-with-symfony/advanced_forms_03.png "既存の写真が 2 つある製品フォーム")
 
 次のステップでは、新しい *Photo* 埋め込みフォームをレンダリングするコードをビューに追加しましょう:
 

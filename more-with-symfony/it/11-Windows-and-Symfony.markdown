@@ -42,7 +42,7 @@ molte cose interessanti per gli sviluppatori PHP:
 
  * Più recentemente, Microsoft ha aperto il sipario su un acceleratore di cache
    per PHP, che al momento della stesura di questo capitolo (02/11/2009), si
-   trova nello stato di Release Candidate. 
+   trova nello stato di Release Candidate.
 
 >**SIDEBAR**
 >Estensioni previste per questo tutorial
@@ -55,7 +55,7 @@ molte cose interessanti per gli sviluppatori PHP:
 >      [PHP_PDO_MSSQL]
 >      extension=php_pdo_mssql.dll
 >
->Al momento, le migliori prestazioni per l'esecuzione del codice vengono ottenute con i driver 
+>Al momento, le migliori prestazioni per l'esecuzione del codice vengono ottenute con i driver
 >Microsoft nativi di SQL Server per PHP 5, un driver open-source disponibile su
 >Windows e attualmente disponibile nella versione 1.1. È implementato come una
 >nuova estensione DLL per PHP:
@@ -76,7 +76,7 @@ Queste pagine sono scritte specificamente per le edizioni a 64-bit di Windows Se
 >L'esatta versione del sistema operativo usato nelle schermate è
 >Windows Server 2008 Enterprise Edition con Service Pack 2, edizione a 64-bit.
 
-#### Versioni di Windows a 32-bit 
+#### Versioni di Windows a 32-bit
 
 Il tutorial è facilmente portabile alle versioni a 32-bit di Windows, sostituendo
 i seguenti riferimenti nel testo:
@@ -168,7 +168,7 @@ Se si sta lavorando da una workstation remota, il lettore dovrebbe lanciare
 Remote Desktop Services (precedentemente conosciuto come Terminal Server Client)
 e assicurarsi di avere l'accesso come amministratore.
 
-La distribuzione usata qui è: Windows Server 2008 con Service Pack 2. 
+La distribuzione usata qui è: Windows Server 2008 con Service Pack 2.
 
 ![Verificare l'ambiente iniziale con Winver command - qua in inglese](http://www.symfony-project.org/images/more-with-symfony/windows_01.png)
 
@@ -283,7 +283,7 @@ del server:
 
 ![Firefox - phpinfo.php L'esecuzione è OK](http://www.symfony-project.org/images/more-with-symfony/windows_16.png)
 
-In ultimo, per essere sicuri che symfony verrà installato senza problemi, scaricare 
+In ultimo, per essere sicuri che symfony verrà installato senza problemi, scaricare
 [http://sf-to.org/1.3/check.php](`check_configuration.php`).
 
 ![PHP - Dove scaricare check.php.](http://www.symfony-project.org/images/more-with-symfony/windows_17.png)
@@ -433,7 +433,7 @@ un'eccezione per la porta 8080, per essere in grado di raggiungere il "Sito
 web predefinito". A tal fine andare nel pannello di controllo di Windows,
 selezionare il Windows Firewall, cliccare su "Allow a program through Windows
 Firewall" e cliccare su "Add port" per creare questa eccezione. Dopo la creazione
-selezionare la casella per abilitarla. 
+selezionare la casella per abilitarla.
 
 ![Windows Firewall - Creare una eccezione per la porta 8080.](http://www.symfony-project.org/images/more-with-symfony/windows_27.png)
 
@@ -464,7 +464,7 @@ Il server Web è configurato per non mostrare l'elenco dei contenuti di questa c
 Ciò deriva dalla configurazione predefinita del server web, che specifica
 che il contenuto di questa cartella non dovrebbe essere elencato. Poiché non esiste
 nessun file predefinito come `index.php` o `index.html` in `D:\dev\sfsandbox`, il
-server restituisce correttamente il messaggio di errore "Forbidden". 
+server restituisce correttamente il messaggio di errore "Forbidden".
 
 ![Internet Explorer - Un errore normale.](http://www.symfony-project.org/images/more-with-symfony/windows_30.png)
 
@@ -729,5 +729,5 @@ localmente.
 
 ![Modifiche applicate al file "hosts".](http://www.symfony-project.org/images/more-with-symfony/windows_50.png)
 
-Il progetto symfony ora gira su web, senza DNS, da una sessione del browser 
+Il progetto symfony ora gira su web, senza DNS, da una sessione del browser
 eseguita all'interno del server web.

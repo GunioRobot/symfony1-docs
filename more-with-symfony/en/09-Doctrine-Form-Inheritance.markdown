@@ -947,14 +947,14 @@ Replace its current content with the following code:
                   ) ?>
                 <?php endif; ?>
                 <?php echo format_number_choice(
-                  '[0] no result|[1] 1 result|(1,+Inf] %1% results', 
+                  '[0] no result|[1] 1 result|(1,+Inf] %1% results',
                   array('%1%' => $pager->getNbResults()),
                   $pager->getNbResults(), 'sf_admin'
                 ) ?>
                 <?php if ($pager->haveToPaginate()): ?>
                   <?php echo __('(page %%page%%/%%nb_pages%%)', array(
-                    '%%page%%' => $pager->getPage(), 
-                    '%%nb_pages%%' => $pager->getLastPage()), 
+                    '%%page%%' => $pager->getPage(),
+                    '%%nb_pages%%' => $pager->getLastPage()),
                     'sf_admin'
                   ) ?>
                 <?php endif; ?>
@@ -972,14 +972,14 @@ Replace its current content with the following code:
                   'helper' => $helper
               )) ?>
               <?php include_partial(
-                $sf_request->getParameter('module').'/list_td_tabular', 
+                $sf_request->getParameter('module').'/list_td_tabular',
                 array(
                   'sf_'. $sf_request->getParameter('module') .'_item' => $item
               )) ?>
                 <?php include_partial(
                   $sf_request->getParameter('module').'/list_td_actions',
                   array(
-                    'sf_'. $sf_request->getParameter('module') .'_item' => $item, 
+                    'sf_'. $sf_request->getParameter('module') .'_item' => $item,
                     'helper' => $helper
                 )) ?>
             </tr>
@@ -991,15 +991,15 @@ Replace its current content with the following code:
       <script type="text/javascript">
         /* <![CDATA[ */
         function checkAll() {
-          var boxes = document.getElementsByTagName('input'); 
-          for (var index = 0; index < boxes.length; index++) { 
-            box = boxes[index]; 
+          var boxes = document.getElementsByTagName('input');
+          for (var index = 0; index < boxes.length; index++) {
+            box = boxes[index];
             if (
-              box.type == 'checkbox' 
-              && 
+              box.type == 'checkbox'
+              &&
               box.className == 'sf_admin_batch_checkbox'
-            ) 
-            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked 
+            )
+            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked
           }
           return true;
         }
@@ -1017,7 +1017,7 @@ and place the following code in each:
       'sort' => $sort,
       'colspan' => 5
     )) ?>
-    
+
 -
 
     // apps/backend/modules/shopping/templates/_list.php

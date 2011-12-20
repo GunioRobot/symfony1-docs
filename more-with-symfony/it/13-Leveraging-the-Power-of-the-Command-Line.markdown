@@ -8,9 +8,9 @@ comando in sostituzione del vecchio sistema dei task basato su pake. Di versione
 in versione il sistema dei task è stato migliorato fino ad arrivare a ciò che è
 oggi.
 
-Molti sviluppatori web non vedono il valore aggiunto dei task. Spesso, questi 
+Molti sviluppatori web non vedono il valore aggiunto dei task. Spesso, questi
 sviluppatori, non comprendono la potenza della linea di comando. In questo
-capitolo approfondiremo l'argomento task, dalle basi all'uso più avanzato, 
+capitolo approfondiremo l'argomento task, dalle basi all'uso più avanzato,
 osservando come possono aiutare il lavoro di tutti i giorni e come ottenere
 il massimo dai task.
 
@@ -18,7 +18,7 @@ Task al primo sguardo
 ---------------------
 
 Un task è una porzione di codice eseguito dalla linea di comando utilizzando lo
-script `symfony` nella directory radice del progetto. Avrete di sicuro già 
+script `symfony` nella directory radice del progetto. Avrete di sicuro già
 incontrato i task attraverso il ben famoso `cache:clear` (conosciuto anche come
 `cc`) lanciandolo nel terminale:
 
@@ -51,19 +51,19 @@ L'output avrà un aspetto simile al seguente (contenuto troncato):
     cache
       :clear                       Clears the cache (cc, clear-cache)
 
-Forse avrete già notato che i task sono raggruppati. Gruppi di task sono chiamati 
+Forse avrete già notato che i task sono raggruppati. Gruppi di task sono chiamati
 namespace e i nomi dei task sono generalmente composti da un namespace e da un
-nome del task (eccezion fatta per i task `help` e `list` che non hanno un 
-namespace). Questo schema di denominazione permette una semplice categorizzazione 
+nome del task (eccezion fatta per i task `help` e `list` che non hanno un
+namespace). Questo schema di denominazione permette una semplice categorizzazione
 dei task ed è consigliato scegliere oculatamente i namespace per ognuno dei propri
 task.
 
 Scrivere un proprio task
 ------------------------
 
-Iniziare a scrivere task con symfony è questione di pochi minuti. Tutto ciò che 
+Iniziare a scrivere task con symfony è questione di pochi minuti. Tutto ciò che
 c'è da fare è creare il task, dargli un nome, aggiungerci della logica, e voilà
-siete pronti a eseguire il vostro primo task personalizzato. Creiamo un 
+siete pronti a eseguire il vostro primo task personalizzato. Creiamo un
 semplicissimo task *Hello, World!*, per esempio in `lib/task/sayHelloTask.class.php`:
 
     [php]
@@ -87,8 +87,8 @@ Ora va eseguito con il seguente comando:
 
 Questo task si limita a mostrare *Hello, World!*, ma è solo l'inizio! I
 task non sono propriamente pensati per fornire dell'output direttamente attraverso
-i comandi `echo` o `print`. Estendendo `sfBaseTask` è possibile utilizzare 
-una moltitudine di utili metodi, incluso il metodo `log()` che fa esattamente 
+i comandi `echo` o `print`. Estendendo `sfBaseTask` è possibile utilizzare
+una moltitudine di utili metodi, incluso il metodo `log()` che fa esattamente
 quello che vogliamo, output di contenuti:
 
     [php]
@@ -97,7 +97,7 @@ quello che vogliamo, output di contenuti:
       $this->log('Hello, World!');
     }
 
-Dato che l'esecuzione di un singolo task può tramutarsi in diversi task che 
+Dato che l'esecuzione di un singolo task può tramutarsi in diversi task che
 producono contenuto in output, è preferibile utilizzare il metodo `logSection()`:
 
     [php]
@@ -106,7 +106,7 @@ producono contenuto in output, è preferibile utilizzare il metodo `logSection()
       $this->logSection('say', 'Hello, World!');
     }
 
-Ora, probabilmente avrete già notato i due parametri passati al metodo `execute()`, 
+Ora, probabilmente avrete già notato i due parametri passati al metodo `execute()`,
 `$arguments` e `$options`. Questi si occupano di contenere tutti i parametri e
 le opzioni passate al task al momento dell'esecuzione. Ci occuperemo di parametri
 e di opzioni in modo approfondito in seguito. Per adesso aggiungiamo un po' di
@@ -134,7 +134,7 @@ Dovrebbe produrre il seguente risultato:
 Wow, è stato facile.
 
 A proposito, potreste voler inserire ancora un po' di metadati nel task come per
-esempio ciò di cui si occupa. Per fare questo basta impostare le proprietà 
+esempio ciò di cui si occupa. Per fare questo basta impostare le proprietà
 `briefDescription` e `description`:
 
     [php]
@@ -177,8 +177,8 @@ secondo caso si comportano come booleani. Molto spesso le opzioni hanno entrambe
 i formati lungo e corto. Il formato lungo è solitamente invocato utilizzando due
 trattini mente quello corto ne richiede uno solo.
 
-Esempio di opzioni comuni sono il selettore dell'help (`--help` or `-h`), il 
-selettore della verbosità (`--quiet` or `-q`) o quello della versione (`--version` 
+Esempio di opzioni comuni sono il selettore dell'help (`--help` or `-h`), il
+selettore della verbosità (`--quiet` or `-q`) o quello della versione (`--version`
 or `-V`).
 
 >**NOTE**
@@ -188,7 +188,7 @@ or `-V`).
 ### Argomenti
 
 I parametri sono porzioni di dati che vengono aggiunte alla riga di comando.
-Devono essere specificati nello stesso ordine con il quale sono stati definiti, 
+Devono essere specificati nello stesso ordine con il quale sono stati definiti,
 vanno racchiusi tra apici se si ha la necessità di includere uno spazio in essi
 (oppure va eseguito l'escape degli spazi). I parametri possono essere obbligatori
 o opzionali, nel qual caso sarà necessario specificare un valore di default
@@ -210,26 +210,26 @@ Ogni task di symfony ha un insieme di opzioni e parametri di default:
 
 ### Opzioni speciali
 
-Il sistema dei task di symfony comprende due opzioni molto speciali quali 
+Il sistema dei task di symfony comprende due opzioni molto speciali quali
 `application` e `env`. L'opzione `application` è necessaria quando di ha bisogno
 di accedere a un'istanza di `sfApplicationConfiguration` oltre che al solo
 `sfProjectConfiguration`. Questo è il caso, per esempio, di quando si vogliono
-generare URLs dato che il routing è generalmente associato a una specifica 
+generare URLs dato che il routing è generalmente associato a una specifica
 applicazione.
 
 Quando un'opzione `application` viene passata a un task, symfony la riconosce
-automaticamente e crea l'oggetto `sfApplicationConfiguration` corrispondente 
-invece che l'oggetto di default `sfProjectConfiguration`. Ricordate che è 
+automaticamente e crea l'oggetto `sfApplicationConfiguration` corrispondente
+invece che l'oggetto di default `sfProjectConfiguration`. Ricordate che è
 possibile impostare un valore di default per questa opzione, salvandovi quindi
-dal dover passare manualmente l'applicazione corrispondente ogni volta che 
+dal dover passare manualmente l'applicazione corrispondente ogni volta che
 il task viene eseguito.
 
 L'opzione `env` controlla, ovviamente, l'ambiente nel quale il task viene eseguito.
-Quando non viene specificato l'ambiente, `test` viene utilizzato come default. 
-Come per l'opzione `application`, è possibile impostare un valore di default per 
+Quando non viene specificato l'ambiente, `test` viene utilizzato come default.
+Come per l'opzione `application`, è possibile impostare un valore di default per
 l'opzione `env` che verrà utilizzato automaticamente da symfony.
 
-Dato che `application` e `env` non sono incluse nell'insieme delle opzioni di 
+Dato che `application` e `env` non sono incluse nell'insieme delle opzioni di
 default è necessario aggiungerle a mano nel task:
 
     [php]
@@ -241,13 +241,13 @@ default è necessario aggiungerle a mano nel task:
       ));
     }
 
-In questo esempio l'applicazione `frontend` verrà usata automaticamente e, a 
+In questo esempio l'applicazione `frontend` verrà usata automaticamente e, a
 meno di non specificare un ambiente, il task verrà eseguito nell'ambiente `dev`.
 
 Accedere al database
 --------------------
 
-Accedere al database direttamente da un task di symfony è solo questione di 
+Accedere al database direttamente da un task di symfony è solo questione di
 istanziare `sfDatabaseManager`:
 
     [php]
@@ -265,7 +265,7 @@ istanziare `sfDatabaseManager`:
       $connection = $databaseManager->getDatabase()->getConnection();
     }
 
-Ma cosa succede quando si hanno diverse connessione definite del file 
+Ma cosa succede quando si hanno diverse connessione definite del file
 `databases.yml`? È possibile, per esempio, aggiungere un'opzione `connection`
 al task:
 
@@ -295,8 +295,8 @@ lavorando all'interno di un'applicazione symfony.
 Inviare email
 -------------
 
-Uno degli utilizzi più comuni dei task è l'invio di email. Prima di symfony 1.3 
-inviare email non era un processo così immediato. Ma i tempi sono cambiati: 
+Uno degli utilizzi più comuni dei task è l'invio di email. Prima di symfony 1.3
+inviare email non era un processo così immediato. Ma i tempi sono cambiati:
 symfony ora propone la completa integraziene di [Swift Mailer](http://swiftmailer.org/),
 una libreria PHP molto completa per l'invio delle email. Usiamola quindi!
 
@@ -312,7 +312,7 @@ l'accesso al mailer e inviare email facilmente:
     }
 
 >**NOTE**
->Visto che la configurazione del mailer viene letta dalla configurazione 
+>Visto che la configurazione del mailer viene letta dalla configurazione
 >dell'applicazione, il task deve accettare un'opzione per l'applicazione per
 >essere in grado di utilizzare il mailer.
 
@@ -322,8 +322,8 @@ l'accesso al mailer e inviare email facilmente:
 >Se utilizzate la strategia dello spool, le email vengono inviate solamente quando
 >viene eseguito il task `project:send-emails`.
 
-In molti casi non vorrete avere il contenuto del messaggio in una variabile 
-`$messageBody` solo in attesa di essere inviato, vorrete generarlo in qualche 
+In molti casi non vorrete avere il contenuto del messaggio in una variabile
+`$messageBody` solo in attesa di essere inviato, vorrete generarlo in qualche
 modo. Non esiste un modo preferibile in symfony per generare il contenuto delle
 proprie email, tuttavia abbiamo un paio di suggerimenti da seguire per avere
 una vita più facile:
@@ -346,7 +346,7 @@ per la mail che si sta per inviare:
 
 ### Utilizzare il decorator plugin di Swift Mailer
 
-Swift Mailer mette a disposizione un plugin conosciuto come 
+Swift Mailer mette a disposizione un plugin conosciuto come
 [`Decorator`](http://swiftmailer.org/docs/decorator-plugin), che non è altro che
 un semplicissimo, quanto efficiente, motore di template, che può prendere delle coppie
 di valori recipiente-rimpiazzo da utilizzare e applicarli a tutte le email da inviare.
@@ -863,7 +863,7 @@ dei metodi `log`:
   * `log`, accetta un array di messaggi
   * `logSection`, un po' più elaborato, formatta il messaggio con un prefisso
     (primo parametro) e un tipo di messaggio (quarto parametro). Quando si
-    inserisce un messaggio troppo lungo, come il percorso di un file, 
+    inserisce un messaggio troppo lungo, come il percorso di un file,
     `logSection` solitamente lo accorcia, il che potrebbe risultare
     fastidioso. Usare il terzo parametro per specificare una dimensione
     massima per il proprio messaggio.

@@ -41,9 +41,9 @@ Listato 8-2 - Il metodo accessor maschera la logica dei dati
       return $totale;
     }
 
-C'è un altro punto importante da considerare quando si realizzano delle procedure di accesso ai dati: ogni database utilizza una variante diversa di sintassi SQL. Il passaggio a un altro DataBase Management System (DBMS) costringe a riscrivere parte delle query SQL che sono state progettate per quello precedente. Costruendo le query utilizzando una sintassi indipendente dal database e lasciando la traduzione reale nell'SQL a un componente di terze parti, è possibile cambiare il tipo di database senza troppi problemi. Questo è l'obiettivo dello strato di astrazione del database. Costringe a usare una sintassi specifica per le query e fa il lavoro sporco di conformarsi alle particolarità del DBMS e di ottimizzare il codice SQL. 
+C'è un altro punto importante da considerare quando si realizzano delle procedure di accesso ai dati: ogni database utilizza una variante diversa di sintassi SQL. Il passaggio a un altro DataBase Management System (DBMS) costringe a riscrivere parte delle query SQL che sono state progettate per quello precedente. Costruendo le query utilizzando una sintassi indipendente dal database e lasciando la traduzione reale nell'SQL a un componente di terze parti, è possibile cambiare il tipo di database senza troppi problemi. Questo è l'obiettivo dello strato di astrazione del database. Costringe a usare una sintassi specifica per le query e fa il lavoro sporco di conformarsi alle particolarità del DBMS e di ottimizzare il codice SQL.
 
-Il principale vantaggio del livello di astrazione è la portabilità, perché rende possibile il passaggio a un'altra base di dati, anche nel bel mezzo di un progetto. Si supponga di dover scrivere rapidamente un prototipo per un'applicazione, ma il cliente non ha ancora deciso quale sistema di base dati può essere la più adatto alle sue esigenze. Si può cominciare a costruire l'applicazione con SQLite, per esempio e passare a MySQL, PostgreSQL, Oracle quando il cliente ha fatto la scelta. Per fare il cambiamento, basta cambiare una riga in un file di configurazione. 
+Il principale vantaggio del livello di astrazione è la portabilità, perché rende possibile il passaggio a un'altra base di dati, anche nel bel mezzo di un progetto. Si supponga di dover scrivere rapidamente un prototipo per un'applicazione, ma il cliente non ha ancora deciso quale sistema di base dati può essere la più adatto alle sue esigenze. Si può cominciare a costruire l'applicazione con SQLite, per esempio e passare a MySQL, PostgreSQL, Oracle quando il cliente ha fatto la scelta. Per fare il cambiamento, basta cambiare una riga in un file di configurazione.
 
 Symfony usa Propel o Doctrine come ORM, e questi usano oggetti PHP per l'astrazione dei dati del database. Queste due componenti di terze parti, entrambi sviluppati dal team di Propel e Doctrine, sono perfettamente integrati in symfony, ed è possibile considerarli come parte del framework. La loro sintassi e le loro convenzioni, descritte in questo capitolo, sono state adattate in modo da differenziarsi il meno possibile da quelle di symfony.
 
@@ -81,7 +81,7 @@ Listato 8-3 - Esempio di file `schema.yml`
           autoincrement: true
         titolo:   string(255)
         contenuto: clob
-    
+
     Commento:
       actAs: [Timestampable]
       tableName: blog_commento
@@ -104,7 +104,7 @@ Notare che il nome del database (`blog`) non compare nel file `schema.yml`. Il d
 
 In un file `schema.yml`, la prima chiave rappresenta un nome del modello. È possibile specificare più modelli, ciascuno con un insieme di colonne. Secondo la sintassi YAML, le chiavi terminano con i due punti e la struttura è specificata mediante indentazione (uno o più spazi, ma non tab).
 
-Un modello può avere attributi speciali, tra cui la `tableName` (il nome della tabella del database relativa al modello). Se non si specifica la `tableName` per un modello, Doctrine lo crea facendo una versione con sottolineatura del nome del modello. 
+Un modello può avere attributi speciali, tra cui la `tableName` (il nome della tabella del database relativa al modello). Se non si specifica la `tableName` per un modello, Doctrine lo crea facendo una versione con sottolineatura del nome del modello.
 
 >**TIP**
 >La convenzione della sottolineatura aggiunge sottolineature tra le parole e utilizza solo caratteri minuscoli. Le versioni sottolineate predefinite di `Articolo` e `Commento` sono `articolo` e `commento`.
@@ -161,7 +161,7 @@ Listato 8-4 - Esempio di file di una classe del modello, in `lib/model/doctrine/
     }
 
 La classe Articolo eredita ogni cosa della classe `BaseArticolo`, ma modifiche nello schema non hanno effetti su Articolo.
-	
+
 Il meccanismo delle classi personalizzate che estendono delle classi base consente di iniziare lo sviluppo, anche senza conoscere il modello relazionale finale del database. La relativa struttura dei file rende il modello sia personalizzabile che estendibile.
 
 ### Classi di oggetti e tabelle
@@ -369,7 +369,7 @@ Listato 8-14 - Altro esempio di recupero dei record di Doctrine_Query con `creat
     SELECT b.id AS b__id, b.articolo_id AS b__articolo_id, b.autore AS b__autore, b.contenuto AS b__contenuto, b.created_at AS b__created_at, b.updated_at AS b__updated_at, b2.id AS b2__id, b2.titolo AS b2__titolo, b2.contenuto AS b2__contenuto, b2.created_at AS b2__created_at, b2.updated_at AS b2__updated_at FROM blog_commento b LEFT JOIN blog_articolo b2 ON b.articolo_id = b2.id WHERE (b.autore = ? AND b2.contenuto LIKE ?) ORDER BY b.created_at ASC
 
 Così come l'SQL è un linguaggio che permette di costruire query molto complesse, l'oggetto Doctrine_Query può gestire condizioni con ogni livello di complessità. Ma dal momento che molti sviluppatori prima pensano in SQL e poi traducono la condizione nella logica orientata agli oggetti, l'oggetto `Doctrine_Query` potrebbe all'inizio essere difficile da comprendere. Il miglior modo per impararlo è guardarsi esempi e applicazioni di esempio. Il sito web del progetto symfony, è pieno di esempi di costruzioni di `Doctrine_Query` che potranno essere di aiuto.
-	
+
 Ogni istanza di `Doctrine_Query` ha un metodo `count()`, che semplicemente conta il numero dei record per la query e restituisce un intero. Poiché non c'è un oggetto da restituire, il processo di idratazione in questo caso non avviene e per questo motivo il metodo `count()` è più veloce di `execute()`.
 
 Le classi della tabella forniscono anche i metodi `findAll()`, `findBy*()` e `findOneBy*()`, che sono scorciatoie per la creazione di istanze `Doctrine_Query`, l'esecuzione di esse e la restituzione dei risultati.
@@ -493,7 +493,7 @@ Listato 8-18 - Esempio di impostazioni per la connessione al database, in `miopr
             tblname_format: %s
 
 Per sovrascrivere la configurazione per applicazione, è necessario modificare il file della specifica applicazione, ad esempio `apps/frontend/config/databases.yml`.
-			
+
 Se si vuole usare il database SQLite, il parametro `dsn` deve essere impostato con il percorso al file del database. Ad esempio, se il database del blog è in `data/blog.db`, il file `databases.yml` apparirà come nel Listato 8-19.
 
 Listato 8-19 - Impostazioni per la connessione al database SQLite. Usare un percorso file come host
@@ -595,7 +595,7 @@ Per abilitare i comportamenti nelle classi del modello, è necessario modificare
         contenuto: clob
 
 Dopo aver rigenerato i modelli, il modello `Articolo` ha una colonna slug che è automaticamente impostata con una stringa "amichevole" per le url basata sul titolo.
-		
+
 Alcuni dei comportamenti disponibili per Doctrine sono:
 
  * Timestampable
@@ -842,8 +842,8 @@ Dalla struttura del database viene generato un nuovo file `schema.yml` nella car
 Riepilogo
 ---------
 
-Symfony usa Doctrine come ORM e PHP Data Objects per il livello di astrazione del database. Ciò significa che è necessario prima descrivere lo schema relazionale del database in YAML prima di generare le classi del modello a oggetti. Poi, in fase di runtime, utilizzare i metodi dell'oggetto e le classi delle tabelle per recuperare informazioni su un record o un insieme di record. È possibile facilmente sovrascrivere ed estendere il modello aggiungendo metodi alle classi personalizzate. Le impostazioni di connessione sono definite in un file `databases.yml`, che può supportare più di una connessione. E la linea di comando contiene dei task speciali per evitare di duplicare la definizione della struttura. 
+Symfony usa Doctrine come ORM e PHP Data Objects per il livello di astrazione del database. Ciò significa che è necessario prima descrivere lo schema relazionale del database in YAML prima di generare le classi del modello a oggetti. Poi, in fase di runtime, utilizzare i metodi dell'oggetto e le classi delle tabelle per recuperare informazioni su un record o un insieme di record. È possibile facilmente sovrascrivere ed estendere il modello aggiungendo metodi alle classi personalizzate. Le impostazioni di connessione sono definite in un file `databases.yml`, che può supportare più di una connessione. E la linea di comando contiene dei task speciali per evitare di duplicare la definizione della struttura.
 
-Lo strato del modello è il più complesso del framework symfony. Una delle ragioni di questa complessità è che la manipolazione dei dati è una questione intricata. I problemi di sicurezza correlati sono fondamentali per un sito web e non devono essere ignorati. Un'altra ragione è che symfony è più adatto ad applicazioni di medio-grandi dimensioni in contesto enterprise. In tali applicazioni, le automazioni fornite dal modello di symfony possono davvero rappresentare un guadagno di tempo che vale l'investimento per apprendere il suo funzionamento. 
+Lo strato del modello è il più complesso del framework symfony. Una delle ragioni di questa complessità è che la manipolazione dei dati è una questione intricata. I problemi di sicurezza correlati sono fondamentali per un sito web e non devono essere ignorati. Un'altra ragione è che symfony è più adatto ad applicazioni di medio-grandi dimensioni in contesto enterprise. In tali applicazioni, le automazioni fornite dal modello di symfony possono davvero rappresentare un guadagno di tempo che vale l'investimento per apprendere il suo funzionamento.
 
 Quindi non esitate nel dedicare un periodo di prova al modello a oggetti e ai metodi, per comprenderli pienamente. La solidità e la scalabilità delle applicazioni saranno la ricompensa.

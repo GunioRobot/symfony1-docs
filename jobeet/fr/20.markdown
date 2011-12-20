@@ -110,7 +110,7 @@ Ensuite, activez le plugin `sfJobeetPlugin` dans le fichier `config/ProjectConfi
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -193,7 +193,7 @@ Et le code doit être mis à jour :
         {
           $this->setToken(sha1($object->getEmail().rand(11111, 99999)));
         }
-        
+
         parent::save($conn);
       }
 
@@ -281,7 +281,7 @@ le schéma et ajouter des colonnes, ajouter des relations en surchargeant les m�
 >       {
 >         parent::setup();
 >       }
->       
+>
 >       // ...
 >     }
 </doctrine>
@@ -660,7 +660,7 @@ Supprimez toutes les méthodes de la classe `myUser` et créez la classe `Jobeet
             ->whereIn('a.id', $ids)
             ->execute();
         }
-        
+
         return array();
 </doctrine>
       }

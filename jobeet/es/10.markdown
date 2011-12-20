@@ -42,7 +42,7 @@ Los campos del formulario se configuran en el método `configure()`, usando los 
 >El framework de formularios trae incluida una gran cantidad de
 >[widgets](http://www.symfony-project.org/api/1_4/widget) y
 >[validators](http://www.symfony-project.org/api/1_4/validator). La API
->los describe muy ampliamente con todas las opciones, los errores, y 
+>los describe muy ampliamente con todas las opciones, los errores, y
 >mensajes de error por defecto.
 
 Los nombres de las clases de los widgets y validadores son muy explícitos: el campo `email` se muestra como una etiqueta HTML `<input>` (`sfWidgetFormInputText`) y validado como una dirección de correo electrónico (`sfValidatorEmail`). El campo `message` se muestra como una etiqueta HTML `<textarea>` (`sfWidgetFormTextarea`), y debe ser una cadena de no más de 255 caracteres (`sfValidatorString`).
@@ -50,7 +50,7 @@ Los nombres de las clases de los widgets y validadores son muy explícitos: el c
 Por defecto, todos los campos son obligatorios, así el valor por defecto para `required` es `true`. Por lo tanto, la definición de la validación para `email` es equivalente a `new sfValidatorEmail(array('required' => true))`.
 
 >**TIP**
->Es posible combinar un formulario en otro usando el método `mergeForm()`, 
+>Es posible combinar un formulario en otro usando el método `mergeForm()`,
 >o incluir un formulario dentro de otro mediante el método `embedForm()`:
 >
 >     [php]
@@ -84,7 +84,7 @@ La tarea `propel:build --forms` genera las clases form en `lib/form/`. La organi
 
 <propel>
 >**TIP**
->Navegando por los archivos generados en el sub-directorio `lib/form/base/`, 
+>Navegando por los archivos generados en el sub-directorio `lib/form/base/`,
 >verás un montón de ejemplos de uso de widgets symfony incluidos y de
 >validadores.
 </propel>
@@ -143,8 +143,8 @@ Vamos a cambiar el valor por defecto `sfValidatorString` a `sfValidatorEmail`:
 
       $this->validatorSchema['email'] = new sfValidatorEmail();
     }
-    
-Reemplar el validador por defecto no siempre es la mejor solución, ya que las 
+
+Reemplar el validador por defecto no siempre es la mejor solución, ya que las
 reglas de validación por defecto inferidas del esquema de la base de datos se pierden
 (`new sfValidatorString(array('max_length' => 255))`). Es casi siempre mejor para
 agregar un nuevo validador a uno existente usar el validador especial `sfValidatorAnd`:
@@ -166,7 +166,7 @@ agregar un nuevo validador a uno existente usar el validador especial `sfValidat
       ));
     }
 
-El validador `sfValidatorAnd` toma un arreglo o array de validadores que deben 
+El validador `sfValidatorAnd` toma un arreglo o array de validadores que deben
 pasarse para que el aor sea válido. El truco aquí es referenciar al actual validador
 ($this->validatorSchema['email']), y añadirle uno nuevo.
 
@@ -174,7 +174,7 @@ pasarse para que el aor sea válido. El truco aquí es referenciar al actual val
 >También puede usar el validador `sfValidatorOr` para forzar un valor a
 >pasar al menos un validador. Y por supuesto, puedes mezclar y coinicidir
 >los validadores `sfValidatorAnd` y `sfValidatorOr` para crear complejos
->validadores basados en boleanos.    
+>validadores basados en boleanos.
 
 Incluso si el `type` de la columna es también un `varchar` en el esquema, queremos que su valor este restringido a una lista de opciones: full time, part time, o freelance.
 
@@ -303,7 +303,7 @@ Como el validador guarda la ruta relativa en la base de datos, cambia la ruta de
     <img src="/uploads/jobs/<?php echo $job->getLogo() ?>" alt="<?php echo $job->getCompany() ?> logo" />
 
 >**TIP**
->Si un método `generateLogoFilename()` existe en el modelo, este será llamado por 
+>Si un método `generateLogoFilename()` existe en el modelo, este será llamado por
 >el validador y el resultado sobreescribirá el nombre del archivo generado por defecto `logo`.
 >El método tiene un objeto `sfValidatedFile` como un argumento.
 
@@ -420,7 +420,7 @@ el JavaScript y hoja de estilo necesarios para los form widgets.
 >si decides cambiar un widget que necesite de algunos JavaScript o una
 >hoja de estilo específica.
 
-El helper `form_tag_for()` genera una etiqueta `<form>` para un formulario y ruta dado y cambia los métodos HTTP a `POST` o `PUT` dependiendo de si el objeto es nuevo o no. También se ocupa del atributo `multipart` si el 
+El helper `form_tag_for()` genera una etiqueta `<form>` para un formulario y ruta dado y cambia los métodos HTTP a `POST` o `PUT` dependiendo de si el objeto es nuevo o no. También se ocupa del atributo `multipart` si el
 formulario tiene algun file input.
 
 Eventualmente, `<?php echo $form ?>` muestra los form widgets.
@@ -567,7 +567,7 @@ Cambia el método `executeNew()` para definir `full-time` como el valor por defe
 ### Proteger el formulario Job con un Token
 
 Todo debe funcionar bien por ahora. A partir de ahora, el usuario debe ingresar el token
-para el puesto de trabajo (job). Pero el token del puesto de trabajo debe ser generado automáticamente cuando un nuevo puesto de trabajo es creado, ya que no queremos proporcionarle al usuario un único token. 
+para el puesto de trabajo (job). Pero el token del puesto de trabajo debe ser generado automáticamente cuando un nuevo puesto de trabajo es creado, ya que no queremos proporcionarle al usuario un único token.
 
 Actualiza el método `save()` de `JobeetJob` para agregar la lógica que genera los token antes de que un nuevo puesto de trabajo sea guardado:
 
@@ -692,7 +692,7 @@ Entonces, crea el partial `_admin`:
       </ul>
     </div>
 
-Hay un montón de código, pero la mayor parte del código es fácil de entender. 
+Hay un montón de código, pero la mayor parte del código es fácil de entender.
 
 Para hacer la plantilla más fácil de leer, hemos añadido un montón de métodos de acceso directo en la clase `JobeetJob`:
 
@@ -842,7 +842,7 @@ Esta es una de las grandes ventajas del modelo MVC y la refactorización que hem
 
 >**NOTE**
 <propel>
->Cuando creamos el método `getWithJobs()`, hemos olvidado de utilizar el 
+>Cuando creamos el método `getWithJobs()`, hemos olvidado de utilizar el
 >método `addActiveJobsCriteria()`. Por lo tanto, tenemos que editar y añadir el nuevo
 >requisito:
 </propel>
@@ -890,7 +890,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

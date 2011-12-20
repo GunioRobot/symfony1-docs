@@ -151,10 +151,10 @@ JavaScript e Fogli di Stile
 
 ### Rimozione del filtro common
 
-`sfCommonFilter` è stato deprecato e non più usato di default. Questo filtro 
-serviva per inserire automaticamente i tag per JavaScript e fogli di stile nel 
-contenuto della risposta. Ora si deve includere manualmente questi elementi 
-richiamando esplicitamente gli helper `include_stylesheets()` e 
+`sfCommonFilter` è stato deprecato e non più usato di default. Questo filtro
+serviva per inserire automaticamente i tag per JavaScript e fogli di stile nel
+contenuto della risposta. Ora si deve includere manualmente questi elementi
+richiamando esplicitamente gli helper `include_stylesheets()` e
 `include_javascripts()` nel layout:
 
     [php]
@@ -232,7 +232,7 @@ Integrazione con Doctrine
 ### Versione Richiesta di Doctrine
 
 Gli external verso Doctrine sono stati aggiornati all'ultima versione di
-Doctrine 1.2. Si possono avere informazioni sulle novità di Doctrine 1.2 
+Doctrine 1.2. Si possono avere informazioni sulle novità di Doctrine 1.2
 [qui](http://www.doctrine-project.org/upgrade/1_2).
 
 ### Cancellazione nell'Admin Generator
@@ -276,7 +276,7 @@ Plugin
 
 Se si usa il metodo `enableAllPluginsExcept()` per gestire i plugin abilitati
 nella classe `ProjectConfiguration`, si faccia attenzione al fatto che ora
-i plugin sono ordinati per nome, in modo da assicurare coerenza tra 
+i plugin sono ordinati per nome, in modo da assicurare coerenza tra
 piattaforme diverse.
 
 Widget
@@ -337,7 +337,7 @@ parser YAML a usare le specifiche YAML 1.1, usando il metodo
 
     [php]
     sfYaml::setSpecVersion('1.1');
-  
+
 Propel
 ------
 

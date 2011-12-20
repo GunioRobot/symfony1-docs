@@ -114,7 +114,7 @@ Si cometes un error en la prueba, y la prueba no pasa, puedes usar la instrucci�
     [php]
     with('form')->debug()
 
-Probando la Redirección 
+Probando la Redirección
 -----------------------
 
 Como el formulario es válido, el puesto de trabajo debería haber sido creado y el usuario se redirige a la página `show`:
@@ -134,7 +134,7 @@ El método `isRedirected()` prueba si la página se ha redireccionado y el méto
 >La clase browser no sigue las redirecciones automaticamente como podrías imaginar
 >para inferir objetos antes de la redirección.
 
-El Tester ##ORM## 
+El Tester ##ORM##
 -------------------
 
 Finalmente, queremos poner a prueba que el puesto de trabajo se ha creado en la base de datos y comprobar que la columna `is_activated` está en `false` ya que el usuario no lo ha publicado todavía.
@@ -202,7 +202,7 @@ El método `hasErrors()` puede poner a prueba el número de errores si se pasa u
 El método `isError()` prueba el código de error para un determinado campo.
 
 >**TIP**
->En las pruebas que hemos escrito para el envío de datos no válidos, no tenemos que 
+>En las pruebas que hemos escrito para el envío de datos no válidos, no tenemos que
 >probar todo el formulario de nuevo. Sólo hemos añadido las pruebas para
 >cosas específicas.
 
@@ -536,7 +536,7 @@ Seguridad en Formularios
 ### La Magia de los Formularios Serializados!
 
 Los Formularios ##ORM## son muy fáciles de usar, ya que automatizan una gran cantidad de trabajo. Por ejemplo, serializar un formulario a la base de datos es tan simple como una llamada a
-`$form->save()`. 
+`$form->save()`.
 
 ¿Cómo funciona? Básicamente, el método `save()` hace las siguientes pasos:
 
@@ -593,21 +593,21 @@ La prueba debe pasar ahora, pero el valor `token`, se ha excluido de los valores
     $this->validatorSchema->setOption('filter_extra_fields', false);
 
 >**NOTE**
->Las pruebas escritas en esta sección son únicamente para efectos de demostrativos. 
->Puedes ahora eliminarlos del proyecto Jobeet ya que las pruebas no necesitan validar 
+>Las pruebas escritas en esta sección son únicamente para efectos de demostrativos.
+>Puedes ahora eliminarlos del proyecto Jobeet ya que las pruebas no necesitan validar
 >características de Symfony.
 
-### Protección XSS y CSRF 
+### Protección XSS y CSRF
 
 Durante el día 1, aprendiste la tarea `generate:app` creando una aplicación segura por defecto.
 
-Primero, se habilitó la protección contra XSS. Esto significa que todas las variables 
-utilizadas en las plantillas se escaparán por defecto. Si intentas enviar una 
+Primero, se habilitó la protección contra XSS. Esto significa que todas las variables
+utilizadas en las plantillas se escaparán por defecto. Si intentas enviar una
 descripción del trabajo con algunas etiquetas HTML dentro, te darás cuenta que cuando
-Symfony muestra la página del puesto de trabajo, las etiquetas HTML de la descripción 
+Symfony muestra la página del puesto de trabajo, las etiquetas HTML de la descripción
 no se interpretan, pero si se ven como texto plano sin formato.
 
-Entonces se habilita la protección CSRF. Cuando un token CSRF es configurado, 
+Entonces se habilita la protección CSRF. Cuando un token CSRF es configurado,
 todos los formularios incrustan un campo oculto `_csrf_token`.
 
 >**TIP**
@@ -719,8 +719,8 @@ Como siempre, el código para tener una base de datos limpia ha sido un refactor
 </doctrine>
 
 >**NOTE**
->Las tareas de Symfony se comportan muy bien con su entorno ya que regresan un 
->valor de acuerdo con el éxito de la Tarea. Puedes forzar un valor 
+>Las tareas de Symfony se comportan muy bien con su entorno ya que regresan un
+>valor de acuerdo con el éxito de la Tarea. Puedes forzar un valor
 >devolviendo un número entero explícitamente al final de la Tarea.
 
 Nos vemos mañana
@@ -736,7 +736,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

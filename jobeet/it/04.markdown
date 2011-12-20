@@ -4,7 +4,7 @@ Giorno 4: Il controllore e la vista
 Ieri abbiamo analizzato come symfony possa semplificare la gestione
 del database astraendo le differenze tra i vari motori di database e convertendo
 gli elementi dello schema relazionale in classi orientate agli oggetti. Abbiamo inoltre
-giocato con ##ORM## per descrivere lo schema del database, creare le tabelle e 
+giocato con ##ORM## per descrivere lo schema del database, creare le tabelle e
 popolare il database con alcuni dati iniziali.
 
 Oggi andremo a personalizzare il modulo `job` creato ieri. Il modulo `job`
@@ -25,12 +25,12 @@ Se siete abituati a sviluppare siti web con PHP senza utilizzare un framework,
 probabilmente utilizzate il paradigma del singolo file PHP per singola pagina
 HTML. Questi file PHP probabilmente contengono lo stesso tipo di struttura:
 inizializzazione e configurazioni globali, business logic relativa alla pagina
-richiesta, recupero dei record dal database e infine il codice HTML che 
+richiesta, recupero dei record dal database e infine il codice HTML che
 costruisce la pagina.
 
 Potreste usare un motore per i template per separare la logica dall'HTML.
 Forse usate un layer per l'astrazione del database per separare l'interazione
-tra il modello e la business logic. Purtroppo il più delle volte finite per 
+tra il modello e la business logic. Purtroppo il più delle volte finite per
 avere una grande quantità di codice che è un vero e proprio incubo da mantenere.
 È stato veloce da realizzare, ma con il passare del tempo è sempre più difficile
 apportare cambiamenti, specialmente perché nessuno eccetto voi capisce
@@ -48,10 +48,10 @@ codice secondo la sua natura. Questo pattern separa il codice in **tre strati**:
 
   * La **~Vista~** rappresenta ciò con cui l'utente interagisce (un motore di template è
     parte di questo strato). In symfony lo strato della Vista è principalmente costituito
-    da template PHP. Queste sono memorizzate in varie cartelle `templates` come 
+    da template PHP. Queste sono memorizzate in varie cartelle `templates` come
     vedremo in seguito.
 
-  * Il **~Controllore~** è la parte di codice che chiama il Modello per ottenere 
+  * Il **~Controllore~** è la parte di codice che chiama il Modello per ottenere
     alcuni dati da passare alla Vista per visualizzarli attraverso il client.
     Quando abbiamo installato symfony il primo giorno abbiamo visto che tutte
     le richieste sono gestite dai front controller (`index.php` e `frontend_dev.php`).
@@ -61,7 +61,7 @@ codice secondo la sua natura. Questo pattern separa il codice in **tre strati**:
 ![MVC](http://www.symfony-project.org/images/jobeet/1_4/04/mvc.png)
 
 Oggi utilizzeremo il mockup definito il giorno 2 per personalizzare l'homepage
-e la pagina delle offerte di lavoro. Inoltre le renderemo dinamiche. Lungo la strada 
+e la pagina delle offerte di lavoro. Inoltre le renderemo dinamiche. Lungo la strada
 perfezioneremo molte cose in molti file differenti per mostrare la struttura
 delle cartelle di symfony e come separare il codice tra i vari strati.
 
@@ -175,8 +175,8 @@ Rimpiazzate il layout di default di symfony con il seguente codice:
       </body>
     </html>
 
-Un template di symfony è solamente un semplice file PHP. Nel template del 
-layout ci sono chiamate a funzioni PHP e riferimenti a variabili PHP. 
+Un template di symfony è solamente un semplice file PHP. Nel template del
+layout ci sono chiamate a funzioni PHP e riferimenti a variabili PHP.
 `$sf_content` è la variabile più interessante: è definita dal framework stesso
 e contiene l'HTML generato dall'azione.
 
@@ -430,7 +430,7 @@ Ecco il codice attuale del template:
     [php]
     <!-- apps/frontend/modules/job/templates/indexSuccess.php -->
     <?php use_stylesheet('jobs.css') ?>
-    
+
     <h1>Job List</h1>
 
     <table>

@@ -1,7 +1,7 @@
 ﻿Giorno 20: I plugin
 ===================
 
-Ieri avete imparato a internazionalizzare e localizzare gli applicativi symfony. 
+Ieri avete imparato a internazionalizzare e localizzare gli applicativi symfony.
 Ancora una volta, grazie allo standard ICU e a numerosi helper,
 symfony rende il tutto veramente facile.
 
@@ -57,7 +57,7 @@ i form e i template), tutti i file CMS assieme e così via.
 La struttura in file del plugin
 -------------------------------
 
-Un plugin è solo una cartella con file organizzati secondo una ~struttura|Struttura~ 
+Un plugin è solo una cartella con file organizzati secondo una ~struttura|Struttura~
 predefinita, a seconda della natura dei file. Oggi, sposteremo gran parte del
 codice che abbiamo scritto per Jobeet in un `sfJobeetPlugin`. La configurazione di base che
 verrà utilizzata è la seguente:
@@ -65,7 +65,7 @@ verrà utilizzata è la seguente:
     sfJobeetPlugin/
       config/
         sfJobeetPluginConfiguration.class.php // Inizializzazione dei plugin
-        schema.yml                            // Schema del database 
+        schema.yml                            // Schema del database
         routing.yml                           // Rotte
       lib/
         Jobeet.class.php                      // Classi
@@ -96,7 +96,7 @@ Occorre quindi attivare `sfJobeetPlugin` in `config/ProjectConfiguration.class.p
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfPropelPlugin', 
+        'sfPropelPlugin',
         'sfGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -108,7 +108,7 @@ Occorre quindi attivare `sfJobeetPlugin` in `config/ProjectConfiguration.class.p
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -210,9 +210,9 @@ dallo schema incluso con `sfJobeetPlugin` in `lib/model/doctrine/sfJobeetPlugin/
 Queste cartelle contengono i modelli di primo livello e le classi base generate
 dallo schema. Per esempio il modello `JobeetJob` ora ha questa struttura di classi.
 
-  * `JobeetJob` (estende `PluginJobeetJob`) in 
+  * `JobeetJob` (estende `PluginJobeetJob`) in
     `lib/model/doctrine/sfJobeetPlugin/JobeetJob.class.php`:
-    classe di primo livello, dove possono essere messe tutte le 
+    classe di primo livello, dove possono essere messe tutte le
     funzionalità dei modelli del progetto. Qui si possono ridefinire
     le funzionalità incluse nei modelli del plugin.
 
@@ -221,12 +221,12 @@ dallo schema. Per esempio il modello `JobeetJob` ora ha questa struttura di clas
      questa classe contiene tutte le funzionalità specifiche
      del plugin. Si possono ridefinire le funzionalità in questa
      classe e in quella base modificando la classe `JobeetJob`.
-     
+
   * `BaseJobeetJob` (estende `sfDoctrineRecord`) in
      `lib/model/doctrine/sfJobeetPlugin/base/BaseJobeetJob.class.php`:
      classe base generata dallo schema yaml ogni volta che si
      esegue `doctrine:build --model`.
-  
+
   * `JobeetJobTable` (estende `PluginJobeetJobTable`) in
      `lib/model/doctrine/sfJobeetPlugin/JobeetJobTable.class.php`:
      come la classe `JobeetJob`, tranne che questa è un'istanza
@@ -255,7 +255,7 @@ sovrascrivendo i metodi `setTableDefinition()` e `setUp()`.
 >       public function setup()
 >       {
 >         parent::setup();
->     
+>
 >         // ...
 >       }
 </doctrine>
@@ -296,7 +296,7 @@ Poiché tali file sono globali per un progetto, rimuoverli dal plugin:
 </propel>
 <doctrine>
 È necessario assicurarsi che il plugin non abbia classi base per i form di
-Doctrine. Questi file sono globali per un progetto e verranno rigenerati con 
+Doctrine. Questi file sono globali per un progetto e verranno rigenerati con
 `doctrine:build --forms` e `doctrine:build --filters`.
 
 Rimuovere tali file dal plugin:
@@ -700,7 +700,7 @@ file sarà utilizzato nel sito web di symfony come pezzo principale per la docum
 È anche necessario creare un file `LICENSE`. La scelta di una licenza non è un compito
 facile, ma la sezione dei plugin symfony elenca solo i plugin che vengono rilasciati
 sotto una licenza simile a quella utilizzata da symfony (MIT, BSD, LGPL e PHP). Il
-contenuto del file `LICENSE` verrà visualizzato sotto la scheda licenza della 
+contenuto del file `LICENSE` verrà visualizzato sotto la scheda licenza della
 pagina pubblica del plugin.
 
 L'ultimo passo è quello di creare un file `package.xml` nella cartella principale del plugin.
@@ -848,7 +848,7 @@ e anche nel
         </notes>
       </release>
     </changelog>
-  
+
 ### Ospitare un plugin nel sito web di symfony
 
 Se si sviluppa un plugin utile e si desidera condividerlo con la comunità di symfony,

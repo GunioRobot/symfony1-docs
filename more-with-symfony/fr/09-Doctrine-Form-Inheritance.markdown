@@ -16,7 +16,7 @@ Bien qu'il ne soit pas encore très connu des développeurs et peu utilisé, l'h
 
 ![Schéma d'explication de l'héritage de table Doctrine](http://www.symfony-project.org/images/more-with-symfony/01_table_inheritance.png "Schéma de principe de l'héritage de table Doctrine")
 
-Doctrine intègre trois stratégies différentes pour gérer les héritages de table selon les besoins de l'applications en terme de performance, d'atomicité, d'efficacité ou bien encore de simplicité, etc. Ces trois stratégies natives sont l'héritage simple, l'héritage par agrégation de colonnes et 
+Doctrine intègre trois stratégies différentes pour gérer les héritages de table selon les besoins de l'applications en terme de performance, d'atomicité, d'efficacité ou bien encore de simplicité, etc. Ces trois stratégies natives sont l'héritage simple, l'héritage par agrégation de colonnes et
 l'héritage concret. Bien que que toutes ces stratégies soient présentées dans le [livre Doctrine](http://www.doctrine-project.org/documentation/1_2/en), des informations complémentaires aideront à mieux comprendre chacune de leurs options et dans quelles circonstances elles sont particulièrement utiles.
 
 ### La Stratégie de l'Héritage Simple
@@ -105,7 +105,7 @@ La stratégie de l'héritage par agrégation de colonnes est similaire à la str
           type:           integer(4)
           notnull:        true
 
-Dans le schéma de données ci-dessus, la stratégie d'héritage a été changée en 
+Dans le schéma de données ci-dessus, la stratégie d'héritage a été changée en
 ~`column_aggregation`~ et deux nouveaux attributs ont aussi fait leur apparition. Le premier, `keyField`, indique le nom de la colonne qui doit être créée pour stocker l'information concernant le type de l'enregistrement. L'attribut `keyField` est un entier obligatoire nommé `type` et est aussi le nom de la colonne par défaut s'il n'est pas explicitement spécifié dans le schéma de données. Le second attribut définit quant à lui la valeur à affecter pour chaque enregistrement qui appartient aux classes `Professor` et `Student`.
 
 ![Schéma d'explication de la stratégie par agrégation de colonnes](http://www.symfony-project.org/images/more-with-symfony/03_columns_aggregation_tables_inheritance.png "Schéma d'explication de la stratégie par agrégation de colonnes")
@@ -178,10 +178,10 @@ Ainsi, pour le schéma de données précédent, la table `Professor` générée 
 Cette approche a de nombreux avantages par rapport aux stratégies précédentes. La première, c'est que toutes les tables sont désormais isolées et demeurent indépendantes les unes par rapport aux autres. De plus, cela a pour effet immédiat d'éliminer tous les champs vides ainsi que la colonne additionnelle `type`. De ce fait, chaque table est désormais plus légère et isolée des autres.
 
 >**NOTE**
->Le fait que les champs partagés soient dupliqués dans les tables dérivées est 
->un gain en termes de performance et de scalabilité. En effet, Doctrine n'a plus 
->besoin de créer des jointures automatiques vers la table maîtresse lorsqu'il 
->s'agit de récupérer des informations partagées par les enregistrements des 
+>Le fait que les champs partagés soient dupliqués dans les tables dérivées est
+>un gain en termes de performance et de scalabilité. En effet, Doctrine n'a plus
+>besoin de créer des jointures automatiques vers la table maîtresse lorsqu'il
+>s'agit de récupérer des informations partagées par les enregistrements des
 >tables filles.
 
 Les deux seuls inconvénients notables de la stratégie d'héritage concret sont la duplication des champs (bien que la réplication est généralement la clé vers les performances) et le fait que la table maîtresse générée demeurera toujours vide. En effet, Doctrine a généré une table `Person` alors qu'elle ne sera jamais remplie ni référencée par aucune requête SQL. Aucune requête ne sera exécutée sur cette table dans la mesure où toute l'information est sauvegardée dans les tables dérivées.
@@ -195,7 +195,7 @@ Avant symfony 1.3, l'héritage de table Doctrine n'était pas complètement supp
 
 Heureusement, grâce aux retours d'utilisation de la communauté, l'équipe de développement de symfony a pu améliorer les classes de formulaires et de filtres dans le but de supporter facilement et entièrement l'héritage de table dans symfony 1.3.
 
-Le reste de ce chapitre explique comment utiliser l'héritage de table de Doctrine et comment en profiter dans plusieurs situations à travers le modèle, les formulaires, les filtres et le générateur d'administration. Pour ce faire, 
+Le reste de ce chapitre explique comment utiliser l'héritage de table de Doctrine et comment en profiter dans plusieurs situations à travers le modèle, les formulaires, les filtres et le générateur d'administration. Pour ce faire,
 des exemples issus de problématiques réelles aideront à mieux comprendre comment l'héritage fonctionne avec symfony, afin de pouvoir facilement l'utiliser pour vos propres besoins.
 
 ### Introduction aux Etudes de Cas Concrètes
@@ -616,13 +616,13 @@ Après que la nouvelle classe `sfSortableModuleActions` ait été créée et le 
 L'Admin Generator génère des modules dans deux répertoires séparés. Le premier répertoire conteneur est bien sûr `apps/backend/modules` bien qu'en réalité la majorité des modules générés se trouve dans le répertoire `cache/backend/dev/modules`. Tous les fichiers localisés dans ce répertoire sont régénérés à chaque fois que le cache est nettoyé ou bien lorsque la configuration d'un module change.
 
 >**Note**
->Parcourir les fichiers mis en cache est une excellente manière de mieux 
->comprendre comment symfony et l'Admin Generator fonctionnent ensemble sous le 
->capot. Par conséquent, les nouvelles classes dérivées de 
->`sfSortableModuleActions` peuvent être retrouvées respectivement dans les 
->fichiers `cache/backend/dev/modules/autoShopping/actions/actions.class.php` et 
->`cache/backend/dev/modules/autoTodo/actions/actions.class.php`. Par défaut, 
->symfony aurait généré ces classes en les faisant hériter de la classe 
+>Parcourir les fichiers mis en cache est une excellente manière de mieux
+>comprendre comment symfony et l'Admin Generator fonctionnent ensemble sous le
+>capot. Par conséquent, les nouvelles classes dérivées de
+>`sfSortableModuleActions` peuvent être retrouvées respectivement dans les
+>fichiers `cache/backend/dev/modules/autoShopping/actions/actions.class.php` et
+>`cache/backend/dev/modules/autoTodo/actions/actions.class.php`. Par défaut,
+>symfony aurait généré ces classes en les faisant hériter de la classe
 >~`sfActions`~.
 
 ![Interface d'administration par défaut de gestion de la liste de tâches](http://www.symfony-project.org/images/more-with-symfony/06_table_inheritance_backoffice_todo_1.png "Interface d'administration par défaut de gestion de la liste de tâches")
@@ -788,14 +788,14 @@ Cependant, copier le fichier `_list.php` dans le répertoire `templates/` de cha
                   ) ?>
                 <?php endif; ?>
                 <?php echo format_number_choice(
-                  '[0] no result|[1] 1 result|(1,+Inf] %1% results', 
+                  '[0] no result|[1] 1 result|(1,+Inf] %1% results',
                   array('%1%' => $pager->getNbResults()),
                   $pager->getNbResults(), 'sf_admin'
                 ) ?>
                 <?php if ($pager->haveToPaginate()): ?>
                   <?php echo __('(page %%page%%/%%nb_pages%%)', array(
-                    '%%page%%' => $pager->getPage(), 
-                    '%%nb_pages%%' => $pager->getLastPage()), 
+                    '%%page%%' => $pager->getPage(),
+                    '%%nb_pages%%' => $pager->getLastPage()),
                     'sf_admin'
                   ) ?>
                 <?php endif; ?>
@@ -813,14 +813,14 @@ Cependant, copier le fichier `_list.php` dans le répertoire `templates/` de cha
                   'helper' => $helper
               )) ?>
               <?php include_partial(
-                $sf_request->getParameter('module').'/list_td_tabular', 
+                $sf_request->getParameter('module').'/list_td_tabular',
                 array(
                   'sf_'. $sf_request->getParameter('module') .'_item' => $item
               )) ?>
                 <?php include_partial(
                   $sf_request->getParameter('module').'/list_td_actions',
                   array(
-                    'sf_'. $sf_request->getParameter('module') .'_item' => $item, 
+                    'sf_'. $sf_request->getParameter('module') .'_item' => $item,
                     'helper' => $helper
                 )) ?>
             </tr>
@@ -832,15 +832,15 @@ Cependant, copier le fichier `_list.php` dans le répertoire `templates/` de cha
       <script type="text/javascript">
         /* <![CDATA[ */
         function checkAll() {
-          var boxes = document.getElementsByTagName('input'); 
-          for (var index = 0; index < boxes.length; index++) { 
-            box = boxes[index]; 
+          var boxes = document.getElementsByTagName('input');
+          for (var index = 0; index < boxes.length; index++) {
+            box = boxes[index];
             if (
-              box.type == 'checkbox' 
-              && 
+              box.type == 'checkbox'
+              &&
               box.className == 'sf_admin_batch_checkbox'
-            ) 
-            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked 
+            )
+            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked
           }
           return true;
         }
@@ -857,7 +857,7 @@ Enfin, il ne reste plus qu'à créer un nouveau fichier `_list.php` à l'intéri
       'sort' => $sort,
       'colspan' => 5
     )) ?>
-    
+
 -
 
     // apps/backend/modules/shopping/templates/_list.php
@@ -929,7 +929,7 @@ Il reste encore une toute dernière opération à réaliser. En effet, pour l'in
 
     <?php endforeach ?>
 
-Afin d'éviter la duplication de code, les deux routes sont générées dynamiquement à l'intérieur d'une boucle `foreach`, et leur identifiant repose sur le nom du module afin de pouvoir les retrouver facilement dans la vue. 
+Afin d'éviter la duplication de code, les deux routes sont générées dynamiquement à l'intérieur d'une boucle `foreach`, et leur identifiant repose sur le nom du module afin de pouvoir les retrouver facilement dans la vue.
 
 Enfin, il ne reste plus que le fichier `apps/backend/templates/_table.php` qui doit implémenter le code JavaScript nécessaire à l'initialisation du comportement de glisser / déposer, et les requêtes Ajax correspondantes.
 

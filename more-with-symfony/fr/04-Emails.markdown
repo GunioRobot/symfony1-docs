@@ -17,8 +17,8 @@ La gestion des emails dans symfony est centralisée autour d'un objet de gestion
     $mailer = sfContext::getInstance()->getMailer();
 
 >**TIP**
->Contrairement aux autres factories, le gestionnaire d'envoi d'emails est chargé 
->et initialisé à la demande. Par conséquent, s'il n'est pas utilisé, il n'y aura 
+>Contrairement aux autres factories, le gestionnaire d'envoi d'emails est chargé
+>et initialisé à la demande. Par conséquent, s'il n'est pas utilisé, il n'y aura
 >aucun impact sur les performances.
 
 Ce tutoriel explique comment est intégrée la librairie Swift Mailer dans symfony. Les lecteurs qui souhaitent en savoir davantage sur les détails importants de Swift Mailer sont invités à se référer à la [documentation](http://www.swiftmailer.org/docs) officielle en ligne.
@@ -75,9 +75,9 @@ Bien sûr, le tableau peut contenir plusieurs adresses email afin d'expédier le
 
 Bien qu'elle soit simple et rapide à mettre en place, la première méthode peut s'avérer moins flexible. La méthode `sfAction::compose()` accroît la flexibilité du développeur car elle permet de créer le message, de le personnaliser à volonté et éventuellement de l'envoyer. C'est d'autant plus pratique lorsqu'il s'agit d'ajouter une pièce jointe au message.
 
-Si vous avez besoin de plus de flexibilité, vous pouvez aussi utiliser la 
-méthode `sfAction::compose()` pour créer un message, le personnaliser de la 
-manière que vous voulez, et éventuellement l'envoyer. C'est, par exemple, très 
+Si vous avez besoin de plus de flexibilité, vous pouvez aussi utiliser la
+méthode `sfAction::compose()` pour créer un message, le personnaliser de la
+manière que vous voulez, et éventuellement l'envoyer. C'est, par exemple, très
 pratique lorsque vous avez besoin d'ajouter une pièce jointe (~attachment|email attachment~) au message comme le montre l'exemple ci-dessous.
 
     [php]
@@ -107,8 +107,8 @@ Une autre méthode consiste à créer l'objet du message à la main directement 
 
 >**TIP**
 >Les sections ["Creating Messages"](http://swiftmailer.org/docs/messages) et
->["Message Headers"](http://swiftmailer.org/docs/headers) de la documentation 
->officielle de Swift Mailer décrivent tout ce dont il faut savoir à propos de la 
+>["Message Headers"](http://swiftmailer.org/docs/headers) de la documentation
+>officielle de Swift Mailer décrivent tout ce dont il faut savoir à propos de la
 >création de messages.
 
 ### Coupler l'Envoi d'Emails avec la Vue de symfony
@@ -155,8 +155,8 @@ A la création d'une nouvelle application, le fichier de configuration local `fa
 La Stratégie de Distribution
 ----------------------------
 
-L'une des principales fonctionnalités utiles de l'intégration de Swift Mailer dans symfony est la stratégie de distribution des emails. La stratégie de distribution permet d'indiquer à symfony de quelle manière le framework doit 
-envoyer les emails. Elle est configurée à partir du paramètre de configuration 
+L'une des principales fonctionnalités utiles de l'intégration de Swift Mailer dans symfony est la stratégie de distribution des emails. La stratégie de distribution permet d'indiquer à symfony de quelle manière le framework doit
+envoyer les emails. Elle est configurée à partir du paramètre de configuration
 `delivery_strategy` du fichier `factories.yml`.
 
 La stratégie change la manière dont la méthode ~`send()`|`sfMailer::send()`~ se comporte. Quatre stratégies de distribution sont disponibles par défaut, ce qui devrait convenir à la majorité des besoins :
@@ -179,9 +179,9 @@ Avec la stratégie `single_address`, tous les messages sont envoyés à une uniq
 La stratégie `single_address` est particulièrement utile en environnement de développement afin d'éviter d'envoyer des emails aux utilisateurs finaux réels. Le développeur garde néanmoins une grande flexibilité dans la mesure où il peut toujours consulter le rendu du message dans un client mail.
 
 >**TIP**
->Le développeur peut avoir besoin de vérifier les valeurs des destinataires 
->originaux dans les en-têtes `to`, `cc` et `bcc`. Ces valeurs sont disponibles 
->dans les entêtes respectives suivantes : `X-Swift-To`, `X-Swift-Cc` et 
+>Le développeur peut avoir besoin de vérifier les valeurs des destinataires
+>originaux dans les en-têtes `to`, `cc` et `bcc`. Ces valeurs sont disponibles
+>dans les entêtes respectives suivantes : `X-Swift-To`, `X-Swift-Cc` et
 >`X-Swift-Bcc`.
 
 Les emails sont expédiés avec le même transport d'email que celui utilisé pour la stratégie de distribution `realtime`.
@@ -193,7 +193,7 @@ Avec la stratégie de `spool`, les messages sont sauvegardés dans une file d'at
 La classe de `spool` est configurée dans le paramètre de configuration ~`spool_class`~ du fichier `factories.yml`, et symfony inclut trois de ces stratégies par défaut :
 
  * ~`Swift_FileSpool`~ : les messages sont stockés sur le système de fichiers ;
- 
+
  * ~`Swift_DoctrineSpool`~ : les messages sont stockés dans un modèle Doctrine ;
 
  * ~`Swift_PropelSpool`~ : les messages sont stockés dans un modèle Propel.
@@ -202,29 +202,29 @@ Lorsque la classe de spool est instanciée, les valeurs définies dans le param�
 
  * `Swift_FileSpool` :
 
-    * Le chemin absolu du répertoire de la file d'attente (les messages sont 
+    * Le chemin absolu du répertoire de la file d'attente (les messages sont
       stockés dans ce répertoire).
 
  * `Swift_DoctrineSpool` :
 
-    * Le modèle Doctrine à utiliser pour sauvegarder les messages (`MailMessage` 
+    * Le modèle Doctrine à utiliser pour sauvegarder les messages (`MailMessage`
       par défaut).
 
     * Le nom de la colonne à utiliser pour le stockage du message (`message` par
       défaut).
 
-    * La méthode à appeler pour retrouver le message à envoyer (optionnel). Elle 
+    * La méthode à appeler pour retrouver le message à envoyer (optionnel). Elle
       reçoit les options de la file d'attente comme argument.
 
  * `Swift_PropelSpool` :
 
-    * Le modèle Propel à utiliser pour sauvegarder les messages (`MailMessage` 
+    * Le modèle Propel à utiliser pour sauvegarder les messages (`MailMessage`
       par défaut).
 
     * Le nom de la colonne à utiliser pour le stockage du message (`message` par
       défaut).
 
-    * La méthode à appeler pour retrouver le message à envoyer (optionnel). Elle 
+    * La méthode à appeler pour retrouver le message à envoyer (optionnel). Elle
       reçoit les options de la file d'attente comme argument.
 
 Le listing ci-dessous décrit une configuration typique du spool Doctrine :
@@ -271,24 +271,24 @@ Pour envoyer un message sauvegardé dans la file d'attente, il suffit d'utiliser
     $ php symfony project:send-emails
 
 >**NOTE**
->La tâche `project:send-emails` accepte aussi les options `application` et 
+>La tâche `project:send-emails` accepte aussi les options `application` et
 >`env`.
 
 Lorsque la tâche `project:send-emails` est invoquée, les emails sont envoyés à l'aide du même objet de transport que celui défini pour la stratégie `realtime`.
 
 >**TIP**
->La tâche `project:send-emails` est exécutable sur n'importe quelle machine, et 
->pas nécessairement sur la machine qui a créé le message. Cela fonctionne en 
->effet parce que tout est sauvegardé dans l'objet du message, y compris les 
+>La tâche `project:send-emails` est exécutable sur n'importe quelle machine, et
+>pas nécessairement sur la machine qui a créé le message. Cela fonctionne en
+>effet parce que tout est sauvegardé dans l'objet du message, y compris les
 >fichiers attachés.
 
 -
 
 >**NOTE**
->Les implémentations des files d'attente par défaut sont particulièrement 
->triviales. Elles envoient les emails sans aucune gestion d'erreur, comme si 
->elles avaient été envoyées avec la stratégie `realtime`. Bien sûr, les classes 
->de files d'attente par défaut peuvent être étendues afin d'implémenter une 
+>Les implémentations des files d'attente par défaut sont particulièrement
+>triviales. Elles envoient les emails sans aucune gestion d'erreur, comme si
+>elles avaient été envoyées avec la stratégie `realtime`. Bien sûr, les classes
+>de files d'attente par défaut peuvent être étendues afin d'implémenter une
 >logique métier et une gestion des erreurs personnalisées.
 
 Il arrive parfois qu'il faille envoyer un message immédiatement sans avoir à le sauvegarder dans la file d'attente, bien que l'application soit configurée avec la stratégie de `spool`. Heureusement, symfony fournit la méthode spéciale `sendNextImmediately()` de l'objet mailer pour satisfaire ce besoin.
@@ -299,7 +299,7 @@ Il arrive parfois qu'il faille envoyer un message immédiatement sans avoir à l
 Dans l'exemple précédent, l'objet `$message` ne sera pas sauvegardé dans la file d'attente et sera immédiatement expédié. Comme son nom l'indique, la méthode `sendNextImmediately()` affecte seulement le tout prochain message à être envoyé.
 
 >**NOTE**
->La méthode `sendNextImmediately()` n'a aucun effet particulier lorsque la 
+>La méthode `sendNextImmediately()` n'a aucun effet particulier lorsque la
 >stratégie de distribution n'est pas définie à la valeur `spool`.
 
 ### La Stratégie ~`none`~
@@ -327,15 +327,15 @@ Swift Mailer embarque nativement trois classes de transport différentes :
 
   * ~`Swift_SmtpTransport`~ utilise un serveur SMTP pour envoyer les messages ;
 
-  * ~`Swift_SendmailTransport`~ utilise le binaire `sendmail` pour envoyer les 
+  * ~`Swift_SendmailTransport`~ utilise le binaire `sendmail` pour envoyer les
     messages ;
 
-  * ~`Swift_MailTransport`~ utilise la fonction native `mail()` de PHP pour 
+  * ~`Swift_MailTransport`~ utilise la fonction native `mail()` de PHP pour
     envoyer les emails.
 
 >**TIP**
->La section ["Transport Types"](http://swiftmailer.org/docs/transport-types) de 
->la documentation officielle de Swift Mailer décrit tout ce dont il faut savoir 
+>La section ["Transport Types"](http://swiftmailer.org/docs/transport-types) de
+>la documentation officielle de Swift Mailer décrit tout ce dont il faut savoir
 >à propos des classes de transport natives et leurs différents paramètres.
 
 Envoyer un Email depuis une Tâche
@@ -362,13 +362,13 @@ Un clic sur l'icône des emails donne accès à tous les messages envoyés, affi
 ![Les emails dans la Web Debug Toolbar - details](http://www.symfony-project.org/images/more-with-symfony/emails_wdt_details.png "Les emails dans la Web Debug Toolbar - details")
 
 >**NOTE**
->Chaque fois qu'un email est envoyé, symfony ajoute au passage un message dans 
+>Chaque fois qu'un email est envoyé, symfony ajoute au passage un message dans
 >le log.
 
 Tester les Emails
 -----------------
 
-Bien sûr, l'intégration des emails n'aurait pas été aussi complète sans un moyen 
+Bien sûr, l'intégration des emails n'aurait pas été aussi complète sans un moyen
 de tester les messages. Par défaut, symfony enregistre un nouveau testeur `mailer` (~`sfMailerTester`~) afin de faciliter les tests fonctionnels sur les emails envoyés. La méthode ~`hasSent()`~, par exemple, teste le nombre de messages envoyés au cours de la requête courante.
 
     [php]
@@ -390,18 +390,18 @@ Le code précédent vérifie que l'url `/foo` envoie seulement un email. De plus
       end()
     ;
 
-Le second argument de la méthode `checkHeader()` et le premier paramètre de 
+Le second argument de la méthode `checkHeader()` et le premier paramètre de
 `checkBody()` peuvent être l'une des valeurs suivantes.
 
  * une chaîne pour vérifier une correspondance exacte ;
- 
+
  * une expression régulière pour contrôler la correspondance de la valeur avec
    elle ;
 
- * une expression régulière négative (une expression régulière qui débute par un 
+ * une expression régulière négative (une expression régulière qui débute par un
    `!`) pour vérifier que la valeur ne correspond pas.
 
-Par défaut, les vérifications sont réalisées sur le premier message envoyé. Si 
+Par défaut, les vérifications sont réalisées sur le premier message envoyé. Si
 plusieurs messages ont été expédiés, la méthode ~`withMessage()`~ offre la possibilité de choisir sur quel message appliquer les tests.
 
     [php]
@@ -415,7 +415,7 @@ plusieurs messages ont été expédiés, la méthode ~`withMessage()`~ offre la 
       end()
     ;
 
-La méthode `withMessage()` accepte une adresse email de destinataire en guise de premier argument. Elle accueille également un second paramètre pour indiquer quel message tester si plusieurs emails ont été adressés à la même personne. Enfin, la méthode ~`debug()`~ expose les messages envoyés afin de déceler les 
+La méthode `withMessage()` accepte une adresse email de destinataire en guise de premier argument. Elle accueille également un second paramètre pour indiquer quel message tester si plusieurs emails ont été adressés à la même personne. Enfin, la méthode ~`debug()`~ expose les messages envoyés afin de déceler les
 problèmes lorsqu'un test échoue.
 
     [php]
@@ -452,8 +452,8 @@ Envoyer un message depuis une action, ou bien depuis n'importe où dans ce cas e
     [php]
     $this->getMailer()->send(new ProjectConfirmationMessage());
 
-Bien sûr, il est plus pratique d'ajouter une classe de base pour centraliser les 
-en-têtes partagés tels que l'en-tête `From`, ou bien pour inclure une signature 
+Bien sûr, il est plus pratique d'ajouter une classe de base pour centraliser les
+en-têtes partagés tels que l'en-tête `From`, ou bien pour inclure une signature
 commune.
 
     [php]
@@ -504,7 +504,7 @@ Quelques Recettes
 
 ### Envoyer des Emails avec ~Gmail~
 
-Les lecteurs qui ne possèdent pas de serveur SMTP mais qui disposent d'un compte Gmail peuvent s'appuyer sur la configuration suivante afin d'utiliser les 
+Les lecteurs qui ne possèdent pas de serveur SMTP mais qui disposent d'un compte Gmail peuvent s'appuyer sur la configuration suivante afin d'utiliser les
 serveurs de Google comme moyen d'expédition et d'archivage des messages.
 
     [yml]
@@ -563,8 +563,8 @@ L'utilisation des plugins de Swift Mailer s'effectue en écoutant l'évènement 
     }
 
 >**TIP**
->La section ["Plugins"](http://swiftmailer.org/docs/plugins) de la documentation 
->officielle de Swift Mailer décrit ce qu'il faut avoir à propos des plugins 
+>La section ["Plugins"](http://swiftmailer.org/docs/plugins) de la documentation
+>officielle de Swift Mailer décrit ce qu'il faut avoir à propos des plugins
 >natifs.
 
 ### Personnaliser le Comportement de Spool
@@ -587,7 +587,7 @@ Dans cette section, il s'agit d'apprendre comment implémenter un système de pr
         message:  { type: blob, notnull: true }
         priority: { type: integer }
 
-Lorsqu'un email est envoyé, l'en-tête de priorité de celui-ci doit être fixé. La 
+Lorsqu'un email est envoyé, l'en-tête de priorité de celui-ci doit être fixé. La
 valeur `1` représente la priorité la plus élevée.
 
     [php]
@@ -664,9 +664,9 @@ C'est tout ce qu'il y'a à faire. Maintenant, chaque fois que la tâche `project
 >**SIDEBAR**
 >Personnaliser le Spool avec un Critère
 >
->L'exemple précédent utilise un en-tête standard de message : la priorité. En 
->revanche, si l'on souhaite utiliser n'importe quel critère ou bien ne pas 
->altérer le message envoyé, il convient de stocker ce critère comme un en-tête 
+>L'exemple précédent utilise un en-tête standard de message : la priorité. En
+>revanche, si l'on souhaite utiliser n'importe quel critère ou bien ne pas
+>altérer le message envoyé, il convient de stocker ce critère comme un en-tête
 >personnalisé. Il ne restera plus qu'à le retirer juste avant d'envoyer l'email.
 >
 >Il suffit tout d'abord d'ajouter un en-tête personnalisé au message à envoyer.
@@ -677,25 +677,25 @@ C'est tout ce qu'il y'a à faire. Maintenant, chaque fois que la tâche `project
 >       $message = $this->getMailer()
 >         ->compose('john@doe.com', 'foo@example.com', 'Subject', 'Body')
 >       ;
->     
+>
 >       $message->getHeaders()->addTextHeader('X-Queue-Criteria', 'foo');
->     
+>
 >       $this->getMailer()->send($message);
 >     }
 >
->Enfin, il ne reste plus qu'à récupérer la valeur de cet en-tête au moment de 
->stocker le message dans la file d'attente et supprimer le message 
+>Enfin, il ne reste plus qu'à récupérer la valeur de cet en-tête au moment de
+>stocker le message dans la file d'attente et supprimer le message
 >immédiatement.
 >
 >     [php]
 >     public function setMessage($message)
 >     {
 >       $msg = unserialize($message);
->     
+>
 >       $headers = $msg->getHeaders();
 >       $criteria = $headers->get('X-Queue-Criteria')->getFieldBody();
 >       $this->setCriteria($criteria);
 >       $headers->remove('X-Queue-Criteria');
->     
+>
 >       return parent::_set('message', serialize($msg));
 >     }

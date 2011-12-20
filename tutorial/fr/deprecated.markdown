@@ -1,43 +1,43 @@
 Composants supprimés ou rendus obsolètes en 1.3
 ===============================================
 
-Ce document liste tous les paramètres de configuration, classes, méthodes, 
+Ce document liste tous les paramètres de configuration, classes, méthodes,
 fonctions et tâches devenus obsolètes ou bien supprimés dans Symfony 1.3.
 
 Plugins internes à Symfony
 ---------------------------
 
-Les plugins internes suivants sont désormais dépréciés dans Symfony 1.3 et 
+Les plugins internes suivants sont désormais dépréciés dans Symfony 1.3 et
 seront supprimés dans Symfony 1.4.
 
-  * `sfCompat10Plugin` : En rendant ce plugin obsolète, tous les autres éléments 
-    du framework qui dépendent de celui-ci pour fonctionner (générateur d'administration 1.0, 
+  * `sfCompat10Plugin` : En rendant ce plugin obsolète, tous les autres éléments
+    du framework qui dépendent de celui-ci pour fonctionner (générateur d'administration 1.0,
     et système de formulaires 1.0) ont également été rendus obsolètes. Il inclut aussi le thème par défaut
     de l'admin generator 1.0 situé dans
     `lib/plugins/sfPropelPlugin/data/generator/sfPropelAdmin`.
 
-  * `sfProtoculousPlugin` : Les helpers fournis par ce plugin ne produisent pas de code Javascript 
+  * `sfProtoculousPlugin` : Les helpers fournis par ce plugin ne produisent pas de code Javascript
     non intrusif. Par conséquent, ils ne devraient plus être utilisés.
 
 Méthodes et fonctions
 ---------------------
 
-Les méthodes et fonctions suivantes sont désormais dépréciées dans Symfony 1.3 
+Les méthodes et fonctions suivantes sont désormais dépréciées dans Symfony 1.3
 ou versions antérieures, et seront retirées dans Symfony 1.4:
 
-  * `sfToolkit::getTmpDir()` : Vous pouvez remplacer toutes les occurences de cette 
+  * `sfToolkit::getTmpDir()` : Vous pouvez remplacer toutes les occurences de cette
     méthode par `sys_get_temp_dir()`
- 
-  * `sfToolkit::removeArrayValueForPath()`, 
+
+  * `sfToolkit::removeArrayValueForPath()`,
     `sfToolkit::hasArrayValueForPath()`, et `getArrayValueForPathByRef()`
 
-  * `sfValidatorBase::setInvalidMessage()` : Vous pouvez remplacer tous les appels à cette méthode 
+  * `sfValidatorBase::setInvalidMessage()` : Vous pouvez remplacer tous les appels à cette méthode
     par un appel à la nouvelle méthode `sfValidatorBase::setDefaultMessage()`
 
-  * `sfValidatorBase::setRequiredMessage()` : Vous pouvez remplacer tous les appels à cette méthode 
+  * `sfValidatorBase::setRequiredMessage()` : Vous pouvez remplacer tous les appels à cette méthode
     par un appel à la nouvelle méthode `sfValidatorBase::setDefaultMessage()`
 
-  * `sfTesterResponse::contains()` : Vous pouvez maintenant utiliser la méthode plus performante 
+  * `sfTesterResponse::contains()` : Vous pouvez maintenant utiliser la méthode plus performante
     `matches()`
 
   * `sfTestFunctionalBase` les méthodes suivantes : `isRedirected()`,
@@ -45,19 +45,19 @@ ou versions antérieures, et seront retirées dans Symfony 1.4:
     `isResponseHeader()`, `isUserCulture()`, `isRequestFormat()`, et
     `checkResponseElement()`: Toutes ces méthodes ont été dépréciées depuis la version 1.2,
     et remplacées par les classes de tests.
- 
+
   * `sfTestFunctional` les méthodes suivantes : `isCached()`, `isUriCached()` : Ces
     méthodes ont été dépréciées depuis la version 1.2, et remplacées par les classes
     de tests.
 
-  * `sfFilesystem::sh()` : Vous pouvez remplacer toutes les occurences de cette méthode par des 
-    appels à la nouvelle méthode `sfFilesystem::execute()`. Soyez attentifs à la valeur renvoyée 
+  * `sfFilesystem::sh()` : Vous pouvez remplacer toutes les occurences de cette méthode par des
+    appels à la nouvelle méthode `sfFilesystem::execute()`. Soyez attentifs à la valeur renvoyée
     par cette méthode. Il s'agit d'un tableau composé des sorties `stdout`
     et `stderr`.
 
   * `sfAction::getDefaultView()`, `sfAction::handleError()`,
     `sfAction::validate()` : Ces méthodes ont été dépréciées dans symfony 1.1,
-    et ne sont plus réellement utiles à présent. A partir de Symfony 1.1, elles nécessitent que le paramètre 
+    et ne sont plus réellement utiles à présent. A partir de Symfony 1.1, elles nécessitent que le paramètre
     `compat_10` soit à la valeur `on` pour fonctionner.
 
   * `sfComponent::debugMessage()` : Utilisez le helper `log_message()` à la place.
@@ -94,7 +94,7 @@ ou versions antérieures, et seront retirées dans Symfony 1.4:
 
 Les fonctions et méthodes suivantes ont été retirées dans symfony 1.3:
 
-  * `sfApplicationConfiguration::checkSymfonyVersion()` : voir plus bas pour les raisons 
+  * `sfApplicationConfiguration::checkSymfonyVersion()` : voir plus bas pour les raisons
     (paramètre `check_symfony_version`)
 
 Classes
@@ -158,7 +158,7 @@ retirés dans symfony 1.4 :
   * Tous les helpers relatifs au système de formulaires 1.0 fournis par
     le plugin `sfCompat10Plugin` : `DateForm`, `Form`, `ObjectAdmin`, `Object`
     et `Validation`
- 
+
 Le Helper `form_tag()` du groupe de Helper `Form` a été déplacé dans
 le groupe de Helper `Url`, ainsi il est toujours disponible dans symfony 1.4.
 
@@ -241,7 +241,7 @@ symfony 1.4 :
   * `propel:init-admin`: Cette tâche génére les modules de l'admin generator pour
     symfony 1.0.
 
-Les tâches Doctrine suivantes ont été fusionnées dans la tâche `doctrine:build` et 
+Les tâches Doctrine suivantes ont été fusionnées dans la tâche `doctrine:build` et
 seront supprimées dans symfony 1.4 :
 
   * `doctrine:build-all`
@@ -264,7 +264,7 @@ dans symfony 1.4 :
     sera plus disponible dans symfony 1.4
     (plus performant).
 
-L'interface en ligne de commande de Symfony (CLI) n'accepte plus l'option globale `--dry-run` 
+L'interface en ligne de commande de Symfony (CLI) n'accepte plus l'option globale `--dry-run`
 dans la mesure où elle n'était utilisée par aucune des tâches natives de symfony. Si l'une de vos tâches automatiques nécessite
 cette option, vous pouvez simplement l'ajouter comme une nouvelle option locale dans la classe qui décrit votre commande.
 
@@ -280,7 +280,7 @@ A partir de symfony 1.3, la page indisponible sera seulement visible dans
 les répertoires `%SF_APP_CONFIG_DIR%/` et `%SF_CONFIG_DIR%/`. Si vous l'avez encore
 stockée dans `%SF_WEB_DIR%/errors/`, vous devez la déplacer avant de migrer vers
 symfony 1.4.
- 
+
 Le répertoire `doc/` à la racine d'un projet n'est plus généré, car il
 n'est même pas utilisé par symfony. Ainsi, le sf_doc_dir relatif à ce répertoire a été
 également supprimé.

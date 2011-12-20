@@ -156,7 +156,7 @@ credenziali diverse rispetto a quello locale. Grazie agli ambienti
 di symfony, è molto facile avere una configurazione diversa
 per il database di produzione:
 
-    $ php symfony configure:database 
+    $ php symfony configure:database
       ➥ "mysql:host=localhost;dbname=prod_dbname" prod_user prod_pass
 
 Si può anche modificare direttamente il file di configurazione `databases.yml`.

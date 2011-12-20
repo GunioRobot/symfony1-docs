@@ -64,7 +64,7 @@ Listing 2-2 - Ajout de Validateurs à la Classe `ContactForm`
     class ContactForm extends BaseForm
     {
       protected static $subjects = array('Subject A', 'Subject B', 'Subject C');
-      
+
       public function configure()
       {
         $this->setWidgets(array(
@@ -236,7 +236,7 @@ Listing 2-4 - Personnalisation des Messages d'Erreurs
     class ContactForm extends BaseForm
     {
       protected static $subjects = array('Subject A', 'Subject B', 'Subject C');
-      
+
       public function configure()
       {
         // ...
@@ -456,7 +456,7 @@ Les Validateurs Logiques
 Il est possible de définir plusieurs validateurs pour un même champ grâce aux validateurs logiques :
 
   * `sfValidatorAnd` : Pour être valide, le champ doit remplir toutes les conditions de validation
-  
+
   * `sfValidatorOr` : Pour être valide, le champ doit remplir au moins une des conditions de validation
 
 Le constructeur des opérateurs logiques prend une liste de validateurs comme premier argument. Le Listing 2-11 utilise le validateur `sfValidatorAnd` pour associer deux validateurs obligatoires au champ `name`.

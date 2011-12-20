@@ -542,7 +542,7 @@ I seguenti sono altri elementi che potrebbero richiedere traduzione:
     cultura dell'utente. L'esempio migliore è un pezzo di testo con un carattere
     tipografico particolare, che in realtà è un'immagine. Per questo, si possono creare
     delle sottocartelle con nomi che dipendono da `culture`:
-    
+
         [php]
         <?php echo image_tag($sf_user->getCulture().'/myText.gif') ?>
 
@@ -607,15 +607,15 @@ Il primo parametro rappresenta le molteplici possibilità del testo. Il secondo 
 lo schema di sostituzione (come con l'helper `__()`) ed è opzionale. Il terzo parametro è
 il numero in base a cui fare il controllo per determinare quale testo usare.
 
-Il messaggio o la stringa scelte sono separati da un carattere di barra verticale (`|`) 
+Il messaggio o la stringa scelte sono separati da un carattere di barra verticale (`|`)
 seguito da un array di valori accettabili, secondo la seguente sintassi:
 
   * `[1,2]`: Accetta valori tra 1 e 2, inclusi
   * `(1,2)`: Accetta valori tra 1 e 2, esclusi 1 e 2
   * `{1,2,3,4}`: Accetta solo i valori elencati
   * `[-Inf,0)`: Accetta valori maggiori o uguali a meno infinito e minori di zero
-  * `{n: n % 10 > 1 && n % 10 < 5} pliki`: Accetta numeri come 2, 3, 4, 22, 23, 24 
-    (utile per lingue come il polacco o il russo) 
+  * `{n: n % 10 > 1 && n % 10 < 5} pliki`: Accetta numeri come 2, 3, 4, 22, 23, 24
+    (utile per lingue come il polacco o il russo)
 
 Qualsiasi combinazione non vuota di delimitatori con parentesi tonde e quadre è
 accettabile.

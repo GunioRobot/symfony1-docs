@@ -56,7 +56,7 @@ il `dev` front controller `web/frontend_dev.php` in `web/frontend_cache.php`:
     $configuration = ProjectConfiguration::getApplicationConfiguration('frontend', 'cache', true);
     sfContext::createInstance($configuration)->dispatch();
 
-È tutto quello che occorre fare. Il nuovo ambiente `cache` è utilizzabile. 
+È tutto quello che occorre fare. Il nuovo ambiente `cache` è utilizzabile.
 L'unica differenza è il secondo parametro del metodo `getApplicationConfiguration()`,
 che rappresenta il nome dell'ambiente, `cache`.
 
@@ -67,13 +67,13 @@ controller:
 
 >**NOTE**
 >Lo script del front controller inizia con una parte di codice che si assicura
->del fatto che la chiamata venga fatta da un indirizzo IP locale. Questa misura 
+>del fatto che la chiamata venga fatta da un indirizzo IP locale. Questa misura
 >di sicurezza protegge il front controller dall'essere chiamato sui server di
 >produzione. Parleremo in modo più approfondito di questo argomento nel tutorial
 >di domani.
 
 Per adesso l'ambiente `cache` eredita la configurazione dalla configurazione di
-default. Modificate il file di configurazione `settings.yml` per aggiungere la 
+default. Modificate il file di configurazione `settings.yml` per aggiungere la
 configurazione specifica dell'ambiente `cache`:
 
     [yml]
@@ -85,8 +85,8 @@ configurazione specifica dell'ambiente `cache`:
         cache:           true
         etag:            false
 
-In queste impostazioni la funzionalità di cache dei template viene attivata con 
-l'impostazione `cache` mentre la ~web debug toolbar|Web debug toolbar~ è stata abilitata con 
+In queste impostazioni la funzionalità di cache dei template viene attivata con
+l'impostazione `cache` mentre la ~web debug toolbar|Web debug toolbar~ è stata abilitata con
 l'impostazione `web_debug`.
 
 <propel>
@@ -108,15 +108,15 @@ occorre cancellarla prima di poter vedere i cambiamenti nel browser:
 
     $ php symfony cc
 
-Ora, se si aggiorna la pagina nel browser, la web debug toolbar dovrebbe essere 
+Ora, se si aggiorna la pagina nel browser, la web debug toolbar dovrebbe essere
 presente nell'angolo in alto a destra della pagina, come succede per l'ambiente
 `dev`.
 
 Configurazione della cache
 --------------------------
 
-La cache dei template di symfony può essere configurata attraverso il file 
-~`cache.yml`~. La configurazione predefinita per l'applicazione può essere trovata 
+La cache dei template di symfony può essere configurata attraverso il file
+~`cache.yml`~. La configurazione predefinita per l'applicazione può essere trovata
 in `apps/frontend/config/cache.yml`:
 
     [yml]
@@ -126,16 +126,16 @@ in `apps/frontend/config/cache.yml`:
       lifetime:    86400
 
 Di default, visto che tutte le pagine possono contenere contenuti dinamici, la
-cache è disabilitata in modo globale (`enabled: false`). Non abbiamo bisogno di 
+cache è disabilitata in modo globale (`enabled: false`). Non abbiamo bisogno di
 cambiare questa impostazione, dato che abiliteremo la cache pagina per pagina.
 
 L'impostazione `lifetime` definisce la ~durata della cache|Durata della cache~
 lato server in secondi (`86400` secondi equivalgono a un giorno).
 
 >**TIP**
->Si può anche lavorare in modo contrario: abilitare la cache in modo globale e 
->poi disabilitarla su pagine specifiche, che non devono essere inserite in cache. 
->Dipende da quale metodo rappresenta quello meno impegnativo per la propria 
+>Si può anche lavorare in modo contrario: abilitare la cache in modo globale e
+>poi disabilitarla su pagine specifiche, che non devono essere inserite in cache.
+>Dipende da quale metodo rappresenta quello meno impegnativo per la propria
 >applicazione.
 
 Cache delle pagine
@@ -163,10 +163,10 @@ con un box indicante i contenuti inseriti in cache:
 
 ![Cache pulita](http://www.symfony-project.org/images/jobeet/1_4/21/fresh_cache.png)
 
-Il box offre alcune preziose informazioni riguardo la cache per il debugging, 
+Il box offre alcune preziose informazioni riguardo la cache per il debugging,
 come la durata di vita della cache e la sua età.
 
-Se aggiornate ancora la pagina il colore del box cambia da verde a giallo 
+Se aggiornate ancora la pagina il colore del box cambia da verde a giallo
 indicando che la pagina è stata recuperata dalla cache:
 
 ![Cache](http://www.symfony-project.org/images/jobeet/1_4/21/cache.png)
@@ -175,7 +175,7 @@ Notate inoltre che nessuna richiesta a database è stata effettuate nel secondo
 caso come mostrato nella web debug toolbar.
 
 >**TIP**
->Anche se il linguaggio può cambiare da utente a utente la cache continuerà a 
+>Anche se il linguaggio può cambiare da utente a utente la cache continuerà a
 >funzionare visto che la lingua è integrata nell'URL.
 
 Quando una pagina è memorizzabile in cache e se la cache non esiste ancora, symfony salva
@@ -189,7 +189,7 @@ usando strumenti come [JMeter](http://jakarta.apache.org/jmeter/).
 
 >**NOTE**
 >Una richiesta in ingresso con un parametro `GET` o inviata con un metodo `POST`,
->`PUT`, o `DELETE` non verrà mai inserita in cache da symfony, indipendentemente dalla 
+>`PUT`, o `DELETE` non verrà mai inserita in cache da symfony, indipendentemente dalla
 >configurazione.
 
 La pagina per l'inserimento di un'offerta di lavoro può essere inserita in cache:
@@ -215,7 +215,7 @@ Pulire la Cache
 Se si vuole pulire la cache delle pagine, si può usare il task `cache:clear`:
 
     $ php symfony cc
-    
+
 Il task `cache:clear` pulisce tutta la cache di symfony salvata nella cartella
 `cache/`. Inoltre ha delle opzioni per pulire in modo selettivo alcune parti della
 cache. Per eliminare solamente la cache dei template per l'ambiente `cache`
@@ -224,7 +224,7 @@ utilizzate i parametri `--type` e `--env` options:
     $ php symfony cc --type=template --env=cache
 
 Invece di pulire la cache ogni volta che si fanno delle modifiche, si può disabilitare
-la cache aggiungendo ogni query string nell'URL o utilizzando il pulsante 
+la cache aggiungendo ogni query string nell'URL o utilizzando il pulsante
 "Ignore cache" della web debug toolbar:
 
 ![Web Debug Toolbar](http://www.symfony-project.org/images/jobeet/1_4/21/debug.png)
@@ -253,7 +253,7 @@ conseguenza:
     all:
       with_layout: false
 
-Cambiando l'impostazione di `with_layout` a `false`, si disabilita la cache 
+Cambiando l'impostazione di `with_layout` a `false`, si disabilita la cache
 del layout.
 
 Pulire la cache:
@@ -264,7 +264,7 @@ Ricaricate la pagina nel browser per vederne le differenze:
 
 ![Cache azione](http://www.symfony-project.org/images/jobeet/1_4/21/action_cache.png)
 
-Anche se il flusso della richiesta è molto simile nel diagramma semplificato, 
+Anche se il flusso della richiesta è molto simile nel diagramma semplificato,
 usare la cache senza il layout è molto più dispendioso dal lato delle risorse.
 
 ![Flusso della cache dell'azione](http://www.symfony-project.org/images/jobeet/1_4/21/flow_cache_action.png)
@@ -279,7 +279,7 @@ essere inseriti in cache.
 
 ![Cache di partial](http://www.symfony-project.org/images/jobeet/1_4/21/partial_cache.png)
 
-Inseriamo in cache il component `language` creando un file `cache.yml` per il 
+Inseriamo in cache il component `language` creando un file `cache.yml` per il
 modulo `sfJobeetLanguage`:
 
     [yml]

@@ -261,7 +261,7 @@ sicurezza che il codice implementi veramente quello che si è pianificato:
      ➥ '::slugify() converts the empty string to n-a');
 
 Questa metodologia di sviluppo, in cui si scrivono prima i test e poi
-si implementano le funzionalità, è nota come 
+si implementano le funzionalità, è nota come
 [Test Driven Development (~TDD~)](http://en.wikipedia.org/wiki/Test_Driven_Development).
 
 Se ora si lanciano i test, si dovrebbe avere una barra rossa, Se no, vuol dire
@@ -417,7 +417,7 @@ test di symfony sono eseguiti nell'ambiente `test`, quindi configuriamo
 un database differente per l'ambiente `test`:
 
 <propel>
-    $ php symfony configure:database --env=test 
+    $ php symfony configure:database --env=test
       ➥ "mysql:host=localhost;dbname=jobeet_test" root mYsEcret
 </propel>
 <doctrine>
@@ -553,7 +553,7 @@ Lo script è praticamente auto-esplicante:
         [php]
         $configuration = ProjectConfiguration::getApplicationConfiguration('frontend', 'test', true);
 
-  * Creiamo un gestore di database. Esso inizializza la connessione ##ORM## 
+  * Creiamo un gestore di database. Esso inizializza la connessione ##ORM##
     caricando il file di configurazione `databases.yml`.
 
         [php]

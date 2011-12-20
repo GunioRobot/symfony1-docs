@@ -886,27 +886,27 @@ want to blow away the whole database and just want to rebuild a subset of tables
 
 #### Delete Model Files
 
-Often you will change your models, renaming things, remove unused models, etc. 
+Often you will change your models, renaming things, remove unused models, etc.
 in your YAML schema files. When you do this, you then have orphaned model, form
-and filter classes. You can now manually clean out the generated files related 
+and filter classes. You can now manually clean out the generated files related
 to a model by using the `doctrine:delete-model-files` task.
 
     $ php symfony doctrine:delete-model-files ModelName
 
-The above task will find all the related generated files and report them to you 
+The above task will find all the related generated files and report them to you
 before asking you to confirm whether you would like to delete the files or not.
 
 #### Clean Model Files
 
-You can automate the above process and find out what models exist on the disk 
+You can automate the above process and find out what models exist on the disk
 but do not exist in your YAML schema files by using the `doctrine:clean-model-files`
 task.
 
     $ php symfony doctrine:clean-model-files
 
 The above command will compare your YAML schema files with the models and files
-that have been generated and determine what should be removed. These models are 
-then passed on to the `doctrine:delete-model-files` task. It will ask you to 
+that have been generated and determine what should be removed. These models are
+then passed on to the `doctrine:delete-model-files` task. It will ask you to
 confirm the removal of any files before actually deleting anything.
 
 #### Build whatever
@@ -1002,7 +1002,7 @@ can take advantage of the new `dry-run` option.
 ### Output DQL Task as Table of Data
 
 When you would previously run the `doctrine:dql` command it will just output the
-data as YAML. We have added a new `--table` option. This option allows you to 
+data as YAML. We have added a new `--table` option. This option allows you to
 output the data as a table, similar to how it ouputs in the MySQL command line.
 
 So now the following is possible.
@@ -1169,7 +1169,7 @@ Partials
 
 ### Slots improvements
 
-The `get_slot()` and `include_slot()` helpers now accept a second parameter for 
+The `get_slot()` and `include_slot()` helpers now accept a second parameter for
 specifying the default slot content to return if none is provided by the slot:
 
     [php]

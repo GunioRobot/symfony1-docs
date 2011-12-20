@@ -277,7 +277,7 @@ actions doivent être un sous-ensemble de toutes les actions disponibles : `list
 
 Si l'option est définie à `false`, la valeur par défaut, toutes les actions seront disponibles,
 sauf pour celle de `show` si l'option `with_show` est définie à `false` (voir
-ci-dessous). 
+ci-dessous).
 
 ### ~`module`~
 
@@ -356,10 +356,10 @@ L'option `collection_actions` définit un tableau d'actions supplémentaires
 disponibles pour les routes de collection. Les clés sont les noms de l'action et les
 valeurs sont les méthodes valide pour l'action :
 
-    [yml] 
-    articles: 
-      options: 
-        collection_actions: { filter: post, filterBis: [post, get] } 
+    [yml]
+    articles:
+      options:
+        collection_actions: { filter: post, filterBis: [post, get] }
         # ...
 
 ### ~`object_actions`~
@@ -370,10 +370,10 @@ L'option `object_actions` définit un tableau d'actions supplémentaires disponi
 pour les routes d'objet. Les clés sont les noms de l'action et les
 valeurs sont les méthodes valide pour l'action :
 
-    [yml] 
-    articles: 
-      options: 
-        object_actions: { publish: put, publishBis: [post, put] } 
+    [yml]
+    articles:
+      options:
+        object_actions: { publish: put, publishBis: [post, put] }
         # ...
 
 ~`sfPropelRouteCollection`~

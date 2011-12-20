@@ -223,7 +223,7 @@ Il task `app::routes` visualizza le rotte correnti per una applicazione:
 
 Il task `cache::clear` pulisce la cache:
 
-    $ php symfony cache:clear [--app[="..."]] [--env[="..."]] [--type[="..."]] 
+    $ php symfony cache:clear [--app[="..."]] [--env[="..."]] [--type[="..."]]
 
 *Alias*: `cc, clear-cache`
 
@@ -340,7 +340,7 @@ e si configura con `all` per gli ambienti, senza l'opzione `app`.
 
 Il task `doctrine::build` genera il codice basato sullo schema:
 
-    $ php symfony doctrine:build [--application[="..."]] [--env="..."] [--no-confirmation] [--all] [--all-classes] [--model] [--forms] [--filters] [--sql] [--db] [--and-migrate] [--and-load[="..."]] [--and-append[="..."]] 
+    $ php symfony doctrine:build [--application[="..."]] [--env="..."] [--no-confirmation] [--all] [--all-classes] [--model] [--forms] [--filters] [--sql] [--db] [--and-migrate] [--and-load[="..."]] [--and-append[="..."]]
 
 
 
@@ -415,7 +415,7 @@ l'opzione `--and-append`:
 
 Il task `doctrine::build-all` genera i modelli per Doctrine, l'SQL e inizializza il database:
 
-    $ php symfony doctrine:build-all [--application[="..."]] [--env="..."] [--no-confirmation] [-F|--skip-forms] [--migrate] 
+    $ php symfony doctrine:build-all [--application[="..."]] [--env="..."] [--no-confirmation] [-F|--skip-forms] [--migrate]
 
 *Alias*: `doctrine-build-all`
 
@@ -464,7 +464,7 @@ Questo è equivalente a:
 
 Il task `doctrine::build-all-load` genera i modelli per Doctrine, l'SQL, inizializza il database e carica i dati con le fixture:
 
-    $ php symfony doctrine:build-all-load [--application[="..."]] [--env="..."] [--no-confirmation] [-F|--skip-forms] [--migrate] [--dir="..."] [--append] 
+    $ php symfony doctrine:build-all-load [--application[="..."]] [--env="..."] [--no-confirmation] [-F|--skip-forms] [--migrate] [--dir="..."] [--append]
 
 *Alias*: `doctrine-build-all-load`
 
@@ -507,7 +507,7 @@ invece dell'inserimento dell'SQL di Doctrine.
 
 Il task `doctrine::build-all-reload` genera i modelli per Doctrine, l'SQL, inizializza il database e carica i dati:
 
-    $ php symfony doctrine:build-all-reload [--application[="..."]] [--env="..."] [--no-confirmation] [-F|--skip-forms] [--migrate] [--dir="..."] [--append] 
+    $ php symfony doctrine:build-all-reload [--application[="..."]] [--env="..."] [--no-confirmation] [-F|--skip-forms] [--migrate] [--dir="..."] [--append]
 
 *Alias*: `doctrine-build-all-reload`
 
@@ -567,7 +567,7 @@ Il task `doctrine:build-all-reload-test-all` è una scorciatoia per nove altri t
     ./symfony doctrine:build-all-reload-test-all frontend
 
 Il task è equivalente a:
-  
+
     ./symfony doctrine:drop-db
     ./symfony doctrine:build-db
     ./symfony doctrine:build-model
@@ -587,7 +587,7 @@ invece dell'inserimento dell'SQL di Doctrine.
 
 Il task `doctrine::build-db` crea il database per il modello corrente:
 
-    $ php symfony doctrine:build-db [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:build-db [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-build-db`, doctrine:create-db`
 
@@ -615,7 +615,7 @@ Si può specificare quali database creare, fornendo i loro nomi:
 
 Il task `doctrine::build-filters` crea le classi per il filtro dei form per il corrente modello:
 
-    $ php symfony doctrine:build-filters [--application[="..."]] [--env="..."] [--model-dir-name="..."] [--filter-dir-name="..."] 
+    $ php symfony doctrine:build-filters [--application[="..."]] [--env="..."] [--model-dir-name="..."] [--filter-dir-name="..."]
 
 
 
@@ -644,7 +644,7 @@ Sostituisce solo le classi base generate in `lib/doctrine/filter/base`.
 
 Il task `doctrine::build-forms` crea le classi dei form per il corrente modello:
 
-    $ php symfony doctrine:build-forms [--application[="..."]] [--env="..."] [--model-dir-name="..."] [--form-dir-name="..."]  
+    $ php symfony doctrine:build-forms [--application[="..."]] [--env="..."] [--model-dir-name="..."] [--form-dir-name="..."]
 
 
 
@@ -673,7 +673,7 @@ Sostituisce unicamente le classi base generate in `lib/doctrine/form/base`.
 
 Il task `doctrine::build-model` crea le classi per il corrente modello:
 
-    $ php symfony doctrine:build-model [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:build-model [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-build-model`
 
@@ -701,7 +701,7 @@ Sostituisce unicamente i file in `lib/model/doctrine/base`.
 
 Il task `doctrine::build-schema` crea uno schema da un database esistente:
 
-    $ php symfony doctrine:build-schema [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:build-schema [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-build-schema`
 
@@ -723,7 +723,7 @@ Il task crea un file yml in `config/doctrine`
 
 Il task `doctrine::build-sql` crea l'SQL per il modello corrente:
 
-    $ php symfony doctrine:build-sql [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:build-sql [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-build-sql`
 
@@ -748,7 +748,7 @@ L'SQL generato è ottimizzato per il database configurato in `config/databases.y
 Il task `doctrine::clean-model-files` cancella tutte le classi dei modelli generate,
 per i modelli che non esistono più nello schema YAML:
 
-    $ php symfony doctrine:clean-model-files [--no-confirmation] 
+    $ php symfony doctrine:clean-model-files [--no-confirmation]
 
 *Alias(es)*: `doctrine:clean`
 
@@ -820,7 +820,7 @@ il task `doctrine:data-load`.
 
 Il task `doctrine::data-load` carica i dati delle fixture YAML:
 
-    $ php symfony doctrine:data-load [--application[="..."]] [--env="..."] [--append] [cartella_o_file1] ... [cartella_o_fileN] 
+    $ php symfony doctrine:data-load [--application[="..."]] [--env="..."] [--append] [cartella_o_file1] ... [cartella_o_fileN]
 
 *Alias*: `doctrine-load-data`
 
@@ -913,7 +913,7 @@ Fornire parametri alla query come parametri addizionali:
 
 Il task `doctrine::drop-db` elimina il database per il modello corrente:
 
-    $ php symfony doctrine:drop-db [--application[="..."]] [--env="..."] [--no-confirmation] 
+    $ php symfony doctrine:drop-db [--application[="..."]] [--env="..."] [--no-confirmation]
 
 *Alias*: `doctrine-drop-db`
 
@@ -1026,7 +1026,7 @@ nell'editor preferito al momento della creazione:
 
 Il task `doctrine::generate-migrations-db` genera le classi di migrazione per le esistenti connessioni al database:
 
-    $ php symfony doctrine:generate-migrations-db [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:generate-migrations-db [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-generate-migrations-db, doctrine-gen-migrations-from-db`
 
@@ -1048,7 +1048,7 @@ connessioni al database esistenti:
 Il task `doctrine::generate-migrations-diff` genera classi di migrazione realizzando
 una differenza tra il vecchio e il nuovo schema.:
 
-    $ php symfony doctrine:generate-migrations-diff [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:generate-migrations-diff [--application[="..."]] [--env="..."]
 
 
 
@@ -1068,7 +1068,7 @@ una differenza tra il vecchio e il nuovo schema.
 
 Il task `doctrine::generate-migrations-models` genera classi di migrazione da un esistente insieme di modelli:
 
-    $ php symfony doctrine:generate-migrations-models [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:generate-migrations-models [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-generate-migrations-models, doctrine-gen-migrations-from-models`
 
@@ -1105,7 +1105,7 @@ Il task `doctrine::generate-module` genera un modulo di Doctrine:
 | `--theme` | `default` | Il nome del tema
 | `--generate-in-cache` | `-` | Generare il modulo in cache
 | `--non-verbose-templates` | `-` | Generare modelli non verbosi
-| `--with-show` | `-` | Generare un metodo show 
+| `--with-show` | `-` | Generare un metodo show
 | `--singular` | `-` | Il nome singolare
 | `--plural` | `-` | Il nome plurale
 | `--route-prefix` | `-` | Il prefisso della rotta
@@ -1173,7 +1173,7 @@ per la definizione di rotta `%article%` trovata in `routing.yml`.
 
 Il task `doctrine::insert-sql` inserisce SQL per il modello corrente:
 
-    $ php symfony doctrine:insert-sql [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:insert-sql [--application[="..."]] [--env="..."]
 
 *Alias*: `doctrine-insert-sql`
 
@@ -1235,7 +1235,7 @@ in modalità dry-run usando l'opzione `--dry-run`:
 
 Il task `doctrine::rebuild-db` crea il database per il modello corrente:
 
-    $ php symfony doctrine:rebuild-db [--application[="..."]] [--env="..."] [--no-confirmation] [--migrate] 
+    $ php symfony doctrine:rebuild-db [--application[="..."]] [--env="..."] [--no-confirmation] [--migrate]
 
 *Alias*: `doctrine-rebuild-db`
 
@@ -1264,7 +1264,7 @@ invece che inserire l'SQL di Doctrine.
 
 Il task `doctrine::reload-data` cancella il databse, lo ricrea e carica le fixture:
 
-    $ php symfony doctrine:reload-data [--application[="..."]] [--env="..."] [--no-confirmation] [--dir="..."] [--migrate] [--append] 
+    $ php symfony doctrine:reload-data [--application[="..."]] [--env="..."] [--no-confirmation] [--dir="..."] [--migrate] [--append]
 
 *Alias(es)*: `doctrine-reload-data`
 
@@ -1284,13 +1284,13 @@ Il task `doctrine:reload-data` cancella il database, lo ricrea e carica le fixtu
 Si chiama con:
 
     php symfony doctrine:reload-data
-  
+
 Il task è equivalente a:
 
     ./symfony doctrine:drop-db
     ./symfony doctrine:build-db
     ./symfony doctrine:insert-sql
-    ./symfony doctrine:data-load` 
+    ./symfony doctrine:data-load`
 
 `generate`
 ----------
@@ -1405,7 +1405,7 @@ Il task `generate::project` genera un nuovo progetto:
 | `--installer` | `-` | Uno script di installazione da eseguire
 
 
-Il task `generate:project` crea nella cartella corrente 
+Il task `generate:project` crea nella cartella corrente
 la struttura di base delle cartelle per un nuovo progetto:
 
     ./symfony generate:project blog
@@ -1522,7 +1522,7 @@ Per salvarle nel catalogo delle frasi i18n, usare l'opzione `--auto-save`:
     ./symfony i18n:extract --auto-save frontend fr
 
 Se si vogliono visualizzare le stringhe che sono presenti nel catalogo
-delle frasi i18n ma che non sono state trovate nell'applicazione, usare 
+delle frasi i18n ma che non sono state trovate nell'applicazione, usare
 l'opzione `--display-old`:
 
     ./symfony i18n:extract --display-old frontend fr
@@ -1570,7 +1570,7 @@ se si usa la sintassi stringa per i parametri degli helper).
 
 Il task `log::clear` pulisce i file di log:
 
-    $ php symfony log:clear  
+    $ php symfony log:clear
 
 *Alias*: `log-purge`
 
@@ -1701,7 +1701,7 @@ Su Windows, il task copia tutti i file nella cartella `web/%name%`.
 
 Il task `plugin::list` elenca i plugin installati:
 
-    $ php symfony plugin:list  
+    $ php symfony plugin:list
 
 *Alias*: `plugin-list`
 
@@ -1824,7 +1824,7 @@ Vedere `plugin:install` per maggiori informazioni sul formato del nome dei plugi
 
 Il task `project::clear-controllers` pulisce tutti i controllori degli ambienti non in produzione:
 
-    $ php symfony project:clear-controllers  
+    $ php symfony project:clear-controllers
 
 *Alias*: `clear-controllers`
 
@@ -1997,7 +1997,7 @@ di rilanciare il task ogni volta che il progetto subisce delle modifiche.
 
 Il task `project::permissions` corregge i permessi delle cartelle di symfony:
 
-    $ php symfony project:permissions  
+    $ php symfony project:permissions
 
 *Alias*: `permissions, fix-perms`
 
@@ -2014,7 +2014,7 @@ Il task `project:permissions` corregge i permessi delle cartelle:
 
 Il task `project::send-emails` invia le email memorizzate in una coda:
 
-    $ php symfony project:send-emails [--application[="..."]] [--env="..."] [--message-limit[="..."]] [--time-limit[="..."]] 
+    $ php symfony project:send-emails [--application[="..."]] [--env="..."] [--message-limit[="..."]] [--time-limit[="..."]]
 
 
 
@@ -2045,7 +2045,7 @@ O limitare il tempo (in secondi):
 Il task `project:upgrade1.3` aggiorna un progetto symfony basato sulla versione 1.2
 alla versione di symfony 1.3.
 
-    ./symfony project:upgrade1.3  
+    ./symfony project:upgrade1.3
 
 
 Si prega di leggere il file UPGRADE_TO_1_3 per avere informazioni su cosa fa questo task.
@@ -2054,7 +2054,7 @@ Si prega di leggere il file UPGRADE_TO_1_3 per avere informazioni su cosa fa que
 
 Il task `project::validate` trova gli elementi deprecati in un progetto:
 
-    $ php symfony project:validate  
+    $ php symfony project:validate
 
 Il task elenca tutti i file che si devono cambiare prima del passaggio a
 symfony 1.4.
@@ -2066,7 +2066,7 @@ symfony 1.4.
 
 Il task `propel::build` genera il codice basandosi sullo schema:
 
-    $ php symfony propel:build [--application[="..."]] [--env="..."] [--no-confirmation] [--all] [--all-classes] [--model] [--forms] [--filters] [--sql] [--db] [--and-load[="..."]] [--and-append[="..."]] 
+    $ php symfony propel:build [--application[="..."]] [--env="..."] [--no-confirmation] [--all] [--all-classes] [--model] [--forms] [--filters] [--sql] [--db] [--and-load[="..."]] [--and-append[="..."]]
 
 
 
@@ -2133,7 +2133,7 @@ l'opzione `--and-append`:
 
 Il task `propel::build-all` genera modelli per Propel classi per i form, l'SQL e inizializza il database:
 
-    $ php symfony propel:build-all [--application[="..."]] [--env="..."] [--connection="..."] [--no-confirmation] [-F|--skip-forms] [-C|--classes-only] [--phing-arg="..."] 
+    $ php symfony propel:build-all [--application[="..."]] [--env="..."] [--connection="..."] [--no-confirmation] [-F|--skip-forms] [-C|--classes-only] [--phing-arg="..."]
 
 *Alias*: `propel-build-all`
 
@@ -2168,7 +2168,7 @@ Per saltare il prompt di conferma, si può passare l'opzione `no-confirmation`:
 
     ./symfony propel:buil-all --no-confirmation
 
-Per creare tutte le classi ma saltare l'inizializzazione del database, usare l'opzione 
+Per creare tutte le classi ma saltare l'inizializzazione del database, usare l'opzione
 `classes-only`:
 
     ./symfony propel:build-all --classes-only
@@ -2177,7 +2177,7 @@ Per creare tutte le classi ma saltare l'inizializzazione del database, usare l'o
 
 Il task `propel::build-all-load` genera modelli per Propel e classi per i form, l'SQL, inizializza il database e carica i dati:
 
-    $ php symfony propel:build-all-load [--application[="..."]] [--env="..."] [--connection="..."] [--no-confirmation] [-F|--skip-forms] [-C|--classes-only] [--phing-arg="..."] [--append] [--dir="..."] 
+    $ php symfony propel:build-all-load [--application[="..."]] [--env="..."] [--connection="..."] [--no-confirmation] [-F|--skip-forms] [-C|--classes-only] [--phing-arg="..."] [--append] [--dir="..."]
 
 *Alias*: `propel-build-all-load`
 
@@ -2216,7 +2216,7 @@ Per saltare la conferma, si può passare l'opzion
 
 Il task `propel::build-filters` crea classi di filtri per i form per il modello corrente:
 
-    $ php symfony propel:build-filters [--connection="..."] [--model-dir-name="..."] [--filter-dir-name="..."] [--application[="..."]] 
+    $ php symfony propel:build-filters [--connection="..."] [--model-dir-name="..."] [--filter-dir-name="..."] [--application[="..."]]
 
 
 
@@ -2252,7 +2252,7 @@ Sostituisce soltanto le classi base generate in `lib/filter/base`.
 
 Il task `propel::build-forms` crea classi per i form per il modello corrente:
 
-    $ php symfony propel:build-forms [--connection="..."] [--model-dir-name="..."] [--form-dir-name="..."] [--application[="..."]] 
+    $ php symfony propel:build-forms [--connection="..."] [--model-dir-name="..."] [--form-dir-name="..."] [--application[="..."]]
 
 
 
@@ -2288,7 +2288,7 @@ Sostituisce soltanto le classi base generate in `lib/form/base`.
 
 Il task `propel::build-model` crea classi per il modello corrente:
 
-    $ php symfony propel:build-model [--phing-arg="..."] 
+    $ php symfony propel:build-model [--phing-arg="..."]
 
 *Alias*: `propel-build-model`
 
@@ -2318,7 +2318,7 @@ Sostituisce soltanto i file presenti in `lib/model/om` e `lib/model/map`.
 
 Il task `propel::build-schema` crea uno schema da un database esistente:
 
-    $ php symfony propel:build-schema [--application[="..."]] [--env="..."] [--connection="..."] [--xml] [--phing-arg="..."] 
+    $ php symfony propel:build-schema [--application[="..."]] [--env="..."] [--connection="..."] [--xml] [--phing-arg="..."]
 
 *Alias*: `propel-build-schema`
 
@@ -2347,7 +2347,7 @@ Il formato XML contiene più informazioni di quello in YML.
 
 Il task `propel::build-sql` crea l'SQL per il modello corrente:
 
-    $ php symfony propel:build-sql [--phing-arg="..."] 
+    $ php symfony propel:build-sql [--phing-arg="..."]
 
 *Alias*: `propel-build-sql`
 
@@ -2420,7 +2420,7 @@ l'opzione `application`:
 
 Il task `propel::data-load` carica i dati delle fixture YAML:
 
-    $ php symfony propel:data-load [--application[="..."]] [--env="..."] [--append] [--connection="..."] [dir_or_file1] ... [dir_or_fileN] 
+    $ php symfony propel:data-load [--application[="..."]] [--env="..."] [--append] [--connection="..."] [dir_or_file1] ... [dir_or_fileN]
 
 *Alias*: `propel-load-data`
 
@@ -2600,7 +2600,7 @@ definizione di rotta `%article%` trovata in `routing.yml`.
 
 Il task `propel::graphviz` genera un grafico graphviz del corrente modello di oggetti:
 
-    $ php symfony propel:graphviz [--phing-arg="..."] 
+    $ php symfony propel:graphviz [--phing-arg="..."]
 
 
 
@@ -2654,7 +2654,7 @@ Il generatore può usare un tema personalizzato utilizzando l'opzione `--theme`:
 
 Il task `propel::insert-sql` inserisce l'SQL per il modello corrente:
 
-    $ php symfony propel:insert-sql [--application[="..."]] [--env="..."] [--connection="..."] [--no-confirmation] [--phing-arg="..."] 
+    $ php symfony propel:insert-sql [--application[="..."]] [--env="..."] [--connection="..."] [--no-confirmation] [--phing-arg="..."]
 
 *Alias*: `propel-insert-sql`
 
@@ -2679,7 +2679,7 @@ trovate nei file `config/sql/*schema.sql`.
 Prima dell'esecuzione, il task chiederà di confermare l'esecuzione
 dal momento che cancellerà tutti i dati presenti nel database.
 
-Per saltare la conferma, è possibile passare l'opzione 
+Per saltare la conferma, è possibile passare l'opzione
 `--no-confirmation`:
 
     ./symfony propel:insert-sql --no-confirmation
@@ -2695,7 +2695,7 @@ solo caricare le istruzioni SQL per una certa connessione.
 
 Il task `propel::schema-to-xml` crea il file schema.xml dal file schema.yml:
 
-    $ php symfony propel:schema-to-xml  
+    $ php symfony propel:schema-to-xml
 
 *Alias*: `propel-convert-yml-schema`
 
@@ -2711,7 +2711,7 @@ Il task `propel:schema-to-xml` converte schemi in formato YML al formato XML:
 
 Il task `propel::schema-to-yml` crea il file schema.yml dal file schema.xml:
 
-    $ php symfony propel:schema-to-yml  
+    $ php symfony propel:schema-to-yml
 
 *Alias*: `propel-convert-xml-schema`
 
@@ -2730,7 +2730,7 @@ Il task `propel:schema-to-yml` converte schemi XML in YML:
 
 Il task `symfony::test` lancia la suite test di symfony:
 
-    $ php symfony symfony:test [-u|--update-autoloader] [-f|--only-failed] [--xml="..."] [--rebuild-all] 
+    $ php symfony symfony:test [-u|--update-autoloader] [-f|--only-failed] [--xml="..."] [--rebuild-all]
 
 
 
@@ -2755,7 +2755,7 @@ Il task `test:all` lancia la suite test di symfony:
 
 Il task `test::all` lancia tutti i test:
 
-    $ php symfony test:all [-f|--only-failed] [--xml="..."] 
+    $ php symfony test:all [-f|--only-failed] [--xml="..."]
 
 *Alias*: `test-all`
 
@@ -2808,7 +2808,7 @@ Il task `test::coverage` mostra la copertura del codice testato:
 | Parametro | Predefinito | Descrizione
 | --------- | ----------- | -----------
 | `nome_test` | `-` | Un nome file del test o una cartella con i test
-| `nome_lib` | `-` | Un nome di file della libreria o una cartella con la libreria 
+| `nome_lib` | `-` | Un nome di file della libreria o una cartella con la libreria
 |            |     | per la quale si desidera conoscere la copertura
 
 

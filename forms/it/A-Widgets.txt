@@ -340,7 +340,7 @@ Ma, in definitiva, tutti permettono all'utente di effettuare una scelta singola 
 all'interno di un numero finito di possibilità.
 
 Il widget ~`sfWidgetFormChoice`~ standardizza tutte queste possibilità
-in un widget. Il widget è in grado di generare una scelta come una delle quattro 
+in un widget. Il widget è in grado di generare una scelta come una delle quattro
 rappresentazioni in HTML che abbiamo visto sopra. Esso consente inoltre di definire la propria
 rappresentazione, come si vedrà più avanti.
 

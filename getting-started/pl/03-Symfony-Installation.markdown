@@ -4,8 +4,8 @@ Instalacja symfony
 Tworzenie katalogu projektu
 ---------------------------
 
-Przed instalacją symfony, na początku musisz stworzyć katalog, w którym 
-będziesz trzymać wszystkie plik związane z Twoim projektem: 
+Przed instalacją symfony, na początku musisz stworzyć katalog, w którym
+będziesz trzymać wszystkie plik związane z Twoim projektem:
 
     $ mkdir -p /home/sfproject
     $ cd /home/sfproject
@@ -17,25 +17,25 @@ Lub w Windows-ie:
 
 >**NOTE**
 >Użytkownicy Windowsa powinni uruchamiać symfony oraz swój nowy projekt
->w ścieżce, nie zawierającej żadnych spacji w nazwie. 
->W szczególności katalogu `Documents and Settings`, oraz tym samym w  
+>w ścieżce, nie zawierającej żadnych spacji w nazwie.
+>W szczególności katalogu `Documents and Settings`, oraz tym samym w
 >`Moje dokumenty`.
 
 -
 
 >**TIP**
->Jeżeli utworzysz projekt symfony w katalogu domowym serwera stron, 
->nie będziesz musiał wprowadzać żadnych zmian na serwerze stron WWW. 
+>Jeżeli utworzysz projekt symfony w katalogu domowym serwera stron,
+>nie będziesz musiał wprowadzać żadnych zmian na serwerze stron WWW.
 >Oczywiście na serwer produkcyjny, bardzo zalecamy skonfigurować serwer
->stron wg instrukcji opisanej w części dot. konfiguracji serwera stron.  
+>stron wg instrukcji opisanej w części dot. konfiguracji serwera stron.
 
 Wybór wersji Symfony
 --------------------
 
-Teraz możesz zainstalować symfony. Framework symfony ma kilka stabilnych wersji 
-i powinieneś wybrać, która z nich chcesz zainstalować, po przeczytaniu 
-[strony o instalacji](http://www.symfony.pl/instalacja/) na symfony.pl lub  
-[instalation page](http://www.symfony-project.org/installation) na na oficjalnej 
+Teraz możesz zainstalować symfony. Framework symfony ma kilka stabilnych wersji
+i powinieneś wybrać, która z nich chcesz zainstalować, po przeczytaniu
+[strony o instalacji](http://www.symfony.pl/instalacja/) na symfony.pl lub
+[instalation page](http://www.symfony-project.org/installation) na na oficjalnej
 stronie symfony.
 
 W tym przewodniku zakładamy, że chcesz zainstalować symfony w wersji 1.4.
@@ -43,12 +43,12 @@ W tym przewodniku zakładamy, że chcesz zainstalować symfony w wersji 1.4.
 Wybór katalogu do instalacji symfony
 -------------------------------------
 
-Możesz zainstalować symfony globalnie dla całej maszyny lub ograniczyć się do 
-Twojego projektu. Druga metoda jest zalecana tylko gdy projekt jest całkowicie 
-niezwiązany z pozostałymi. Aktualizacja symfony w takim odseparowam projekcie nie 
-spowoduje żadnych problemów w pozostałych projektach. Oznacza to, że możesz mieć 
-różne projekty, z różnymi wersjami symfony i aktualizować je jeden po drugim 
-wg Twojej potrzeby. 
+Możesz zainstalować symfony globalnie dla całej maszyny lub ograniczyć się do
+Twojego projektu. Druga metoda jest zalecana tylko gdy projekt jest całkowicie
+niezwiązany z pozostałymi. Aktualizacja symfony w takim odseparowam projekcie nie
+spowoduje żadnych problemów w pozostałych projektach. Oznacza to, że możesz mieć
+różne projekty, z różnymi wersjami symfony i aktualizować je jeden po drugim
+wg Twojej potrzeby.
 
 Wśród wielu użytkowników, przyjęła się praktyka, że framework symfony instalowany jest
 w katalogu projektu `lib/vendor`. Na początku utwórzmy sobie taki katalog:
@@ -100,7 +100,7 @@ wydania (subversion tag):
 
 Za każdym razem, gdy zostanie wydana nowa wersja (dowiesz się o tym na oficjalnym
 [blogu](http://www.symfony-project.org/blog/)), wtedy będziesz musiał/a zmienić adres URL
-na nową wersję. 
+na nową wersję.
 
 Jeśli chcesz zaufać naszym aktualizacjion, skorzystać z branchy 1.4:
 

@@ -120,7 +120,7 @@ In the above snippet, to create the response factory, symfony instantiates a
 >     $mailer = sfContext::getInstance()->getMailer();
 >
 >Whenever you want to use the `sfContext::getInstance()` in one of your class,
->think twice as it introduces a ~strong coupling|Strong Coupling~. It is quite 
+>think twice as it introduces a ~strong coupling|Strong Coupling~. It is quite
 >always better to pass the object you need as an argument.
 >
 >You can even use ~`sfContext`~ as a registry and add your own objects using the

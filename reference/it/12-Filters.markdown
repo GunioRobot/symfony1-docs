@@ -85,7 +85,7 @@ sono obbligatori e sono identificati dal parametro `type`. Il filtro
 >**NOTE**
 >Il file di configurazione `filters.yml` è messo in cache come file PHP;
 >il processo è gestito automaticamente dalla
->[classe](#chapter_14_config_handlers_yml) 
+>[classe](#chapter_14_config_handlers_yml)
 >~`sfFilterConfigHandler`~.
 
 <div class="pagebreak"></div>

@@ -98,7 +98,7 @@ I moduli di amministrazione consentono di costruire un'applicazione pienamente
 funzionante senza scrivere codice.
 
 Per astrarre l'implementazione tecnica di un sito, symfony usa un
-sotto-framework per il [routing](#chapter_05_configurazione_del_routing) 
+sotto-framework per il [routing](#chapter_05_configurazione_del_routing)
 che genera [URL carini](#chapter_05_url). Per rendere ancora più facile
 l'implementazione dei web service, symfony supporta i
 [formati](#chapter_14_formati) in modo nativo. Si possono anche creare
@@ -232,7 +232,7 @@ I test unitari possono essere eseguiti
 [uno alla volta](#chapter_08_eseguire_i_test_unitari) o
 [tutti insieme](#chapter_08_insieme_di_test_unitari).
 
-**I test funzionali** sono scritti con la classe 
+**I test funzionali** sono scritti con la classe
 [`sfFunctionalTest`](#chapter_09_la_classe_sftestfunctional), che
 usa un [simulatore di browser](#chapter_09_la_classe_sfbrowser) e
 consente agli oggetti principali di symfony l'introspezione tramite i

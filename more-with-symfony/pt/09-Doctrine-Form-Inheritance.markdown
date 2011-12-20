@@ -3,8 +3,8 @@
 
 *por Hugo Hamon*
 
-No symfony 1.3, o ~Doctrine~ tornou-se, oficialmente, a biblioteca ORM padrão 
-enquanto houve queda com o desenvolvimento utilizando o Propel nos últimos meses. 
+No symfony 1.3, o ~Doctrine~ tornou-se, oficialmente, a biblioteca ORM padrão
+enquanto houve queda com o desenvolvimento utilizando o Propel nos últimos meses.
 O suporte e melhorias ao projeto ~Propel~ ainda continuam graças aos esforços dos membros da comunidade symfony.
 
 O projeto Doctrine 1.2 tornou-se a nova biblioteca ORM padrão symfony por
@@ -19,16 +19,16 @@ flexível e organizado.
 Herança de tabelas do Doctrine
 --------------------------
 
-Apesar de não ser muito conhecida e utilizada por muitos desenvolvedores, a herança da tabelas é, 
-provavelmente, uma das características mais interessantes do Doctrine. 
-A herança de tabelas permite ao desenvolvedor criar tabelas que herdam de outras, 
+Apesar de não ser muito conhecida e utilizada por muitos desenvolvedores, a herança da tabelas é,
+provavelmente, uma das características mais interessantes do Doctrine.
+A herança de tabelas permite ao desenvolvedor criar tabelas que herdam de outras,
 da mesma forma que as classes herdam em uma linguagem de programação orientada à objeto.
 Herança de tabelas fornece uma maneira fácil de compartilhar dados entre duas ou mais tabelas
 em uma única super tabela. Olhe para o diagrama abaixo para entender melhor o princípio de herança de tabelas.
 
 ![Esquema de Herança de Tabelas do Doctrine](http://www.symfony-project.org/images/more-with-symfony/01_table_inheritance.png "Princípio de Herança de tabelas do Doctrine")
 
-Doctrine oferece três estratégias diferentes para gerenciar herança de tabelas 
+Doctrine oferece três estratégias diferentes para gerenciar herança de tabelas
 dependendo das necessidades da aplicação (desempenho, atomicidade, simplicidade, ... ):
 __simple__, __column aggregation__ e herança de tabelas __concrete__. Embora todas estas
 estratégias estarem descritas no
@@ -79,10 +79,10 @@ Com a estratégia de herança simples, as colunas extras `especialidade`, `gradu
 
 ![Esquema simples de herança de tabelas](http://www.symfony-project.org/images/more-with-symfony/02_simple_tables_inheritance.png "Princípio de herança simples do Doctrine")
 
-Esta estratégia tem uma importante desvantagem com a super tabela `Pessoa` 
-que não fornece qualquer coluna para identificar cada tipo de registro. 
-Em outras palavras, não há nenhuma maneira de obter apenas os objetos `Professor` ou `Aluno`. 
-A seguinte instrução Doctrine retorna um `Doctrine_Collection` de todos os 
+Esta estratégia tem uma importante desvantagem com a super tabela `Pessoa`
+que não fornece qualquer coluna para identificar cada tipo de registro.
+Em outras palavras, não há nenhuma maneira de obter apenas os objetos `Professor` ou `Aluno`.
+A seguinte instrução Doctrine retorna um `Doctrine_Collection` de todos os
 registros da tabela (`Aluno` e `Professor`).
 
     [php]
@@ -94,9 +94,9 @@ um tipo específico. Conseqüentemente, não será abordado neste capítulo.
 
 ### A Estratégia Herança de Tabelas de Agregação de Coluna
 
-A estratégia de herança de tabelas de agregação de coluna é semelhante à estratégia 
-de herança simples, exceto que inclui uma coluna `tipo`, para identificar os diferentes 
-tipos de registros. Consequentemente, quando um registro é mantido no banco de dados, 
+A estratégia de herança de tabelas de agregação de coluna é semelhante à estratégia
+de herança simples, exceto que inclui uma coluna `tipo`, para identificar os diferentes
+tipos de registros. Consequentemente, quando um registro é mantido no banco de dados,
 um valor para o tipo é adicionado nele a fim de armazenar a classe a qual pertence.
 
     [yml]
@@ -139,15 +139,15 @@ No esquema YAML acima, o tipo de herança foi alterado para
 atributo, `keyField`, especifica a coluna que será criada para armazenar o
 tipo de informação para cada registro. O `keyField` é uma coluna string coluna
 chamada `type`, que é o nome padrão da coluna, se nenhum `keyField` for especificado.
-O segundo atributo define o valor do tipo para cada registro que pertence às classes 
+O segundo atributo define o valor do tipo para cada registro que pertence às classes
 `Professor` ou `Aluno`.
 
 ![Esquema de herança de tabelas Agregação de Coluna](http://www.symfony-project.org/images/more-with-symfony/03_columns_aggregation_tables_inheritance.png "Princípio da agregação de coluna do Doctrine")
 
 A estratégia de agregação de coluna é um bom método para herança de tabelas, uma vez que
-cria uma única tabela (`Pessoa`), contendo todos os campos definidos mais o campo `type`. 
-Por conseguinte, não há necessidade de criar várias tabelas e fazer joins com uma 
-consulta SQL. Abaixo estão alguns exemplos de como realizar consultas nas tabelas 
+cria uma única tabela (`Pessoa`), contendo todos os campos definidos mais o campo `type`.
+Por conseguinte, não há necessidade de criar várias tabelas e fazer joins com uma
+consulta SQL. Abaixo estão alguns exemplos de como realizar consultas nas tabelas
 e que tipo de resultados serão retornados:
 
     [php]
@@ -166,25 +166,25 @@ e que tipo de resultados serão retornados:
     //Retorna um objeto Aluno
     $aluno = Doctrine::getTable('Pessoa')->findOneByIdAndType(array(42, 2));
 
-Ao recuperar os dados de uma subclasse (`Professor`, `Aluno`), o 
+Ao recuperar os dados de uma subclasse (`Professor`, `Aluno`), o
 Doctrine anexará automaticamente a cláusula SQL `WHERE` para a consulta na
 coluna `type` com o valor correspondente.
 
-No entanto, existem algumas desvantagens de usar a estratégia de agregação de coluna em 
-determinados casos. Primeiro, a agregação de coluna impede que cada sub-campo da tabela 
+No entanto, existem algumas desvantagens de usar a estratégia de agregação de coluna em
+determinados casos. Primeiro, a agregação de coluna impede que cada sub-campo da tabela
 seja definido como `obrigatório` (`required`). Dependendo de quantos campos existirem, a tabela `Pessoa`
 pode conter vários registros com valores vazios.
 
-A segunda desvantagem está relaciona com o número de sub-tabelas e campos. 
-Se o esquema declara várias sub-tabelas, que por sua vez, declara vários campos, 
-a super tabela final será composta de um número muito grande de colunas. 
+A segunda desvantagem está relaciona com o número de sub-tabelas e campos.
+Se o esquema declara várias sub-tabelas, que por sua vez, declara vários campos,
+a super tabela final será composta de um número muito grande de colunas.
 Por conseqüência, a tabela pode ser mais difícil de manter.
 
 ### A Estratégia de Herança Concreta
 
 A estratégia de herança concreta de tabelas é um bom meio-termo entre as
 vantagens da estratégia de agregação de coluna, desempenho e manutenibilidade.
-Na verdade, esta estratégia cria tabelas independentes para cada subclasse contendo 
+Na verdade, esta estratégia cria tabelas independentes para cada subclasse contendo
 todas as colunas: as próprias e as compartilhadas independente do modelo.
 
     [yml]
@@ -224,22 +224,22 @@ seguinte conjunto de campos: `id`, `nome`, `sobrenome` e `especialidade`.
 ![Esquema de herança concreta de tabelas](http://www.symfony-project.org/images/more-with-symfony/04_concrete_tables_inheritance.png "Princípio da herança concreta do Doctrine")
 
 Esta abordagem tem várias vantagens em relação as estratégias anteriores. A primeira
-é que todas as tabelas são isoladas e permanecem independentes umas das outras. 
-Além disso, não há mais campos em branco e a coluna extra `type` não é incluída. 
+é que todas as tabelas são isoladas e permanecem independentes umas das outras.
+Além disso, não há mais campos em branco e a coluna extra `type` não é incluída.
 O resultado é que cada tabela será mais leve e isolada uma das outras.
 
 >**NOTE**
 >O fato de que os campos comuns são duplicados em sub-tabelas é um ganho para o
->desempenho e a escalabilidade já que o Doctrine não precisa criar um SQL automático 
+>desempenho e a escalabilidade já que o Doctrine não precisa criar um SQL automático
 >juntando tudo em uma super tabela para recuperar registros compartilhados pertencentes a uma sub-tabela.
 
-As únicas duas desvantagens da estratégia de herança concreta de tabelas são a 
-duplicação de campos compartilhados (embora a duplicação geralmente seja a chave para o desempenho) 
-e o fato que a super tabela gerada estará sempre vazia. Na verdade, o Doctrine gerou 
-uma tabela `Pessoa`, apesar de que ela não será preenchida ou referenciada por qualquer consulta. 
+As únicas duas desvantagens da estratégia de herança concreta de tabelas são a
+duplicação de campos compartilhados (embora a duplicação geralmente seja a chave para o desempenho)
+e o fato que a super tabela gerada estará sempre vazia. Na verdade, o Doctrine gerou
+uma tabela `Pessoa`, apesar de que ela não será preenchida ou referenciada por qualquer consulta.
 Nenhuma consulta será realizada na tabela já que tudo é armazenado nas sub-tabelas.
 
-Nós só tivemos tempo para introduzir as três estratégias de Herança de tabelas do Doctrine, 
+Nós só tivemos tempo para introduzir as três estratégias de Herança de tabelas do Doctrine,
 mas nós ainda não exercitamos em um exemplo do mundo real com o symfony.
 A parte seguinte deste capítulo explica como tirar proveito da Herança de tabelas
 com o Doctrine no symfony 1.3, especialmente no modelo e nos formulários.
@@ -248,36 +248,36 @@ Integração da Herança de tabelas no symfony
 -----------------------------------------
 
 Antes do symfony 1.3, a herança de tabelas não era totalmente suportada pela
-estrutura das classes de formulários e filtros que não herdavam corretamente da 
-classe base. Consequentemente, os programadores que precisavam usar a herança de 
-tabelas eram forçados a ajustar os formulários e os filtros e foram obrigados a 
+estrutura das classes de formulários e filtros que não herdavam corretamente da
+classe base. Consequentemente, os programadores que precisavam usar a herança de
+tabelas eram forçados a ajustar os formulários e os filtros e foram obrigados a
 sobrescrever vários métodos para obter o comportamento de herança.
 
-Graças ao feedback da comunidade, a equipe do núcleo do symfony melhorou os 
-formulários e os filtros para suportar a herança de tabelas facilmente e completamente 
+Graças ao feedback da comunidade, a equipe do núcleo do symfony melhorou os
+formulários e os filtros para suportar a herança de tabelas facilmente e completamente
 no symfony 1.3.
 
 O restante deste capítulo irá explicar como usar herança de tabelas do Doctrine
-e como aproveitá-la em várias situações, inclusive em modelos, formulários, filtros e 
-geradores de interface administrativa. Exemplos de estudo de caso reais vão nos ajudar a 
-entender melhor como a herança funciona com o symfony para que você utilize facilmente 
+e como aproveitá-la em várias situações, inclusive em modelos, formulários, filtros e
+geradores de interface administrativa. Exemplos de estudo de caso reais vão nos ajudar a
+entender melhor como a herança funciona com o symfony para que você utilize facilmente
 em suas necessidades.
 
 ### Introdução aos Estudos de Caso Reais
 
 Ao longo deste capítulo, vários estudos de caso do mundo real serão apresentados
-expondo as muitas vantagens da abordagem da herança de tabelas do Doctrine em diversos 
+expondo as muitas vantagens da abordagem da herança de tabelas do Doctrine em diversos
 níveis: em `modelos`, `formulários`, `filtros` e no `gerador de interface administrativa`.
 
 O primeiro exemplo vem de uma aplicação desenvolvida pela Sensio
-para uma empresa francesa bem conhecida. Ele mostra como a herança de tabela com o Doctrine é uma 
+para uma empresa francesa bem conhecida. Ele mostra como a herança de tabela com o Doctrine é uma
 boa solução para gerenciar dezenas de conjuntos de dados referenciais idênticos, a fim de
 compartilhar métodos e propriedades e evitar a reescrita de código.
 
-O segundo exemplo mostra como tirar proveito da estratégia de herança concreta de tabelas com formulários, 
+O segundo exemplo mostra como tirar proveito da estratégia de herança concreta de tabelas com formulários,
 criando um modelo simples para gerenciar inúmeros arquivos.
 
-Finalmente, o terceiro exemplo irá demonstrar como tirar vantagem da herança de 
+Finalmente, o terceiro exemplo irá demonstrar como tirar vantagem da herança de
 tabelas com o gerador de interface administrativa, e como torná-lo mais flexível.
 
 ### Herança de tabelas na Camada do Modelo
@@ -285,12 +285,12 @@ tabelas com o gerador de interface administrativa, e como torná-lo mais flexív
 Similar ao conceito de Programação Orientada à Objetos, a herança de tabelas
 encoraja o compartilhamento de dados. Conseqüentemente, permite o compartilhamento de atributos
 e métodos quando se trata dos modelos gerados. A herança de tabelas do Doctrine
-é uma boa maneira de compartilhar e substituir as ações que podem ser chamadas em objetos herdados. 
+é uma boa maneira de compartilhar e substituir as ações que podem ser chamadas em objetos herdados.
 Vamos explicar este conceito com um exemplo do mundo real.
 
 #### O Problema ####
 
-Muitas aplicações web exigem dados "referenciais" para funcionar. Um 
+Muitas aplicações web exigem dados "referenciais" para funcionar. Um
 referencial é geralmente um pequeno conjunto de dados representados por uma tabela simples
 contendo pelo menos dois campos (por exemplo, `id` e `label`). Em alguns casos, porém,
 o referencial contém dados adicionais, como um `is_active` ou uma tag `is_default`.
@@ -299,14 +299,14 @@ Este foi o caso recentemente na Sensio com uma aplicação de cliente.
 O cliente queria administrar um grande conjunto de dados, que envolvia os principais
 formulários e visões da aplicação. Todas estas tabelas referenciais foram construídas
 em torno do mesmo modelo básico: `id`, `label`, `position` e `is_default`. O
-campo `position` ajuda a classificar os registros, graças a uma função ajax *arraste e solte* (*drag and drop*). 
-O campo `is_default` é um sinalizador que indica se um registro deve ou não estar 
+campo `position` ajuda a classificar os registros, graças a uma função ajax *arraste e solte* (*drag and drop*).
+O campo `is_default` é um sinalizador que indica se um registro deve ou não estar
 "selecionado" por padrão, quando ele preenche um elemento HTML de caixa para seleção *dropdown*.
 
 #### A Solução ####
 
 O gerenciamento de mais do que duas tabelas iguais é um dos melhores problemas para resolver com
-herança de tabelas. No problema acima, a herança das tabelas concreta 
+herança de tabelas. No problema acima, a herança das tabelas concreta
 foi selecionada para se adequar às necessidades e compartilhar os métodos de cada objeto em uma
 única classe. Vamos dar uma olhada no seguinte esquema simplificado, que
 ilustra o problema.
@@ -347,7 +347,7 @@ SQL para três tabelas e seis classes de modelo no diretório `lib/model/doctrin
 
   * `SfReferential`: gerencia os registros `sf_referential`,
   * `SfReferentialTable`: gerencia a tabela `sf_referential`,
-  * `SfReferentialContractType`: gerencia os registros `sf_referential_contract_type`.    
+  * `SfReferentialContractType`: gerencia os registros `sf_referential_contract_type`.
   * `SfReferentialContractTypeTable`: gerencia a tabela `sf_referential_contract_type`.
   * `SfReferentialProductType: gerencia os registros `sf_referential_product_type`.
   * `SfReferentialProductTypeTable: gerencia a tabela `sf_referential_product_type`.
@@ -404,10 +404,10 @@ métodos para gerenciar todos os dados referenciais, como por exemplo:
 Graças à Herança concreta de tabelas do Doctrine, todo o código é compartilhado em
 um mesmo lugar. O código se torna mais fácil de depurar, manter, melhorar e realizar testes unitários.
 
-Essa é a primeira vantagem real quando se trata de herança de tabelas. 
-Além disso, graças a esta abordagem, os objetos do modelo podem ser usados para 
-centralizar as ações de código como no exemplo abaixo. 
-O `sfBaseReferentialActions` é uma classe de ações especiais herdada por cada 
+Essa é a primeira vantagem real quando se trata de herança de tabelas.
+Além disso, graças a esta abordagem, os objetos do modelo podem ser usados para
+centralizar as ações de código como no exemplo abaixo.
+O `sfBaseReferentialActions` é uma classe de ações especiais herdada por cada
 classe de ações que gera um modelo referencial.
 
     [php]
@@ -434,8 +434,8 @@ classe de ações que gera um modelo referencial.
     }
 
 O que aconteceria se o esquema não usasse a herança de tabelas? O código
-precisaria ser repetido em cada subclasse referencial. Esta abordagem não 
-contempla o conceito DRY, (*Don't Repeat Yourself*, ou não faça retrabalho), 
+precisaria ser repetido em cada subclasse referencial. Esta abordagem não
+contempla o conceito DRY, (*Don't Repeat Yourself*, ou não faça retrabalho),
 especialmente para uma aplicação com uma dúzia de tabelas referenciais.
 
 ### Herança de tabelas na camada dos Formulários ###
@@ -447,8 +447,8 @@ na forma como ele se comporta quando ao lidar com formulários gerados pelo symf
 
 #### O Modelo do Estudo de Caso ####
 
-O esquema YAML abaixo descreve um modelo para gerenciar inúmeros documentos. 
-O objetivo é armazenar informações genéricas na tabela arquivos e dados específicos 
+O esquema YAML abaixo descreve um modelo para gerenciar inúmeros documentos.
+O objetivo é armazenar informações genéricas na tabela arquivos e dados específicos
 nas sub-tabelas `Vídeo` e `PDF`.
 
     [yml]
@@ -504,21 +504,21 @@ nas sub-tabelas `Vídeo` e `PDF`.
           default: false
           notnull: true
 
-Tanto a tabela `PDF` quanto a `Video` compartilham a mesma tabela `Arquivo`, que 
-contém informações globais sobre os inúmeros arquivos. O modelo `Video` encapsula os dados 
-relacionados à objetos de vídeo, tais como `formato` (4/3, 16/9 ...) ou `duracao`, enquanto  
-o modelo `PDF` contém o número de `paginas` ou `orientacao` do documento. 
+Tanto a tabela `PDF` quanto a `Video` compartilham a mesma tabela `Arquivo`, que
+contém informações globais sobre os inúmeros arquivos. O modelo `Video` encapsula os dados
+relacionados à objetos de vídeo, tais como `formato` (4/3, 16/9 ...) ou `duracao`, enquanto
+o modelo `PDF` contém o número de `paginas` ou `orientacao` do documento.
 Vamos construir esse modelo e gerar os formulários correspondentes.
 
     $php symfony doctrine:build-all
 
 A seção seguinte descreve como tirar vantagem da herança de tabelas
-em classes de formulário graças ao novo método ~`setupInheritance()`~, método 
+em classes de formulário graças ao novo método ~`setupInheritance()`~, método
 de configuração da herança.
 
 ### Descobrindo o método ~setupInheritance()~ ###
 
-Como esperado, o Doctrine gerou seis classes de formulários nos diretórios 
+Como esperado, o Doctrine gerou seis classes de formulários nos diretórios
 `lib/form/doctrine` e `form/lib/doctrine/base`:
 
   * `BaseArquivoForm`
@@ -534,10 +534,10 @@ método ~`setup()`~. Um novo método ~`setupInheritance()`~ foi adicionado pelo
 symfony 1.3. Este método está vazio por padrão.
 
 A coisa mais importante a notar é que a herança está presente nos formulários
-`BaseVideoForm` e `BasePDFForm` ambos estendendo as classes `ArquivoForm` e `BaseArquivoForm`. 
+`BaseVideoForm` e `BasePDFForm` ambos estendendo as classes `ArquivoForm` e `BaseArquivoForm`.
 Consequentemente, cada classe herdará da classe `Arquivo` e poderá compartilhar os mesmos métodos base.
 
-A listagem a seguir sobrescreve o método `setupInheritance()` e configura 
+A listagem a seguir sobrescreve o método `setupInheritance()` e configura
 a classe `ArquivoForm` para que ela possa ser usada em qualquer subformulário de modo mais eficaz.
 
     [php]
@@ -567,9 +567,9 @@ Desta forma, o usuário será capaz de carregar um arquivo e salvá-lo no servid
 
 #### Configurando o tipo e tamanho do arquivo atual
 
-Todos os formulários estão prontos e personalizados. No entanto, há mais uma coisa para 
-configurar antes de poder utilizá-los. Como os campos `mime_type` e `tamanho` foram removidos 
-do objeto `ArquivoForm`, eles devem ser definidos automaticamente. O melhor lugar 
+Todos os formulários estão prontos e personalizados. No entanto, há mais uma coisa para
+configurar antes de poder utilizá-los. Como os campos `mime_type` e `tamanho` foram removidos
+do objeto `ArquivoForm`, eles devem ser definidos automaticamente. O melhor lugar
 para fazer isso é em um novo método `generateFilenameFilename()` na classe `Arquivo`.
 
     [php]
@@ -592,17 +592,17 @@ para fazer isso é em um novo método `generateFilenameFilename()` na classe `Ar
     }
 
 Este novo método tem como objetivo gerar um nome personalizado para o arquivo para armazena-lo no
-sistema de arquivos. Embora o método `generateFilenameFilename()` retorne, por padrão, 
-o nome do arquivo gerado automaticamente, que também define o `mime_type` e `tamanho` do objeto, 
+sistema de arquivos. Embora o método `generateFilenameFilename()` retorne, por padrão,
+o nome do arquivo gerado automaticamente, que também define o `mime_type` e `tamanho` do objeto,
 graças ao objeto ~`sfValidatedFile`~ passado como o primeiro argumento.
 
-Devido ao symfony 1.3 ter suporte total à herança de tabelas do Doctrine, os formulários são 
+Devido ao symfony 1.3 ter suporte total à herança de tabelas do Doctrine, os formulários são
 agora capazes de salvar um objeto e seus valores herdados. O suporte à herança nativa
 permite formulários poderosos e funcionais, com poucas linhas de código.
 
-O exemplo acima pode ser amplamente e facilmente melhorado graças à herança da classe. 
+O exemplo acima pode ser amplamente e facilmente melhorado graças à herança da classe.
 Por exemplo, tanto as classes `Videoform` quanto `PDFForm` podem
-substituir o validador `nome_do_arquivo` para validadores personalizados mais específicos, 
+substituir o validador `nome_do_arquivo` para validadores personalizados mais específicos,
 tais como `sfValidatorVideo` ou `sfValidatorPDF`.
 
 ### Herança de tabelas na Camada de Filtros ###
@@ -618,20 +618,20 @@ métodos personalizados da classe `ArquivoFormFilter`.
 ### Herança de tabelas na Camada do Gerador de Interface Administrativa ###
 
 Agora vamos descobrir como tirar proveito da Herança de tabelas do Doctrine
-bem como das novas funcionalidades do Gerador de Interface Administrativa: a definição __actions base class__ . 
-O Gerador de Interface Administrativa é uma das características que mais cresceu 
+bem como das novas funcionalidades do Gerador de Interface Administrativa: a definição __actions base class__ .
+O Gerador de Interface Administrativa é uma das características que mais cresceu
 desde a versão symfony 1.0.
 
-Em novembro de 2008, o symfony introduziu o novo sistema do Gerador de Interface Administrativa junto com a 
-versão 1.2. Esta ferramenta vem com várias funcionalidades extras, como operações CRUD básicas, a lista de filtragem e paginação, exclusão em lote e assim por diante... 
-O Gerador de Interface Administrativa é uma ferramenta poderosa, que facilita e acelera 
+Em novembro de 2008, o symfony introduziu o novo sistema do Gerador de Interface Administrativa junto com a
+versão 1.2. Esta ferramenta vem com várias funcionalidades extras, como operações CRUD básicas, a lista de filtragem e paginação, exclusão em lote e assim por diante...
+O Gerador de Interface Administrativa é uma ferramenta poderosa, que facilita e acelera
 a geração de *backend* e a personalização para qualquer desenvolvedor.
 
 #### Exemplo prático de Introdução
 
-O objetivo da última parte deste capítulo é ilustrar como tirar proveito da herança 
-de tabelas do Doctrine juntamente com o Gerador de Interface Administrativa. Para 
-conseguir isso, uma simples área de *backend* será construída para gerenciar  
+O objetivo da última parte deste capítulo é ilustrar como tirar proveito da herança
+de tabelas do Doctrine juntamente com o Gerador de Interface Administrativa. Para
+conseguir isso, uma simples área de *backend* será construída para gerenciar
 duas tabelas, que contêm dados que podem ser ordenados/priorizados.
 
 Como o mantra symfony é para não reinventar a roda toda vez, o modelo do Doctrine
@@ -680,7 +680,7 @@ priorizados dentro da lista.
           default: 1
 
 O esquema acima descreve o modelo de dados dividido em três classes de modelo. As duas
-classes filhas (`sfTodoItem`, `sfShoppingItem`), usam comportamentos `Sortable` e 
+classes filhas (`sfTodoItem`, `sfShoppingItem`), usam comportamentos `Sortable` e
 `Timestampable`. O comportamento `Sortable` é fornecido pelo
 plugin `csDoctrineActAsSortablePlugin` e adiciona uma coluna `position` do tipo inteiro para
 cada tabela. Ambas as classes herdam da classe base `sfItem`. Esta classe contém as colunas
@@ -757,14 +757,14 @@ ferramenta Gerador de Interface Administrativa e como tirar proveito do novo rec
 
 Esta seção descreve os passos necessários para instalar a nova aplicação backend
 contendo dois módulos gerados para gerenciar tanto as listas do shopping quanto do todo.
-Por conseguinte, a primeira coisa a fazer é gerar uma aplicação `backend` 
+Por conseguinte, a primeira coisa a fazer é gerar uma aplicação `backend`
 para conter os módulos:
 
     $ php symfony generate:app backend
 
-O Gerador de Interface Administrativa é uma poderosa ferramenta, antes do symfony 1.3, o 
-desenvolvedor era forçado a duplicar código comum entre os módulos gerados. 
-Agora, porém, a tarefa ~`doctrine:generate-admin`~ introduz uma nova opção 
+O Gerador de Interface Administrativa é uma poderosa ferramenta, antes do symfony 1.3, o
+desenvolvedor era forçado a duplicar código comum entre os módulos gerados.
+Agora, porém, a tarefa ~`doctrine:generate-admin`~ introduz uma nova opção
 ~`--actions-base-class`~  que permite ao desenvolvedor definir a classe base das ações para o módulo.
 
 Como os dois módulos são ligeramente semelhantes, eles certamente vão precisar compartilhar alguns
@@ -789,7 +789,7 @@ os dois módulos podem ser gerados com a aplicação backend:
 
 O Gerador de Interface Administrativa gera módulos em duas listas separadas. O
 primeiro diretório é, naturalmente, `apps/backend/modules`. A maioria dos
-arquivos gerados pelo módulo, no entanto, estão localizados no diretório `cache/backend/dev/modules`. 
+arquivos gerados pelo módulo, no entanto, estão localizados no diretório `cache/backend/dev/modules`.
 Arquivos localizados neste local são regenerados toda vez que o cache
 for limpo ou quando forem modificadas as configurações do módulo.
 
@@ -806,21 +806,21 @@ for limpo ou quando forem modificadas as configurações do módulo.
 ![Backend padrão da lista de compras](http://www.symfony-project.org/images/more-with-symfony/07_table_inheritance_backoffice_shopping_1.png "Lista Shopping backend padrão")
 
 Os dois módulos de backend estão prontos para serem utilizados e personalizados. Não é a meta
-deste capítulo, no entanto, explorar a configuração dos módulos auto-gerados. 
+deste capítulo, no entanto, explorar a configuração dos módulos auto-gerados.
 Existe documentação relevante sobre esse assunto, inclusive no
 [Livro de referência do symfony](http://www.symfony-project.org/reference/1_3/en/06-Admin-Generator).
 
 #### Alterando a posição de um item
 
-A seção anterior descreve como configurar dois módulos backend totalmente funcionais, 
-tanto que herdam ações da mesma classe. A próxima meta é criar uma ação compartilhada, 
-que permite ao desenvolvedor classificar os objetos a partir de uma lista entre si. 
-Como o plugin instalado fornece uma API completa para reordenar 
+A seção anterior descreve como configurar dois módulos backend totalmente funcionais,
+tanto que herdam ações da mesma classe. A próxima meta é criar uma ação compartilhada,
+que permite ao desenvolvedor classificar os objetos a partir de uma lista entre si.
+Como o plugin instalado fornece uma API completa para reordenar
 os objetos, isto é muito fácil de fazer.
 
-O primeiro passo é a criação de duas novas rotas capazes de mover um registo para cima 
-ou para baixo na lista. Como o *Gerador de Interface Administrativa* usa a rota 
-~`sfDoctrineRouteCollection`~, novas rotas podem ser facilmente declaradas à 
+O primeiro passo é a criação de duas novas rotas capazes de mover um registo para cima
+ou para baixo na lista. Como o *Gerador de Interface Administrativa* usa a rota
+~`sfDoctrineRouteCollection`~, novas rotas podem ser facilmente declaradas à
 coleção através do `config/generator.yml` de ambos os módulos:
 
     [yml]
@@ -890,13 +890,13 @@ As mudanças precisam ser repetidas para o módulo `todo`:
           new:     ~
 
 
-Os dois arquivos YAML descrevem as configurações para ambos os módulos `shopping` e `todo`. 
-Cada um foi customizado para atender às necessidades do usuário final. Primeiro, a 
-exibição da lista é ordenada pela coluna `position` de forma ascendente. Em seguida, 
+Os dois arquivos YAML descrevem as configurações para ambos os módulos `shopping` e `todo`.
+Cada um foi customizado para atender às necessidades do usuário final. Primeiro, a
+exibição da lista é ordenada pela coluna `position` de forma ascendente. Em seguida,
 o número máximo de itens por página foi aumentado para 100 para evitar a paginação.
 
-Finalmente, o número de colunas exibidas foi reduzido para somente `position`, `name`, 
-`priority`, `assigned_to` e `quantity`. Além disso, cada módulo tem duas novas ações: 
+Finalmente, o número de colunas exibidas foi reduzido para somente `position`, `name`,
+`priority`, `assigned_to` e `quantity`. Além disso, cada módulo tem duas novas ações:
 `moveUp` e `moveDown`. A apresentação final deverá ser parecida com as imagens a seguir:
 
 ![Backend da lista todo personalizada](http://www.symfony-project.org/images/more-with-symfony/09_table_inheritance_backoffice_todo_2.png "Lista personalizada de todo no backend")
@@ -904,8 +904,8 @@ Finalmente, o número de colunas exibidas foi reduzido para somente `position`, 
 ![Backend da lista de compras personalizada](http://www.symfony-project.org/images/more-with-symfony/08_table_inheritance_backoffice_shopping_2.png "Lista de compras personalizada do backend")
 
 Essas duas novas ações foram declaradas, mas ainda não fazem nada. Cada uma
-deve ser criada na classe de ações compartilhadas, `sfSortableModuleActions`, tal como descrito abaixo. 
-O plugin extra ~`csDoctrineActAsSortablePlugin`~ fornece dois métodos úteis em cada 
+deve ser criada na classe de ações compartilhadas, `sfSortableModuleActions`, tal como descrito abaixo.
+O plugin extra ~`csDoctrineActAsSortablePlugin`~ fornece dois métodos úteis em cada
 classe do modelo: `promote()` e `demote()`. Cada uma é usada para construir as ações `moveUp` e `moveDown`.
 
     [php]
@@ -943,7 +943,7 @@ classe do modelo: `promote()` e `demote()`. Cada uma é usada para construir as 
 
 Graças a estas duas ações compartilhadas, tanto a lista todo quando a de compras são
 classificáveis. Além disso, elas são fáceis de manter e realizar testes funcionais.
-Sinta-se livre para alterar a aparência dos módulos, reescrever os métodos, substituindo as 
+Sinta-se livre para alterar a aparência dos módulos, reescrever os métodos, substituindo as
 ações do objeto modelo, removendo os links `move up` e `move down`.
 
 #### Presente Especial: Melhorando a Experiência do Usuário
@@ -952,15 +952,15 @@ Antes de terminar, vamos ilustrar as duas ações para melhorar a experiência d
 Todos concordam que mover um registro para cima (ou para baixo), clicando em um link não é
 realmente intuitivo para o usuário final. Uma melhor abordagem seria incluir
 comportamentos JavaScript Ajax. Neste caso, todas as linhas de tabela HTML serão arrastáveis
-e, isso é possível graças ao plugin `Table Drag and Drop` do jQuery. Uma requisição Ajax 
+e, isso é possível graças ao plugin `Table Drag and Drop` do jQuery. Uma requisição Ajax
 será feita sempre que o usuário mover uma linha na tabela HTML.
 
-Primeiro baixe e instale o framework jQuery no diretório `web/js` e repita a operação 
+Primeiro baixe e instale o framework jQuery no diretório `web/js` e repita a operação
 para o plugin `Table Drag and Drop`, cujo código-fonte está hospedado em um repositório do [Google Code](http://code.google.com/p/tablednd/).
 
 Para funcionar, a view da lista de cada módulo deverá incluir um pequeno código JavaScript
-e ambas as tabelas precisam de um atributo `id`. Como todos os templates do Gerador de Interface Administrativa 
-e partials podem ser sobrescritos, o arquivo `_list.php`, localizado no cache por 
+e ambas as tabelas precisam de um atributo `id`. Como todos os templates do Gerador de Interface Administrativa
+e partials podem ser sobrescritos, o arquivo `_list.php`, localizado no cache por
 padrão, deve ser copiado para ambos os módulos.
 
 Mas espere, copiando o arquivo `_list.php` para o diretório `templates/` de cada
@@ -996,14 +996,14 @@ Vamos sobrescrever o conteúdo atual com o seguinte código:
                   ) ?>
                 <?php endif; ?>
                 <?php echo format_number_choice(
-                  '[0] no result|[1] 1 result|(1,+Inf] %1% results', 
+                  '[0] no result|[1] 1 result|(1,+Inf] %1% results',
                   array('%1%' => $pager->getNbResults()),
                   $pager->getNbResults(), 'sf_admin'
                 ) ?>
                 <?php if ($pager->haveToPaginate()): ?>
                   <?php echo __('(page %%page%%/%%nb_pages%%)', array(
-                    '%%page%%' => $pager->getPage(), 
-                    '%%nb_pages%%' => $pager->getLastPage()), 
+                    '%%page%%' => $pager->getPage(),
+                    '%%nb_pages%%' => $pager->getLastPage()),
                     'sf_admin'
                   ) ?>
                 <?php endif; ?>
@@ -1021,14 +1021,14 @@ Vamos sobrescrever o conteúdo atual com o seguinte código:
                   'helper' => $helper
               )) ?>
               <?php include_partial(
-                $sf_request->getParameter('module').'/list_td_tabular', 
+                $sf_request->getParameter('module').'/list_td_tabular',
                 array(
                   'sf_'. $sf_request->getParameter('module') .'_item' => $item
               )) ?>
                 <?php include_partial(
                   $sf_request->getParameter('module').'/list_td_actions',
                   array(
-                    'sf_'. $sf_request->getParameter('module') .'_item' => $item, 
+                    'sf_'. $sf_request->getParameter('module') .'_item' => $item,
                     'helper' => $helper
                 )) ?>
             </tr>
@@ -1040,15 +1040,15 @@ Vamos sobrescrever o conteúdo atual com o seguinte código:
       <script type="text/javascript">
         /* <![CDATA[ */
         function checkAll() {
-          var boxes = document.getElementsByTagName('input'); 
-          for (var index = 0; index < boxes.length; index++) { 
-            box = boxes[index]; 
+          var boxes = document.getElementsByTagName('input');
+          for (var index = 0; index < boxes.length; index++) {
+            box = boxes[index];
             if (
-              box.type == 'checkbox' 
-              && 
+              box.type == 'checkbox'
+              &&
               box.className == 'sf_admin_batch_checkbox'
-            ) 
-            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked 
+            )
+            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked
           }
           return true;
         }
@@ -1066,7 +1066,7 @@ e coloque o seguinte código em cada um:
       'sort' => $sort,
       'colspan' => 5
     )) ?>
-    
+
 -
 
     // apps/backend/modules/shopping/templates/_list.php
@@ -1077,7 +1077,7 @@ e coloque o seguinte código em cada um:
       'colspan' => 8
     )) ?>
 
-Para alterar a posição de uma linha, é necessário implementar uma nova ação em ambos os módulos 
+Para alterar a posição de uma linha, é necessário implementar uma nova ação em ambos os módulos
 que processa a requisição Ajax. Como visto antes, a nova ação compartilhada
 `executeMove()` será colocada na classe das ações `sfSortableModuleActions`:
 
@@ -1101,7 +1101,7 @@ que processa a requisição Ajax. Como visto antes, a nova ação compartilhada
       }
     }
 
-A ação `executeMove()` exige o método `getModel()` no objeto de configuração. 
+A ação `executeMove()` exige o método `getModel()` no objeto de configuração.
 Implemente este novo método, tanto na classe `todoGeneratorConfiguration` quanto na
 `shoppingGeneratorConfiguration` como a seguir:
 
@@ -1126,10 +1126,10 @@ Implemente este novo método, tanto na classe `todoGeneratorConfiguration` quant
       }
     }
 
-Há uma última operação pendente. Até agora, as linhas de tabelas não são arrastáveis 
-e nenhuma requisição ajax é executada quando uma linha movida é liberada. Para 
-conseguir isso, ambos os módulos precisam de uma rota específica para acessar suas 
-ações correspondentes `move`. Consequentemente, o arquivo `apps/backend/config/routing.yml` 
+Há uma última operação pendente. Até agora, as linhas de tabelas não são arrastáveis
+e nenhuma requisição ajax é executada quando uma linha movida é liberada. Para
+conseguir isso, ambos os módulos precisam de uma rota específica para acessar suas
+ações correspondentes `move`. Consequentemente, o arquivo `apps/backend/config/routing.yml`
 necessita das novas rotas seguintes:
 
     [php]
@@ -1148,8 +1148,8 @@ necessita das novas rotas seguintes:
 
 Para evitar a duplicação de código, as duas rotas são geradas dentro de um `foreach`
 e serão baseadas no nome do módulo para recuperá-las facilmente na exibição.
-Finalmente, o `apps/backend/templates/_table.php` deve implementar o código JavaScript, 
-a fim de inicializar o comportamento arraste e solte (*drag and drop*) e as requisições 
+Finalmente, o `apps/backend/templates/_table.php` deve implementar o código JavaScript,
+a fim de inicializar o comportamento arraste e solte (*drag and drop*) e as requisições
 ajax correspondentes:
 
     [php]
@@ -1182,10 +1182,10 @@ ajax correspondentes:
     </script>
 
 A tabela HTML está agora totalmente funcional. As linhas são "arraste e solte" (*draggable e droppable*) e
-a nova posição de uma linha é automaticamente salva graças a uma requisição AJAX. 
-Com apenas poucos pedaços de código, a usabilidade do backend foi significativamente melhorada 
+a nova posição de uma linha é automaticamente salva graças a uma requisição AJAX.
+Com apenas poucos pedaços de código, a usabilidade do backend foi significativamente melhorada
 para oferecer ao usuário final uma experiência melhor. O Gerador de Interface Administrativa
-é suficientemente flexível para ser estendido e personalizado e funciona perfeitamente 
+é suficientemente flexível para ser estendido e personalizado e funciona perfeitamente
 com a herança de tabela do Doctrine.
 
 Sinta-se livre para melhorar os dois módulos, removendo as duas ações obsoletas `moveUp` e
@@ -1195,7 +1195,7 @@ Considerações finais
 --------------
 
 Este capítulo descreveu como a Herança de Tabelas do Doctrine é um recurso poderoso,
-que ajuda o desenvolvedor a codificar mais rápido e melhor além de organizar o código. 
+que ajuda o desenvolvedor a codificar mais rápido e melhor além de organizar o código.
 Essa funcionalidade do Doctrine é totalmente integrada em diversos níveis no symfony.
 Os desenvolvedores são encorajados a aproveitá-la para aumentar a eficiência e
 promover a organização de código.

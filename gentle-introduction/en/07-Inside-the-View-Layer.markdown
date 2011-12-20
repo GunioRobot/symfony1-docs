@@ -687,7 +687,7 @@ Listing 7-26 - Asset File Inclusion
     indexSuccess:
       stylesheets: [mystyle1, mystyle2]
       javascripts: [myscript]
-      
+
 -
 
     [php]
@@ -700,7 +700,7 @@ Listing 7-26 - Asset File Inclusion
     <?php use_stylesheet('mystyle1') ?>
     <?php use_stylesheet('mystyle2') ?>
     <?php use_javascript('myscript') ?>
-    
+
 In each case, the argument is a file name. If the file has a logical extension (`.css` for a style sheet and `.js` for a JavaScript file), you can omit it. If the file has a logical location (`/css/` for a style sheet and `/js/` for a JavaScript file), you can omit it as well. Symfony is smart enough to figure out the correct extension or location.
 
 Like the meta and title definitions, the file inclusion definitions require the usage of the `include_javascripts()` and `include_stylesheets()` helpers in the template or layout to be included. This means that the previous settings will output the HTML code of Listing 7-27.
@@ -766,11 +766,11 @@ Listing 7-33 - Defining the Position of the Included Asset
       stylesheets: [special: { position: first }]
 
 -
-    
+
     [php]
     // In the action
     $this->getResponse()->addStylesheet('special', 'first');
-    
+
     // In the template
     <?php use_stylesheet('special', 'first') ?>
 
@@ -784,14 +784,14 @@ Listing 7-34 - Style Sheet Inclusion with Raw Name
       stylesheets: [main, paper: { raw_name: true }]
 
 -
-    
+
     [php]
     // In the Action
     $this->getResponse()->addStylesheet('main', '', array('raw_name' => true));
-    
+
     // In the template
     <?php use_stylesheet('main', '', array('raw_name' => true)) ?>
-    
+
     // Resulting View
     <link rel="stylesheet" type="text/css" href="main" />
 
@@ -805,14 +805,14 @@ Listing 7-35 - Style Sheet Inclusion with Media
       stylesheets: [main, paper: { media: print }]
 
 -
-    
+
     [php]
     // In the Action
     $this->getResponse()->addStylesheet('paper', '', array('media' => 'print'));
-    
+
     // In the template
     <?php use_stylesheet('paper', '', array('media' => 'print')) ?>
-    
+
     // Resulting View
     <link rel="stylesheet" type="text/css" media="print" href="/css/paper.css" />
 
@@ -839,25 +839,25 @@ Listing 7-36 - Layout Definition
     [php]
     // In the action
     $this->setLayout('my_layout');
-    
+
     // In the template
     <?php decorate_with('my_layout') ?>
 
 Some views don't need any layout at all (for instance, plain text pages or RSS feeds). In that case, set `has_layout` to `false`, as shown in Listing 7-37.
 
-Listing 7-37 - Layout Removal 
+Listing 7-37 - Layout Removal
 
     [yml]
     // In `view.yml`
     indexSuccess:
       has_layout: false
-    
+
 -
 
     [php]
     // In the Action
     $this->setLayout(false);
-    
+
     // In the template
     <?php decorate_with(false) ?>
 

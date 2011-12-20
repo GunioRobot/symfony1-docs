@@ -102,7 +102,7 @@ With symfony, you build an administration on a per-model basis. A module is gene
 
     // Propel
     $ php symfony propel:generate-admin backend BlogArticle --module=article
-    
+
     // Doctrine
     $ php symfony doctrine:generate-admin backend BlogArticle --module=article
 
@@ -410,7 +410,7 @@ For this to work, an `_article_link.php` partial must be created in the `modules
 Listing 14-13 - Example Partial for the `list` View, in `modules/comment/templates/_article_link.php`
 
     [php]
-    <?php echo link_to($BlogComment->getBlogArticle()->getTitle(), 'blog_article_edit', $BlogComment->getBlogArticle()) ?> 
+    <?php echo link_to($BlogComment->getBlogArticle()->getTitle(), 'blog_article_edit', $BlogComment->getBlogArticle()) ?>
 
 Notice that the partial template of a partial field has access to the current object through a variable named by the class (`$BlogComment` in this example).
 
@@ -422,7 +422,7 @@ The layer separation is respected. If you get used to respecting the layer separ
 
 If you need to customize the parameters of a partial field, do the same as for a normal field, under the `field` key. Just don't include the leading underscore (`_`) in the key--see an example in Listing 14-14.
 
-Listing 14-14 - Partial Field Properties Can Be Customized Under the `fields` Key 
+Listing 14-14 - Partial Field Properties Can Be Customized Under the `fields` Key
 
     [yml]
     config:

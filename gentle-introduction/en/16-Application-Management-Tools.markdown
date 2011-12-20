@@ -435,7 +435,7 @@ Listing 16-14 - More Complete Sample Task, in `lib/task/mySecondTask.class.php`
       protected function execute($arguments = array(), $options = array())
       {
         // add code here
-        
+
       }
     }
 

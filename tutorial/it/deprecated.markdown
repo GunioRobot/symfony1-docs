@@ -175,7 +175,7 @@ state rimosse da symfony 1.3:
     l'impostazione non ha più senso. Inoltre, quando l'impostazione è impostata
     a `on`, la verifica aggiunge anche un piccolo overhead a ogni richiesta,
     poiché ha bisogno di recuperare il contenuto di un file.
-  
+
   * `max_forwards`: Questa impostazione controlla il numero di rinvii consentiti
     prima che symfony lanci un'eccezione. La configurabilità non ha valore.
     Se si necessita di più di 5 rinvii, si ha un problema sia di concetto che di

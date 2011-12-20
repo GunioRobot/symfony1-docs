@@ -967,7 +967,7 @@ directorio `lib/widget/` (debes crear este directorio a mano):
 Aunque el formato de esta clase es un poco raro, la idea básica es que el método
 `renderRow()` utiliza el código de `$rowFormat` para mostrar su información.
 Las clases de tipo formateador tienen muchas otras opciones que se pueden
-consultar en la 
+consultar en la
 [API de symfony 1.3](http://www.symfony-project.org/api/1_3/sfWidgetFormSchemaFormatter).
 
 Para hacer uso del nuevo formateador en todos los formularios del proyecto, se

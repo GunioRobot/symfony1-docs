@@ -10,7 +10,7 @@ Scrivere un libro è impossibile da fare senza le persone intorno a te che
 ti aiutano durante tutto il processo.
 
 Il principale aiuto che puoi avere è quello della tua **famiglia**. E, devo
-ammettere, che ne ho una delle più premurose e comprensive. 
+ammettere, che ne ho una delle più premurose e comprensive.
 Come imprenditore, spendo molto del mio tempo a lavoro. Come capo progetto
 di symfony, spendo molto del mio tempo libero scrivendo la prossima versione
 del framework. E poi, ho deciso di scrivere un altro libro. Ma senza il

@@ -252,7 +252,7 @@ Nous allons utiliser la méthode `renderText()` pour rendre une chaîne de test 
         {
           return $this->renderText('No results.');
         }
-        
+
         return $this->renderPartial('job/list', array('jobs' => $this->jobs));
       }
     }

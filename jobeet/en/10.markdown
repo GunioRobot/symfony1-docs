@@ -18,10 +18,10 @@ Of course, instead of reinventing the wheel over and over again, symfony
 provides a framework to ease form management. The form framework is made of
 three parts:
 
-  * **validation**: The ~validation|Validation~ sub-framework provides classes 
+  * **validation**: The ~validation|Validation~ sub-framework provides classes
                     to validate inputs (integer, string, email address, ...)
 
-  * **widgets**:    The ~widget|Widgets~ sub-framework provides classes to 
+  * **widgets**:    The ~widget|Widgets~ sub-framework provides classes to
                     output HTML fields (input, textarea, select, ...)
 
   * **forms**:      The ~form|Forms~ classes represent forms made of widgets and
@@ -543,7 +543,7 @@ Eventually, the `<?php echo $form ?>` renders the form widgets.
 >By default, the `<?php echo $form ?>` renders the form widgets as table rows.
 >
 >Most of the time, you will need to customize the layout of your
->forms. The form object provides many useful methods for this 
+>forms. The form object provides many useful methods for this
 > ~customization|Customization~:
 >
 > | Method                 | Description
@@ -661,9 +661,9 @@ job preview page; if not, the `newSuccess.php` template is displayed again with
 the user submitted values and the associated error messages.
 
 >**TIP**
->The `setTemplate()` method changes the ~template|Templates~ used for a given 
->action. If the submitted form is not valid, the `create` and `update` methods 
->use the same template as the `new` and `edit` action respectively to re-display 
+>The `setTemplate()` method changes the ~template|Templates~ used for a given
+>action. If the submitted form is not valid, the `create` and `update` methods
+>use the same template as the `new` and `edit` action respectively to re-display
 >the form with error messages.
 
 The modification of an existing job is quite similar. The only difference

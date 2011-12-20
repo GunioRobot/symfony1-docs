@@ -13,7 +13,7 @@ From [Wikipedia](http://en.wikipedia.org/wiki/Internationalization):
 >engineering changes.
 >
 >**Localization** is the process of adapting software for a specific region or
->language by adding ~locale|Locale~-specific components and 
+>language by adding ~locale|Locale~-specific components and
 >~translating text|Translations~.
 
 As always, the symfony framework has not reinvented the wheel and its i18n and
@@ -62,9 +62,9 @@ configuration file:
         default_culture: it_IT
 
 >**TIP**
->As the culture is managed by the User object, it is stored in the 
+>As the culture is managed by the User object, it is stored in the
 >~user session|Session~. During development, if you change the
->~default culture|Default Culture~, you will have to clear your session 
+>~default culture|Default Culture~, you will have to clear your session
 >~cookie|Cookies~ for the new setting to have any effect in your browser.
 
 When a user starts a session on the Jobeet website, we can also determine the
@@ -172,7 +172,7 @@ the very first request of a user session:
       {
         return $this->getAttribute('first_request', true);
       }
-      
+
       $this->setAttribute('first_request', $boolean);
     }
 
@@ -305,7 +305,7 @@ be activated in the `config/ProjectConfiguration.class.php` file as shown below:
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin'
       ));
@@ -904,9 +904,9 @@ Rebuild the model:
 </doctrine>
 
 >**TIP**
->As the `propel:build --all --and-load` removes all tables and data from the 
->database, don't forget to re-create a user to access the Jobeet backend with 
->the `guard:create-user` task. Alternatively, you can add a fixture file to add 
+>As the `propel:build --all --and-load` removes all tables and data from the
+>database, don't forget to re-create a user to access the Jobeet backend with
+>the `guard:create-user` task. Alternatively, you can add a fixture file to add
 >it automatically for you.
 
 <propel>
@@ -942,8 +942,8 @@ current culture.
 
 <propel>
 >**TIP**
->To reduce the number of ~database requests|Performances~, use the 
->`doSelectWithI18n()` method instead of the regular `doSelect()` one. It will 
+>To reduce the number of ~database requests|Performances~, use the
+>`doSelectWithI18n()` method instead of the regular `doSelect()` one. It will
 >retrieve the main object and the i18n one in one query.
 >
 >     [php]
@@ -951,8 +951,8 @@ current culture.
 </propel>
 <doctrine>
 >**TIP**
->To reduce the number of ~database requests|Performances~, join the 
->`JobeetCategoryTranslation` in your queries. It will retrieve the main object 
+>To reduce the number of ~database requests|Performances~, join the
+>`JobeetCategoryTranslation` in your queries. It will retrieve the main object
 >and the i18n one in one query.
 >
 >     [php]
@@ -962,7 +962,7 @@ current culture.
 >       ->execute();
 >
 >The `WITH` keyword above will append a condition to the automatically added
->`ON` condition of the query. So, the `ON` condition of the join will end up 
+>`ON` condition of the query. So, the `ON` condition of the join will end up
 >being.
 >
 >     [sql]
@@ -1185,7 +1185,7 @@ In the [`I18N`](http://www.symfony-project.org/api/1_4/I18NHelper) helper group:
  | `format_country()`  | Displays the name of a country  |
  | `format_language()` | Displays the name of a language |
 
-### ~Forms (I18n)~ 
+### ~Forms (I18n)~
 
 The form framework provides several ~widgets|Widgets (I18n)~ and
 ~validators|Validators (I18n)~ for localized data:

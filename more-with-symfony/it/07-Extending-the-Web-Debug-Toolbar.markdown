@@ -43,11 +43,11 @@ proprio progetto (la cartella deve essere creata):
       {
         return 'Documentation';
       }
-      
+
       public function getPanelContent()
       {
         $content = 'Placeholder Panel Content';
-        
+
         return $content;
       }
     }

@@ -343,7 +343,7 @@ symfony サンドボックスで遊び始める前に最後のタスクを実行
 
 ![Internet Explorer - frontend_dev.php pageはlocalhost から OK](http://www.symfony-project.org/images/more-with-symfony/windows_32.png)
 
-Windows Server 2008 でサンドボックスが十分に機能するか確認するために Web デバッグパネルの「configuration」、「logs」と「timers」を調べてみましょう。 
+Windows Server 2008 でサンドボックスが十分に機能するか確認するために Web デバッグパネルの「configuration」、「logs」と「timers」を調べてみましょう。
 
 ![サンドボックスの使い方: コンフィギュレーション](http://www.symfony-project.org/images/more-with-symfony/windows_33.png)
 

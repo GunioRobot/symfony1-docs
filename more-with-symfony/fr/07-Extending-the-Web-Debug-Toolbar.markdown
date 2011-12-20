@@ -7,7 +7,7 @@ La barre de débogage web, `web debug toolbar` (`WDT`), de symfony regroupe des 
 
 ![Web Debug Toolbar](http://www.symfony-project.org/images/more-with-symfony/web_debug_01.png "La Web Debug Toolbar de symfony 1.3")
 
-Depuis symfony 1.2 il est possible de créer et d'ajouter ses propres *panneaux de débogage web*. Tout au long de ce chapitre, il s'agira de créer un nouvel *onglet de débogage* en étudiant par la même occasion les outils et les options qui permettent de le personnaliser. Il est de plus possible de se référer au plugin [ac2009WebDebugPlugin](http://www.symfony-project.org/plugins/ac2009WebDebugPlugin) qui contient de nombreux panneaux supplémentaires s'appuyant sur les 
+Depuis symfony 1.2 il est possible de créer et d'ajouter ses propres *panneaux de débogage web*. Tout au long de ce chapitre, il s'agira de créer un nouvel *onglet de débogage* en étudiant par la même occasion les outils et les options qui permettent de le personnaliser. Il est de plus possible de se référer au plugin [ac2009WebDebugPlugin](http://www.symfony-project.org/plugins/ac2009WebDebugPlugin) qui contient de nombreux panneaux supplémentaires s'appuyant sur les
 techniques expliquées dans la suite de ce chapitre.
 
 Créer un Nouveau Panneau de Débogage Web
@@ -28,27 +28,27 @@ Les composants de la barre de débogage web sont appelés *web debug panels*, ou
       {
         return 'Documentation';
       }
-      
+
       public function getPanelContent()
       {
         $content = 'Placeholder Panel Content';
-        
+
         return $content;
       }
     }
 
 Tous les panneaux doivent implémenter au minimum les méthodes `getTitle()`, `getPanelTitle()` et `getPanelContent()`.
 
- * ~`sfWebDebugPanel::getTitle()`~ définit l'apparence du panneau dans la 
- barre de débogage. Il s'agit généralement d'un nom court accompagné d'une 
+ * ~`sfWebDebugPanel::getTitle()`~ définit l'apparence du panneau dans la
+ barre de débogage. Il s'agit généralement d'un nom court accompagné d'une
  icône.
 
- * ~`sfWebDebugPanel::getPanelTitle()`~ définit le nom du panneau qui est 
- affiché dans le tag `h1` de l'onglet ouvert. Il sert aussi d'attribut `title` 
- au lien de la barre de débogage. Cette méthode ne doit pas retourner de code 
+ * ~`sfWebDebugPanel::getPanelTitle()`~ définit le nom du panneau qui est
+ affiché dans le tag `h1` de l'onglet ouvert. Il sert aussi d'attribut `title`
+ au lien de la barre de débogage. Cette méthode ne doit pas retourner de code
  HTML.
 
- * ~`sfWebDebugPanel::getPanelContent()`~ génère le code HTML affiché lorsque 
+ * ~`sfWebDebugPanel::getPanelContent()`~ génère le code HTML affiché lorsque
  l'onglet est ouvert.
 
 Pour finir cette implémentation, il ne reste plus qu'à informer l'application que l'on souhaite inclure ce nouvel onglet à la barre de débogage. Pour ce faire, il est nécessaire d'ajouter un nouvel écouteur sur l'événement `debug.web.load_panels`. Cet événement est notifié lorsque la barre de débogage recherche ses panneaux. Il suffit donc de modifier le contenu du fichier `config/ProjectConfiguration.class.php` afin de lui faire implémenter cet écouteur.
@@ -82,10 +82,10 @@ Voilà ! Il ne reste plus qu'à rafraîchir le navigateur et apprécier le résu
 ![Web Debug Toolbar](http://www.symfony-project.org/images/more-with-symfony/web_debug_02.png "La web debug toolbar et son nouveau panneau")
 
 >**TIP**
->Depuis symfony 1.3, un paramètre `sfWebDebugPanel` peut être ajouté à l'URL 
->d'une page pour charger automatiquement un panneau de débogage. Si l'on ajoute 
->par exemple la chaîne `?sfWebDebugPanel=documentation` à la fin de l'URL, le 
->nouveau panneau sera ajouté à la page. C'est particulièrement utile lorsqu'il 
+>Depuis symfony 1.3, un paramètre `sfWebDebugPanel` peut être ajouté à l'URL
+>d'une page pour charger automatiquement un panneau de débogage. Si l'on ajoute
+>par exemple la chaîne `?sfWebDebugPanel=documentation` à la fin de l'URL, le
+>nouveau panneau sera ajouté à la page. C'est particulièrement utile lorsqu'il
 >s'agit de développer des panneaux personnalisés.
 
 Les Trois Types de Panneaux de Débogage Web
@@ -112,7 +112,7 @@ Ce type de panneau se contente d'afficher une icône et du texte dans la barre d
 
 ### Le Type *Link*
 
-Au même titre que le panneau de type *Icon-Only*, l'onglet de type *link* n'a pas de contenu, mais dispose cependant d'un lien supplémentaire. L'URL de ce lien est défini par la méthode `getTitleUrl()`. 
+Au même titre que le panneau de type *Icon-Only*, l'onglet de type *link* n'a pas de contenu, mais dispose cependant d'un lien supplémentaire. L'URL de ce lien est défini par la méthode `getTitleUrl()`.
 
 Pour créer un panneau de type *link*, la méthode `getPanelContent()` doit retourner une chaine vide tandis que la méthode `getTitleUrl()` doit être ajoutée à la classe comme le montre l'exemple ci-dessous.
 
@@ -148,7 +148,7 @@ La couleur de fond des onglets est grise par défaut. Elle peut néanmoins être
 
 ![Visualisation d'une erreur dans la Web Debug Toolbar](http://www.symfony-project.org/images/more-with-symfony/web_debug_05.png "Visualisation d'une erreur dans la Web Debug Toolbar")
 
-Pour changer la couleur de fond du panel, la solution consiste à utiliser la méthode `setStatus()`. Cette méthode accepte toutes les constantes `priority` de la classe [sfLogger](http://www.symfony-project.org/api/1_3/sfLogger). 
+Pour changer la couleur de fond du panel, la solution consiste à utiliser la méthode `setStatus()`. Cette méthode accepte toutes les constantes `priority` de la classe [sfLogger](http://www.symfony-project.org/api/1_3/sfLogger).
 
 Il existe en particulier trois niveaux qui correspondent respectivement aux trois couleurs de fond que peut prendre le panel (gris, orange et rouge). La méthode `setStatus()` est généralement appelée depuis la méthode  `getPanelContent()` si certains événements nécessitent d'attirer l'attention du développeur.
 
@@ -237,8 +237,8 @@ Pour l'exemple de ce chapitre, il s'agit d'afficher une liste des logs de la cla
 ![Web Debug Toggleable Debug](http://www.symfony-project.org/images/more-with-symfony/web_debug_04.png "La debug stack trace avec le toggler")
 
 >**NOTE**
->Les logs de la classe `myCustomClass` se trouvent toujours dans le panneau 
->`Logs`. Utiliser un onglet personnalisé permet ainsi de les isoler et de les 
+>Les logs de la classe `myCustomClass` se trouvent toujours dans le panneau
+>`Logs`. Utiliser un onglet personnalisé permet ainsi de les isoler et de les
 >présenter autrement.
 
 ### La Méthode ~`sfWebDebugPanel::formatFileLink()`~
@@ -263,11 +263,11 @@ Pour bénéficier de cette fonctionnalité, il faut impérativement faire appel 
 Les deuxième et troisième arguments, sont respectivement le numéro de la ligne  et le nom du lien, et sont également optionnels. Si le nom du lien n'est pas renseigné, c'est le chemin du fichier ciblé qui sera utilisé à la place.
 
 >**NOTE**
->Avant de tester, il convient de s'assurer de bien avoir configuré la nouvelle 
->fonctionnalité de lien de fichier. Cela peut être réalisé à l'aide de l'option 
->`sf_file_link_format` dans le fichier `settings.yml` ou bien avec l'option 
->`file_link_format` de 
->[xdebug](http://xdebug.org/docs/stack_trace#file_link_format). Cette dernière 
+>Avant de tester, il convient de s'assurer de bien avoir configuré la nouvelle
+>fonctionnalité de lien de fichier. Cela peut être réalisé à l'aide de l'option
+>`sf_file_link_format` dans le fichier `settings.yml` ou bien avec l'option
+>`file_link_format` de
+>[xdebug](http://xdebug.org/docs/stack_trace#file_link_format). Cette dernière
 >méthode permet aussi à votre projet de ne pas dépendre d'un IDE.
 
 Autres Informations à Connaître au Sujet de la WDT

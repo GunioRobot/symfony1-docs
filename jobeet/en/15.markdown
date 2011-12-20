@@ -7,9 +7,9 @@ jobs in real-time.
 On the other side of the fence, when you post a job, you will want to have the
 greatest exposure possible. If your job is syndicated on a lot of small
 websites, you will have a better chance to find the right person. That's the
-power of the 
-[~long tail|Long Tail~](http://en.wikipedia.org/wiki/The_Long_Tail). Affiliates 
-will be able to publish the latest posted jobs on their websites thanks to the 
+power of the
+[~long tail|Long Tail~](http://en.wikipedia.org/wiki/The_Long_Tail). Affiliates
+will be able to publish the latest posted jobs on their websites thanks to the
 ~web services|Web Services~ we will develop along this day.
 
 ~Affiliates~
@@ -98,7 +98,7 @@ actual user applies for an account, the ~token|Token~ will need to be generated:
         {
           $this->setToken(sha1($this->getEmail().rand(11111, 99999)));
         }
-        
+
         return parent::save($conn);
       }
 
@@ -172,7 +172,7 @@ activated, we need to override the default behavior of the route:
 </doctrine>
 
 If the token does not exist in the database, we throw an `sfError404Exception`
-exception. This exception class is then automatically converted to a 
+exception. This exception class is then automatically converted to a
 ~`404|404 Error`~ response. This is the simplest way to generate a `404` page
 from a model class.
 
@@ -495,12 +495,12 @@ In this test, you will notice three new methods:
                  the regex passed as an argument
 
 >**TIP**
->The `isValid()` method accepts a boolean as first parameter that allows to 
+>The `isValid()` method accepts a boolean as first parameter that allows to
 >validates the XML response against its XSD.
 >
 >    $browser->with('response')->isValid(true);
 >
->It also accepts the path to a special XSD file against to which the response 
+>It also accepts the path to a special XSD file against to which the response
 >has to be validated.
 >
 >    $browser->with('response')->isValid('/path/to/schema/xsd');
@@ -626,8 +626,8 @@ away. Open the `JobeetAffiliateForm` file to customize the ~form|Forms~:
       public function configure()
       {
         $this->useFields(array(
-          'url', 
-          'email', 
+          'url',
+          'email',
           'jobeet_categories_list'
         ));
 <propel>

@@ -932,7 +932,7 @@ Le lecteur attentif aura remarqué que le lien "Publish" est soumis avec la
 méthode HTTP put. Pour simuler la méthode put, le lien est automatiquement
 converti en un formulaire lorsque vous cliquez dessus.
 
-Et comme nous avons activé la protection ~CSRF~, le helper `link_to()` embarque 
+Et comme nous avons activé la protection ~CSRF~, le helper `link_to()` embarque
 un jeton CSRF dans le lien et la méthode `checkCSRFProtection()` de l'objet de la
 requête vérifie la validité de celui-ci lors de la soumission.
 

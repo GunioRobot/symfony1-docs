@@ -97,7 +97,7 @@ To ease the comparison, the `lime_test` object provides several methods:
 >**TIP**
 >You may wonder why lime defines so many test methods, as all tests can be
 >written just by using the `ok()` method. The benefit of alternative methods
->lies in much more explicit error messages in case of a failed test and in 
+>lies in much more explicit error messages in case of a failed test and in
 >improved readability of the tests.
 
 The `lime_test` object also provides other convenient testing methods:
@@ -347,8 +347,8 @@ is always a good thing.
 >
 >The test must fail. Instead of replacing `é` by `e`, the `slugify()` method
 >has replaced it by a dash (`-`). That's a tough problem, called
->*~transliteration|Transliteration~*. Hopefully, if you have 
->"~iconv|`iconv` Library~" installed, 
+>*~transliteration|Transliteration~*. Hopefully, if you have
+>"~iconv|`iconv` Library~" installed,
 >it will do the job for us. Replace the code of the `slugify` method with the following:
 >
 >     [php]

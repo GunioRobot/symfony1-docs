@@ -163,7 +163,7 @@ Listing 3-3 - Customization of the HTML Attributes using the `render()` Method
 
     [php]
     <?php echo $form->render(array('email' => array('class' => 'email'))) ?>
-    
+
     // Generated HTML
     <input type="text" name="contact[email]" value="" id="contact_email" class="email" />
 
@@ -204,7 +204,7 @@ We access each field using the `form` object as a PHP array. The `email` field c
 >
 >     [php]
 >     <?php echo $form['email'] ?>
->     
+>
 >     // Syntax that should have been used if sfForm didn't implement the ArrayAccess interface.
 >     <?php echo $form->getField('email') ?>
 >
@@ -389,10 +389,10 @@ Listing 3-10 - Modifying the Label Name
     <label for="contact_message">Your message</label>
 
 What's the point of the `renderLabel()` method if we send the label name as an
-argument? Why don't we simply use an HTML `label` tag? That is because the 
-`renderLabel()` method generates the `label` tag and automatically adds a `for` 
-attribute set to the identifier of the linked field (`id`). This ensures that 
-the field will be accessible; when clicking on the label, the field is 
+argument? Why don't we simply use an HTML `label` tag? That is because the
+`renderLabel()` method generates the `label` tag and automatically adds a `for`
+attribute set to the identifier of the linked field (`id`). This ensures that
+the field will be accessible; when clicking on the label, the field is
 automatically focused:
 
     [php]

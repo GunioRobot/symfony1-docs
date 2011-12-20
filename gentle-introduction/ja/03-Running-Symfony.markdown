@@ -7,7 +7,7 @@ symfony は少なくとも PHP 5.2.4 が必要です。PHP 5 がインストー�
 
     $ php -v
 
-    PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10) 
+    PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10)
     Copyright (c) 1997-2009 The PHP Group
     Zend Engine v2.3.0, Copyright (c) 1998-2009 Zend Technologies
 

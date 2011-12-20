@@ -67,7 +67,7 @@ email :
  * l'adresse(s) de(s) destinataire(s) de l'email (`to`);
  * l'objet du message;
  * le corps du message.
- 
+
 L'envoi du message est donc aussi simple que d'appeler la méthode send `send()`
 sur l'instance mailer et en passant le message comme un argument. Comme un raccourci,
 vous pouvez composer et envoyer un email en une seule fois en utilisant la méthode
@@ -276,9 +276,9 @@ et ~`checkBody()`~. Le deuxième argument de `checkHeader()` et le premier argum
 de `checkBody()` peuvent être un des éléments suivants :
 
  * une chaîne pour vérifier une correspondance exacte;
- 
+
  * une expression régulière pour vérifier la valeur à son encontre;
- 
+
  * une expression régulière négative (une expression régulière commençant avec `!`)
    pour vérifier que la valeur ne correspond pas.
 

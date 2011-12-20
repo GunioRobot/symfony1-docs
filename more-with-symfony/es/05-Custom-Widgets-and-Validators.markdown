@@ -97,7 +97,7 @@ Creando un widget simple y un validador
 
 Esta sección explica cómo crear un widget simple. Llamaremos a este widget
 *"Trilean"*, ya que se trata de un valor *booleano* con tres opciones, que se
-muestran en una lista desplegable: `No`, `Yes` y `Null`. 
+muestran en una lista desplegable: `No`, `Yes` y `Null`.
 
     [php]
     class sfWidgetFormTrilean extends sfWidgetForm

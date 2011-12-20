@@ -73,7 +73,7 @@ Listato 4-1 - Schema del database
           onDelete: CASCADE
         Tag:
           onDelete: CASCADE
- 
+
 Ecco le relazioni tra le tabelle:
 
   * Relazione 1-n tra la tabella `article` e la tabella `author`:
@@ -180,21 +180,21 @@ Listato 4-3 - Classe `BaseAuthorForm`, che rappresenta il form della tabella `au
           'last_name'  => new sfWidgetFormInputText(),
           'email'      => new sfWidgetFormInputText(),
         ));
-     
+
         $this->setValidators(array(
           'id'         => new sfValidatorDoctrineChoice(array('model' => 'Author', 'column' => 'id', 'required' => false)),
           'first_name' => new sfValidatorString(array('max_length' => 20, 'required' => false)),
           'last_name'  => new sfValidatorString(array('max_length' => 20, 'required' => false)),
           'email'      => new sfValidatorString(array('max_length' => 255)),
         ));
-     
+
         $this->widgetSchema->setNameFormat('author[%s]');
-     
+
         $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
-     
+
         parent::setup();
       }
-     
+
       public function getModelName()
       {
         return 'Author';
@@ -537,10 +537,10 @@ Listato 4-8 - Personalizzare i validatori e i widget
       public function configure()
       {
         // ...
-     
+
         $this->validatorSchema['slug']->setOption('required', false);
         $this->validatorSchema['content']->setOption('min_length', 5);
-     
+
         $this->widgetSchema['content']->setAttributes(array('rows' => 10, 'cols' => 40));
       }
     }
@@ -570,7 +570,7 @@ Listato 4-9 - Usare il validatore `sfValidatorDoctrineUnique` per verificare l'u
       public function setup()
       {
         // ...
-     
+
         $this->validatorSchema->setPostValidator(
           new sfValidatorDoctrineUnique(array('model' => 'Article', 'column' => array('slug')))
         );
@@ -599,7 +599,7 @@ Listato 4-10 - Personalizzare il widget `sfWidgetFormDoctrineSelect`
       public function configure()
       {
         // ...
-     
+
         $query = Doctrine_Query::create()
           ->from('Author a')
           ->where('a.active = ?', true);
@@ -621,7 +621,7 @@ Listato 4-11 - Personalizzare il validatore `sfValidatorDoctrineChoice`
       public function configure()
       {
         // ...
-     
+
         $query = Doctrine_Query::create()
           ->from('Author a')
           ->where('a.active = ?', true);
@@ -734,12 +734,12 @@ Listato 4-16 - Definizione degli status disponibili nella classe `ArticleTable`
     class ArticleTable extends Doctrine_Table
     {
       static protected $statuses = array('draft', 'online', 'offline');
-     
+
       static public function getStatuses()
       {
         return self::$statuses;
       }
-     
+
       // ...
     }
 
@@ -769,9 +769,9 @@ Listato 4-18 - Modifica del validatore del campo `status`
       public function configure()
       {
         $statuses = ArticleTable::getStatuses();
-     
+
         $this->widgetSchema['status'] = new sfWidgetFormSelect(array('choices' => $statuses));
-     
+
         $this->validatorSchema['status'] = new sfValidatorChoice(array('choices' => array_keys($statuses)));
       }
     }
@@ -790,10 +790,10 @@ Listato 4-19 - Cancellare un campo
       public function configure()
       {
         // ...
-      
+
         unset($this->validatorSchema['created_at']);
         unset($this->widgetSchema['created_at']);
-     
+
         unset($this->validatorSchema['updated_at']);
         unset($this->widgetSchema['updated_at']);
 
@@ -868,7 +868,7 @@ automatizzazione è utile per diverse ragioni:
     ripetitivo e ridondante. Egli può quindi focalizzarsi sulla
     personalizzazione dei validatori e dei widget, secondo le specifiche
     business rule del progetto.
-  
+
   * Inoltre, quando lo schema del database viene aggiornato, i form generati
     sono aggiornati automaticamente. Lo sviluppatore deve solo raffinare la
     personalizzazione che ha già eseguito.
@@ -901,17 +901,17 @@ il costruttore:
     [php]
     // creazione di un nuovo oggetto
     $authorForm = new AuthorForm();
-     
+
     print $authorForm->getObject()->getId(); // visualizza null
     print $authorForm->isNew();              // visualizza true
-     
+
     // modifica di un oggetto esistente
     $author = Doctrine::getTable('Author')->find(1);
     $authorForm = new AuthorForm($author);
-     
+
     print $authorForm->getObject()->getId(); // visualizza 1
     print $authorForm->isNew();              // visualizza false
- 
+
 ### Gestire il ciclo di vita
 
 Come abbiamo osservato all'inizio del capitolo, l'azione `edit`, mostrata
@@ -945,7 +945,7 @@ Listato 4-23 - I metodi `executeNew`, `executeEdit`, `executeCreate` e `processF
         $this->forward404Unless($author = Doctrine::getTable('Author')->find($request->getParameter('id')), sprintf('Object author does not exist (%s).', $request->getParameter('id')));
         $this->form = new AuthorForm($author);
       }
-      
+
       protected function processForm(sfWebRequest $request, sfForm $form)
       {
         $form->bind($request->getParameter($form->getName()));
@@ -967,7 +967,7 @@ descritto nei capitoli precedenti, possiamo puntualizzare alcune differenze:
         [php]
         $author = Doctrine::getTable('Author')->find($request->getParameter('id'));
         $this->form = new AuthorForm($author);
-  
+
   * Il formato dell'attributo `name` dei widget è personalizzato automaticamente
     per consentire il recupero dei dati inviati in un array PHP che prende il
     nome dalla tabella relativa (`author`):
@@ -980,7 +980,7 @@ descritto nei capitoli precedenti, possiamo puntualizzare alcune differenze:
 
         [php]
         $author = $this->form->save();
-    
+
 ### Creare e modificare un oggetto Doctrine
 
 Il codice del Listato 4-23 gestisce con un solo metodo la creazione e la
@@ -1009,7 +1009,7 @@ modifica di oggetti della classe `Author`:
         relativo alla chiave primaria
 
       * L'oggetto `form` quindi è collegato all'oggetto appena trovato
-      
+
       * La chiamata a `$this->form->save()` aggiorna l'oggetto `Author`
         quando un form valido viene inviato
 
@@ -1045,14 +1045,14 @@ ogni aggiornamento in una transazione.
 >       public function executeCreate(sfWebRequest $request)
 >       {
 >         $this->form = new ArticleForm();
->      
+>
 >         if ($request->isMethod('post') && $this->form->bindAndSave($request->getParameter('article')))
 >         {
 >           $this->redirect('article/created');
 >         }
 >       }
 >     }
-     
+
 ### Gestione dell'invio di file
 
 Il metodo `save()` aggiorna automaticamente gli oggetti Doctrine, ma non può
@@ -1093,7 +1093,7 @@ Listato 4-25 - Modifica del campo `file` del form `ArticleForm`.
       public function configure()
       {
         // ...
-     
+
         $this->widgetSchema['file'] = new sfWidgetFormInputFile();
         $this->validatorSchema['file'] = new sfValidatorFile();
       }
@@ -1113,7 +1113,7 @@ Listato 4-26 - Salvataggio dell'oggetto `article` e file caricato nell'azione
     {
       $author = Doctrine::getTable('Author')->find($request->getParameter('id'));
       $this->form = new ArticleForm($author);
-     
+
       if ($request->isMethod('post'))
       {
         $this->form->bind($request->getParameter('article'), $request->getFiles('article'));
@@ -1122,9 +1122,9 @@ Listato 4-26 - Salvataggio dell'oggetto `article` e file caricato nell'azione
           $file = $this->form->getValue('file');
           $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
           $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-     
+
           $article = $this->form->save();
-     
+
           $this->redirect('article/edit?id='.$article->getId());
         }
       }
@@ -1163,18 +1163,18 @@ Listato 4-27 - Sovrascrivere il metodo `save()` della classe `ArticleForm`
     class ArticleForm extends BaseFormDoctrine
     {
       // ...
-     
+
       public function save($con = null)
       {
         if (file_exists($this->getObject()->getFile()))
         {
           unlink($this->getObject()->getFile());
         }
-     
+
         $file = $this->getValue('file');
         $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-     
+
         return parent::save($con);
       }
     }
@@ -1209,10 +1209,10 @@ generato inzialmente dal task `doctrine:generate-crud`.
 >         {
 >           $this->setSlugFromTitle();
 >         }
->      
+>
 >         return parent::save($con);
 >       }
->      
+>
 >       protected function setSlugFromTitle()
 >       {
 >         // ...
@@ -1221,7 +1221,7 @@ generato inzialmente dal task `doctrine:generate-crud`.
 >
 >Lo scopo principale di questa rifattorizzazione è quello di rispettare
 >la separazione tra i livelli applicativi e specialmente la riusabilità
->degli sviluppi.   
+>degli sviluppi.
 
 ### Personalizzare il metodo `doSave()`
 
@@ -1240,18 +1240,18 @@ Listato 4-28 - Sovrascrivere il metodo `doSave()` nel form `ArticleForm`
     class ArticleForm extends BaseFormDoctrine
     {
       // ...
-     
+
       protected function doSave(DoctrinePDO $con = null)
       {
         if (file_exists($this->getObject()->getFile()))
         {
           unlink($this->getObject()->getFile());
         }
-     
+
         $file = $this->getValue('file');
         $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-     
+
         return parent::doSave($con);
       }
     }

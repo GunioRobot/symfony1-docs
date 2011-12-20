@@ -76,9 +76,9 @@ latest jobs, create an `indexSuccess.atom.php` template:
 >**SIDEBAR**
 >Template Names
 >
->As `html` is the most common format used for web applications, it can be 
->omitted from the template name. Both `indexSuccess.php` and 
->`indexSuccess.html.php` templates are equivalent and symfony uses the first one 
+>As `html` is the most common format used for web applications, it can be
+>omitted from the template name. Both `indexSuccess.php` and
+>`indexSuccess.html.php` templates are equivalent and symfony uses the first one
 >it finds.
 >
 >Why are default templates suffixed with `Success`? An action can return a value
@@ -95,7 +95,7 @@ latest jobs, create an `indexSuccess.atom.php` template:
 >
 >     return 'Foo';
 >
->As seen yesterday, the name of the template can also be changed by using the 
+>As seen yesterday, the name of the template can also be changed by using the
 >`setTemplate()` method:
 >
 >     [php]

@@ -120,9 +120,9 @@ Crea un archivo `cache.yml` para el módulo `sfJobeetJob:
 
 >**TIP**
 >El  `cache.yml` tiene las mismas propiedades que cualquier otro
->archivo de configuración de Symfony como `view.yml`. Esto significa, por ejemplo, que 
->puedes habilitar el cache para todas las acciones de un módulo 
->mediante el uso de la clave especial `all`. 
+>archivo de configuración de Symfony como `view.yml`. Esto significa, por ejemplo, que
+>puedes habilitar el cache para todas las acciones de un módulo
+>mediante el uso de la clave especial `all`.
 
 Si actualizas tu navegador, verás que Symfony ha decorado la página con un cuadro que indica que el contenido se ha puesto en el cache:
 
@@ -239,7 +239,7 @@ La configuración del cache para un partial o un componente es tan simple como a
 >**SIDEBAR**
 >Contextual o no?
 >
->El mismo componente o partial puede ser usado en diferentes plantillas. El 
+>El mismo componente o partial puede ser usado en diferentes plantillas. El
 >partial job `_list.php` por ejemplo, se utiliza en los módulos `job` y `category` .
 >Ya que la visualización es siempre la misma, el partial no depende del
 >contexto en el que se utiliza y el cache es el mismo para todas las plantillas (el
@@ -414,7 +414,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

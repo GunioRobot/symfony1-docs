@@ -35,7 +35,7 @@ Ah, la [Belle Epoque](http://it.wikipedia.org/wiki/Belle_Époque)! PHP era uno d
 linguaggi dedicati al web e uno dei più semplici.
 
 Ma con la veloce evoluzione delle tecnologie web gli sviluppatori devono tenersi al passo
-con le ultime best practice e con gli strumenti più aggiornati. La via migliore per 
+con le ultime best practice e con gli strumenti più aggiornati. La via migliore per
 imparare è sicuramente quella di leggere blog, tutorial e libri. Ne abbiamo letti molti,
 siano scritti per PHP, Python, Java, Ruby, o Perl e molti di essi perdono di vista l'obiettivo
 finale quando l'autore inizia a dare porzioni di codice come esempio.
@@ -54,11 +54,11 @@ o ancora
 
 Cosa? Queste cose sono attività serie. Sono forse le parti più importanti di ogni
 altra parte di codice. E come lettori venite abbandonati. Senza tenere conto di queste
-cose gli esempi sono molto meno utili visto che non possono essere usati come punto 
-di partenza. Questo è male! Perché? Perché la sicurezza, la validazione, la gestione 
+cose gli esempi sono molto meno utili visto che non possono essere usati come punto
+di partenza. Questo è male! Perché? Perché la sicurezza, la validazione, la gestione
 degli errori e i test (solo per dirne alcuni) permettono di scrivere codice corretto.
 
-In questo libro non si vedranno mai frasi come quelle viste in precedenza: scriveremo test, 
+In questo libro non si vedranno mai frasi come quelle viste in precedenza: scriveremo test,
 gestiremo errori, valideremo il codice e state pure certi che realizzeremo un'applicazione
 sicura. Questo è dovuto al fatto che symfony si occupa del codice ma anche di
 utilizzare le best practice e di mostrare come sviluppare in modo professionale
@@ -66,7 +66,7 @@ applicazioni per il mondo enterprise. Saremo in grado di fornire questo lusso pe
 symfony mette a disposizione tutti gli strumenti necessari per affrontare questi
 aspetti in modo semplice e senza scrivere troppo codice.
 
-Validazione, gestione degli errori, sicurezza e test sono argomenti di prima classe 
+Validazione, gestione degli errori, sicurezza e test sono argomenti di prima classe
 in symfony perciò non servirà molto tempo per spiegarli. Questa è solo una delle molteplici
 ragioni per usare un framework per realizzare progetti reali.
 
@@ -185,7 +185,7 @@ stabili, bisogna scegliere quella che si vuole installare, leggendo la
 sul sito web di symfony.
 
 Questo libro assume che si voglia installare symfony 1.3 o symfony 1.4.
-  
+
 ### Scegliere dove installare symfony
 
 È possibile installare symfony globalmente sulla propria macchina o incorporarlo
@@ -281,7 +281,7 @@ Su Windows:
 >    c:\> php lib\vendor\symfony\data\bin\symfony
 >
 >La linea di comando di symfony è il miglior amico dello sviluppatore. Mette
->a disposizione molti strumenti che aumentano la produttività per le 
+>a disposizione molti strumenti che aumentano la produttività per le
 >attività giornaliere come la pulizia della cache, la generazione del codice
 >e molto altro.
 
@@ -301,7 +301,7 @@ symfony:
     $ php lib/vendor/symfony/data/bin/symfony generate:project jobeet
 </doctrine>
 <propel>
-    $ php lib/vendor/symfony/data/bin/symfony generate:project jobeet --orm=Propel 
+    $ php lib/vendor/symfony/data/bin/symfony generate:project jobeet --orm=Propel
 </propel>
 
 Su Windows:
@@ -331,11 +331,11 @@ necessari per il progetto stesso:
 >In pochi minuti sarà in grado di tuffarsi nel codice risolvendo bug e aggiungendo
 >nuove feature.
 
-Il task `generate:project` ha inoltre creato un collegamento `symfony` nella 
+Il task `generate:project` ha inoltre creato un collegamento `symfony` nella
 cartella principale del progetto Jobeet per dover scrivere meno caratteri ogni volta
 che si utilizza un task.
 
-Quindi, da ora in poi, invece che usare l'intero percorso per l'eseguibile di symfony 
+Quindi, da ora in poi, invece che usare l'intero percorso per l'eseguibile di symfony
 useremo la scorciatoia `symfony`.
 
 ### Creazione dell'applicazione
@@ -345,7 +345,7 @@ Ora create l'applicazione frontend usando il task `generate:app`:
     $ php symfony generate:app frontend
 
 >**TIP**
->Visto che il file symfony è eseguibile, gli utenti Unix possono sostituire tutte le 
+>Visto che il file symfony è eseguibile, gli utenti Unix possono sostituire tutte le
 >occorrenze di '`php symfony`' con '`./symfony`' da qui in avanti.
 >
 >Su Windows si può copiare il file 'symfony.bat' nel progetto e utilizzare
@@ -373,7 +373,7 @@ nella cartella `apps/frontend`:
 >**SIDEBAR**
 >Sicurezza
 >
->Per impostazione predefinita, il task `generate:app`, ha messo in sicurezza l'applicazione 
+>Per impostazione predefinita, il task `generate:app`, ha messo in sicurezza l'applicazione
 >dalle due principali vulnerabilità riscontrate sul web. È esatto, symfony
 >predispone in modo automatico le misure di ~sicurezza~ al posto nostro.
 >
@@ -385,7 +385,7 @@ nella cartella `apps/frontend`:
 >  * `--escaping-strategy`: Abilita l'escape dell'output per prevenire gli attacchi ~XSS~
 >  * `--csrf-secret`: Abilita i token di sessione per i form per prevenire gli attacchi ~CSRF~
 >
->Se non si sa nulla a proposito di 
+>Se non si sa nulla a proposito di
 >[XSS](http://it.wikipedia.org/wiki/Cross-site_scripting) o
 >[CSRF](http://it.wikipedia.org/wiki/CSRF), sarebbe opportuno informarsi
 >su queste vulnerabilità di sicurezza.
@@ -413,14 +413,14 @@ Nella sezione precedente è stata creata una cartella per contenere il progetto
 Jobeet. Se è stata creata da qualche parte dentro la ~cartella principale web~
 del server, si è in grado di accedere al progetto da un browser web.
 
-Chiaramente, visto che non è richiesta nessuna configurazione, il tutto è stato 
+Chiaramente, visto che non è richiesta nessuna configurazione, il tutto è stato
 molto rapido da realizzare, se tuttavia si prova ad accedere al file `config/databases.yml`
-nel vostro browser, si può capire quante pericolose conseguenze può implicare 
+nel vostro browser, si può capire quante pericolose conseguenze può implicare
 questo modo di agire, dettato dalla pigrizia. Se l'utente sa che il sito
 è stato sviluppato con symfony, avrà accesso a molti file sensibili.
 
-**Mai e poi mai utilizzare un setup di questo tipo su un server in produzione**, 
-leggere la prossima sezione per imparare a configurare correttamente il 
+**Mai e poi mai utilizzare un setup di questo tipo su un server in produzione**,
+leggere la prossima sezione per imparare a configurare correttamente il
 proprio server web.
 
 Setup del server web: la via sicura
@@ -442,7 +442,7 @@ termini di ~sicurezza~.
 Ora è il momento di modificare la configurazione di ~Apache~ per rendere il nuovo
 progetto accessibile a tutti.
 
-Trovare e aprire il file di configurazione `httpd.conf` e aggiungere le seguenti 
+Trovare e aprire il file di configurazione `httpd.conf` e aggiungere le seguenti
 configurazioni alla fine:
 
     # Assicurarsi di avere questa linea una sola volta nel file
@@ -478,7 +478,7 @@ configurazioni alla fine:
 >
 >     c:\development\sfprojects\jobeet\web
 
-Questa configurazione mette Apache in ascolto sulla porta `8080` della propria macchina, 
+Questa configurazione mette Apache in ascolto sulla porta `8080` della propria macchina,
 quindi il sito Jobeet sarà accessibile dal seguente URL:
 
     http://~localhost~:8080/
@@ -513,8 +513,8 @@ di `1024`, visto che non richiedono privilegi amministrativi.
 ### Provare la nuova configurazione
 
 Riavviare Apache e verificare di avere accesso alla nuova applicazione, aprendo
-il browser e digitando `http://localhost:8080/index.php/` o 
-`http://jobeet.localhost/index.php/` in base alla configurazione di Apache 
+il browser e digitando `http://localhost:8080/index.php/` o
+`http://jobeet.localhost/index.php/` in base alla configurazione di Apache
 selezionata nella sezione precedente.
 
 ![Congratulazioni](http://www.symfony-project.org/images/jobeet/1_4/01/congratulations.png)
@@ -548,19 +548,19 @@ controller**: tutte le richieste all'applicazione vengono fatte tramite loro. Ma
 abbiamo due front controller se abbiamo definito una sola applicazione?
 
 Entrambi i file puntano alla stessa applicazione, ma per diversi ambienti.
-Mentre sviluppate un'applicazione, escluso quando si sviluppa direttamente 
+Mentre sviluppate un'applicazione, escluso quando si sviluppa direttamente
 sul server di produzione, occorrono diversi **ambienti**:
 
   * L'**ambiente di sviluppo**: È l'ambiente usato dai **web
     developer** quando lavorano sull'applicazione, per aggiungere nuove feature,
     risolvere bug, ...
-    
+
   * L'**ambiente di test**: Quest'ambiente è utilizzato per testare in modo
     automatico l'applicazione.
-    
+
   * L'**ambiente di staging**: Quest'ambiente è utilizzato dal **cliente**
     per testare l'applicazione e riportare bug o feature mancanti.
-    
+
   * L'**ambiente di produzione**: Questo è l'ambiente con cui gli **utenti finali**
     interagiscono.
 
@@ -615,7 +615,7 @@ versioni permette di:
  * lavorare in più persone in modo efficiente sul progetto
  * avere accesso a tutte le versioni successive dell'applicazione
 
-In questa sezione descriveremo come usare [Subversion](http://subversion.tigris.org/) 
+In questa sezione descriveremo come usare [Subversion](http://subversion.tigris.org/)
 con symfony. Se usate un altro strumento per il sistema di controllo
 delle versioni, dovrebbe essere abbastanza semplice adattare quanto
 descritto per Subversion.
@@ -634,7 +634,7 @@ Innanzitutto, creare un nuovo repository per il progetto `jobeet`:
     $ svnadmin create /path/to/jobeet/repository
 
 Sulla propria macchina, creare la struttura di base delle cartelle:
-    
+
     $ svn mkdir -m "creata struttura la base delle cartelle"
     ➥ http://svn.example.com/jobeet/trunk
     ➥ http://svn.example.com/jobeet/tags
@@ -659,7 +659,7 @@ Ora, importare tutti i file e le cartelle:
 
     $ svn add *
 
-Siccome non sarà mai necessario di eseguire il commit per file delle cartelle 
+Siccome non sarà mai necessario di eseguire il commit per file delle cartelle
 `cache/` e `/log`, si possono specificare delle opzioni di "ignore":
 
     $ svn propedit svn:ignore cache
@@ -692,7 +692,7 @@ A domani
 --------
 
 Bene, il tempo per oggi è finito! Anche se non abbiamo ancora iniziato a parlare
-di symfony abbiamo impostato un solido ambiente di sviluppo, abbiamo parlato di 
+di symfony abbiamo impostato un solido ambiente di sviluppo, abbiamo parlato di
 alcune best practice riguardanti lo sviluppo web e siamo pronti per iniziare a scrivere
 codice.
 

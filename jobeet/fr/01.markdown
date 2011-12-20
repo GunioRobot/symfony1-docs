@@ -41,7 +41,7 @@ par la lecture des blogs, des tutoriels et des livres. Nous avons lu beaucoup d'
 soient écrits pour PHP, Python, Java, Ruby ou Perl, et beaucoup d'entre eux nous laisse sur notre faim lorsque
 l'auteur commence à donner des morceaux de codes à titre d'exemples.
 
-Vous êtes sans doute habitué à lire des avertissements du genre: 
+Vous êtes sans doute habitué à lire des avertissements du genre:
 
   «Pour une application réelle, n'oubliez pas d'ajouter la validation et la manipulation d'erreur appropriée.»
 
@@ -534,7 +534,7 @@ de petites icônes, prouvant que la configuration de votre alias `sf/` est corre
 
 >**Note**
 >La configuration est un peu différente si vous voulez faire tourner symfony sur un serveur IIS dans
->un environnement de Windows. Vous trouverez la façon de le configurer dans le 
+>un environnement de Windows. Vous trouverez la façon de le configurer dans le
 >[tutoriel dédié](http://www.symfony-project.com/cookbook/1_0/web_server_iis).
 
 Les ~environnements~

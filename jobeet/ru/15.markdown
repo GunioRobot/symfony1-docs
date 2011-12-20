@@ -122,7 +122,7 @@
         {
           $this->setToken(sha1($this->getEmail().rand(11111, 99999)));
         }
-        
+
         return parent::save($conn);
       }
 
@@ -512,7 +512,7 @@ URL в начале:
 
   * `isValid()`: Checks whether or not the XML response is well formed
   * `isFormat()`: Проверяет формат запроса
-  * `matches()`: Для не HTML формата, проверяет, соответствует ли ответ регулярному 
+  * `matches()`: Для не HTML формата, проверяет, соответствует ли ответ регулярному
                  выражению, переданному в параметре.
 
 Форма для регистрации партнеров
@@ -634,8 +634,8 @@ URL в начале:
       public function configure()
       {
         $this->useFields(array(
-          'url', 
-          'email', 
+          'url',
+          'email',
           'jobeet_categories_list'
         ));
 <propel>
@@ -937,7 +937,7 @@ The new `sfForm::useFields()` method allows to specify the white list of fields 
 Увидимся завтра!
 ----------------
 
-Благодаря REST-архитектуре Symfony, реализация веб-сервисов в Вашем проекте 
+Благодаря REST-архитектуре Symfony, реализация веб-сервисов в Вашем проекте
 становится достаточно простой. Хотя мы написали код для веб-сервиса
 только для чтения данных, мы уже обладаем достаточными знаниями для написания
 веб-сервиса способного и читать, и записывать данные.

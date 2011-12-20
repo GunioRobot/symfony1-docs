@@ -401,8 +401,8 @@ E l'azione corrispondente:
     }
 
 >**NOTE**
->La nouvelle méthode `forwardUnless()` redirige l'utilisateur vers l'action 
-> `index` du module `job` si la variable `query` de l'URL n'existe pas ou est 
+>La nouvelle méthode `forwardUnless()` redirige l'utilisateur vers l'action
+> `index` du module `job` si la variable `query` de l'URL n'existe pas ou est
 >vide.
 >
 >Cette méthode n'est en fait qu'un simple alias pour le code suivant:

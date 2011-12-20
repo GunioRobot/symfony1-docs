@@ -5,7 +5,7 @@ Hier, nous avons terminé la fonctionnalité du moteur de recherche en la rendan
 encore plus fun avec l'ajout de quelques AJAX de qualité.
 
 Aujourd'hui, nous allons parler de l'**~internationalisation|Internationalisation~**
-(ou ~i18n|I18N~) de Jobeet et la **~régionalisation|Régionalisation~** (ou ~l10n|L10n~). 
+(ou ~i18n|I18N~) de Jobeet et la **~régionalisation|Régionalisation~** (ou ~l10n|L10n~).
 
 Extrait de [Wikipedia](http://fr.wikipedia.org/wiki/Internationalisation_de_logiciel) :
 
@@ -307,7 +307,7 @@ Afin que les classes du plugin puissent être chargées par symfony, le plugin  
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin'
       ));
@@ -705,7 +705,7 @@ Le ~Helper `format_number_choice()`~ prend trois arguments :
   * La chaîne à utiliser en fonction du nombre
   * Un tableau d'espace réservé
   * Le numéro à utiliser pour déterminer le texte à utiliser
- 
+
 La chaîne qui décrit les différentes traductions en fonction du nombre est
 formaté comme suit :
 
@@ -1191,7 +1191,7 @@ Dans le groupe d'helper
  | `format_country()`  | Affiche le nom d'un pays        |
  | `format_language()` | Affiche le nom d'une langue     |
 
-### ~Formulaires (I18n)~ 
+### ~Formulaires (I18n)~
 
 Le framework de formulaire fournit plusieurs ~widgets|Widgets (I18n)~ et
 ~validateurs|Validateurs (I18n)~ pour régionalisé les données :

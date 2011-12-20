@@ -87,7 +87,7 @@ Jobeet のフィード追加に関して、求職者はリアルタイムで新�
         {
           $this->setToken(sha1($this->getEmail().rand(11111, 99999)));
         }
-        
+
         return parent::save($conn);
       }
 
@@ -566,8 +566,8 @@ Web サービスを提供する準備ができたので、アフィリエイト�
       public function configure()
       {
         $this->useFields(array(
-          'url', 
-          'email', 
+          'url',
+          'email',
           'jobeet_categories_list'
         ));
 <propel>

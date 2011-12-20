@@ -97,7 +97,7 @@ El método `countActiveJobs()` emplea un método `countActiveJobs()` que aún no
       return Doctrine_Core::getTable('JobeetJob')->countActiveJobs($q);
     }
 
-El método `countActiveJobs()` emplea un método `countActiveJobs()` que aún no existe en 
+El método `countActiveJobs()` emplea un método `countActiveJobs()` que aún no existe en
 `JobeetJobTable`. Reemplaza el contenido del archivo `JobeetJobTable.php` con el siguiente código:
 </doctrine>
 <propel>
@@ -282,7 +282,7 @@ Tenemos ahora todo en su lugar para crear el método `executeShow()`. Reemplaza 
 
 >**NOTE**
 >Debido a que quitamos el método generado `executeIndex()`, también puedes
->quitar la platilla automáticamente generada `indexSuccess.php` 
+>quitar la platilla automáticamente generada `indexSuccess.php`
 >(`apps/frontend/modules/category/templates/indexSuccess.php`).
 
 El último paso es crear la plantilla `showSuccess.php`:
@@ -564,7 +564,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

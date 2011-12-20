@@ -18,7 +18,7 @@ essere modificato con una semplice casella di testo, o con un avanzato editor di
 WYSIWYG. La classe `sfWidgetForm`, allo scopo di poter essere completamente configurabile,
 ha due importanti proprietà: `options` e `attributes`.
 
- * `options`: usato per configurare il widget (ad esempio le query al database, 
+ * `options`: usato per configurare il widget (ad esempio le query al database,
    da usare quando si crea un elenco per un menu a tendina)
 
  * `attributes`: attributi HTML aggiunti all'elemento che deve essere visualizzato
@@ -82,7 +82,7 @@ se una email è valida:
 
 Entrambi gli oggetti `sfWidgetForm` e `sfValidatorBase` hanno numerose opzioni:
 alcune sono facoltative, mentre altre sono obbligatorie. Queste opzioni sono definite
-all'interno di ogni metodo `configure()` della classe, attraverso: 
+all'interno di ogni metodo `configure()` della classe, attraverso:
 
  * `addOption($name, $value)`: definisce un'opzione con un nome e un valore predefinito
  * `addRequiredOption($name)`: definisce un'opzione obbligatoria
@@ -153,7 +153,7 @@ opzioni standard che quindi è come se fossero opzioni riservate:
    l'opzione multipart (ad esempio per l'upload dei file)
 
  * `default`: Il valore predefinito che deve essere utilizzato per rendere il widget
-   se non è fornito nessun valore 
+   se non è fornito nessun valore
 
  * `label`: L'etichetta predefinita del widget
 
@@ -497,7 +497,7 @@ che i validatori interni possano essere passati come valori validi.
 >Un validatore solleva sempre l'eccezione `sfValidatorError` quando un valore non
 >è valido. Questo è il motivo per cui la validazione è circondata da un blocco
 >`try/catch`. In questo validatore, il validatore rilancia una nuova eccezione
->`invalid`, il che equivale a un errore di validazione `invalid` sul validatore 
+>`invalid`, il che equivale a un errore di validazione `invalid` sul validatore
 >`sfValidatorGMapAddress`.
 
 ### I test

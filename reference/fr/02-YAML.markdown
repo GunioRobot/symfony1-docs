@@ -61,7 +61,7 @@ où chaque saut de ligne est remplacé par un espace :
     >
       Il s'agit d'une très longue phrase
       qui s'étend sur plusieurs lignes dans le fichier YAML
-      mais qui seront rendus sous forme de chaîne 
+      mais qui seront rendus sous forme de chaîne
       sans retour à la ligne.
 
 >**NOTE**

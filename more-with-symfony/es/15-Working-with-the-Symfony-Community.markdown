@@ -522,7 +522,7 @@ mantener una red de contactos profesionales.
 
 LinkedIn también dispone de grupos, donde se reúnen los usuarios con intereses
 afines, permitiendo la publicación de noticias, opiniones y la celebración de
-discusiones. LinkedIn también dispone de un 
+discusiones. LinkedIn también dispone de un
 [grupo de Symfony](http://www.linkedin.com/groups?gid=29205&trk=myg_ugrp_ovr)
 en el que se pueden discutir asuntos relacionados con Symfony, se pueden seguir
 noticias relacionadas con Symfony y también se pueden publicar ofertas de trabajo

@@ -25,7 +25,7 @@ Esta URL es equivalente a:
 
     http://www.jobeet.com.localhost/frontend_dev.php/job.html
 
-Ambas URL son equivalentes porque las rutas generadas por la clase 
+Ambas URL son equivalentes porque las rutas generadas por la clase
 `sfPropelRouteCollection` tienen la `sf_format` como extension. Puedes comprobarlo por tí mismo ejecutando la tarea `app:routes`:
 
 ![Cli](http://www.symfony-project.org/images/jobeet/1_4/15/cli.png)
@@ -220,7 +220,7 @@ El método `getHost()` del objeto request (`$sf_request`) devuelve el actual hos
 >**TIP**
 >Cuando se crea un feed, la depuración es más fácil si utiliza herramientas de línea de comandos como
 >[`curl`](http://curl.haxx.se/) o
->[`wget`](http://www.gnu.org/software/wget/), ya que puedes ver el contenido real 
+>[`wget`](http://www.gnu.org/software/wget/), ya que puedes ver el contenido real
 >del feed.
 
 ### El Feed de los Últimos Puestos de Trabajo de una Categoría
@@ -296,7 +296,7 @@ los partial son de un formato específico:
         </author>
       </entry>
     <?php endforeach ?>
-    
+
 Puedes utilizar el partial `_list.atom.php` para simplificar la plantilla del feed de los puestos de trabajo:
 
     [php]
@@ -377,7 +377,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

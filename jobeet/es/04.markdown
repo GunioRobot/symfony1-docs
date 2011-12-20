@@ -42,7 +42,7 @@ Una forma de resolver el problema es definir un encabezado y un pie de página y
 
 ![Header and footer](http://www.symfony-project.org/images/jobeet/1_4/04/header_footer.png)
 
-Pero los archivos de la cabecera y el pie de página no contienen HTML válido. Debe haber una mejor manera. En lugar de reinventar la rueda, vamos a utilizar otro patrón de diseño para resolver este problema: el 
+Pero los archivos de la cabecera y el pie de página no contienen HTML válido. Debe haber una mejor manera. En lugar de reinventar la rueda, vamos a utilizar otro patrón de diseño para resolver este problema: el
 [patrón de diseño decorador](http://en.wikipedia.org/wiki/Decorator_pattern).
 El patrón de diseño decorador resuelve el problema al revés: la plantilla es decorada después de que el contenido es mostrado por una plantilla global, llamada **layout** en Symfony:
 
@@ -153,8 +153,8 @@ y copiarlos dentro del directorio `web/css/`.
 ![El módulo job con un layout y recursos](http://www.symfony-project.org/images/jobeet/1_4/04/job_layout_assets.png)
 
 >**TIP**
->Por defecto, la tarea `generate:project` ha creado tres directorios para los recusos de 
->project: `web/images/` para las imágenes, `web/css/` para las hojas de estilo, y 
+>Por defecto, la tarea `generate:project` ha creado tres directorios para los recusos de
+>project: `web/images/` para las imágenes, `web/css/` para las hojas de estilo, y
 >`web/js/` para los Javascripts. Esta es una de las muchas convenciones definidas por
 >Symfony, pero por supuesto puedes almacenar en otro lugar bajo el directorio
 >`web/`.
@@ -274,7 +274,7 @@ Elegir entre un método u otro es realmente una cuestión de gusto. El archivo `
 
 >**NOTE**
 >En consecuencia, la configuración de JavaScript se realiza a través de la linea `javascripts`
->del archivo de configuración `view.yml` y el helper `use_javascript()` 
+>del archivo de configuración `view.yml` y el helper `use_javascript()`
 >define los archivos JavaScript a incluir para una plantilla.
 
 La Página Principal de Puesto de Trabajo
@@ -639,7 +639,7 @@ Ya hemos visto que Symfony encapsula la petición en un object `sfWebRequest` (m
 Estos objetos proporcionan una gran cantidad de métodos convenientes para acceder a la información de funciones PHP y variables globales PHP.
 
 >**NOTE**
->¿Por qué Symfony envuelve funcionalidades PHP existentes? En primer lugar, porque 
+>¿Por qué Symfony envuelve funcionalidades PHP existentes? En primer lugar, porque
 >Symfony y sus métodos son más poderosos que su homólogo PHP. Luego, porque
 >cuando se prueba una aplicación, es mucho más fácil para simular un request o
 >un response con Objetos que tratar de ver alrededor de variables globales o trabajar
@@ -675,8 +675,8 @@ y `getUrlParameter()` respectivamente.
 
 >**NOTE**
 >Si deseas restringir la acción de un método específico, por ejemplo, cuando
->que deseas asegurarte de que un formulario es enviado como `POST`, puede utilizar el 
->método `isMethod()`: 
+>que deseas asegurarte de que un formulario es enviado como `POST`, puede utilizar el
+>método `isMethod()`:
 `$this->forwardUnless($request->isMethod('POST'));`.
 
 ### La Respuesta
@@ -704,8 +704,8 @@ Hoy hemos visto cómo gestionar hojas de estilo y JavaScripts tanto en el `view.
 >**TIP**
 >Las clases [`sfAction`](http://www.symfony-project.org/api/1_4/sfAction),
 >[`sfRequest`](http://www.symfony-project.org/api/1_4/sfRequest), y
->[`sfResponse`](http://www.symfony-project.org/api/1_4/sfResponse) 
->dan muchos otros métodos útiles. No dudes en navegar por la 
+>[`sfResponse`](http://www.symfony-project.org/api/1_4/sfResponse)
+>dan muchos otros métodos útiles. No dudes en navegar por la
 >[documentación API](http://www.symfony-project.org/api/1_4/) para aprender más
 >acerca de todas las clases internas de Symfony.
 
@@ -720,7 +720,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

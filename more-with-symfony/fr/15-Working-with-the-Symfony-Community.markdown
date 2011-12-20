@@ -26,28 +26,28 @@ Avant de poser une question sur les différents moyens mis à votre disposition,
 
 Cela peut paraître trivial mais il est important de savoir comment poser une question. Réfléchissez bien à ce que vous êtes sur le point de demander. Vérifiez tout d'abord que la réponse ne se trouve pas déjà dans la documentation officielle. Voici quelques conseils qui vous aideront à obtenir des réponses plus pertinentes :
 
-  * Réfléchissez à votre question. Assurez-vous de la formuler clairement. 
+  * Réfléchissez à votre question. Assurez-vous de la formuler clairement.
     Expliquez ce que vous faites (ou bien essayez de le faire) et ce que vous
     n'arrivez pas à faire. N'oubliez pas d'indiquer les éventuelles erreurs que
     vous obtenez.
 
-  * Expliquez vos tentatives en indiquant les éléments sur lesquels vous vous 
+  * Expliquez vos tentatives en indiquant les éléments sur lesquels vous vous
     êtes appuyés et les pistes dont vous disposez.
 
 #### Les Listes de Diffusion
 
-Plusieurs [Groupes Google](http://groups.google.com) existent autour de symfony. 
-Ces groupes sont le meilleur moyen d'entrer en contact avec les utilisateurs et 
-les développeurs de symfony. Si vous êtes utilisateur de symfony, le groupe 
+Plusieurs [Groupes Google](http://groups.google.com) existent autour de symfony.
+Ces groupes sont le meilleur moyen d'entrer en contact avec les utilisateurs et
+les développeurs de symfony. Si vous êtes utilisateur de symfony, le groupe
 [symfony users](http://groups.google.com/group/symfony-users) est le premier endroit pour rechercher de l'aide. Cette liste de diffusion regroupe à la fois des utilisateurs de symfony, mais aussi des débutants et la plupart des membres de la core team du framework. Par conséquent, il y aura toujours quelqu'un capable de répondre à votre question. Il existe aussi d'autres groupes destinés à d'autres sujets :
 
-  * [symfony-devs](http://groups.google.com/group/symfony-devs) pour les 
+  * [symfony-devs](http://groups.google.com/group/symfony-devs) pour les
     discussions concernant le développement du framework (*pas de support !*) ;
 
-  * [symfony-docs](http://groups.google.com/group/symfony-docs) pour les 
+  * [symfony-docs](http://groups.google.com/group/symfony-docs) pour les
     discussions concernant la documentation de symfony ;
 
-  * [symfony-community](http://groups.google.com/group/symfony-community) pour 
+  * [symfony-community](http://groups.google.com/group/symfony-community) pour
     les sujets traitant des initiatives de la communauté.
 
 Gardez bien à l'esprit que la liste de diffusion est un mode de communication indirect et bien moins rapide que ne peut l'être IRC par exemple. Par conséquent, vous devrez attendre quelques heures parfois plusieurs jours avant d'obtenir une réponse appropriée. Il est donc important d'être réactif aux questions que pourrait susciter la vôtre. De manière générale, il convient de rester patient en permanence.
@@ -60,7 +60,7 @@ Par nature, IRC est la façon la plus rapide d'obtenir une réponse. Symfony pos
 
 IRC se prête mal à l'affichage de gros blocs de code. Si le cas se présente durant une discussion, des services comme pastebin.com vous permettent de formater votre code sur une page web. Vous pouvez ainsi communiquer l'URL de cette page sur IRC. En réalité, poster un bloc de code sur IRC revient généralement à s'attirer les foudres des autres participants, ce qui ne jouera pas en votre faveur.
 
-Une fois votre question posée sur le canal IRC, prêtez attention à toutes les réponses que vous obtenez. Soyez réactif à d'éventuelles questions complémentaires. Certaines personnes remettront votre approche du 
+Une fois votre question posée sur le canal IRC, prêtez attention à toutes les réponses que vous obtenez. Soyez réactif à d'éventuelles questions complémentaires. Certaines personnes remettront votre approche du
 problème en question. Parfois elles auront raison, et d'autres fois elles auront une vision erronée de votre problème.
 
 Dans tous les cas, répondez à toutes les questions que l'on pourrait vous poser afin d'aider les gens à se faire une idée de votre problématique et de son contexte. Si des personnes font de mauvaises suppositions c'est qu'ils n'ont généralement pas assez de détails. Ne vous sentez en aucun cas offensé car les participants sont là pour vous aider.
@@ -131,7 +131,7 @@ Veuillez aussi à préfixer le contenu du champ "Short Summary" par [PATCH], pui
 
 #### Contribuer aux Plugins
 
-Améliorer le framework n'est pas à la porté de tous. Mais tous les développeurs qui utilisent symfony implémentent des fonctionnalités propres à leurs projets. Certaines de ces fonctionnalités sont trop spécifiques pour intéresser d'autres développeurs, mais la plupart le peuvent. Vous savez certainement que les « bonnes pratiques » recommandent de mettre la logique de l'application dans des plugins afin de faciliter la réutilisation du code ultérieurement, pour vous et/ou pour votre entreprise. Vous pouvez alors faire le choix de rendre ces plugins open-source et de les mettre à la disposition des autres utilisateurs de 
+Améliorer le framework n'est pas à la porté de tous. Mais tous les développeurs qui utilisent symfony implémentent des fonctionnalités propres à leurs projets. Certaines de ces fonctionnalités sont trop spécifiques pour intéresser d'autres développeurs, mais la plupart le peuvent. Vous savez certainement que les « bonnes pratiques » recommandent de mettre la logique de l'application dans des plugins afin de faciliter la réutilisation du code ultérieurement, pour vous et/ou pour votre entreprise. Vous pouvez alors faire le choix de rendre ces plugins open-source et de les mettre à la disposition des autres utilisateurs de
 symfony.
 
 Développer un plugin symfony est une tâche simple. il suffit en effet de commencer par [lire la documentation](http://www.symfony-project.org/jobeet/1_3/Doctrine/en/20#chapter_20_contributing_a_plugin) concernant la création de plugins. Le site de symfony met à votre disposition un ensemble d'outils qui vous permettent de publier vos créations via le canal PEAR des plugins symfony et d'héberger vos sources sur le dépôt Subversion des plugins. Cette solution avantageuse vous permet de ne pas avoir à configurer vous même votre serveur Subversion, votre serveur PEAR et documenter l'ensemble.
@@ -164,15 +164,15 @@ Les magazines internet comme les groupes d'utilisateurs PHP ou symfony, les site
 
 Généralement les développeurs PHP sont à l'aise avec l'anglais. Cependant, pour beaucoup, l'anglais n'est pas leur langue natale, ce qui rend parfois difficile la lecture de la documentation technique. La communauté symfony encourage la traduction de sa documentation en donnant les droits d'écriture sur le dépôt de la documentation à tous les traducteurs et en publiant ces traductions sur le site officiel de symfony.
 
-Ces traductions sont coordonnées sur la [liste de diffusion symfony docs](http://groups.google.com/group/symfony-docs). Si vous 
+Ces traductions sont coordonnées sur la [liste de diffusion symfony docs](http://groups.google.com/group/symfony-docs). Si vous
 êtes disposés à traduire des articles, prenez le temps d'y faire un bref passage afin d'éviter les traductions en double ou ce genre d'erreurs.
 
 #### Ajouter du Contenu au Wiki
 
 Le wiki est la façon la plus libre de rédiger de la documentation sur n'importe quel sujet. Symfony possède son propre [wiki](http://trac.symfony-project.org/wiki) où ses utilisateurs peuvent ajouter librement de la documentation. Nous vous encourageons à poster vos propres oeuvres éditoriales, mais il est également possible de parfaire les articles existants en les corrigeant ou en les améliorant. Il existe aussi de vieux articles dont les contenus sont aujourd'hui obsolètes. Faire le ménage dans ces articles est aussi une bonne façon de faciliter la recherche d'autres utilisateurs.
 
-Si vous souhaitez vous faire une idée du genre d'articles que peut contenir le wiki ou si vous avez besoin d'inspiration pour écrire vos propres articles, vous 
-pouvez accéder à la [page d'accueil](http://trac.symfony-project.org/wiki) du 
+Si vous souhaitez vous faire une idée du genre d'articles que peut contenir le wiki ou si vous avez besoin d'inspiration pour écrire vos propres articles, vous
+pouvez accéder à la [page d'accueil](http://trac.symfony-project.org/wiki) du
 wiki et consulter son contenu.
 
 ### Présentations
@@ -180,14 +180,14 @@ wiki et consulter son contenu.
 Écrire des articles est un bon moyen de partager votre savoir et votre expérience. De plus, par internet ils deviennent disponibles à tous et figurent dans les réponses des moteurs de recherches. Cependant, il existe d'autres façons de partager votre expérience. Vous pouvez par exemple réaliser des présentations à l'occasion d'événements.
 
   * aux conférences PHP / symfony ;
- 
+
   * dans des réunions locales de développeurs ;
- 
+
   * dans votre entreprise (pour vos collègues ou vos décideurs).
 
 Suivant le lieu et l'audience, vous aurez sûrement à adapter votre présentation. Alors que les décideurs ne seront pas intéressés par les détails techniques, les participants d'une conférence sur symfony attendront plus qu'une présentation sommaire du framework. De ce fait, prenez le temps de choisir convenablement votre sujet et préparer votre présentation. Faites relire vos diapositives et si possible faites des essais devant des personnes qui pourront vous critiquer de manière constructive.
 
-Vous pouvez toujours trouver de l'aide pour votre présentation sur la 
+Vous pouvez toujours trouver de l'aide pour votre présentation sur la
 [liste de diffusion de la communauté symfony](http://groups.google.com/group/symfony-community), où de nombreuses personnes sont déjà intervenues lors de conférences. De même, si vous ne savez pas comment réaliser votre présentation, abonnez-vous à cette liste de diffusion afin de recevoir les appels à participation de nombreuses conférences et / ou obtenir des contacts avec des groupes ou des associations locales.
 
 ### Organiser un Evénement
@@ -222,7 +222,7 @@ Maintenant que vous savez comment bénéficier de la communauté mais aussi comm
 
 #### La Liste de Diffusion de la Communauté symfony
 
-La [liste de diffusion de la communauté symfony](http://groups.google.com/group/symfony-community) offre aux membres un moyen de discuter des initiatives de la communauté et de les rejoindre. Elle leur permet également d'échanger sur tous les autres sujets ayant trait à la 
+La [liste de diffusion de la communauté symfony](http://groups.google.com/group/symfony-community) offre aux membres un moyen de discuter des initiatives de la communauté et de les rejoindre. Elle leur permet également d'échanger sur tous les autres sujets ayant trait à la
 communauté.
 
 Si vous souhaitez rejoindre l'une de ces initiatives, répondez simplement à la discussion relative à ce projet. Si vous avez une idée qui peut servir la
@@ -244,7 +244,7 @@ Vous pouvez bien sûr entrer en contact avec les autres développeurs et les ent
 
 Comme ce site est communautaire, vous pouvez y ouvrir un compte et créer votre profil, mais aussi celui de votre entreprise et commencer à ajouter les applications que vous avez réalisées ainsi que des offres d'emploi.
 
-#### Le Groupe LinkedIn symfony 
+#### Le Groupe LinkedIn symfony
 
 En tant que développeur PHP, vous avez certainement eu vent du site Internet LinkedIn sur lequel avez probablement un profil détaillé. Pour ceux qui ne connaissent pas encore LinkedIn, il s'agit d'un site sur lequel vous avez la possibilité de construire votre propre réseau social professionnel et entrer en contact avec ses membres. LinkedIn offre également la possibilité de créer des groupes de discussion, de publier des actualités et des offres d'emploi.
 

@@ -130,5 +130,5 @@ de petites icônes, prouvant que la configuration de votre alias `sf/` est corre
 
 >**Note**
 >La configuration est un peu différente si vous voulez faire tourner symfony sur un serveur IIS dans
->un environnement de Windows. Vous trouverez la façon de le configurer dans le 
+>un environnement de Windows. Vous trouverez la façon de le configurer dans le
 >[tutoriel dédié](http://www.symfony-project.com/cookbook/1_0/web_server_iis).

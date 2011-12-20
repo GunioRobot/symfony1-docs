@@ -17,7 +17,7 @@ formattare i vari form dell'applicazione.
 
 Prima di iniziare questo capitolo, si dovrebbe già avere familiarità
 col sistema dei template di symfony e con il livello della Vista.
-Per farlo, si può leggere il capitolo 
+Per farlo, si può leggere il capitolo
 [All'interno del layer Vista](http://trac.symfony-project.org/wiki/Documentation/it_IT/book/1.1/07-Inside-the-View-Layer)
 nella guida di symfony.
 
@@ -62,7 +62,7 @@ Listato 3-1 - Il template prototipo che visualizza il form `contact`
         </tr>
       </table>
     </form>
- 
+
 >**SIDEBAR**
 >Invio di file
 >
@@ -164,19 +164,19 @@ Ecco il codice HTML generato per il campo `email`:
 
         [php]
         <label for="contact_email">Email</label>
- 
+
   * Il **tag form**
 
         [php]
         <input type="text" name="contact[email]" value="fabien" id="contact_email" />
-  
+
   * I **messaggi di errore**
 
         [php]
         <ul class="error_list">
           <li>The email address is invalid.</li>
         </ul>
-       
+
 Figura 3-3 - Scomposizione del campo `email`
 
 ![Scomposizione del campo email](http://www.symfony-project.org/images/forms_book/en/03_03.png "Scomposizione del campo email")
@@ -201,7 +201,7 @@ Listato 3-3 - Personalizzazione degli attributi HTML usando il metodo `render()`
 
     [php]
     <?php echo $form->render(array('email' => array('class' => 'email'))) ?>
-     
+
     // HTML generato
     <input type="text" name="contact[email]" value="" id="contact_email" class="email" />
 
@@ -422,7 +422,7 @@ Listato 3-7 - Semplificazione della personalizzazione su due colonne
         </tr>
       </table>
     </form>
- 
+
 Come per il form, ogni campo può essere personalizzato
 passando un array di attributi HTML al metodo `render()`.
 Il Listato 3-8 mostra come modificare la classe HTML del
@@ -432,10 +432,10 @@ Listato 3-8 - Modificare gli attributi HTML usando il metodo `render()`
 
     [php]
     <?php echo $form['email']->render(array('class' => 'email')) ?>
-     
+
     // HTML generato
     <input type="text" name="contact[email]" class="email" id="contact_email" />
- 
+
 ### Usare il metodo `renderLabel()` su un campo
 
 Non abbiamo generato le label durante la personalizzazione
@@ -478,7 +478,7 @@ Listato 3-10 - Modificare il nome della label
 
     [php]
     <?php echo $form['message']->renderLabel('Your message') ?>
-     
+
     // HTML generato
     <label for="contact_message">Your message</label>
 
@@ -500,10 +500,10 @@ un secondo parametro al metodo `renderLabel()`:
 
     [php]
     <?php echo $form['send_notification']->renderLabel(null, array('class' => 'inline')) ?>
-     
+
     // HTML generato
     <label for="contact_send_notification" class="inline">Send notification</label>
- 
+
 In questo esempio il primo parametro è `null`, quindi la
 generazione automatica della label è preservata.
 
@@ -595,7 +595,7 @@ Listato 3-13 - Generazione del codice dei campi nascosti
         <input type="hidden" name="contact[referrer]" id="contact_referrer" />
       </td>
     </tr>
- 
+
 Come si può notare, nel codice generato per il campo
 nascosto `referrer` è stato aggiunto all'output solo
 l'elemento tag. Ha senso non generare una label. E i
@@ -652,7 +652,7 @@ Listato 3-15 - Implementazione dei messaggi di errore globali
             <?php echo $form->renderGlobalErrors() ?>
           </td>
         </tr>
-     
+
         // ...
       </table>
 
@@ -709,12 +709,12 @@ di sviluppo di un form con symfony:
   * Il team di sviluppo inizia implementando la classe del form e
     la sua azione. Il template per ora non è altro che l'istruzione
     prototipo `<?php echo $form ?>`.
-    
+
   * Nel frattempo, i designer disegnano le linee guida dello stile
     e le regole di visualizzazione che si applicano ai form:
     struttura globale, regole per visualizzare i messaggi di errore,
     ecc...
-    
+
   * Una volta che la business logic è a posto e le linee guida sono
     state confermate, il team dei web designer può modificare i
     template del form e personalizzarli. Il team ha bisogno di sapere

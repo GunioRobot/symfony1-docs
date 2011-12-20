@@ -17,7 +17,7 @@ o en una máquina virtual en tu ordenador.
 ### Los motivos de un nuevo tutorial
 
 Actualmente el sitio web de Symfony incluye dos artículos sobre el uso de
-Symfony sobre Microsoft Internet Information Server (IIS): 
+Symfony sobre Microsoft Internet Information Server (IIS):
 *[symfony on IIS](http://trac.symfony-project.org/wiki/symfonyOnIIS)* y
 *[Installing symfony on IIS](http://www.symfony-project.org/cookbook/1_2/en/web_server_iis)*.
 El problema de estos artículos es que utilizan versiones antiguas de Microsoft

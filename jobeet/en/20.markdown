@@ -31,8 +31,8 @@ We call these "private plugins" because their usage is restricted to a single
 developer or a company. They are not publicly available.
 
 >**TIP**
->You can even create a ~package|Packaging~ out of your private plugins, create 
->your own symfony plugin channel, and install them via the `plugin:install` 
+>You can even create a ~package|Packaging~ out of your private plugins, create
+>your own symfony plugin channel, and install them via the `plugin:install`
 >task.
 
 ### ~Public Plugins~
@@ -112,7 +112,7 @@ file.
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfPropelPlugin', 
+        'sfPropelPlugin',
         'sfGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -124,7 +124,7 @@ file.
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -133,7 +133,7 @@ file.
 </doctrine>
 
 >**NOTE**
->All plugins must end with the `Plugin` suffix. It is also a good habit to 
+>All plugins must end with the `Plugin` suffix. It is also a good habit to
 >~prefix|Prefix~ them with `sf`, although it is not mandatory.
 
 ### The Model
@@ -188,8 +188,8 @@ After you move the models, forms and filters the classes must be renamed, made
 abstract and prefixed with the word `Plugin`.
 
 >**TIP**
->Only ~prefix|Prefix~ the auto-generated classes with `Plugin` and not all 
->classes. For example do not prefix any classes you wrote by hand. Only the 
+>Only ~prefix|Prefix~ the auto-generated classes with `Plugin` and not all
+>classes. For example do not prefix any classes you wrote by hand. Only the
 >auto-generated ones require the prefix.
 
 Here is an example where we move the `JobeetAffiliate` and
@@ -208,7 +208,7 @@ And the code should be updated:
         {
           $this->setToken(sha1($object->getEmail().rand(11111, 99999)));
         }
-        
+
         parent::save($conn);
       }
 
@@ -285,7 +285,7 @@ and add columns, add relationships by overriding the `setTableDefinition()` and
 `setUp()` methods.
 
 >**NOTE**
->When you move the form classes, be sure to change the `configure()` method to 
+>When you move the form classes, be sure to change the `configure()` method to
 >a `setup()` method and call `parent::setup()`. Below is an example.
 >
 >     [php]
@@ -295,7 +295,7 @@ and add columns, add relationships by overriding the `setTableDefinition()` and
 >       {
 >         parent::setup();
 >       }
->       
+>
 >       // ...
 >     }
 </doctrine>
@@ -673,7 +673,7 @@ Remove all methods from the `myUser` class and create the `JobeetUser` class:
             ->whereIn('a.id', $ids)
             ->execute();
         }
-        
+
         return array();
 </doctrine>
       }
@@ -733,8 +733,8 @@ Contributing a Plugin
 To create a plugin package, you need to add some mandatory files to the plugin
 directory structure. First, create a `README` file at the root of the plugin
 directory and explain how to install the plugin, what it provides, and what not.
-The `README` file must be formatted with the 
-[Markdown format](http://daringfireball.net/projects/markdown/syntax). This file 
+The `README` file must be formatted with the
+[Markdown format](http://daringfireball.net/projects/markdown/syntax). This file
 will be used on the symfony website as the main piece of documentation. You can
 test the conversion of your README file to HTML by using the
 [symfony plugin dingus](http://www.symfony-project.org/plugins/markdown_dingus).
@@ -758,7 +758,7 @@ the `LICENSE` file will be displayed under the license tab of your plugin's
 public page.
 
 The last step is to create a `package.xml` file at the root of the plugin
-directory. This `package.xml` file follows the 
+directory. This `package.xml` file follows the
 [PEAR package syntax](http://pear.php.net/manual/en/guide-developers.php).
 
 >**NOTE**
@@ -877,7 +877,7 @@ Declaring a dependency with another plugin is also possible:
 
 The `<changelog>` tag is optional but gives useful information about what
 changed between releases. This information is available under the "Changelog"
-tab and also in the 
+tab and also in the
 [plugin feed](http://www.symfony-project.org/plugins/recently.rss).
 
     [xml]
@@ -906,7 +906,7 @@ tab and also in the
 
 If you develop a useful plugin and you want to share it with the symfony
 community, [create a symfony account](http://www.symfony-project.org/user/new)
-if you don't have one already and then, create a 
+if you don't have one already and then, create a
 [new plugin](http://www.symfony-project.org/plugins/new).
 
 You will automatically become the administrator for the plugin and you will see

@@ -35,7 +35,7 @@ e automatizzato.
 >ed estenderli, escluso però il task `generate:project`. Questo perché quando il task
 >è eseguito, non esiste ancora nessun progetto e così non esiste un modo semplice
 >per personalizzarlo.
- 
+
 Il task `generate:project` prende una opzione `--installer` che è uno script PHP
 che verrà eseguito durante il processo di creazione del progetto:
 
@@ -161,7 +161,7 @@ filesystem di symfony:
 >
 >Dare un'occhiata allo script `symfony/data/bin/sandbox_installer.php` per avere
 >un esempio funzionante di uno script di installazione.
-	
+
 Lo script di installazione è un file PHP come gli altri. Quindi, può fare qualunque
 cosa si voglia. Quando si crea un nuovo progetto symfony, invece di eseguire
 continuamente sempre gli stessi task, è possibile creare il proprio script di
@@ -192,7 +192,7 @@ una integrazione più specifica con i progetti di symfony.
 >**SIDEBAR**
 >Editor di testi
 >
->Alcuni utenti preferiscono usare un editor di testo per il loro lavoro di programmazione, 
+>Alcuni utenti preferiscono usare un editor di testo per il loro lavoro di programmazione,
 >soprattutto perché gli editor di testi sono più veloci rispetto agli IDE. Naturalmente,
 >gli editor di testo forniscono meno funzionalità di quelli IDE. Ma per i più popolari,
 >possono essere usate alcune estensioni e/o plugin per migliorare l'esperienza utente e
@@ -267,12 +267,12 @@ risulterebbe così:
      *
      * @property clob $message
      * @property integer $priority
-     * 
+     *
      * @method clob        getMessage()  Returns the current record's "message" value
      * @method integer     getPriority() Returns the current record's "priority" value
      * @method MailMessage setMessage()  Sets the current record's "message" value
      * @method MailMessage setPriority() Sets the current record's "priority" value
-     * 
+     *
      * @package    ##PACKAGE##
      * @subpackage ##SUBPACKAGE##
      * @author     ##NAME## <##EMAIL##>
@@ -339,7 +339,7 @@ Se si desidera elencare tutte le classi di un pacchetto, è sufficiente digitare
 il nome del pacchetto e inviare la richiesta.
 
 Si può anche integrare la ricerca delle API di symfony nel proprio browser.
-In questo modo non c'è nemmeno bisogno di passare dal sito web di symfony per 
+In questo modo non c'è nemmeno bisogno di passare dal sito web di symfony per
 cercare qualcosa. Questo è possibile perché forniamo un supporto nativo
 [OpenSearch](http://www.opensearch.org/) per le API di symfony.
 

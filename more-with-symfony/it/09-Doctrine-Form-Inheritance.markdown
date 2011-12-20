@@ -3,7 +3,7 @@ Sfruttare l'ereditarietà delle tabelle di Doctrine
 
 *Di Hugo Hamon*
 
-Le API di ~Doctrine~ diventano con symfony 1.3 la libreria ORM predefinita ufficiale, 
+Le API di ~Doctrine~ diventano con symfony 1.3 la libreria ORM predefinita ufficiale,
 mentre lo sviluppo di Propel ha subito un rallentamento negli ultimi mesi. Il progetto
 ~Propel~ continua ad essere supportato e ad essere migliorato grazie allo sforzo
 dei membri della comunità di symfony.
@@ -13,9 +13,9 @@ perché è più facile da usare di Propel e perché include molte caratteristich
 interessanti come i comportamenti (behavior), la facilità delle query DQL, le
 migrazioni... e l'ereditarietà della tabelle.
 
-Questo nuovo capitolo descrive cos'è l'~ereditarietà delle tabelle~ e come sono 
+Questo nuovo capitolo descrive cos'è l'~ereditarietà delle tabelle~ e come sono
 pienamente integrate con symfony 1.3. Grazie a un esempio di utilizzo reale, verrà spiegato
-come sfruttare l'ereditarietà delle tabelle di Doctrine per rendere il codice più flessibile 
+come sfruttare l'ereditarietà delle tabelle di Doctrine per rendere il codice più flessibile
 e meglio organizzato.
 
 L'ereditarietà delle tabelle di Doctrine
@@ -31,8 +31,8 @@ il principio di ereditarietà delle tabelle.
 
 ![Schema di ereditarietà delle tabelle di Doctrine](http://www.symfony-project.org/images/more-with-symfony/01_table_inheritance.png "Principio di ereditarietà delle tabelle di Doctrine")
 
-Per gestire l'ereditarietà delle tabelle, Doctrine fornisce tre differenti strategie  
-a seconda delle esigenze dell'applicazione (prestazioni, atomicità, semplicità, ...) : 
+Per gestire l'ereditarietà delle tabelle, Doctrine fornisce tre differenti strategie
+a seconda delle esigenze dell'applicazione (prestazioni, atomicità, semplicità, ...) :
 l'ereditarietà delle tabelle __semplice__, con __aggregazione delle colonne__, o __concreta__.
 Mentre tutte  queste strategie sono descritte nel libro di Doctrine, alcune
 spiegazioni aggiuntive possono aiutare a capire meglio che cosa sono e in quali
@@ -76,18 +76,18 @@ colonne della tabella `Professor` che quelle della tabella `Student`.
         promotion:
           type:           integer(4)
           notnull:        true
-        
 
-Con la strategia di ereditarietà semplice, le colonne extra `specialty`, `graduation` 
-e `promotion` sono memorizzate automaticamente al livello superiore nel modello `Person`, 
-anche se Doctrine genera una classe del modello per entrambe le tabelle `Student` e 
+
+Con la strategia di ereditarietà semplice, le colonne extra `specialty`, `graduation`
+e `promotion` sono memorizzate automaticamente al livello superiore nel modello `Person`,
+anche se Doctrine genera una classe del modello per entrambe le tabelle `Student` e
 `Professor`.
 
 ![Schema di ereditarietà semplice delle tabelle](http://www.symfony-project.org/images/more-with-symfony/02_simple_tables_inheritance.png "Doctrine simple inheritance principle")
 
 Questa strategia ha un importante svantaggio perché la tabella `Person` super genitrice non
 fornisce nessuna colonna per identificare il tipo dei record. Quindi non c'è nessuna possibilità
-di recuperare solo gli oggetti `Professor` o `Student`. La seguente istruzione 
+di recuperare solo gli oggetti `Professor` o `Student`. La seguente istruzione
 di Doctrine restituisce un `Doctrine_Collection` di tutti i record della tabella (record di
 studenti e professori).
 
@@ -140,18 +140,18 @@ ad esso un valore con il tipo, in modo da sapere a quale classe appartiene.
           type:           integer(4)
           notnull:        true
 
-Nello schema YAML sopra, il tipo di ereditarietà è stato cambiato in 
+Nello schema YAML sopra, il tipo di ereditarietà è stato cambiato in
 ~`column_aggregation`~ e sono stati aggiunti due nuovi attributi. Il primo
-attributo, `keyField`, specifica la colonna che sarà creata per memorizzare il 
-tipo di informazione per ciascun record. `keyField` è una colonna obbligatoria di tipo integer 
-chiamata `type`, che è il nome predefinito della colonna se non è stato specificato `keyField`. 
+attributo, `keyField`, specifica la colonna che sarà creata per memorizzare il
+tipo di informazione per ciascun record. `keyField` è una colonna obbligatoria di tipo integer
+chiamata `type`, che è il nome predefinito della colonna se non è stato specificato `keyField`.
 Il secondo attributo definisce per ciascun record il valore del tipo, che appartiene alle classi
 `Professor` o `Student`.
 
 ![Schema dell'elereditarietà di tabelle con aggregazione delle colonne](http://www.symfony-project.org/images/more-with-symfony/03_columns_aggregation_tables_inheritance.png "Doctrine column aggregation inheritance principle")
 
-La strategia di aggregazione delle colonne, è un buon metodo per l'ereditarietà delle tabelle, perché 
-crea una singola tabella (`Person`) contente tutti i campi definiti, più il campo `type`. 
+La strategia di aggregazione delle colonne, è un buon metodo per l'ereditarietà delle tabelle, perché
+crea una singola tabella (`Person`) contente tutti i campi definiti, più il campo `type`.
 Di conseguenza, non c'è bisogno di creare più tabelle e unirle con delle join nelle
 query SQL.
 
@@ -161,7 +161,7 @@ risultati verranno restituiti:
     [php]
     // Restituisce un Doctrine_Collection di oggetti Professor
     $professors = Doctrine_Core::getTable('Professor')->findAll();
-    
+
     // Restituisce un Doctrine_Collection di oggetti Student
     $students = Doctrine_Core::getTable('Student')->findAll();
 
@@ -174,8 +174,8 @@ risultati verranno restituiti:
     // Restituisce un oggetto Student
     $student = Doctrine_Core::getTable('Person')->findOneByIdAndType(array(42, 2));
 
-Quando si effettua un recupero di dati da una sottoclasse (`Professor`, `Student`), 
-Doctrine aggiungerà automaticamente alla query il codice SQL `WHERE` più la clausola 
+Quando si effettua un recupero di dati da una sottoclasse (`Professor`, `Student`),
+Doctrine aggiungerà automaticamente alla query il codice SQL `WHERE` più la clausola
 della colonna `type` con il corrispondente valore.
 
 Tuttavia in alcuni casi, ci sono alcuni svantaggi nell'usare la strategia
@@ -183,14 +183,14 @@ di aggregazione delle colonne. Primo, l'aggregazione delle colonne forza ciascun
 delle sottotabelle a non essere obbligatorio. A seconda di quanti sono i campi,
 la tabella `Person` può contenere record con diversi valori vuoti.
 
-Il secondo svantaggio è relativo al numero di sottotabelle e campi. Se lo schema 
+Il secondo svantaggio è relativo al numero di sottotabelle e campi. Se lo schema
 dichiara molte sottotabelle, che a sua volta dichiarano un sacco di campi, allora
 la super tabella finale sarà composta da un numero molto elevato di colonne. Di conseguenza,
 la tabella può essere più difficile da mantenere.
 
 ### La strategia concreta di ereditarietà delle tabelle
 
-La strategia ~concreta di ereditarietà delle tabelle~ è un buon compromesso tra la strategia 
+La strategia ~concreta di ereditarietà delle tabelle~ è un buon compromesso tra la strategia
 di aggregazione delle colonne, le prestazioni e la mantenibilità. Infatti questa strategia
 crea tabelle indipendenti per ciascuna sottoclasse, contenenti tutte le colonne: sia le
 colonne condivise che le colonne indipendenti del modello.
@@ -231,35 +231,35 @@ i seguenti campi : `id`, `first_name`, `last_name` e `specialty`.
 
 ![Schema di ereditarietà concreta delle tabelle](http://www.symfony-project.org/images/more-with-symfony/04_concrete_tables_inheritance.png "Doctrine concrete inheritance principle")
 
-Questo approccio ha diversi vantaggi nei confronti delle strategie precedenti. Il primo 
-è che tutte le tabelle sono isolate e rimangono indipendenti dalle altre. 
+Questo approccio ha diversi vantaggi nei confronti delle strategie precedenti. Il primo
+è che tutte le tabelle sono isolate e rimangono indipendenti dalle altre.
 Inoltre non ci sono più campi vuoti e la colonna extra `type` non è
 inclusa. Il risultato è che ogni tabella è più leggera e isolata dalle altre.
 
 >**NOTE**
 >Il fatto che i campi condivisi siano duplicati nelle sottotabelle è un bene per
->prestazioni e scalabilità, perché in questo modo Doctrine non ha bisogno di fare una join SQL 
->automatica su una super tabella, per recuperare i dati condivisi appartenenti a un record 
+>prestazioni e scalabilità, perché in questo modo Doctrine non ha bisogno di fare una join SQL
+>automatica su una super tabella, per recuperare i dati condivisi appartenenti a un record
 >di una sottotabella.
 
 Gli unici due svantaggi per la strategia concreta di ereditarietà delle tabelle, sono
 la duplicazione dei campi condivisi (ma la duplicazione in generale è la chiave per ottenere
-maggiori prestazioni) e la super tabella generata, che rimarrà sempre vuota. Infatti, Doctrine 
+maggiori prestazioni) e la super tabella generata, che rimarrà sempre vuota. Infatti, Doctrine
 ha generato la tabella `Person` anche se non sarà riempita o referenziata da nessuna
 query. Nessuna query verrà eseguita su questa tabella, dal momento che tutto è memorizzato
 in sottotabelle.
 
 Sono state introdotte le tre strategie di ereditarietà delle tabelle di Doctrine,
 ma non sono state provate su un esempio reale con symfony.
-La seguente parte del capitolo spiega come trarre vantaggio in symfony 1.3, dalla 
-~ereditarietà delle tabelle~ di Doctrine, in particolare dentro al modello e al 
+La seguente parte del capitolo spiega come trarre vantaggio in symfony 1.3, dalla
+~ereditarietà delle tabelle~ di Doctrine, in particolare dentro al modello e al
 framework dei form.
 
 Integrazione con symfony dell'ereditarietà delle tabelle
 --------------------------------------------------------
 
-Prima di symfony 1.3, l'~ereditarietà delle tabelle~ con Doctrine non era pienamente supportata dal 
-framework, perché le classi dei filtri e dei form non ereditavano dalla classe base. 
+Prima di symfony 1.3, l'~ereditarietà delle tabelle~ con Doctrine non era pienamente supportata dal
+framework, perché le classi dei filtri e dei form non ereditavano dalla classe base.
 Di conseguenza, gli sviluppatori che avevano bisogno di usare l'ereditarietà erano
 forzati a modificare form e filtri ed erano costretti a sovrascrivere molti metodi
 per ottenere il comportamento dell'ereditarietà.
@@ -295,7 +295,7 @@ mostrato, sarà basato sul primo esempio.
 
 ### Ereditarietà delle tabelle nel livello del modello
 
-Similmente al concetto di programmazione orientata agli oggetti, ~l'ereditarietà delle tabelle~ 
+Similmente al concetto di programmazione orientata agli oggetti, ~l'ereditarietà delle tabelle~
 incoraggia la condivisione dei dati. Di conseguenza, essa consente la condivisione di proprietà
 e metodi quando si ha a che fare con i modelli generati. Usare l'ereditarietà delle tabelle
 di Doctrine è un buon modo per condividere e sovrascrivere azioni richiamabili su oggetti ereditati.
@@ -303,7 +303,7 @@ Spieghiamo questo concetto con un esempio del mondo reale.
 
 #### Il problema ####
 
-Molte applicazioni web sono vincolate da dati "referenziali" su cui lavorare. 
+Molte applicazioni web sono vincolate da dati "referenziali" su cui lavorare.
 Generalmente, un referenziale è un piccolo insieme di dati rappresentati da una semplice
 tabella contenente almeno due campi (ad esempio `id` e `label`). In alcuni casi,
 il referenziale contiene dati aggiuntivi, come un flag `is_active` o `is_default`.
@@ -346,7 +346,7 @@ illustra il problema.
       inheritance:
         type:          concrete
         extends:       sfReferential
-    
+
     sfReferentialProductType:
       inheritance:
         type:          concrete
@@ -363,7 +363,7 @@ tre tabelle SQL e sei classi di modelli nella cartella `lib/model/doctrine`:
   * `sfReferentialTable`: gestisce la tabella `sf_referential`,
   * `sfReferentialContractType`: gestisce i record della tabella
     `sf_referential_contract_type`.
-  * `sfReferentialContractTypeTable`: gestisce la tabella  
+  * `sfReferentialContractTypeTable`: gestisce la tabella
     `sf_referential_contract_type`.
   * `sfReferentialProductType`: gestisce i record della tabella
     `sf_referential_product_type`.
@@ -421,7 +421,7 @@ contenere metodi per gestire tutti i dati referenziali, per esempio:
       }
     }
 
-Grazie alla ~ereditarietà concreta delle tabelle~ di Doctrine, tutto il codice è condiviso 
+Grazie alla ~ereditarietà concreta delle tabelle~ di Doctrine, tutto il codice è condiviso
 nello stesso posto. Il codice diventa più facile per debug, mantenimento, miglioramento e test unitari.
 
 Questo è il primo vero vantaggio quando si parla di ereditarietà di tabelle.
@@ -539,7 +539,7 @@ in classi di form grazie al nuovo metodo ~setupInheritance()~.
 
 #### Alla scoperta del metodo ~setupInheritance()~ ###
 
-	
+
 Come previsto, Doctrine ha generato sei classi dei form nelle cartelle
 `lib/form/doctrine` e `lib/form/doctrine/base`:
 
@@ -582,8 +582,8 @@ Il seguente listato sovrascrive il metodo `setupInheritance()` e configura la cl
       }
     }
 
-Il metodo `setupInheritance()`, che viene chiamato da entrambe le sottoclassi 
-`VideoForm` e `PDFForm`, rimuove tutti i campi eccetto `filename` e `description`. 
+Il metodo `setupInheritance()`, che viene chiamato da entrambe le sottoclassi
+`VideoForm` e `PDFForm`, rimuove tutti i campi eccetto `filename` e `description`.
 Il campo del widget `filename` è stato trasformato in un widget di file e il suo
 corrispondente validatore è stato cambiato in un validatore ~`sfValidatorFile`~.
 In questo modo, l'utente sarà in grado di caricare un file e salvarlo sul server.
@@ -632,7 +632,7 @@ codice personalizzato.
 
 L'esempio di cui sopra potrebbero essere ampiamente e facilmente migliorato, grazie
 all'ereditarietà delle classi. Per esempio, entrambe le classi `VideoForm` and `PDFForm`
-possono sovrascrivere il validatore `filename` per avere più validatori specifici  
+possono sovrascrivere il validatore `filename` per avere più validatori specifici
 e personalizzati come `sfValidatorVideo` o `sfValidatorPDF`.
 
 ### Ereditarietà delle tabelle a livello di filtri ###
@@ -792,7 +792,7 @@ integrata.
 
 #### Configurare il backend
 
-	
+
 Questa sezione descrive il processo necessario per la creazione di una nuova
 applicazione backend contenente due moduli generati per la gestione sia degli acquisti
 che dell'elenco delle cose da fare.
@@ -833,7 +833,7 @@ cambia la configurazione del modulo.
 
 >**Note**
 >L'esplorazione dei file memorizzati nella cache è una buona pratica per capire come
->symfony e il generatore di amministrazione lavorano sotto il cofano. Di conseguenza, 
+>symfony e il generatore di amministrazione lavorano sotto il cofano. Di conseguenza,
 >la nuova classe ereditata `sfSortableModuleActions` può essere trovata nei file
 >`cache/backend/dev/modules/autoShopping/actions/actions.class.php`
 >e `cache/backend/dev/modules/autoTodo/actions/actions.class.php`. Per
@@ -933,7 +933,7 @@ dell'utente finale. In primo luogo, la vista elenco è ordinata per la colonna
 pagina è stato aumentato a 999 per evitare l'impaginazione.
 
 Infine, il numero di colonne visualizzate è stato ridotto alle colonne
-`position`, `name`, `priority`, `assigned_to` e `quantity`; tutte ora hanno  
+`position`, `name`, `priority`, `assigned_to` e `quantity`; tutte ora hanno
 due nuove azioni: `moveUp` e `moveDown`. La resa finale dovrebbe essere simile alle
 seguenti schermate.
 
@@ -990,7 +990,7 @@ il primo collegamento `sposta in su` e l'ultimo collegamento `sposta in giù`.
 
 #### Regalo speciale: migliorare l'esperienza dell'utente
 
-Prima di terminare, rifiniamo i due elenchi per migliorare l'esperienza dell'utente. 
+Prima di terminare, rifiniamo i due elenchi per migliorare l'esperienza dell'utente.
 Tutti concordano sul fatto che spostando i record in su (o in giù) cliccando su un link
 non è proprio intuitivo per l'utente finale. Un approccio migliore è quello di introdurre
 comportamenti JavaScript ajax. In questo caso, tutte le righe HTML delle tabelle potranno
@@ -1040,14 +1040,14 @@ Sostituire quindi il suo contenuto attuale con il seguente codice:
                   ) ?>
                 <?php endif; ?>
                 <?php echo format_number_choice(
-                  '[0] no result|[1] 1 result|(1,+Inf] %1% results', 
+                  '[0] no result|[1] 1 result|(1,+Inf] %1% results',
                   array('%1%' => $pager->getNbResults()),
                   $pager->getNbResults(), 'sf_admin'
                 ) ?>
                 <?php if ($pager->haveToPaginate()): ?>
                   <?php echo __('(page %%page%%/%%nb_pages%%)', array(
-                    '%%page%%' => $pager->getPage(), 
-                    '%%nb_pages%%' => $pager->getLastPage()), 
+                    '%%page%%' => $pager->getPage(),
+                    '%%nb_pages%%' => $pager->getLastPage()),
                     'sf_admin'
                   ) ?>
                 <?php endif; ?>
@@ -1065,14 +1065,14 @@ Sostituire quindi il suo contenuto attuale con il seguente codice:
                   'helper' => $helper
               )) ?>
               <?php include_partial(
-                $sf_request->getParameter('module').'/list_td_tabular', 
+                $sf_request->getParameter('module').'/list_td_tabular',
                 array(
                   'sf_'. $sf_request->getParameter('module') .'_item' => $item
               )) ?>
                 <?php include_partial(
                   $sf_request->getParameter('module').'/list_td_actions',
                   array(
-                    'sf_'. $sf_request->getParameter('module') .'_item' => $item, 
+                    'sf_'. $sf_request->getParameter('module') .'_item' => $item,
                     'helper' => $helper
                 )) ?>
             </tr>
@@ -1084,15 +1084,15 @@ Sostituire quindi il suo contenuto attuale con il seguente codice:
       <script type="text/javascript">
         /* <![CDATA[ */
         function checkAll() {
-          var boxes = document.getElementsByTagName('input'); 
-          for (var index = 0; index < boxes.length; index++) { 
-            box = boxes[index]; 
+          var boxes = document.getElementsByTagName('input');
+          for (var index = 0; index < boxes.length; index++) {
+            box = boxes[index];
             if (
-              box.type == 'checkbox' 
-              && 
+              box.type == 'checkbox'
+              &&
               box.className == 'sf_admin_batch_checkbox'
-            ) 
-            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked 
+            )
+            box.checked = document.getElementById('sf_admin_list_batch_checkbox').checked
           }
           return true;
         }
@@ -1147,7 +1147,7 @@ nuova azione condivisa `executeMove()` sarà inserita nella classe delle azioni
     }
 
 L'azione `executeMove()` richiede un metodo `getModel()` nella configurazione
-dell'oggetto. Implementare questo nuovo metodo in entrambe le classi 
+dell'oggetto. Implementare questo nuovo metodo in entrambe le classi
 `todoGeneratorConfiguration` e `shoppingGeneratorConfiguration`, come mostrato sotto:
 
     [php]

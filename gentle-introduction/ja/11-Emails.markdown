@@ -670,9 +670,9 @@ Swift Mailer pluginsを使うために、上で紹介した`mailer.configure`イ
 >       $message = $this->getMailer()
 >         ->compose('john@doe.com', 'foo@example.com', 'Subject', 'Body')
 >       ;
->     
+>
 >       $message->getHeaders()->addTextHeader('X-Queue-Criteria', 'foo');
->     
+>
 >       $this->getMailer()->send($message);
 >     }
 >
@@ -682,11 +682,11 @@ Swift Mailer pluginsを使うために、上で紹介した`mailer.configure`イ
 >     public function setMessage($message)
 >     {
 >       $msg = unserialize($message);
->     
+>
 >       $headers = $msg->getHeaders();
 >       $criteria = $headers->get('X-Queue-Criteria')->getFieldBody();
 >       $this->setCriteria($criteria);
 >       $headers->remove('X-Queue-Criteria');
->     
+>
 >       parent::setMessage($message);
 >     }

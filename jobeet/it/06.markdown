@@ -19,7 +19,7 @@ L'oggetto Query di Doctrine
 
 Dai requisiti del giorno 2:
 
-  "Quando un utente arriva sul sito web di Jobeet vede una lista di offerte di 
+  "Quando un utente arriva sul sito web di Jobeet vede una lista di offerte di
   lavoro attive."
 
 Ma al momento tutte le offerte di lavoro sono visualizzate, indipendentemente dal
@@ -45,13 +45,13 @@ fatto che siano attive o meno:
     }
 
 <propel>
-Un'offerta di lavoro attiva è un'offerta pubblicata da meno di 30 giorni. Il 
-metodo `doSelect()` utilizza un oggetto di tipo ~`Criteria`~, che descrive la 
+Un'offerta di lavoro attiva è un'offerta pubblicata da meno di 30 giorni. Il
+metodo `doSelect()` utilizza un oggetto di tipo ~`Criteria`~, che descrive la
 richiesta da fare al database. Nel codice precedente viene passato un `Criteria`
 vuoto, il che significa che tutti i record vengono recuperati dal database.
 </propel>
 <doctrine>
-Un'offerta di lavoro attiva è un'offerta pubblicata da meno di 30 giorni. Il 
+Un'offerta di lavoro attiva è un'offerta pubblicata da meno di 30 giorni. Il
 metodo `~Doctrine_Query~::execute()` farà una richiesta al database.
 Nel codice precedente non abbiamo specificato nessuna condizione di "where",
 il che significa che tutti i record vengono recuperati dal database.
@@ -106,7 +106,7 @@ il giorno 3. Alcune volte però è molto utile verificare il codice SQL
 generato da ##ORM##; per esempio per fare il ~debug~ di una query che
 non funziona come ci si aspetta. Nell'~ambiente~ di sviluppo (`dev`),
 symfony salva queste query (assieme a molto altro) nella cartella `log/`.
-Esiste un file di log per ogni combinazione di applicazione e ambiente. Il file 
+Esiste un file di log per ogni combinazione di applicazione e ambiente. Il file
 che stiamo cercando si chiama `frontend_dev.log`:
 
     # log/frontend_dev.log
@@ -133,15 +133,15 @@ Si può vedere che Propel ha generato una clausola where per la colonna
 >[~SQL injection~](http://it.wikipedia.org/wiki/Sql_injection).
 </propel>
 <doctrine>
-    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT 
-    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type, 
-    j.company AS j__company, j.logo AS j__logo, j.url AS j__url, 
-    j.position AS j__position, j.location AS j__location, 
-    j.description AS j__description, j.how_to_apply AS j__how_to_apply, 
-    j.token AS j__token, j.is_public AS j__is_public, 
-    j.is_activated AS j__is_activated, j.email AS j__email, 
-    j.expires_at AS j__expires_at, j.created_at AS j__created_at, 
-    j.updated_at AS j__updated_at FROM jobeet_job j 
+    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT
+    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type,
+    j.company AS j__company, j.logo AS j__logo, j.url AS j__url,
+    j.position AS j__position, j.location AS j__location,
+    j.description AS j__description, j.how_to_apply AS j__how_to_apply,
+    j.token AS j__token, j.is_public AS j__is_public,
+    j.is_activated AS j__is_activated, j.email AS j__email,
+    j.expires_at AS j__expires_at, j.created_at AS j__created_at,
+    j.updated_at AS j__updated_at FROM jobeet_job j
     WHERE j.created_at > ? (2008-11-08 01:13:35)
 
 Si può vedere che Doctrine ha una clausola where per la colonna `created_at`
@@ -151,12 +151,12 @@ Si può vedere che Doctrine ha una clausola where per la colonna `created_at`
 >La stringa `?` nella query indica che Doctrine genera dei ~prepared statement~.
 >Il vero valore di `?` ('2008-11-08 01:13:35' nell'esempio sopra)
 >è passato durante l'esecuzione della query e su di esso viene eseguito
->l'apposito escape dal database. 
+>l'apposito escape dal database.
 >L'utilizzo dei prepared statement riduce drasticamente
 >l'esposizione al problema dell'[~SQL injection~](http://it.wikipedia.org/wiki/Sql_injection).
 </doctrine>
 
-Questo è bene, ma è un po' scomodo dover passare dal browser all'IDE e al file 
+Questo è bene, ma è un po' scomodo dover passare dal browser all'IDE e al file
 di log ogni volta che si ha bisogno di testare un cambiamento. Grazie alla
 barra di debug di symfony, tutte le informazioni necessarie sono comodamente
 disponibili all'interno del browser:
@@ -183,7 +183,7 @@ quando un'offerta di lavoro viene creata, il valore va
 impostato a 30 giorni successivi alla data corrente.
 
 Per fare qualcosa automaticamente prima che un oggetto di tipo
-##ORM## venga serializzato sul database, si può sovrascrivere 
+##ORM## venga serializzato sul database, si può sovrascrivere
 il metodo `save()` della classe del modello:
 
 <propel>
@@ -201,7 +201,7 @@ il metodo `save()` della classe del modello:
 
         return parent::save($con);
       }
-      
+
       // ...
     }
 </propel>
@@ -220,12 +220,12 @@ il metodo `save()` della classe del modello:
 
         return parent::save($conn);
       }
-      
+
       // ...
     }
 </doctrine>
 
-Il metodo ~`isNew()`~ restituisce il valore `true` quando l'oggetto non è ancora 
+Il metodo ~`isNew()`~ restituisce il valore `true` quando l'oggetto non è ancora
 stato serializzato nel database e `false` altrimenti.
 
 Modifichiamo ora l'azione per utilizzare la colonna `expires_at` al
@@ -826,14 +826,14 @@ Il metodo `doSelectActive()` riceverà l'oggetto `Criteria` costruito dalla rott
     [php]
     // lib/model/JobeetJobPeer.php
     class JobeetJobPeer extends BaseJobeetJobPeer
-    {   
+    {
       static public function doSelectActive(Criteria $criteria)
       {
         $criteria->add(JobeetJobPeer::EXPIRES_AT, time(), Criteria::GREATER_THAN);
 
         return self::doSelectOne($criteria);
       }
-      
+
       // ...
     }
 </propel>
@@ -843,14 +843,14 @@ Il metodo `retrieveActiveJob()` riceverà l'oggetto `Doctrine_Query` costruito d
     [php]
     // lib/model/doctrine/JobeetJobTable.class.php
     class JobeetJobTable extends Doctrine_Table
-    {       
+    {
       public function retrieveActiveJob(Doctrine_Query $q)
       {
         $q->andWhere('a.expires_at > ?', date('Y-m-d h:i:s', time()));
 
         return $q->fetchOne();
       }
-      
+
       // ...
     }
 </doctrine>

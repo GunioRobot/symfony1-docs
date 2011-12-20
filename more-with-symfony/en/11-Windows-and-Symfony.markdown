@@ -598,7 +598,7 @@ following command:
 
     PHP lib\vendor\symfony\data\bin\symfony generate:app sfapp
 
-Again, this should return a list of file operations, including some 
+Again, this should return a list of file operations, including some
 `chmod 777` commands.
 
 From this point, instead of typing `PHP lib\vendor\symfony\data\bin\symfony`

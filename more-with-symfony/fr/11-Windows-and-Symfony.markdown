@@ -27,24 +27,24 @@ Aujourd'hui, il existe seulement deux sources d'informations en rapport à Micro
 >**SIDEBAR**
 >Extension Prévue pour ce Tutoriel
 >
->Une section supplémentaire de ce chapitre est en cours d'élaboration et sera 
->publiée rapidement sur le site officiel du projet symfony après la publication 
->de cet ouvrage. Elle couvre la connexion à MS SQL Server via PDO et Microsoft 
+>Une section supplémentaire de ce chapitre est en cours d'élaboration et sera
+>publiée rapidement sur le site officiel du projet symfony après la publication
+>de cet ouvrage. Elle couvre la connexion à MS SQL Server via PDO et Microsoft
 >prévoit à l'heure actuelle des améliorations à venir à ce sujet.
 >
 >      [PHP_PDO_MSSQL]
 >      extension=php_pdo_mssql.dll
 >
->Pour l'instant, les meilleures performances à l'exécution du code sont obtenues 
->en utilisant le connecteur PHP 5 natif de SQL Server, un connecteur open-source 
->disponible sur Windows dans sa version 1.1. Il est implémenté sous forme d'une 
+>Pour l'instant, les meilleures performances à l'exécution du code sont obtenues
+>en utilisant le connecteur PHP 5 natif de SQL Server, un connecteur open-source
+>disponible sur Windows dans sa version 1.1. Il est implémenté sous forme d'une
 >nouvelle extension DLL pour PHP:
 >
 >      [PHP_SQLSRV]
 >      extension=php_sqlsrv.dll
 >
->Il est possible d'utiliser aussi bien Microsoft SQL Server 2005 ou 2008 pour la 
->base de données. L'extension prévue pour ce tutoriel couvrira l'utilisation de 
+>Il est possible d'utiliser aussi bien Microsoft SQL Server 2005 ou 2008 pour la
+>base de données. L'extension prévue pour ce tutoriel couvrira l'utilisation de
 >l'édition gratuite : SQL Server Express.
 
 ### Comment Faire Fonctionner ce Tutoriel sur Différents Systèmes Windows (32 bits inclus)
@@ -52,8 +52,8 @@ Aujourd'hui, il existe seulement deux sources d'informations en rapport à Micro
 Ce document a été écrit spécifiquement pour les éditions 64 bits de Windows Server 2008. Néanmoins, le lecteur sera capable d'utiliser d'autres versions sans complication supplémentaire.
 
 >**NOTE**
->La version exacte du système d'exploitation utilisé dans les captures d'écran 
->est Windows Server 2008 Enterprise Edition accompagnée d'un Service Pack 2 pour 
+>La version exacte du système d'exploitation utilisé dans les captures d'écran
+>est Windows Server 2008 Enterprise Edition accompagnée d'un Service Pack 2 pour
 >du matériel 64 bits.
 
 #### Version 32 bits de Windows
@@ -69,7 +69,7 @@ Ce tutoriel est aisément portable sur des versions 32 bits de Windows, en rempl
 De plus, si le serveur n'utilise pas une version Enterprise, ce n'est pas un problème. Ce document est directement portable pour d'autres versions de logiciel Windows Server : Windows Server 2008 Web, Standard ou Datacenter Windows Server 2008 Web, Standard ou Datacenter avec Service Pack 2 Windows Server 2008 R2 Web, Standard, Enterprise ou Datacenter.
 
 >**NOTE**
->Il est important de noter que toutes les éditions de Windows Server 2008 RC2 
+>Il est important de noter que toutes les éditions de Windows Server 2008 RC2
 >sont seulement disponibles pour les systèmes d'exploitation 64 bits.
 
 #### A Propos des Versions Internationales
@@ -102,30 +102,30 @@ Afin d'obtenir les mêmes copies d'écran présentées dans ce tutoriel, il est 
 >**SIDEBAR**
 >Comment obtenir un essai gratuit à Windows Server?
 >
->Il est bien sûr possible d'utiliser n'importe quel serveur dédié avec un accès 
->à Internet. Un serveur physique ou un serveur virtuel dédié (VDS) fera 
+>Il est bien sûr possible d'utiliser n'importe quel serveur dédié avec un accès
+>à Internet. Un serveur physique ou un serveur virtuel dédié (VDS) fera
 >largement l'affaire.
 >
->Un serveur limité 30 jours avec Windows est disponible à l'essai grâce à 
->Ikoula, un hébergeur web français qui offre une liste complète de services 
->pour les développeurs et les graphistes. Cet essai gratuit démarre bien sûr à 0 
->€ par mois pour une machine virtuelle Windows qui tourne sur un environnement 
+>Un serveur limité 30 jours avec Windows est disponible à l'essai grâce à
+>Ikoula, un hébergeur web français qui offre une liste complète de services
+>pour les développeurs et les graphistes. Cet essai gratuit démarre bien sûr à 0
+>€ par mois pour une machine virtuelle Windows qui tourne sur un environnement
 >Microsoft Hyper-V.
->Par ailleurs, une machine virtuelle entièrement fonctionnelle, intégrant une 
->version Windows Server 2008 Web, Standard, Entreprise ou Datacenter, peut être 
+>Par ailleurs, une machine virtuelle entièrement fonctionnelle, intégrant une
+>version Windows Server 2008 Web, Standard, Entreprise ou Datacenter, peut être
 >mise à disposition gratuitement pendant une période de 30 jours.
 >
->Pour commander, il suffit de se connecter au site 
->http://www.ikoula.com/flex_server et de cliquer sur le bouton "Testez 
+>Pour commander, il suffit de se connecter au site
+>http://www.ikoula.com/flex_server et de cliquer sur le bouton "Testez
 >gratuitement".
 >
->Afin d'obtenir les mêmes messages décrits dans ce document, le système 
->d'exploitation commandé avec le serveur Flex est : "Windows Server 2008 
->Enterprise Edition 64 bits". Il s'agit d'une distribution x64, livrée avec les 
->deux locales `fr-FR` et `en-US`. Il est donc très facile de passer de `fr-FR` à 
->`en-US` et vice-versa depuis le panneau de commande "Windows Control Panel". 
->Plus précisément, ce paramètre se trouve dans "Regional and Language Options", 
->situées sous l'onglet "Keyboards and Languages". Il suffit de cliquer sur 
+>Afin d'obtenir les mêmes messages décrits dans ce document, le système
+>d'exploitation commandé avec le serveur Flex est : "Windows Server 2008
+>Enterprise Edition 64 bits". Il s'agit d'une distribution x64, livrée avec les
+>deux locales `fr-FR` et `en-US`. Il est donc très facile de passer de `fr-FR` à
+>`en-US` et vice-versa depuis le panneau de commande "Windows Control Panel".
+>Plus précisément, ce paramètre se trouve dans "Regional and Language Options",
+>situées sous l'onglet "Keyboards and Languages". Il suffit de cliquer sur
 >"Install/uninstall languages".
 
 Il est impératif de posséder les accès Administrateur sur le serveur.
@@ -238,7 +238,7 @@ Si rien n'est fait, l'exécution de PHP.EXE tiendra du fait de l'absence du fich
 
 Le fichier `MSVCR71.DLL` est une ancienne version de Microsoft Visual C++ qui date d'avant 2003. Il est donc intégré dans le paquet redistribuable du Framework .Net 1.1.
 
-Le paquet redistribuable du Framework .Net 1.1 est téléchargeable depuis le site 
+Le paquet redistribuable du Framework .Net 1.1 est téléchargeable depuis le site
 [MSDN](http://msdn.microsoft.com/en-us/netframework/aa569264.aspx)
 
 Le fichier recherché est installé dans le répertoire suivant :

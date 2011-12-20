@@ -195,7 +195,7 @@ There is one important thing you need to remember when using indentation in a
 YAML file: *Indentation must be done with one or more spaces, but never with
 tabulations*.
 
-you can nest sequences and mappings as you like or you can nest sequences and 
+you can nest sequences and mappings as you like or you can nest sequences and
 mappings like so:
 
     [yml]

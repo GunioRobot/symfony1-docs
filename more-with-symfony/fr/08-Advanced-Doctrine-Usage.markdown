@@ -148,7 +148,7 @@ A présent, les évènements suivants doivent être initialisés dans le but de 
 
  * **postDelete()** décrémente le compteur lorsqu'un objet est supprimé ;
 
- * **preDqlDelete()** décrémente les compteurs lorsque les enregistrements 
+ * **preDqlDelete()** décrémente les compteurs lorsque les enregistrements
    sont supprimés à partir d'un ordre DQL DELETE.
 
 Le listing ci-dessous définit tout d'abord la méthode `postInsert()` :
@@ -268,9 +268,9 @@ Ou bien si plusieurs enregistrements devaient être supprimés, les compteurs se
       ->execute();
 
 >**NOTE**
->L'invocation de la méthode `preDqlDelete()` est soumise à l'activation d'un 
->attribut. Les DQL de rappel (`DQL callbacks`) sont désactivés par défaut car 
->ils ont un coût supplémentaire sur les performances. Par conséquent, il doivent 
+>L'invocation de la méthode `preDqlDelete()` est soumise à l'activation d'un
+>attribut. Les DQL de rappel (`DQL callbacks`) sont désactivés par défaut car
+>ils ont un coût supplémentaire sur les performances. Par conséquent, il doivent
 >être explicitement activés afin de pouvoir les utiliser.
 >
 >     [php]
@@ -415,7 +415,7 @@ Il est important de noter que cette classe accueillera du code supplémentaire p
 
 ### Configurer le Cache de Résultats
 
-Afin de pouvoir mettre en oeuvre le cache de résultats, un gestionnaire de cache doit d'abord être configuré pour les requêtes utilisées. Cette étape se réalise très simplement en configurant l'attribut `ATTR_RESULT_CACHE`. 
+Afin de pouvoir mettre en oeuvre le cache de résultats, un gestionnaire de cache doit d'abord être configuré pour les requêtes utilisées. Cette étape se réalise très simplement en configurant l'attribut `ATTR_RESULT_CACHE`.
 
 Dans cet article, c'est le gestionnaire de cache APC qui a été retenu dans la mesure où c'est le meilleur choix pour l'environnement de production. Si APC n'est pas disponible sur le serveur de développement, alors celui-ci pourra aussi bien se contenter des pilotes `Doctrine_Cache_Db` ou bien `Doctrine_Cache_Array` pour des besoins de test.
 
@@ -452,9 +452,9 @@ A présent, le cache peut être activé pour cette requête en utilisant la mét
     $q->useResultCache(true, 3600, 'users_index');
 
 >**NOTE**
->Notez le troisième argument. Il s'agit de la clé qui sera utilisée pour stocker 
->l'entrée de cache des résultats dans le gestionnaire de cache. Cela permet 
->ainsi d'identifier clairement cette requête afin de la supprimer du 
+>Notez le troisième argument. Il s'agit de la clé qui sera utilisée pour stocker
+>l'entrée de cache des résultats dans le gestionnaire de cache. Cela permet
+>ainsi d'identifier clairement cette requête afin de la supprimer du
 >gestionnaire de cache.
 
 Désormais, lorsque la requête est exécutée, elle interroge tout d'abord la base de données pour obtenir les résultats. Puis, elle stocke ces derniers dans le gestionnaire de cache à la clé `users_index`, et ainsi, toutes les requêtes ultérieures iront chercher l'information dans le gestionnaire au lieu d'attaquer directement la base de données:
@@ -463,9 +463,9 @@ Désormais, lorsque la requête est exécutée, elle interroge tout d'abord la b
     $users = $q->execute();
 
 >**NOTE**
->Non seulement ce système fait économiser du traitement au serveur de base de 
->données, il contourne également le processus complet d'hydratation puisque 
->Doctrine sauvegarde les données déjà hydratées. Cela signifie que le serveur 
+>Non seulement ce système fait économiser du traitement au serveur de base de
+>données, il contourne également le processus complet d'hydratation puisque
+>Doctrine sauvegarde les données déjà hydratées. Cela signifie que le serveur
 >web en sera d'autant plus soulagé.
 
 A présent, si l'on contrôle le gestionnaire de cache, on découvrira une entrée nommée `users_index`.
@@ -489,13 +489,13 @@ A ce stade, la requête est cachée, et il est temps d'en apprendre un peu plus 
 Tout d'abord, il s'agit de présenter l'API brute du gestionnaire de cache avant de lui faire implémenter un nouvel événement.
 
 >**TIP**
->Pour avoir accès à l'instance du gestionnaire de cache des résultats, il suffit 
+>Pour avoir accès à l'instance du gestionnaire de cache des résultats, il suffit
 >de faire appel à l'instance de la classe `Doctrine_Manager`.
 >
 >     [php]
 >     $cacheDriver = $manager->getAttribute(Doctrine_Core::ATTR_RESULT_CACHE);
 >
->Si l'accès à la variable `$manager` est impossible, l'instance reste disponible 
+>Si l'accès à la variable `$manager` est impossible, l'instance reste disponible
 >à l'aide du code suivant:
 >
 >     [php]
@@ -513,10 +513,10 @@ Cependant, il est probable qu'il y ait plus d'une requête préfixée par `users
 
 Il existe d'autres méthodes très utiles facilitant la suppression des entrées du cache si la méthode `deleteByPrefix()` ne suffit pas à elle-même.
 
- * `deleteBySuffix($suffix)` supprime les entrées du cache enregistrées avec le 
+ * `deleteBySuffix($suffix)` supprime les entrées du cache enregistrées avec le
    suffixe passé en paramètre ;
 
- * `deleteByRegex($regex)` supprime les entrées du cache qui 
+ * `deleteByRegex($regex)` supprime les entrées du cache qui
    correspondent à l'expression régulière passée en paramètre ;
 
  * `deleteAll()` supprime toutes les entrées du cache.

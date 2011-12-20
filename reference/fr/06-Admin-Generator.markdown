@@ -365,7 +365,7 @@ Par défaut* : `Text` pour les colonnes virtuelles
 
 L'option `type` définit le type de la colonne. Par défaut, symfony utilise le
 type défini dans votre définition du modèle, mais si vous créez une colonne virtuelle, vous
-pouvez surcharger le type par défaut `Text` par un autre type valide : 
+pouvez surcharger le type par défaut `Text` par un autre type valide :
 
   * `ForeignKey`
   * `Boolean`
@@ -376,7 +376,7 @@ pouvez surcharger le type par défaut `Text` par un autre type valide :
 
 ### ~`date_format`~
 
-Par défaut* : `f` 
+Par défaut* : `f`
 
 L'option `date_format` définit le format à utiliser lors de l'affichage des dates. Il
 peut être de plusieurs formats reconnus par la classe `sfDateFormat`. Cette option n'est pas
@@ -384,22 +384,22 @@ utilisée quand le champs est de type `Date`.
 
 Les symboles suivants peuvent être utilisés pour le format :
 
- * `G`: Era 
- * `y`: year 
- * `M`: mon 
- * `d`: mday 
- * `h`: Hour12 
- * `H`: hours 
- * `m`: minutes 
- * `s`: seconds 
- * `E`: wday 
- * `D`: yday 
- * `F`: DayInMonth 
- * `w`: WeekInYear 
- * `W`: WeekInMonth 
- * `a`: AMPM 
- * `k`: HourInDay 
- * `K`: HourInAMPM 
+ * `G`: Era
+ * `y`: year
+ * `M`: mon
+ * `d`: mday
+ * `h`: Hour12
+ * `H`: hours
+ * `m`: minutes
+ * `s`: seconds
+ * `E`: wday
+ * `D`: yday
+ * `F`: DayInMonth
+ * `w`: WeekInYear
+ * `W`: WeekInMonth
+ * `a`: AMPM
+ * `k`: HourInDay
+ * `K`: HourInAMPM
  * `z`: TimeZone
 
 `actions`
@@ -561,9 +561,9 @@ paramètre de requête des `ids`.
 
 L'option `object_actions` définit la liste des actions qui peuvent être exécutées
 sur chaque objet de la liste. La liste des actions est un tableau associatif dont
-les clés sont les noms des routes et les valeurs un tableau de méthodes : 
+les clés sont les noms des routes et les valeurs un tableau de méthodes :
 
-    [yml] 
+    [yml]
     object_actions: { publish: get, publishBis: [get, post] }
 
 Si vous ne définissez pas une `action`, l'admin generator cherchera une méthode

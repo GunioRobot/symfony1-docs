@@ -77,9 +77,9 @@ il link alla pagina delle categorie:
       <?php endforeach; ?>
     </div>
 
-Aggiungiamo il link solamente se ci sono più di 10 offerte di lavoro da 
+Aggiungiamo il link solamente se ci sono più di 10 offerte di lavoro da
 visualizzare per la categoria corrente. Il link contiene il numero di offerte
-non visualizzate. Per rendere il template funzionante abbiamo bisogno di 
+non visualizzate. Per rendere il template funzionante abbiamo bisogno di
 aggiungere il metodo `countActiveJobs()` a `JobeetCategory`:
 
 <propel>
@@ -111,7 +111,7 @@ codice seguente:
     }
 
 Il metodo `countActiveJobs()` usa un metodo `countActiveJobs()`
-che non esiste ancora in `JobeetJobTable`. 
+che non esiste ancora in `JobeetJobTable`.
 </doctrine>
 
 <propel>
@@ -141,14 +141,14 @@ che non esiste ancora in `JobeetJobTable`.
 
         return $criteria;
       }
-      
+
       static public function doSelectActive(Criteria $criteria)
       {
         return self::doSelectOne(self::addActiveJobsCriteria($criteria));
       }
     }
 
-Come si può vedere, abbiamo eseguito la rifattorizzazione di tutto il codice di 
+Come si può vedere, abbiamo eseguito la rifattorizzazione di tutto il codice di
 `JobeetJobPeer` per introdurre un nuovo metodo condiviso `addActiveJobsCriteria()`
 per rendere il codice più [~DRY~ (Don't Repeat Yourself)](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 </propel>
@@ -189,7 +189,7 @@ per rendere il codice più [~DRY~ (Don't Repeat Yourself)](http://en.wikipedia.o
       }
     }
 
-Come si può vedere, abbiamo eseguito la rifattorizzazione di tutto il codice di 
+Come si può vedere, abbiamo eseguito la rifattorizzazione di tutto il codice di
 `JobeetJobTable` per introdurre un nuovo metodo condiviso `addActiveJobsQuery()`,
 per rendere il codice più [~DRY~ (Don't Repeat Yourself)](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 </doctrine>
@@ -232,14 +232,14 @@ in questo caso non ci serve, meglio usare il comando `generate:module`,
 che crea un modulo vuoto.
 
 >**TIP**
->Perché non aggiungere un'azione `category` al modulo `job`? Potremmo, ma 
+>Perché non aggiungere un'azione `category` al modulo `job`? Potremmo, ma
 >visto che il soggetto principale della pagina delle categorie è una categoria,
 >sembra più naturale creare un modulo `category` dedicato.
 
-Accedendo alla pagina delle categorie, la rotta `category` dovrà trovare la 
+Accedendo alla pagina delle categorie, la rotta `category` dovrà trovare la
 categoria associata alla variabile `slug` presente nella richiesta. Ma siccome
-lo ~slug~ non è memorizzato nel database e siccome non possiamo dedurre la 
-categoria dallo slug, non c'è modo di individuare la categoria associata allo 
+lo ~slug~ non è memorizzato nel database e siccome non possiamo dedurre la
+categoria dallo slug, non c'è modo di individuare la categoria associata allo
 slug.
 
 Aggiornare il database
@@ -606,7 +606,7 @@ una lista di metodi `sfPropelPager` usati in questo template:
   * `getLastPage()`: Restituisce il numero dell'ultima pagina
 
 Poiché `sfPropelPager` implementa anche le interfaccie `Iterator` e `Countable`,
-si può usare la funzione `count()` per ottenere il numero dei risultati, invece del 
+si può usare la funzione `count()` per ottenere il numero dei risultati, invece del
 metodo `getNbResults()`.
 
 ![Paginazione](http://www.symfony-project.org/images/jobeet/1_4/07/pagination.png)

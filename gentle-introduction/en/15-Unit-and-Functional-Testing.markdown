@@ -421,7 +421,7 @@ Listing 15-9 - Testing Propel classes
 
 
 A typical Doctrine test file is shown in Listing 15-10.
-    
+
 Listing 15-10 - Testing Doctrine classes
 
     [php]

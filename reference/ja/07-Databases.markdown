@@ -65,7 +65,7 @@ Propel
           classname:  PropelPDO
           dsn:        mysql:dbname=##PROJECT_NAME##;host=localhost
           username:   root
-          password:   
+          password:
           encoding:   utf8
           persistent: true
           pooling:    true
@@ -118,7 +118,7 @@ Doctrine
         param:
           dsn:        mysql:dbname=##PROJECT_NAME##;host=localhost
           username:   root
-          password:   
+          password:
           attributes:
             quote_identifier: false
             use_native_enum: false

@@ -269,7 +269,7 @@ symfony では、フォームはオブジェクトです。アクションで定
       <option value="uk" selected="selected">UK</option>
       <option value="0">other</option>
     </select>
-    
+
     // 複数選択ドロップダウンリスト
     $form->setWidget('languages', new sfWidgetFormChoice(array(
       'multiple' => 'true',
@@ -296,7 +296,7 @@ symfony では、フォームはオブジェクトです。アクションで定
       <li><input type="radio" name="gender" id="gender_m" value="m"><label for="gender_m">Male</label></li>
       <li><input type="radio" name="gender" id="gender_f" value="f"><label for="gender_f">Female</label></li>
     </ul>
-    
+
     // チェックボックスのリスト
     $form->setWidget('interests', new sfWidgetFormChoice(array(
       'multiple' => 'true',
@@ -337,7 +337,7 @@ symfony では、フォームはオブジェクトです。アクションで定
 こうすると、既存のセクションの一覧が表示されます。一覧の表示には、`Section` モデルクラスに定義した `__toString()` メソッドが使われます。symfony により利用可能な `Section` オブジェクトの一覧が取得され、一覧の各オブジェクトに対して `echo` を呼び出して `choice` ウィジェットの生成が行われるからです。ですので、`Section` モデルに次のようなメソッドを追加する必要があります:
 
     [php]
-    // lib/model/Section.php 内 
+    // lib/model/Section.php 内
     public function __toString()
     {
       return $this->getName();
@@ -382,7 +382,7 @@ symfony では、フォームはオブジェクトです。アクションで定
       ...
       <option value="1990">1990</option>
     </select>
-    
+
     // 時刻
     $form->setWidget('start', new sfWidgetFormTime(array('default' => '12:00')));
     // symfony により次の HTML がレンダリングされる
@@ -420,7 +420,7 @@ symfony では、フォームはオブジェクトです。アクションで定
     $years = range(1950, 1990);
     $form->setWidget('dob', new sfWidgetFormI18nDate(array(
       'culture'      => $this->getUser()->getCulture(),
-      'month_format' => 'name',   // 'name' (デフォルト)、'short_name'、'number' のいずれか 
+      'month_format' => 'name',   // 'name' (デフォルト)、'short_name'、'number' のいずれか
       'label'        => 'Date of birth',
       'default'      => '01/01/1950',
       'years'        => array_combine($years, $years)
@@ -489,7 +489,7 @@ symfony では、フォームはオブジェクトです。アクションで定
     <label for="picture">Picture</label>
     <input id="picture" type="file" name="picture"/>
     // フォームにファイルウィジェットがある場合、renderFormTag() によりマルチパートオプションのある <form> タグがレンダリングされます
-    
+
     // 編集可能なファイル選択
     $form->setWidget('picture', new sfWidgetFormInputFileEditable(array('default' => '/images/foo.png')));
     // symfony により、現在のファイルのプレビューとともに、HTML にファイル選択タグがレンダリングされる
@@ -781,7 +781,7 @@ symfony には非常に多くのバリデーターがあります。各バリデ
       'min_length' => 'Please post a longer message',
       'max_length' => 'Please be less verbose',
     )));
-    
+
     // 数字バリデーター
     $form->setValidator('age', new sfValidatorNumber(array( // 整数値を強制する場合は、代わりに 'sfValidatorInteger' を使います
       'min'  => 18,
@@ -791,13 +791,13 @@ symfony には非常に多くのバリデーターがあります。各バリデ
       'min' => 'You must be 18 or more to use this service',
       'max' => 'Are you kidding me? People over 30 can\'t even use the Internet',
     )));
-    
+
     // Eメールバリデーター
     $form->setValidator('email', new sfValidatorEmail());
-    
+
     // URLバリデーター
     $form->setValidator('website', new sfValidatorUrl());
-    
+
     // 正規表現バリデーター
     $form->setValidator('IP', new sfValidatorRegex(array(
       'pattern' => '^[0-9]{3}\.[0-9]{3}\.[0-9]{2}\.[0-9]{3}$'
@@ -808,12 +808,12 @@ symfony には非常に多くのバリデーターがあります。各バリデ
     [php]
     // ブール値バリデーター
     $form->setValidator('has_signed_terms_of_service', new sfValidatorBoolean());
-    
+
     // 選択肢バリデーター(値をリストの 1 つに制限)
     $form->setValidator('subject', new sfValidatorChoice(array(
       'choices' => array('Subject A', 'Subject B', 'Subject C')
     )));
-    
+
     // 複数選択バリデーター
     $form->setValidator('languages', new sfValidatorChoice(array(
       'multiple' => true,
@@ -830,7 +830,7 @@ symfony には非常に多くのバリデーターがあります。各バリデ
       'model'  => 'Section',
       'column' => 'name'
     )));
-    
+
     // Doctrine 選択肢バリデーター
     $form->setValidator('section_id', new sfValidatorDoctrineChoice(array(
       'model'  => 'Section',
@@ -842,12 +842,12 @@ symfony には非常に多くのバリデーターがあります。各バリデ
     [php]
     // Propelユニークバリデーター
     $form->setValidator('nickname', new sfValidatorPropelUnique(array(
-      'model'  => 'User', 
+      'model'  => 'User',
       'column' => 'login'
     )));
-    
+
     $form->setValidator('nickname', new sfValidatorDoctrineUnique(array(
-      'model'  => 'User', 
+      'model'  => 'User',
       'column' => 'login'
     )));
 
@@ -870,9 +870,9 @@ symfony には非常に多くのバリデーターがあります。各バリデ
 複数バリデーターは単一の入力に対して機能するのではなく、フォーム全体に対して機能します。利用可能な複数バリデーターのリストは次のとおりです:
 
     [php]
-    // 比較バリデーター - 2 つのフィールドを比較する 
+    // 比較バリデーター - 2 つのフィールドを比較する
     $form->setPostValidator(new sfValidatorSchemaCompare('password1', '==', 'password2'));
-    
+
     // 追加フィールドのバリデーター: リクエストにあるフィールドが、フォームで定義されているかどうか調べる
     $form->setOption('allow_extra_fields', false);
     $form->setOption('filter_extra_fields', true);
@@ -1011,7 +1011,7 @@ symfony には非常に多くのバリデーターがあります。各バリデ
       public function render($name, $value = null, $attributes = array(), $errors = array())
       {
         return $this->renderTag('input', array_merge(
-          array('type' => $this->getOption('type'), 'name' => $name, 'value' => $value), 
+          array('type' => $this->getOption('type'), 'name' => $name, 'value' => $value),
           $attributes
         ));
       }
@@ -1133,7 +1133,7 @@ symfony では、スキーマに基づいて、モデル編集用フォームで
 
     // Propel
     $ php symfony propel:build-forms
-    
+
     // Doctrine
     $ php symfony doctrine:build-forms
 
@@ -1198,12 +1198,12 @@ symfony では、スキーマに基づいて、モデル編集用フォームで
     {
       $c = new Criteria();
       $c->add(AuthorPeer::ACTIVE, true);
-      
+
       $this->form = new ArticleForm(
         ArticlePeer::retrieveByPk($request->getParameter('id')),
         array('criteria' => $c)
       );
-      
+
       if ($request->isMethod('post'))
       {
         $this->form->bind($request->getParameter('article'));

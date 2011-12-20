@@ -73,11 +73,11 @@ Hugo Hamon
 ----------
 
 Hugo Hamon has been a web technologies autodidact since late 2000 and now
-works at Sensio Labs as a web developer and training manager. Passionate about 
-PHP, he has used it for 8 years and built the French tutorial website 
-[Apprendre-PHP.com](http://www.apprendre-php.com). Hugo is involved in two 
-french associations: the [AFUP](http://www.afup.org) as a staff member and the 
-[AFSY](http://www.afsy.fr), the symfony users group, as the founder and 
+works at Sensio Labs as a web developer and training manager. Passionate about
+PHP, he has used it for 8 years and built the French tutorial website
+[Apprendre-PHP.com](http://www.apprendre-php.com). Hugo is involved in two
+french associations: the [AFUP](http://www.afup.org) as a staff member and the
+[AFSY](http://www.afsy.fr), the symfony users group, as the founder and
 President. He's the co-author of the book _Mieux Programmer en PHP avec symfony 1.2 et Doctrine_
 at [Eyrolles publishing](http://www.editions-eyrolles.com/Livre/9782212124941/symfony) and other articles for the magazine PHP Solutions.
 
@@ -88,7 +88,7 @@ at [Eyrolles publishing](http://www.editions-eyrolles.com/Livre/9782212124941/sy
 Thomas Rabaix
 -------------
 
-Thomas has been a symfony fan since the early days. He is currently working as a PHP and symfony 
+Thomas has been a symfony fan since the early days. He is currently working as a PHP and symfony
 freelancer (developer, consultant and trainer) and is very active in the symfony community.
 
 Thomas also helps companies with Quality Assurance and Architecture questions on

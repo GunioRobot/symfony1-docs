@@ -18,7 +18,7 @@ Listato 17-1 - Registrare un ascoltatore di eventi
 
     [php]
     $dispatcher->connect('user.change_culture', 'changeUserCulture');
-    
+
     function changeUserCulture(sfEvent $event)
     {
       $user = $event->getSubject();
@@ -56,7 +56,7 @@ Listato 17-2 - Notificare un ascoltatore di eventi
       {
         $this->dispatcher = $dispatcher;
       }
-      
+
       /**
        * Makes a query to an external web service
        */
@@ -67,17 +67,17 @@ Listato 17-2 - Notificare un ascoltatore di eventi
           'uri'        => $uri,
           'parameters' => $parameters
         )));
-        
+
         // Make the request and store the result in a $result variable
         // ...
-        
+
         // Notify the dispatcher of the end of the fetch process
         $this->dispatcher->notify(new sfEvent($this, 'rest_request.fetch_success', array(
           'uri'        => $uri,
           'parameters' => $parameters,
           'result'     => $result
         )));
-        
+
         return $result;
       }
     }
@@ -94,18 +94,18 @@ Listato 17-3 - Notifica di un evento finché l'ascoltatore restituisce true
     class sfRestRequest
     {
       // ...
-      
+
       public function __call($method, $arguments)
       {
         $event = $this->dispatcher->notifyUntil(new sfEvent($this, 'rest_request.method_not_found', array(
-          'method'    => $method, 
+          'method'    => $method,
           'arguments' => $arguments
         )));
         if (!$event->isProcessed())
         {
           throw new sfException(sprintf('Call to undefined method %s::%s.', get_class($this), $method));
         }
-        
+
         return $event->getReturnValue();
       }
     }
@@ -149,15 +149,15 @@ Listato 17-4 - Gestire un evento del tipo "notificare finché"
       {
         // Fa una richiesta put e memorizza il risultato in una variabile $result
         // ...
-        
+
         $event->setReturnValue($result);
       }
-      
+
       static protected function delete($restRequest, $arguments)
       {
         // Fa una richiesta delete e memorizza il risultato in una variabile $result
         // ...
-        
+
         $event->setReturnValue($result);
       }
     }
@@ -176,7 +176,7 @@ Listato 17-5 - Notifica e gestione di un evento filtro
     class sfRestRequest
     {
       // ...
-      
+
       /**
        * Esegue una query a un servizio web esterno
        */
@@ -184,7 +184,7 @@ Listato 17-5 - Notifica e gestione di un evento filtro
       {
         // Esegue la richiesta e memorizza il risultato in una variabile $result
         // ...
-        
+
         // Notifica la fine del processo fetch
         return $this->dispatcher->filter(new sfEvent($this, 'rest_request.filter_result', array(
           'uri'        => $uri,
@@ -506,7 +506,7 @@ Listato 17-17 - Disinstallare un plugin
     $ php symfony cc
 
 Per disinstallare un plugin messo tramite archivio o tramite SVN, rimuovere manualmente i file del plugin dalle cartelle `plugins/` e `web/` e cancellare la cache.
-	
+
 Per aggiornare un plugin, utilizzare il task `plugin:upgrade` (per un plugin PEAR) o fare un `svn update` (se si è preso il plugin da un repository per il controllo di versione). I plugin installati tramite archivio non sono facilmente aggiornabili.
 
 ### Anatomia di un plugin
@@ -579,7 +579,7 @@ Listato 17-19 - Esempio della dichiarazione di uno schema di Propel in un plugin
   * I task sono immediatamente disponibili per la riga di comando di symfony non appena il plug-in viene installato. Un plugin può aggiungere nuovi task o sovrascriverne uno esistente. È buona pratica usare il nome del plugin come spazio dei nomi per il task. Digitare `php symfony` per visualizzare l'elenco dei task disponibili, inclusi quelli aggiunti dai plugin.
   * I moduli forniscono nuove azioni accessibili dall'esterno, a condizione che li si dichiari impostandoli in `enabled_modules` nell'applicazione.
   * Le risorse web (immagini, script, fogli di stile, ecc) sono messe a disposizione del server. Quando si installa un plug-in tramite la riga di comando, symfony crea un link simbolico alla cartella `web/` del progetto, se il sistema lo consente, o copia il contenuto della cartella `web/` del modulo nel progetto. Se il plugin è installato da un archivio o un repository di controllo della versione, è necessario copiare la cartella `web/` del plugin a mano (come dovrebbe indicare il file `README` incluso nel plug-in).
-		  
+
 
 
 >**TIP**: Registrazione delle regole di routing in un plugin
@@ -588,7 +588,7 @@ Listato 17-19 - Esempio della dichiarazione di uno schema di Propel in un plugin
 >     [php]
 >     // in plugins/mioPlugin/config/config.php
 >     $this->dispatcher->connect('routing.load_configuration', array('mioPluginRouting', 'listenToRoutingLoadConfigurationEvent'));
->     
+>
 >     // in plugins/mioPlugin/lib/mioPluginRouting.php
 >     class mioPluginRouting
 >     {
@@ -630,7 +630,7 @@ Listato 17-20 - Personalizzazione di un plugin che usa la configurazione dell'ap
         foo:       barbar
 
 Le impostazioni del modulo e i loro valori predefiniti spesso sono descritti nel file `README` del plugin.
-		
+
 Si possono sostituire i contenuti predefiniti del modulo di un plugin, creando un modulo dello stesso nome nella propria applicazione. Non è una vera e propria sovrascrittura del codice, perché gli elementi presenti nell'applicazione sono usati al posto di quelli del plugin. Funziona correttamente se si creano file di template e di configurazione con lo stesso nome di quelli dei plugin.
 
 D'altra parte, se un plugin vuole mettere a disposizione un modulo che abbia la possibilità di far sovrascrivere le proprie azioni, il file `actions.class.php` nel modulo del plugin deve essere vuoto ed ereditare da una classe in autocaricamento, così che il metodo di questa classe può essere ereditato anche da `actions.class.php` del modulo dell'applicazione. Per un esempio, vedere il Listato 17-21.
@@ -961,7 +961,7 @@ Verificare il modo in cui si comporta il plugin con la propria applicazione. Se 
 
 #### Fare ospitare il proprio plugin nel sito web del progetto symfony
 
-Un plugin di symfony ha una visibilità migliore se distribuito dal sito web `symfony-project.org`. Anche il proprio plugin può essere distribuiti in questo modo, a condizione di seguire questi passaggi: 
+Un plugin di symfony ha una visibilità migliore se distribuito dal sito web `symfony-project.org`. Anche il proprio plugin può essere distribuiti in questo modo, a condizione di seguire questi passaggi:
 
   1. Assicurarsi che il file `README` descriva le modalità di installazione e di utilizzo del plugin e che il file `LICENSE` fornisca i dettagli della licenza. Formattare il file `README` utilizzando la sintassi [Markdown](http://daringfireball.net/projects/markdown/syntax).
   2. Creare un account symfony (http://www.symfony-project.org/user/new) e creare il plugin (http://www.symfony-project.org/plugins/new).

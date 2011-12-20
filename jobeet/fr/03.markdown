@@ -127,7 +127,7 @@ la base de données Jobeet, nous allons créer le fichier du schéma à la main 
         email:        { type: string(255), notnull: true }
         expires_at:   { type: timestamp, notnull: true }
       relations:
-        JobeetCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: JobeetJobs } 
+        JobeetCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: JobeetJobs }
 
     JobeetAffiliate:
       actAs: { Timestampable: ~ }
@@ -321,7 +321,7 @@ tâche `propel:insert-sql` :
     $ php symfony propel:insert-sql
 
 >**TIP**
->Comme pour tout outil en ~ligne de commande|Ligne de commande~, les tâches de symfony peuvent 
+>Comme pour tout outil en ~ligne de commande|Ligne de commande~, les tâches de symfony peuvent
 >prendre des arguments et des options.
 >Chaque tâche est livrée avec un message d'aide intégré qui peut être affiché en exécutant
 >la tâche `help` :
@@ -336,21 +336,21 @@ L'ORM génère également des classes PHP qui met les enregistrements de la tabl
     $ php symfony propel:build --model
 
 La tâche `propel:build --model`  crée des fichiers PHP dans le répertoire `lib/model/`
-qui peut être utilisé pour interagir avec la base de données. 
+qui peut être utilisé pour interagir avec la base de données.
 
 <propel>
 En naviguant dans les fichiers générés, vous avez probablement remarqué que Propel
 génère quatre classes par ~table|Table (Base de données)~. Pour la table
 `jobeet_job` :
 
-  * `JobeetJob`: Un objet de cette classe **représente un seul 
+  * `JobeetJob`: Un objet de cette classe **représente un seul
                  ~enregistrement|Enregistrement de base de données~** de la table
 				 de `jobeet_job`. La classe est vide par défaut.
   * `BaseJobeetJob`: La classe parent de `JobeetJob`. Chaque fois que vous exécutez
                      `propel:build --model`, cette classe est écrasée, ainsi toutes les
 					 personnalisations doivent être faites dans la classe `JobeetJob`.
 
-  * `JobeetJobPeer`: La classe définit des méthodes statiques qui pour la plupart 
+  * `JobeetJobPeer`: La classe définit des méthodes statiques qui pour la plupart
                      **retournent des collections** d'objets de `JobeetJob`. La classe
 					 est vide par défaut.
   * `BaseJobeetJobPeer`: La classe parent de `JobeetJobPeer`. Chaque fois que vous
@@ -368,7 +368,7 @@ génère trois classes par ~table|Table (Base de données)~. Pour la table `jobe
                     `doctrine:build --model`, cette classe est écrasée, ainsi toutes les
 					~personnalisations|Personnalisation~ doivent être faites dans la
 					classe `JobeetJob`.
-                    
+
  * `JobeetJobTable`: La classe définit des méthodes qui renvoient surtout des
                      collections d'objets de `JobeetJob`. La classe est vide par
 					 défaut.
@@ -415,7 +415,7 @@ Pour toute application web, il existe trois types de données :
                                 exemple, Jobeet a besoin de quelques catégories initiales. Sinon,
 								personne ne sera en mesure de soumettre un emploi. Nous avons également besoin
 								d'un utilisateur administrateur pour être capable de se connecter au backend.
-								
+
   * **Les données de test** : Les ~données de test~ sont nécessaires pour l'application à tester. En
                               tant que développeur, vous devrez écrire des tests pour s'assurer que Jobeet
 							  se comporte comme décrit dans les histoires d'utilisateur, et la meilleure façon

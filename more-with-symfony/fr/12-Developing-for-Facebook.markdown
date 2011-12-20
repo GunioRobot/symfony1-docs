@@ -33,7 +33,7 @@ Le canevas est habituellement la partie principale de l'application. C'est un pe
 L'application peut aussi être contenue dans un onglet du profil d'un utilisateur ou d'une page de fan. Les principales contraintes sont alors les suivantes :
 
  * une page seulement. Il est impossible de définir des liens directs vers d'éventuelles sous-pages de l'onglet.
- 
+
  * pas d'interaction dynamique au démarrage, que ce soit flash ou JavaScript. Pour proposer des fonctionnalités dynamiques, l'application doit attendre une interaction de l'utilisateur, un clic sur un lien ou un bouton par exemple.
 
 #### La Boîte de Profil (Profile Box)
@@ -86,7 +86,7 @@ Configurer un Premier Projet avec le Plugin `sfFacebookConnectPlugin`
 
 ### Créer l'Application sur Facebook
 
-Pour commencer, un compte Facebook est nécessaire, avec l'application 
+Pour commencer, un compte Facebook est nécessaire, avec l'application
 ["Developer"](http://www.facebook.com/developers) installée. Pour créer l'application, la seule information nécessaire dans un premier temps est le nom de l'application.
 
 ### Installer et Configurer `sfFacebookConnectPlugin`
@@ -119,8 +119,8 @@ La prochaine étape est de lier les utilisateurs Facebook avec les utilisateurs 
         user_permissions: []
 
 >**TIP**
->Avec les versions de symfony antérieures à 1.2, l'option `load_routing` doit 
->être définie à la valeur `false`, car elle utilise le nouveau système de 
+>Avec les versions de symfony antérieures à 1.2, l'option `load_routing` doit
+>être définie à la valeur `false`, car elle utilise le nouveau système de
 >routing `sfRouting`.
 
 ### Configurer une Application Facebook
@@ -194,9 +194,9 @@ Pour Doctrine :
           foreignAlias: Profile
 
 >**TIP**
->Si le projet utilise Doctrine mais que la propriété `foreignAlias` n'est pas 
->définie à `Profile`, alors le plugin ne fonctionnera pas. Mais une simple 
->méthode `getProfile()`dans la classe `sfGuardUser` qui pointe vers la table 
+>Si le projet utilise Doctrine mais que la propriété `foreignAlias` n'est pas
+>définie à `Profile`, alors le plugin ne fonctionnera pas. Mais une simple
+>méthode `getProfile()`dans la classe `sfGuardUser` qui pointe vers la table
 >`Profile` suffit à contourner le problème !
 
 Il faut bien faire attention au type de la colonne `facebook_uid` qui doit être un `varchar` car les nouveaux profils Facebook ont des `uids` supérieurs à `10^15`.
@@ -275,7 +275,7 @@ Pour passer de l'un à l'autre automatiquement, il suffit d'ajouter le code suiv
 
 >**NOTE**
 >Il y a une petite différence entre une balise FBML et XFBML qui ne se trouve
->pas dans le layout : les balises FBML peuvent être fermées, contrairement aux 
+>pas dans le layout : les balises FBML peuvent être fermées, contrairement aux
 >balises XFBML. Il suffit donc de toujours remplacer les tags de la forme :
 >
 >      [html]

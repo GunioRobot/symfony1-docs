@@ -109,12 +109,12 @@ comportamento `CountCache` fazer alguma coisa de fato:
           $relatedTable->setColumn($columnName, 'integer', null, array('default' => 0));
         }
       }
-    
+
 
 O código acima irá adicionar colunas para manter a contagem do modelo relacionado.
-Portanto, no nosso caso, estamos adicionando o comportamento ao modelo `Post` para o relacionamento 
+Portanto, no nosso caso, estamos adicionando o comportamento ao modelo `Post` para o relacionamento
 com `Thread`. Nós queremos manter o número de posts que qualquer instância de `Thread`
-tem em uma coluna chamada `num_posts`. portanto modifique o esquema YAML para 
+tem em uma coluna chamada `num_posts`. portanto modifique o esquema YAML para
 definir as opções adicionais para o comportamento:
 
     [yml]
@@ -156,7 +156,7 @@ extende `Doctrine_Record_Listener`. Ela aceita uma variedade de opções que sã
 repassadas ao ouvinte a partir do modelo:
 
     [php]
-    // lib/model/count_cache/CountCacheListener.class.php 
+    // lib/model/count_cache/CountCacheListener.class.php
 
     class CountCacheListener extends Doctrine_Record_Listener
     {
@@ -467,7 +467,7 @@ Mais tarde, no artigo, você vai precisar adicionar algum código a esta classe 
 A fim de usar o cache de resultado precisamos configurar um controlador de cache a ser usado para as
 consultas. Isto pode ser feito configurando o atributo `ATTR_RESULT_CACHE`.
 Iremos usar o controlador de cache APC, pois é a melhor escolha para ambiente de produção. Se você
-não tiver APC disponível, você pode usar o controlador `Doctrine_Cache_Db` ou 
+não tiver APC disponível, você pode usar o controlador `Doctrine_Cache_Db` ou
 `Doctrine_Cache_Array` para fins de teste.
 
 Podemos definir este atributo na nossa classe `ProjectConfiguration`. Defina um método `configureDoctrine()`:
@@ -567,7 +567,7 @@ Agora podemos começar a usar a API para excluir nossas entradas do cache:
     $cacheDriver->delete('users_index');
 
 Você provavelmente terá mais do que uma consulta prefixada com `users_` e poderia fazer
-sentido excluir o cache de resultado para todos eles. Neste caso, o método 
+sentido excluir o cache de resultado para todos eles. Neste caso, o método
 `delete()`, por si só não vai funcionar. Para isso temos um método chamado
 `deleteByPrefix()` que nos permite apagar qualquer entrada de cache que contiver o
 prefixo passado. Aqui está um exemplo:

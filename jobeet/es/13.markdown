@@ -88,7 +88,7 @@ Cuando un usuario accede a una página de puestos de trabajo, el objeto job most
 >**NOTE**
 >Podríamos haber almacenado los objetos `JobeetJob` directamente en la sesión.
 >Esto está totalmente desaconsejada ya que las variables de sesión son serializadas (almacenadas)
->entre las peticiones. Y cuando la sesión se ha cargado, los objetos `JobeetJob` 
+>entre las peticiones. Y cuando la sesión se ha cargado, los objetos `JobeetJob`
 >son de-serializados y pueden quedar "estancos" aun si han sido modificados o
 >borrados en el ínterin.
 
@@ -107,9 +107,9 @@ El método `getAttribute()` también tiene un valor predeterminado opcional a de
 >       $value = array();
 >     }
 
-### La Clase `myUser` 
+### La Clase `myUser`
 
-Lo mejor respeto a la separación de las capas, es mover el código a la clase `myUser`. La clase `myUser` sobreescribe la clase por defecto base symfony 
+Lo mejor respeto a la separación de las capas, es mover el código a la clase `myUser`. La clase `myUser` sobreescribe la clase por defecto base symfony
 [`sfUser`](http://www.symfony-project.org/api/1_4/sfUser) con comportamientos específicos de la aplicación:
 
     [php]
@@ -194,7 +194,7 @@ El layout usa un nuevo método `getJobHistory()` para obtener el historial job:
             ->execute()
           ;
         }
-        
+
         return array();
       }
 </doctrine>
@@ -231,7 +231,7 @@ Los atributos del usuario son gestionados por un objeto de la clase `sfParameter
 >La clase [`sfParameterHolder`](http://www.symfony-project.org/api/1_4/sfParameterHolder)
 >es también utilizada por `sfRequest` para almacenar sus parámetros.
 
-Seguridad de la Aplicación 
+Seguridad de la Aplicación
 --------------------------
 
 ### Autenticación
@@ -270,7 +270,7 @@ Cuando un usuario no-autenticado intenta acceder a una acción segura, Symfony r
 >**TIP**
 >Como vimos durante el día 4, el mismo archivo de configuración se pueden definir en varios
 >lugares. Este es también el caso de `security.yml`. Para sólo asegurar o desproteger
->una única acción o un módulo, crea un `security.yml` en the directorio 
+>una única acción o un módulo, crea un `security.yml` en the directorio
 >`config/` del módulo:
 >
 >     [yml]
@@ -322,7 +322,7 @@ El sistema de credenciales de Symfony es bastante simple y poderoso. Una credenc
 >     index:
 >       credentials: [[A, B]]
 >
->Incluso puedes mezclar y combinar entre paréntesis para describir cualquier tipo de 
+>Incluso puedes mezclar y combinar entre paréntesis para describir cualquier tipo de
 >Expresión booleana con cualquier número de credenciales.
 
 Para gestionar las credenciales de usuario, `sfBasicSecurityUser` da varios métodos:
@@ -355,7 +355,7 @@ Plugins
 -------
 Como no nos gusta reinventar la rueda, no vamos a desarrollar la acción de acceso a partir de cero. En lugar de ello, se instalará un **plugin symfony**.
 
-Uno de los grandes puntos fuertes del framework Symfony son los 
+Uno de los grandes puntos fuertes del framework Symfony son los
 [plugins](http://www.symfony-project.org/plugins/). Como veremos en los próximos días, es muy fácil crear un plugin. También es bastante potente, ya que un plugin puede contener cualquier cosa, desde la configuración de los módulos hasta los recursos web.
 
 <propel>
@@ -367,7 +367,7 @@ secure the backend application:
 </propel>
 <doctrine>
 Hoy, vamos a instalar
-[`sfDoctrineGuardPlugin`](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin) para garantizar el acceso al backend 
+[`sfDoctrineGuardPlugin`](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin) para garantizar el acceso al backend
 
     $ php symfony plugin:install sfDoctrineGuardPlugin
 </doctrine>
@@ -394,7 +394,7 @@ lista todas las versiones disponibles agrupados por la versión de Symfony.
 
 Como un plugin es auto-contenido en un directorio, también puedes
 [descargar el paquete](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin?tab=plugin_installation)
-desde el sitio web de Symfony y descomprimirlo, o alternativamente, haces un enlace `svn:externals` a su 
+desde el sitio web de Symfony y descomprimirlo, o alternativamente, haces un enlace `svn:externals` a su
 [Subversion repository](http://svn.symfony-project.com/plugins/sfDoctrineGuardPlugin).
 
 </doctrine>
@@ -402,7 +402,7 @@ desde el sitio web de Symfony y descomprimirlo, o alternativamente, haces un enl
 Seguridad del Backend
 ---------------------
 
-Cada plugin tiene un archivo 
+Cada plugin tiene un archivo
 <propel>
 [README](http://www.symfony-project.org/plugins/sfGuardPlugin?tab=plugin_readme)
 </propel>
@@ -423,7 +423,7 @@ Vamos a ver cómo configurar el nuevo plugin. Como el plugin ofrece varias nueva
 >**TIP**
 >Recuerde que la tarea `propel:build --all --and-load` elimina todas las tablas existentes
 >antes de volver a crearlas. Para evitar esto, puedes construir los modelos, formularios y
->filtros y, a continuación, crear las nuevas tablas ejecutando el 
+>filtros y, a continuación, crear las nuevas tablas ejecutando el
 >SQL generado y almacenado en `data/sql/`.
 
 <propel>
@@ -473,7 +473,7 @@ El último paso es crear un usuario administrador:
 
 >**TIP**
 >El `sfGuardPlugin` proporciona funciones para la gestión de usuarios, grupos y permisos
->desde la línea de comandos. Utiliza la tarea `list` para listar todas las tareas pertenecientes al 
+>desde la línea de comandos. Utiliza la tarea `list` para listar todas las tareas pertenecientes al
 >espacio de nombres `guard`:
 >
 >     $ php symfony list guard
@@ -522,7 +522,7 @@ Probando al Usuario
 -------------------
 
 El tutorial de hoy no termina ya que no hemos aún hablado de las pruebas al usuario.
-Como el symfony browser simula las cookies, es bastante fácil de probar el comportamiento del usuario mediante el uso del tester 
+Como el symfony browser simula las cookies, es bastante fácil de probar el comportamiento del usuario mediante el uso del tester
 [`sfTesterUser`](http://symfony-project.org/api/1_4/sfTesterUser).
 
 Vamos a actualizar la pruebas funcionales para el menú que hemos añadido hoy.
@@ -569,7 +569,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

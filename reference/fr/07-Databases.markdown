@@ -41,7 +41,7 @@ défini et sera automatiquement inclus avant que le factory soit créé :
 
 >**NOTE**
 >Le fichier de configuration `databases.yml` est mis en cache dans un fichier PHP, le
->processus est automatiquement géré par [la classe](#chapter_14_config_handlers_yml) 
+>processus est automatiquement géré par [la classe](#chapter_14_config_handlers_yml)
 >~`sfDatabaseConfigHandler`~.
 
 -
@@ -82,7 +82,7 @@ Propel
           classname:  PropelPDO
           dsn:        mysql:dbname=##PROJECT_NAME##;host=localhost
           username:   root
-          password:   
+          password:
           encoding:   utf8
           persistent: true
           pooling:    true
@@ -137,7 +137,7 @@ Doctrine
         param:
           dsn:        mysql:dbname=##PROJECT_NAME##;host=localhost
           username:   root
-          password:   
+          password:
           attributes:
             quote_identifier: false
             use_native_enum: false

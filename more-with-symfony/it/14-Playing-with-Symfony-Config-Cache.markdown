@@ -9,7 +9,7 @@ Anche se io posso conoscere sia dentro che fuori la base del nostro codice,
 questa non è una aspettativa ragionevole per tutto il team. Fortunatamente
 symfony fornisce meccanismi per isolare e centralizzare le funzionalità
 all'interno di un progetto, rendendo facile per gli altri fare delle modifiche
-con il minimo della fatica.  
+con il minimo della fatica.
 
 Le stringhe nei form
 --------------------
@@ -58,7 +58,7 @@ Il form è quindi visualizzato in un template PHP tipo questo:
 
 Chi sviluppa il template ha un po 'di controllo su come questo form viene
 visualizzato. Può cambiare le etichette predefinite in modo che siano un po'
-più amichevoli: 
+più amichevoli:
 
     <?php echo $form['body']->renderLabel('Please enter your comment') ?>
 
@@ -312,7 +312,7 @@ di `include`, che espone questa lettura al bonus della cache nell'op-code.
 >      * Restituisce il percorso del file in cache
 >
 >Questo metodo funziona in modo diverso quando la modalità debug è su on. Essendo
->che i file di configurazione sono modificati durante lo sviluppo, `->checkConfig()` 
+>che i file di configurazione sono modificati durante lo sviluppo, `->checkConfig()`
 >verifica quando sono stati modificati i file originali e quelli della cache,
 >per essere sicuri di utilizzare l'ultima versione. Questo aggiunge alcuni passi
 >in più all'interno del metodo, rispetto a quando la modalità debug è su off:

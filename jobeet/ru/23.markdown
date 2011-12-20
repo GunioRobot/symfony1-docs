@@ -104,7 +104,7 @@ Symfony поддерживает различные [форматы](#chapter_14
 В Symfony, достаточно просто иметь различные конфигурационные настройки
 для различных окружений приложения. [Окружение](#chapter_01_the_environments) - это набор
 настроек, которые устанавливают различные "поведения" на промышленном сервере или на
-сервере для разработки. 
+сервере для разработки.
 Вы также можете [создать новое окружение](#chapter_21_creating_a_new_environment).
 
 Конфигурационные файлы могут быть определены на
@@ -126,7 +126,7 @@ Symfony поддерживает различные [форматы](#chapter_14
 
 Instead of using the default directory structure and organize your application
 files by layers, you can also organize them by feature, and bundle them in
-[a plugin](#chapter_20_sub_a_different_way_to_organize_code_code_organization). Speaking 
+[a plugin](#chapter_20_sub_a_different_way_to_organize_code_code_organization). Speaking
 of the default directory structure, you can also
 [customize it](#chapter_22_customizing_the_directory_structure)
 according to your needs.
@@ -223,12 +223,12 @@ Symfony предоставляет [подфреймворк форм](#chapter_
 **Функциональные тесты** пишутся с использованием класса
 [`sfFunctionalTest`](#chapter_09_the_sftestfunctional_class), который использует
 [эмулятор браузера](#chapter_09_the_sfbrowser_class) и позволяет выполнять
-интроспекцию основных объектов Symfony при помощи 
+интроспекцию основных объектов Symfony при помощи
 [тестеров](#chapter_09_the_sftestfunctional_class). Существуют тестеры для
-[запроса](#chapter_09_sub_the_request_tester), 
-[ответа](#chapter_09_sub_the_response_tester), 
-[пользователя](#chapter_13_user_testing), 
-[текущей формы](#chapter_11_the_form_tester), 
+[запроса](#chapter_09_sub_the_request_tester),
+[ответа](#chapter_09_sub_the_response_tester),
+[пользователя](#chapter_13_user_testing),
+[текущей формы](#chapter_11_the_form_tester),
 [слоя кэша](#chapter_21_testing_the_cache_testing_cache) и
 <propel>
 [Propel объектов](#chapter_11_the_propel_tester).
@@ -307,15 +307,15 @@ Symfony предоставляет только фундамент для Ваш
 
 Symfony также, как и любое программное обеспечение, имеет кривую обучения. В
 процессе обучения первый шаг - изучение на практических примерах при помощи
-такой книги, как эта. Второй шаг - это **практика**. Ничто и никогда не заменит 
+такой книги, как эта. Второй шаг - это **практика**. Ничто и никогда не заменит
 практику.
 
 Именно этим Вы можете сегодня заняться. Подумайте о простейшем веб-проекте,
 предоставляющем одну из следующих возможностей: список задач для выполнения, простой блог, конвертер
 времени или валют и т.д... Выберите одну и начните реализовывать, используя те знания, которые
-Вы имеете сегодня. Используйте подсказки задач командной строки, чтобы изучить разные их параметры, 
-изучайте код, сгенерированный Symfony, используйте текстовый редактор, который имеет возможность 
-автодополнения для PHP, например [Eclipse](http://www.eclipse.org/), обращайтесь к 
+Вы имеете сегодня. Используйте подсказки задач командной строки, чтобы изучить разные их параметры,
+изучайте код, сгенерированный Symfony, используйте текстовый редактор, который имеет возможность
+автодополнения для PHP, например [Eclipse](http://www.eclipse.org/), обращайтесь к
 [справочному руководству](http://www.symfony-project.org/reference/1_4/), чтобы изучить
 конфигурационные возможности фреймворка.
 

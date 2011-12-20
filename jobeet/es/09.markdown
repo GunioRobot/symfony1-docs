@@ -11,7 +11,7 @@ Las Pruebas Funcionales
 Las Pruebas Funcionales son una gran herramienta para probar tus aplicaciones de principio a fin:
 desde la petición hecha en el navegador hasta la respuesta que envía el servidor. Ellas prueban todas las capas de una aplicación: El enrutamiento, el modelo, las acciones, y las plantillas. Ellas son muy similares a lo que probablemente ya haces manualmente: cada vez que vamos a añadir o modificar una acción, es necesario ir al navegador y comprobar que todo funciona como se esperaba, haciendo clic en los enlaces y controlando que los elementos se muestran en la página. En otras palabras, corres un escenario correspondiente al caso de uso que  acabas de implementar.
 
-Como el proceso es manual, es tedioso y propenso a errores. Cada vez que cambias algo en el código, debes pasar a través de todos los escenarios para asegurarte de que no rompiste algo. Eso es una locura. 
+Como el proceso es manual, es tedioso y propenso a errores. Cada vez que cambias algo en el código, debes pasar a través de todos los escenarios para asegurarte de que no rompiste algo. Eso es una locura.
 Las Pruebas Funcionales en Symfony proporcionar un método sencillo para describir escenarios. Cada escenario puede ser ejecutado automáticamente una y otra vez simulando la experiencia de lo que un usuario ha hecho en su navegador. Al igual que pruebas unitarias, ellas te dan la confianza para que el código quede en paz.
 
 >**NOTE**
@@ -20,7 +20,7 @@ Las Pruebas Funcionales en Symfony proporcionar un método sencillo para describ
 >navegador para automatizar las pruebas a través de muchas plataformas y navegadores y, así,
 >habilitar la prueba del JavaScript de tu aplicación.
 
-La Clase `sfBrowser` 
+La Clase `sfBrowser`
 ---------------------
 
 En Symfony, las pruebas funcionales se ejecutan a través de un navegador especial, ejecutadas por la clase [`sfBrowser`](http://www.symfony-project.org/api/1_4/sfBrowser). Esta actúa como un navegador adaptado para tu aplicación y directamente conectada a ella,
@@ -65,7 +65,7 @@ He aquí algunos ejemplos de uso de los métodos de `sfBrowser` :
  | `clearCookie()`    | Borra todas las cookies
  | `followRedirect()` | Sigue un redireccionamiento
 
-La Clase `sfTestFunctional` 
+La Clase `sfTestFunctional`
 ---------------------------
 
 Tenemos un navegador, pero necesitamos una forma de inspeccionar los objetos Symfony para hacer la prueba real. Se puede hacer con lime y algunos métodos de `sfBrowser` como `getResponse()` y `getRequest()` pero Symfony proporciona una mejor manera.
@@ -74,7 +74,7 @@ Los métodos de pruebas son proporcionados por otra clase,
 [`sfTestFunctional`](http://www.symfony-project.org/api/1_2/sfTestFunctional)
 que toma una instancia de `sfBrowser` en su constructor. La clase `sfTestFunctional` delega las pruebas a objetos **tester**. Varios testers son empaquetados con Symfony, y también puedes crear el tuyo propio.
 
-Como vimos ayer, las pruebas funcionales se guardan en el directorio 
+Como vimos ayer, las pruebas funcionales se guardan en el directorio
 `test/functional/`. Para Jobeet, la pruebas se encuentran en el subdirectorio `test/functional/frontend/` ya que cada aplicación tiene su propio subdirectorio. Este directorio ya contiene dos archivos:
 `categoryActionsTest.php`, y `jobActionsTest.php` como todas las tareas que generan un módulo crean automáticamente un archivo base de prueba funcional:
 
@@ -156,7 +156,7 @@ También hay una clase **response tester** que proporciona métodos tester contr
  | `debug()`          | Prints the response output to ease debug
  | `matches()`        | Tests a response against a regexp
  | `isHeader()`       | Verifica el valor de una cabecera
- | `isStatusCode()`   | Verifica el código de estado de la respuesta 
+ | `isStatusCode()`   | Verifica el código de estado de la respuesta
  | `isRedirected()`   | Verifica si la respuesta actual es un redireccionamiento
 
 >**NOTE**
@@ -368,7 +368,7 @@ Puedes ahora reemplazar el código de la prueba anterior con el siguiente:
       end()
     ;
 
-### Cada puesto de trabajo en la página principal es cliqueable 
+### Cada puesto de trabajo en la página principal es cliqueable
 
     [php]
     $job = $browser->getMostRecentProgrammingJob();
@@ -577,7 +577,7 @@ A veces una prueba funcional falla. Como Symfony simula un navegador sin ningún
 
 El método `debug()` se puede insertar en cualquier lugar de un bloque tester `response` y detener el script de ejecución.
 
-Grupo de Pruebas Funcionales 
+Grupo de Pruebas Funcionales
 ----------------------------
 
 La tarea `test:functional` también se puede utilizar para poner en marcha todas las pruebas funcionales para una aplicación:
@@ -610,7 +610,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

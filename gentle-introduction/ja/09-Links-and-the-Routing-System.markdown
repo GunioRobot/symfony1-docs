@@ -120,7 +120,7 @@ symfony のアプリケーションに送信されるすべてのリクエスト
     [php]
     // url_for() ヘルパーは内部 URI を外部 URL に変換する
     <a href="<?php echo url_for('article/permalink?subject=finance&year=2010&title=activity-breakdown') ?>">ここをクリック</a>
-    
+
     // ヘルパーは URI が article_by_title ルールにマッチすることを見る
     // ルーティングシステムはそれから外部 URL を作成する
      => <a href="http://www.example.com/articles/finance/2010/activity-breakdown.html">ここをクリック</a>

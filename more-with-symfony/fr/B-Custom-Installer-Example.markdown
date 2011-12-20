@@ -1,7 +1,7 @@
 Annexe A - Exemple de Script d'Installation Personnalisé
 ========================================================
 
-Le code PHP ci-dessous est un script d'installation personnalisé utilisé dans le 
+Le code PHP ci-dessous est un script d'installation personnalisé utilisé dans le
 [Chapitre 06](#chapter_06) :
 
     [php]

@@ -81,7 +81,7 @@ Deprecations
 ------------
 
 During the symfony 1.3 development, we have deprecated and removed some
-settings, classes, methods, functions, and tasks. Please refer to 
+settings, classes, methods, functions, and tasks. Please refer to
 [Deprecations in 1.3](http://www.symfony-project.org/tutorial/1_3/en/deprecated)
 for more information.
 
@@ -229,20 +229,20 @@ Doctrine Integration
 
 ### Required Doctrine Version
 
-The externals to Doctrine have been updated to use the latest and greatest 
-Doctrine 1.2 version. You can read about what is new in Doctrine 1.2 
+The externals to Doctrine have been updated to use the latest and greatest
+Doctrine 1.2 version. You can read about what is new in Doctrine 1.2
 [here](http://www.doctrine-project.org/upgrade/1_2).
 
 ### Admin Generator Delete
 
 The admin generator batch delete was changed to fetch the records and issue the
 `delete()` method to each one individually instead of issuing a single DQL query
-to delete them all. The reason is so that events for deleting each individual 
+to delete them all. The reason is so that events for deleting each individual
 record are invoked.
 
 ### Override Doctrine Plugin Schema
 
-You can override the model included in a plugins YAML schema simply by defining 
+You can override the model included in a plugins YAML schema simply by defining
 that same model in your local schema. For example, to add an "email" column
 to sfDoctrineGuardPlugin's `sfGuardUser` model, add the following to
 `config/doctrine/schema.yml`:

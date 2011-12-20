@@ -136,7 +136,7 @@ La tâche `help` affiche l'aide pour une tâche :
     $ php symfony help [--xml] [task_name]
 
 
-	
+
 | Argument | Par défaut | Description
 | -------- | ---------- | -----------
 | `task_name` | `help` | Le nom de la tâche
@@ -215,7 +215,7 @@ La tâche `app:routes` affiche les routes actuelles pour l'application donnée :
 
 La tâche `cache::clear` vide le cache :
 
-    $ php symfony cache:clear [--app[="..."]] [--env[="..."]] [--type[="..."]] 
+    $ php symfony cache:clear [--app[="..."]] [--env[="..."]] [--type[="..."]]
 
 *Alias(es)*: `cc`
 
@@ -436,7 +436,7 @@ Vous pouvez spécifier les bases de données à créer en précisant leurs noms 
 La tâche `doctrine::build-filters` crée les classes de formulaire de filtre du modèle actuel :
 
     $ php symfony doctrine:build-filters [--application[="..."]] [--env="..."] [--model-dir-name="..."] [--filter-dir-name="..."] [--generator-class="..."]
-	
+
 
 
 
@@ -496,7 +496,7 @@ La tâche `doctrine::build-model` crée les classes du modèle actuel :
     $ php symfony doctrine:build-model [--application[="..."]] [--env="..."]
 
 
-	
+
 
 
 | Option (raccourci) | Par défaut | Description
@@ -524,7 +524,7 @@ La tâche `doctrine::build-schema` crée un schéma à partir d'une base de donn
     $ php symfony doctrine:build-schema [--application[="..."]] [--env="..."]
 
 
-	
+
 
 
 | Option (raccourci) | Par défaut | Description
@@ -546,7 +546,7 @@ La tâche `doctrine::build-sql` crée un SQL pour le modèle actuel :
     $ php symfony doctrine:build-sql [--application[="..."]] [--env="..."]
 
 
-	
+
 
 
 | Option (raccourci) | Par défaut | Description
@@ -734,12 +734,12 @@ Fournir des paramètres de query comme arguments supplémentaires :
 
 La tâche `doctrine::drop-db` supprime la base de données du modèle actuel :
 
-    $ php symfony doctrine:drop-db [--application[="..."]] [--env="..."] [--no-confirmation] 
+    $ php symfony doctrine:drop-db [--application[="..."]] [--env="..."] [--no-confirmation]
 
 
 
-| Argument | Par défaut | Description 
-| -------- | ---------- | ----------- 
+| Argument | Par défaut | Description
+| -------- | ---------- | -----------
 | `database` | `-` | La base de données spécifique
 
 
@@ -846,7 +846,7 @@ l'éditeur de votre choix lors de la création :
 
 La tâche `doctrine::generate-migrations-db` génère des classes de migration à partir des connexions de bases de données existantes :
 
-    $ php symfony doctrine:generate-migrations-db [--application[="..."]] [--env="..."] 
+    $ php symfony doctrine:generate-migrations-db [--application[="..."]] [--env="..."]
 
 
 
@@ -1460,7 +1460,7 @@ Sur Windows, la tâche copie tous les fichiers sur le répertoire `web/%name%`.
 
 La tâche `plugin::list` liste les plugins installés :
 
-    $ php symfony plugin:list  
+    $ php symfony plugin:list
 
 
 
@@ -1583,7 +1583,7 @@ Voir `plugin:install` pour plus d'informations sur le format du nom du plugin et
 
 La tâche `project::clear-controllers` efface tous les contrôleurs qui ne sont pas de l'environnement de production :
 
-    $ php symfony project:clear-controllers  
+    $ php symfony project:clear-controllers
 
 
 
@@ -1789,11 +1789,11 @@ La tâche `project:send-emails` envoie des emails stockés dans une file d'atten
 
     php symfony project:send-emails
 
-Vous pouvez limiter le nombre de messages à envoyer : 
+Vous pouvez limiter le nombre de messages à envoyer :
 
-    php symfony project:send-emails --message-limit=10 
+    php symfony project:send-emails --message-limit=10
 
-Ou la limite de temps (en secondes) : 
+Ou la limite de temps (en secondes) :
 
     php symfony project:send-emails --time-limit=10
 

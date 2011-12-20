@@ -5,7 +5,7 @@ Introduction
 
 A l'heure où ces lignes sont écrites, le projet symfony a célébré une étape significative : son [quatrième anniversaire](http://trac.symfony-project.org/changeset/1). En seulement quatre ans, le framework symfony a grandi pour devenir l'un des frameworks PHP les plus populaires dans le monde et sur lequel s'appuient des sites à fort trafic comme [Delicious](http://sf-to.org/delicious),
 [Yahoo Bookmarks](http://sf-to.org/bookmarks)
-et 
+et
 [Daily Motion](http://sf-to.org/dailymotion). Néanmoins, c'est la sortie récente de symfony 1.4 en novembre 2009 qui marque la fin d'un cycle. Cet ouvrage est le meilleur moyen de terminer ce cycle, et de ce fait, vous vous apprêtez à lire le tout dernier livre officiel de la branche 1.x de symfony, publié par l'équipe du projet symfony. Le prochain livre à paraître se focalisera quant à lui autour de Symfony 2.0, et sera dévoilé à la fin de l'année 2010.
 
 Pour cette raison, et bien d'autres que j'expliquerai dans cette introduction, ce livre est un peu spécial pour nous tous.
@@ -13,7 +13,7 @@ Pour cette raison, et bien d'autres que j'expliquerai dans cette introduction, c
 Pourquoi avoir écrit un nouvel ouvrage ?
 ----------------------------------------
 
-Nous avons récemment publié deux autres livres sur symfony 1.3 et 1.4:  "[Practical symfony](http://books.sensiolabs.com/book/9782918390169)" et 
+Nous avons récemment publié deux autres livres sur symfony 1.3 et 1.4:  "[Practical symfony](http://books.sensiolabs.com/book/9782918390169)" et
 "[The symfony reference guide](http://books.sensiolabs.com/book/9782918390145)". Le livre pratique est un excellent moyen de démarrer l'apprentissage de symfony dans la mesure où vous apprenez toutes les bases du framework à travers le développement d'un projet réel, étape par étape. Le dernier est un guide de référence qui agrège la plupart des informations de configuration dont vous pourriez avoir besoin au quotidien pour vos développements.
 
 "Plus loin avec symfony" est un ouvrage à propos de sujets plus avancés de symfony. Cet ouvrage n'est pas le tout premier que vous devriez lire à propos de symfony, mais il s'avèrera être une aide ultime pour tous ceux qui ont déjà fait leurs preuves sur plusieurs petits projets réalisés avec le framework. Si vous avez déjà voulu savoir comment symfony fonctionne à l'intérieur, ou bien si vous souhaitez étendre le framework de diverses manières en vue de le faire fonctionner pour des besoins spécifiques, alors ce livre est fait pour vous. Dans ce cas précis, "More with symfony" est tout ce dont il faut savoir pour faire évoluer vos compétences symfony au niveau supérieur.
@@ -59,7 +59,7 @@ Les versions 1.3 et 1.4 de symfony ont toutes les deux été publiées à peu pr
 
 Symfony 1.3 est la distribution que vous souhaiterez utiliser si vous avez besoin de migrer un projet ancien qui repose sur une version antérieure de symfony (1.0, 1.1 ou 1.2). Cette version intègre une couche de compatibilité rétrograde et toutes les fonctionnalités qui ont été rendues obsolètes pendant le cycle de développement de la branche 1.3 restent disponibles. Par conséquent, cela signifie aussi que mettre à jour un projet est facile, simple et sûr.
 
-En revanche, si vous démarrez un nouveau projet aujourd'hui, vous devriez utiliser directement symfony 1.4. Cette version a exactement le même jeu de fonctionnalités que symfony 1.3 à la différence que les fonctionnalités obsolètes, y compris la couche entière de compatibilité rétrograde, ont été supprimées. 
+En revanche, si vous démarrez un nouveau projet aujourd'hui, vous devriez utiliser directement symfony 1.4. Cette version a exactement le même jeu de fonctionnalités que symfony 1.3 à la différence que les fonctionnalités obsolètes, y compris la couche entière de compatibilité rétrograde, ont été supprimées.
 
 Cette version est donc plus saine et aussi légèrement plus rapide que symfony 1.3. Un autre avantage non négligeable d'utiliser symfony 1.4 est son support à plus long terme. En devenant une version supportée à long terme (LTS - Long Time Support), symfony 1.4 sera maintenue par l'équipe de développement pendant trois ans, jusqu'en novembre 2012.
 

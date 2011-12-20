@@ -7,12 +7,12 @@ O symfony 1.1 introduziu um sistema de linha de comando moderno, poderoso e flex
 em substituição ao antigo sistema de tarefas baseado no pake. De versão em versão,
 o sistema de tarefas foi melhorado para tornar-se o que é hoje.
 
-Muitos desenvolvedores web não consideram as tarefas importantes, por desconhecerem as 
+Muitos desenvolvedores web não consideram as tarefas importantes, por desconhecerem as
 suas possibilidades. Neste capítulo, vamos
 mergulhar nas tarefas, desde o início até o seu uso mais avançado, vendo como elas
 podem ajudar no seu trabalho diário, e como você pode obter o melhor delas.
 
-Breve olhar nas Tarefas 
+Breve olhar nas Tarefas
 -----------------
 
 Uma tarefa é um pedaço de código que é executado na linha de comando usando o script php `symfony`
@@ -23,7 +23,7 @@ um shell:
     $ php symfony cc
 
 O symfony fornece um conjunto de tarefas incorporadas, de propósito geral, para uma variedade de usos.
-Você pode obter uma lista das tarefas disponíveis executando o script `symfony` 
+Você pode obter uma lista das tarefas disponíveis executando o script `symfony`
 sem quaisquer argumentos ou opções:
 
     $ php symfony
@@ -83,10 +83,10 @@ Agora execute ela com o seguinte comando:
 
     $ php symfony dizer:ola
 
-Essa tarefa exibirá somente a saída *Olá, Mundo!*, mas isso é apenas o começo! As tarefas não 
+Essa tarefa exibirá somente a saída *Olá, Mundo!*, mas isso é apenas o começo! As tarefas não
 são realmente para a saída de conteúdo diretamente através das declarações `echo` ou `print`
-. Ao estender a classe `sfBaseTask` temos à nossa disposição vários métodos úteis, 
-incluindo o método `log()`, que serve exatamente para o que nós queremos fazer, a saída 
+. Ao estender a classe `sfBaseTask` temos à nossa disposição vários métodos úteis,
+incluindo o método `log()`, que serve exatamente para o que nós queremos fazer, a saída
 de conteúdo:
 
     [php]
@@ -169,12 +169,12 @@ argumentos.
 ### Opções
 
 As opções são aquelas que você passa usando hífens. É possível adicioná-las à sua
-linha de comando em qualquer ordem. Elas podem ter um valor ou não, 
+linha de comando em qualquer ordem. Elas podem ter um valor ou não,
 nesse caso, atuam como um booleano. Na maioria das vezes, as opções tem tanto
 uma forma longa quanto uma abreviada. A forma longa é geralmente chamada usando dois hífens enquanto
 a forma abreviada requer apenas um hífen.
 
-Exemplos das opções mais comuns são a opção de ajuda (`--help` ou `-h`), a 
+Exemplos das opções mais comuns são a opção de ajuda (`--help` ou `-h`), a
 verbosidade (`--quiet` ou `-q`) ou a opção de versão (`--version` ou
 `-V`).
 
@@ -210,7 +210,7 @@ O sistema de tarefas do symfony compreende duas opções muito especiais, `appli
 `env`.
 
 A opção `application` é necessária quando se pretende o acesso à uma
-instância do `sfApplicationConfiguration` em vez de apenas a instância do 
+instância do `sfApplicationConfiguration` em vez de apenas a instância do
 `sfProjectConfiguration`. Este é o caso, por exemplo, quando você deseja gerar URLs, uma vez que
 o roteamento é geralmente associado a uma aplicação específica.
 
@@ -238,7 +238,7 @@ tem que adicioná-las manualmente na sua tarefa:
     }
 
 Neste exemplo, a aplicação `frontend` será automaticamente usada, e,
-a não ser que um ambiente diferente seja especificado, a tarefa será executada no ambiente 
+a não ser que um ambiente diferente seja especificado, a tarefa será executada no ambiente
 `dev`.
 
 Acessando o banco de dados
@@ -279,7 +279,7 @@ poderia, por exemplo, adicionar uma opção `connection` para a sua tarefa:
 
 Como de costume, você pode definir um valor padrão para esta opção.
 
-Voilà! Agora você pode manipular os seus modelos como se estivesse em sua aplicação 
+Voilà! Agora você pode manipular os seus modelos como se estivesse em sua aplicação
 symfony.
 
 >**NOTE**
@@ -343,7 +343,7 @@ e-mail que você está enviando:
 
 O Swift Mailer possui um plugin conhecido como
 [`Decorator`](http://swiftmailer.org/docs/decorator-plugin) que é basicamente um
-mecanismo de template muito simples, mas eficaz, que pega valores de pares para substituição em destinatário específicos 
+mecanismo de template muito simples, mas eficaz, que pega valores de pares para substituição em destinatário específicos
 e aplica-os em todos os e-mails enviados.
 
 Veja a [documentação do Swift Mailer](http://swiftmailer.org/docs/) para mais informações.
@@ -351,9 +351,9 @@ Veja a [documentação do Swift Mailer](http://swiftmailer.org/docs/) para mais 
 ### Usar uma biblioteca de template externa
 
 A integração com uma biblioteca de template externa é fácil. Por exemplo, você poderia
-usar o novo componente de template lançado como parte do projeto de componentes 
+usar o novo componente de template lançado como parte do projeto de componentes
 do symfony. Basta soltar o código do componente em algum lugar no seu projeto
-(`lib/vendor/templating/` seria um bom lugar), e colocar o seguinte 
+(`lib/vendor/templating/` seria um bom lugar), e colocar o seguinte
 código na sua tarefa:
 
     [php]
@@ -439,14 +439,14 @@ seguinte código:
 
     (specific_data)
 
-E isso é tudo! Você dispõe agora de um sistema de template completo para construir o 
+E isso é tudo! Você dispõe agora de um sistema de template completo para construir o
 conteúdo de seus e-mails.
 
 Gerando URLs
 ---------------
 
-Escrever e-mails geralmente requer a geração de URLs com base na sua configuração de 
-roteamento. Felizmente, a geração de URLs foi simplificada no 
+Escrever e-mails geralmente requer a geração de URLs com base na sua configuração de
+roteamento. Felizmente, a geração de URLs foi simplificada no
 symfony 1.3, pois, você poderá acessar diretamente o roteamento da aplicação
 atual dentro de uma tarefa usando o método `sfCommandApplicationTask::getRouting()`
 :
@@ -542,7 +542,7 @@ Com certeza, não é muito conveniente ter que passar sempre a cultura, especial
 não precisa alterar a cultura frequentemente em sua tarefa. Veremos como
 melhorar isso na próxima seção.
 
-Refatoração das suas tarefas 
+Refatoração das suas tarefas
 ----------------------
 
 Uma vez que, o envio de e-mails (e criação de conteúdo para eles) e a geração de URLs são
@@ -593,7 +593,7 @@ métodos na classe `sfBaseEmailTask`:
 
 Usamos o método `configure()` para adicionar opções comuns à todas as tarefas estendidas.
 Infelizmente, qualquer classe que estender o `sfBaseEmailTask` terá agora que chamar
-`parent::configure` em seu próprio método `configure()`, mas, este é apenas um pequeno inconveniente 
+`parent::configure` em seu próprio método `configure()`, mas, este é apenas um pequeno inconveniente
 em relação ao valor acrescentado.
 
 Agora vamos refatorar o código de acesso I18N da seção anterior:
@@ -690,7 +690,7 @@ Manipulando o sistema de arquivos
 ---------------------------
 
 Symfony inclui uma abstração simples incorporada do sistema de arquivos (`sfFilesystem`)
-que permite a execução de operações simples em arquivos e diretórios. É 
+que permite a execução de operações simples em arquivos e diretórios. É
 acessível dentro de uma tarefa com `$this->getFilesystem()`. Essa abstração
 inclui os seguintes métodos:
 
@@ -712,8 +712,8 @@ Usando Esqueletos para gerar Arquivos
 ---------------------------------
 
 Outro uso comum para as tarefas é a geração de arquivos. A geração de arquivos pode ser feita
-facilmente usando esqueletos e o método `sfFilesystem::replaceTokens()` acima 
-mencionado. Como o próprio nome sugere, este método substitui os tokens 
+facilmente usando esqueletos e o método `sfFilesystem::replaceTokens()` acima
+mencionado. Como o próprio nome sugere, este método substitui os tokens
 dentro de um conjunto de arquivos. Ou seja, você passa um array de arquivos, uma lista de
 tokens e ele substitui todas as ocorrências de cada token com o seu
 valor atribuído, para cada arquivo no array.
@@ -813,17 +813,17 @@ Aqui está um exemplo simples do uso da opção `dry-run`:
 Escrevendo testes de unidade
 ------------------
 
-Sendo que, as tarefas podem ser utilizadas para uma variedade de finalidades, realizar testes unitários não é algo 
+Sendo que, as tarefas podem ser utilizadas para uma variedade de finalidades, realizar testes unitários não é algo
 fácil. Como tal, não há uma maneira de testar as tarefas, mas existem alguns
 princípios a seguir que podem nos ajudar a tornar as tarefas mais testáveis.
 
 Primeiro, pense em sua tarefa como um controlador. Lembra da regra sobre controlador?
 *Controladores magros, modelos obesos*. Ou seja, mover toda a lógica de negócio para dentro
-dos seus modelos, dessa forma, você pode testar seus modelos em vez da tarefa, que é a 
+dos seus modelos, dessa forma, você pode testar seus modelos em vez da tarefa, que é a
 maneira mais fácil.
 
 Quando não conseguir adicionar mais lógica em seus modelos, divida o seu método `execute()`
-em pedaços de código facilmente testáveis, cada um residente em seu próprio e facilmente 
+em pedaços de código facilmente testáveis, cada um residente em seu próprio e facilmente
 acessível (leia-se: public) método. Dividir seu código em pedaços tem várias vantagens:
 
   1. torna o `execute` da sua tarefa mais legível
@@ -834,7 +834,7 @@ Seja criativo, não hesite em construir um pequeno ambiente específico para as 
 necessidades de testes. E se você não encontrar nenhuma maneira de testar essa tarefa impressionante que
 você acabou de escrever, há duas possibilidades: ou você escreveu ela mal ou
 você deve pedir a opinião de alguém. Além disso, você pode sempre escavar no
-código de outra pessoa para ver como eles testam as coisas (as tarefas do symfony estão bem testadas, 
+código de outra pessoa para ver como eles testam as coisas (as tarefas do symfony estão bem testadas,
 por exemplo, mesmo os geradores).
 
 Métodos de Ajuda: Logging
@@ -846,7 +846,7 @@ um método de ajuda útil para operações comuns, como logging e interação do
 Pode-se facilmente fazer log de mensagens para o `STDOUT` usando a família de métodos `log`:
 
   * `log`, aceita um array de mensagens
-  * `logSection`, um pouco mais elaborado, formata a sua mensagem com um prefixo 
+  * `logSection`, um pouco mais elaborado, formata a sua mensagem com um prefixo
     (primeiro argumento) e um tipo de mensagem (quarto argumento). Quando você faz log de alguma coisa
     muito longa, como um caminho de arquivo, o `logSection` normalmente irá diminuir a sua mensagem,
     o que pode ser irritante. Use o terceiro argumento para especificar um tamanho máximo da sua
@@ -912,7 +912,7 @@ Você pode, e deve na verdade, passar argumentos e opções:
 
 >**NOTE**
 >Você deve trocar o caminho `/usr/bin/php` pela localização do seu binário do CLI do PHP.
->Se você não tem esta informação, você pode executar `which php` em sistemas linux 
+>Se você não tem esta informação, você pode executar `which php` em sistemas linux
 >ou `whereis php` na maioria dos outros sistemas UNIX.
 
 Rodada Bônus: Usando STDIN
@@ -923,14 +923,14 @@ de entrada padrão (STDIN). A linha de comando do UNIX permite que os aplicativo
 entre si por uma variedade de meios, um dos quais é o *pipe*,
 simbolizado pelo caractere *|*. O *pipe* permite que você passe a saída de uma aplicação
 (conhecido como *STDOUT*) para a entrada padrão de outra aplicação (conhecido como
-*STDIN*). Estas são disponibilizadas em suas tarefas através das constantes PHP especiais 
+*STDIN*). Estas são disponibilizadas em suas tarefas através das constantes PHP especiais
 `STDIN` e `STDOUT`. Há também um terceiro stream padrão, *STDERR*,
 acessivel através do `STDERR`, destinado a mostrar as mensagens de erro das aplicações.
 
 Então, o que podemos fazer exatamente com a entrada padrão? Bem, imagine que você tenha uma
-aplicação em execução no seu servidor que gostaria que se comunicasse com a sua 
-aplicação symfony. Você poderia, naturalmente, fazer ela se comunicar através de HTTP, mas 
-uma forma mais eficaz seria utilizar o *pipe* da sua saída para uma tarefa symfony. Digamos que a 
+aplicação em execução no seu servidor que gostaria que se comunicasse com a sua
+aplicação symfony. Você poderia, naturalmente, fazer ela se comunicar através de HTTP, mas
+uma forma mais eficaz seria utilizar o *pipe* da sua saída para uma tarefa symfony. Digamos que a
 aplicação possa enviar dados estruturados (por exemplo um array serializado PHP)
 descrevendo objetos de domínio que você deseja incluir em seu banco de dados. Você
 poderia escrever a seguinte tarefa:
@@ -957,6 +957,6 @@ Reflexões finais
 --------------
 
 As possibilidades de uso das tarefas estão limitadas apenas à sua imaginação. O sistema de tarefas do
-symfony é poderoso e flexível o suficiente para que você possa fazer simplesmente qualquer coisa que 
+symfony é poderoso e flexível o suficiente para que você possa fazer simplesmente qualquer coisa que
 imaginar. Adicione à isso o poder de um shell UNIX, e você irá realmente
 amar as tarefas.

@@ -3,7 +3,7 @@ Manipuler le Cache de Configuration de symfony
 
 *Par Kris Wallsmith*
 
-Un de mes principaux intérêts en tant que développeur symfony est de suivre le travail de la communauté autant que possible quel que soit le type de projet. Bien que je connaisse sur le bout des doigts le code source interne de symfony, ce n'est pas nécessairement une obligation pour tous les développeurs. 
+Un de mes principaux intérêts en tant que développeur symfony est de suivre le travail de la communauté autant que possible quel que soit le type de projet. Bien que je connaisse sur le bout des doigts le code source interne de symfony, ce n'est pas nécessairement une obligation pour tous les développeurs.
 
 Heureusement, symfony fournit des solutions capables d'isoler chaque composant d'une application, permettant ainsi à n'importe qui d'effectuer des modifications sans difficulté.
 
@@ -53,7 +53,7 @@ Une classe CSS peut également être ajoutée lors du rendu des champs.
 
     <?php echo $form['body']->render(array('class' => 'comment')) ?>
 
-Ces modifications sont intuitives et faciles. Mais qu'en est-il s'il doit 
+Ces modifications sont intuitives et faciles. Mais qu'en est-il s'il doit
 modifier des messages d'erreur ?
 
 ![Gestion des erreurs par défaut dans les formulaires](http://www.symfony-project.org/images/more-with-symfony/config_cache_form_error.png)
@@ -127,7 +127,7 @@ de rendre un template ou un partiel.
     }
 
 >**NOTE**
->Ce code vérifie si une option `is_enhanced` existe pour chaque objet de >formulaire avant de le modifier. Ceci afin d'éviter que les formulaires qui 
+>Ce code vérifie si une option `is_enhanced` existe pour chaque objet de >formulaire avant de le modifier. Ceci afin d'éviter que les formulaires qui
 >sont chargés depuis un partiel soient modifiés deux fois.
 
 Cette classe doit maintenant être chargée depuis le fichier de configuration de l'application.
@@ -148,7 +148,7 @@ Désormais les variables de formulaire peuvent être isolées juste avant d'êtr
 Charger le YAML
 ---------------
 
-La manière la plus simple d'appliquer le YAML à chaque formulaire est de le 
+La manière la plus simple d'appliquer le YAML à chaque formulaire est de le
 charger dans un tableau et d'itérer dessus pour chaque configuration.
 
     [php]
@@ -231,8 +231,8 @@ C'est déjà beaucoup mieux. Non seulement la contrainte de devoir analyser le Y
 >**SIDEBAR**
 >Développement vs. Environnement de production
 >
->L'utilisation de ~`checkConfig()`~ diffère selon que le mode debug est 
->activé ou pas. Dans l'environnement de production, quand le mode debug est 
+>L'utilisation de ~`checkConfig()`~ diffère selon que le mode debug est
+>activé ou pas. Dans l'environnement de production, quand le mode debug est
 >désactivé, cette méthode fonctionne comme décrit ci-dessous :
 >
 >  * Vérification de l'existence d'un fichier caché pour le fichier demandé
@@ -242,10 +242,10 @@ C'est déjà beaucoup mieux. Non seulement la contrainte de devoir analyser le Y
 >      * Sauvegarder le code résultant dans le cache ;
 >      * Retourner le chemin du nouveau fichier caché.
 >
->Cette méthode fonctionne différemment lorsque le mode debug est activé. Les 
+>Cette méthode fonctionne différemment lorsque le mode debug est activé. Les
 >fichiers de configuration étant modifiés au cours du développement, la méthode
->`checkConfig()` compare les fichiers originaux et ceux mis en cache pour 
->s'assurer d'avoir la dernière version. Ce processus inclut quelques 
+>`checkConfig()` compare les fichiers originaux et ceux mis en cache pour
+>s'assurer d'avoir la dernière version. Ce processus inclut quelques
 >vérifications :
 >
 >  * Vérification d'une version cachée du fichier demandé
@@ -302,14 +302,14 @@ Dans le code ci-dessous, chaque variable de formulaire passée au template itèr
 >**SIDEBAR**
 >Pourquoi personnaliser ?
 >
->Ecrire un gestionnaire de configuration personnalisé n'est pas des plus aisés. 
->Tous les développeurs sont sujets à faire des erreurs et la testabilité de ces 
->objets n'est pas chose facile non plus. Néanmoins, les bénéfices en seront 
->substantiels. L'avantage de créer une logique personnalisée permet de 
+>Ecrire un gestionnaire de configuration personnalisé n'est pas des plus aisés.
+>Tous les développeurs sont sujets à faire des erreurs et la testabilité de ces
+>objets n'est pas chose facile non plus. Néanmoins, les bénéfices en seront
+>substantiels. L'avantage de créer une logique personnalisée permet de
 >bénéficier de la flexibilité du YAML et de la faible surcharge
->du code PHP natif. En ajoutant un cache d'opcodes (tel que 
->[APC](http://pecl.php.net/apc) ou [XCache](http://xcache.lighttpd.net/) à tout 
->cela, le gestionnaire de configuration sera difficile à battre en termes de 
+>du code PHP natif. En ajoutant un cache d'opcodes (tel que
+>[APC](http://pecl.php.net/apc) ou [XCache](http://xcache.lighttpd.net/) à tout
+>cela, le gestionnaire de configuration sera difficile à battre en termes de
 >facilité d'utilisation et de performances.
 
 L'essentiel de la magie de ces gestionnaires se passe en coulisses. Toute la logique est mise en cache avant d'exécuter n'importe quel gestionnaire de configuration. Par conséquent, le développeur a tout le loisir de se concentrer sur l'écriture du code nécessaire à la mise en oeuvre de la configuration YAML de l'application.
@@ -334,7 +334,7 @@ La classe `sfSimpleYamlConfigHandler` étend `sfYamlConfigHandler` qui inclut un
  * `::flattenConfiguration($config)`
  * `::flattenConfigurationWithEnvironment($config)`
 
-Les deux premières méthodes implémentent le principe de  
+Les deux premières méthodes implémentent le principe de
 [configuration en cascade de symfony](http://www.symfony-project.org/reference/1_2/fr/03-Configuration-Files-Principles#chapter_03_configuration_en_cascade). Les deux suivantes implémentent la [sensibilisation à l'environnement](http://www.symfony-project.org/reference/1_2/fr/03-Configuration-Files-Principles#chapter_03_sensibilisation_a_l_environnement).
 
 La méthode statique `getConfiguration()` du gestionnaire aura besoin d'une méthode personnalisée afin de regrouper les configurations des classes dont elle hérite. Par conséquent, il convient d'écrire une méthode `applyInheritance()` qui appliquera cette logique.
@@ -531,9 +531,9 @@ Pour ce faire, une version personnalisée doit être écrite pour chaque méthod
 Il est important de remarquer ici que le tableau de configuration est vérifié pour certaines clés lors de la génération du code plutôt qu'à l'exécution afin de bénéficier d'un léger gain de performances.
 
 >**TIP**
->De manière générale, la logique qui vérifie les conditions de la configuration 
->devrait être exécutée dans le gestionnaire de configuration, et non dans le 
->code généré. La logique qui vérifie les conditions d'exécution, comme la nature 
+>De manière générale, la logique qui vérifie les conditions de la configuration
+>devrait être exécutée dans le gestionnaire de configuration, et non dans le
+>code généré. La logique qui vérifie les conditions d'exécution, comme la nature
 >de l'objet de formulaire, doit être appelée au moment de l'exécution du code.
 
 Le code généré est ensuite placé dans une définition de classe sauvegardée dans le répertoire de cache.
@@ -614,12 +614,12 @@ Pour ce faire, il s'agit de traiter le schéma des champs de formulaire (sur leq
     }
 
 >**NOTE**
->Une fois imbriqués, les champs d'un objet de formulaire ne devraient pas être 
->modifiés. Les formulaires imbriqués sont déclarés dans le formulaire parent 
->afin de faciliter le traitement, mais ils n'ont pas d'incidence sur le rendu 
+>Une fois imbriqués, les champs d'un objet de formulaire ne devraient pas être
+>modifiés. Les formulaires imbriqués sont déclarés dans le formulaire parent
+>afin de faciliter le traitement, mais ils n'ont pas d'incidence sur le rendu
 >de ce dernier.
 
-A ce stade les formulaires imbriqués sont enfin gérés et les tests devraient 
+A ce stade les formulaires imbriqués sont enfin gérés et les tests devraient
 s'exécuter sans aucun souci comme le montre la capture d'écran ci-dessous.
 
 ![Résultat positif d'exécution de la suite de tests](http://www.symfony-project.org/images/more-with-symfony/config_cache_tests_6_ok.png)
@@ -643,7 +643,7 @@ C'est le morceau de code ci-dessous qui a pour rôle de générer toutes ces cla
       file_put_contents($dir.'/Form'.$i.'.class.php', '<?php class Form'.$i.' extends BaseForm { }');
     }
 
-Le benchmark est enfin prêt à être exécuter. Pour obtenir les résultats ci-dessous, la commande [Apache](http://httpd.apache.org/docs/2.0/programs/ab.html) suivante a été exécutée sur un Macbook à plusieurs reprises jusqu'à obtenir un écart standard de moins de 2 ms. 
+Le benchmark est enfin prêt à être exécuter. Pour obtenir les résultats ci-dessous, la commande [Apache](http://httpd.apache.org/docs/2.0/programs/ab.html) suivante a été exécutée sur un Macbook à plusieurs reprises jusqu'à obtenir un écart standard de moins de 2 ms.
 
     $ ab -t 60 -n 20 http://localhost/config_cache/web/index.php
 
@@ -665,7 +665,7 @@ A présent, il s'agit de copier la première version de `sfFormYamlEnhancer::enh
     Waiting:       87   88   1.6     88      93
     Total:         87   88   1.7     88      94
 
-Ces tests montrent un ralentissement de 25 ms en moyenne à chaque requête, soit une augmentation du temps d'exécution de près de 40%. Maintenant, il s'agit de modifier ces changements afin d'appeler la méthode `enhance()` pour que le 
+Ces tests montrent un ralentissement de 25 ms en moyenne à chaque requête, soit une augmentation du temps d'exécution de près de 40%. Maintenant, il s'agit de modifier ces changements afin d'appeler la méthode `enhance()` pour que le
 gestionnaire de configuration personnalisé soit appelé.
 
     Connection Times (ms)
@@ -813,14 +813,14 @@ Enfin, la création du package du plugin est facilitée grâce au plugin  `sfTas
     $ php symfony plugin:package sfFormYamlEnhancementsPlugin
 
 >**NOTE**
->Le code de cet article a été publié dans un plugin, et est disponible en 
+>Le code de cet article a été publié dans un plugin, et est disponible en
 >téléchargement sur le site de symfony :
 >
 >    http://symfony-project.org/plugins/sfFormYamlEnhancementsPlugin
 >
->Ce plugin inclut tout ce qui a été abordé dans ce chapitre et bien plus encore. 
->Il fournit un support pour les fichiers `widgets.yml` et `validators.yml` ainsi 
->qu'une intégration avec la tâche `i18n:extract` afin de fournir une 
+>Ce plugin inclut tout ce qui a été abordé dans ce chapitre et bien plus encore.
+>Il fournit un support pour les fichiers `widgets.yml` et `validators.yml` ainsi
+>qu'une intégration avec la tâche `i18n:extract` afin de fournir une
 >internationalisation plus aisée des formulaires.
 
 Conclusion

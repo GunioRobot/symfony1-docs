@@ -350,7 +350,7 @@ ce qui est toujours une bonne chose.
 >Le test doit échouer. Au lieu de remplacer `é` par `e`, la méthode `slugify()`
 >l'a remplacé par un tiret (`-`). C'est un problème difficile, appelé
 >*~translittération|Translittération~*. En espérant que vous avez installé
->"~iconv|Librairie `iconv`~", 
+>"~iconv|Librairie `iconv`~",
 >il fera le travail pour nous. Remplacez le code de la méthode `slugify` avec le texte suivant :
 >
 >     [php]

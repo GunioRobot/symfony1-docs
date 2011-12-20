@@ -44,7 +44,7 @@ Kris Wallsmith はオレゴン州ポートランド出身のフリーランス�
 Hugo Hamon
 ----------
 
-Hugo Hamon は2000年後期からWeb テクノロジを独学で学び現在は Sensio Labs で Web 開発者とトレーニングマネージャとして勤務しています。PHP に情熱を燃やし、8年間使いフランス語のチュートリアルサイト 
+Hugo Hamon は2000年後期からWeb テクノロジを独学で学び現在は Sensio Labs で Web 開発者とトレーニングマネージャとして勤務しています。PHP に情熱を燃やし、8年間使いフランス語のチュートリアルサイト
 [Apprendre-PHP.com](http://www.apprendre-php.com)を作りました。Hugoは2つのフランス人のアソシエーション: スタッフメンバーとして [AFUP](http://www.afup.org) と [AFSY](http://www.afsy.fr)、創始者かつプレジデントとして symfony ユーザーグループに関わっています。彼は[Eyrolles が出版する](http://www.editions-eyrolles.com/Livre/9782212124941/symfony) _Mieux Programmer en PHP avec symfony 1.2 et Doctrine_ の共著者です。
 
 **Web サイト**: *http://www.hugohamon.com*
@@ -63,7 +63,7 @@ Thomas はやりがいのある symfony プロジェクトで品質保証とア�
 Stefan Koopmanschap
 -------------------
 
-Stefan Koopmanschap は開発者、コンサルタントとトレーナーです。2006年後期から symfony のユーザーと支持者として関わるようになりました。2009年の夏に彼はコミュニティマネージャになりました。過去には、Stefan は Zend Framework と phpBB を含むほかのオープンソースプロジェクトにも貢献しています。 
+Stefan Koopmanschap は開発者、コンサルタントとトレーナーです。2006年後期から symfony のユーザーと支持者として関わるようになりました。2009年の夏に彼はコミュニティマネージャになりました。過去には、Stefan は Zend Framework と phpBB を含むほかのオープンソースプロジェクトにも貢献しています。
 
 コミュニティへの愛着に加えて、Stefan はベストプラクティスと開発者がスキルを喜んで学ぶよう支援することに関心を持っています。彼は[phpBenelux](http://www.phpbenelux.eu/) ユーザーグループの定期的なカンファレンススピーカーと書記をやっています。
 
@@ -98,7 +98,7 @@ Ryan Weaver はテネシー州ナッシュビルの [Iostudio, LLC](http://www.i
 Laurent Bonnet
 --------------
 
-Laurent は Microsoftの Web プラットフォームアーキテクトでインフラストラクチャ、開発と高度に利用可能なWebサーバーファームのデザインの両方を得意分野としています。 
+Laurent は Microsoftの Web プラットフォームアーキテクトでインフラストラクチャ、開発と高度に利用可能なWebサーバーファームのデザインの両方を得意分野としています。
 
 Microsoft でのアカウント名は laurenbo で1992年1月に作成されました。ソフトウェアエンジニアとして開発者サポート、Windows NT カーネルに参加しました。1994年に彼はリージョナルディレクタプログラムを推し進めるために開発者の世界に飛び込みました。そこで彼は 開発セミナーとカンファレンスで Microsoft を代弁する専門のインテグレーターにリクルートされました。そして1996年上旬に Visual Studio/Visual InterDev と Internet Explorer テクニカルプロダクトマネージャとしてインターネットの流行に飛び込みました。1998、1999年に、彼は AFNOR (French national body of ISO) での Microsoft のフランス代表になり、そこでJava標準化プロセスに参加しました。2000年に Laurent は Microsoft Commercial Internet System のインフラストラクチャを開発するための国際的なポジションに移動しました。これは CompuServe と共同開発され電子商取引のハイスケーラブルなポータブルソリューションでインターネット商用サービスプロバイダーをターゲットとしていました。2004年に Microsoft フランスに戻り、プロバイダと Web コミュニティに向けた新しい活動に6年ほど取り組みました。Windows ベースのソリューションと製品を利用するトッププロバイダを助け、最近はフランスの先駆的な世界規模の低コストセグメントに取り組んでいます。
 

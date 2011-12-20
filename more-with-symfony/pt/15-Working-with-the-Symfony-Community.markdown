@@ -335,7 +335,7 @@ genérica ao symfony (é claro que pode ser!), mas pode ser sobre experiências
 com a framework, soluções para problemas que foram encontrados durante o trabalho
 com a framework, ou sobre uma nova funcionalidade da versão mais recente que acha interessante.
 
-Qualquer pessoa que escreva sobre o symfony pode adicionar o seu blog a [lista de bloggers 
+Qualquer pessoa que escreva sobre o symfony pode adicionar o seu blog a [lista de bloggers
 do symfony](http://trac.symfony-project.org/wiki/SymfonyBloggers). Todos os weblogs da
 lista são referidos em
 [página da comunidade symfony](http://www.symfony-project.org/community). Existem, porém, algumas
@@ -398,7 +398,7 @@ lá.
 Escrever é uma boa maneira de partilhar conhecimentos e experiências. O conteúdo está
 disponível para um grande número de pessoas e é pesquisável. No entanto, existem mais maneiras
 de espalhar a sua experiência e conhecimento. Uma boa maneira, que muitas pessoas
-apreciam, é fazendo apresentações. Você pode fazer apresentações de várias maneiras 
+apreciam, é fazendo apresentações. Você pode fazer apresentações de várias maneiras
 diferentes e para muitos públicos diferentes. Por exemplo:
 
 * Conferências PHP / symfony
@@ -457,7 +457,7 @@ e a maioria tem organizado, até agora, vários encontros para pessoas interessa
 no symfony ou que trabalham com a framework. A maioria destes eventos são muito
 informais, livres e são totalmente orientados pela comunidade.
 
-O [mailinglist da comunidade symfony](http://groups.google.com/group/symfony-community) 
+O [mailinglist da comunidade symfony](http://groups.google.com/group/symfony-community)
 mencionado anteriormente é um ótimo
 lugar para procurar um grupo de usuários existentes em sua área, bem como o lugar para
 iniciar um novo grupo de usuários do symfony. Há membros e organizadores dos grupos

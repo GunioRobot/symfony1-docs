@@ -6,24 +6,24 @@ Introducción
 
 El ~framework|Framework~ [Symfony](http://www.symfony-project.org/) ha sido un proyecto de Código Abierto por más de cuatro años y se ha convertido en uno de los framework PHP más populares gracias a sus excelentes características y gran documentación. Esto ha sido una gran tradición desde sus inicios.
 
-Este Libro describe la creación de una aplicación webcon el framework, symfony 
-paso a paso desde las especificaciones hasta la implementación. Este esta 
+Este Libro describe la creación de una aplicación webcon el framework, symfony
+paso a paso desde las especificaciones hasta la implementación. Este esta
 dirijido a principaintes quienes desean aprender symfony, entender como funciona,
 y también sobre las mejores prácticas del desarrollo web.
 
-La aplicación a diseñar podría haber sido otro motor de blogs, pero queremos usar 
-Symfony en algo más útil. El objetivo es demostrar que Symfony puede ser usado 
+La aplicación a diseñar podría haber sido otro motor de blogs, pero queremos usar
+Symfony en algo más útil. El objetivo es demostrar que Symfony puede ser usado
 para desarrollar aplicaciones con estilo y poco esfuerzo.
 
-Vamos a mantener el contenido del proyecto en secreto por un días más ya que 
-tenemos mucho para hacer por hoy. De todas formas, ya sabes el nombre de la 
+Vamos a mantener el contenido del proyecto en secreto por un días más ya que
+tenemos mucho para hacer por hoy. De todas formas, ya sabes el nombre de la
 aplicación: **Jobeet**.
 
-Cada capítulo de este ñibro está destinado a durar entre una a dos horas, y será 
-la ocasión de aprender Symfony mediante la codificación de un sitio web real, de 
-principio a fin. Cada día, serán agregadas nuevas características a la aplicación, 
-y nos valdremos de las ventajas de este desarrollo para introducirte a las nuevas 
-funcionalidades de Symfony así como a las mejores prácticas de desarrollo web 
+Cada capítulo de este ñibro está destinado a durar entre una a dos horas, y será
+la ocasión de aprender Symfony mediante la codificación de un sitio web real, de
+principio a fin. Cada día, serán agregadas nuevas características a la aplicación,
+y nos valdremos de las ventajas de este desarrollo para introducirte a las nuevas
+funcionalidades de Symfony así como a las mejores prácticas de desarrollo web
 con Symfony.
 
 Este Libro es diferente
@@ -170,19 +170,19 @@ La tarea `generate:project` genera por defecto la estructura de directorios y ar
 | Directorio| Descripción
 | --------- | ----------------------------------
 | apps/     | Hospeda todas las aplicaciones del proyecto
-| cache/    | Los archivos en caché 
-| config/   | Los archivos de configuración del proyecto 
-| lib/      | Las bibliotecas y clases del proyecto 
+| cache/    | Los archivos en caché
+| config/   | Los archivos de configuración del proyecto
+| lib/      | Las bibliotecas y clases del proyecto
 | log/      | Los archivos de registro
 | plugins/  | Los plugins instalados
 | test/     | Los archivos de pruebas unitarias y funcionales
 | web/      | El directorio raíz web (véase más adelante)
 
 >**NOTE**
->¿Por qué Symfony genera tantos archivos? Uno de los principales beneficios de la utilización de un 
->completo framework es normalizar tus desarrollos. Gracias a estructura predeterminada de archivos y 
->directorios de Symfony, cualquier desarrollador con algunos conocimientos de Symfony puede asumir 
->el mantenimiento de cualquier proyecto symfony. En cuestión de minutos, será capaz de bucear en el 
+>¿Por qué Symfony genera tantos archivos? Uno de los principales beneficios de la utilización de un
+>completo framework es normalizar tus desarrollos. Gracias a estructura predeterminada de archivos y
+>directorios de Symfony, cualquier desarrollador con algunos conocimientos de Symfony puede asumir
+>el mantenimiento de cualquier proyecto symfony. En cuestión de minutos, será capaz de bucear en el
 >código, corregir los errores, y añadir nuevas funciones.
 
 La tarea `generate:project` también ha creado un atajo `symfony` en el directorio raíz del proyecto Jobeet para reducir el número de caracteres que tienes que escribir cuando se ejecuta una tarea.
@@ -196,7 +196,7 @@ Ahora, crear la aplicación frontend ejecutando la tarea `generate:app`:
     $ php symfony generate:app frontend
 
 >**TIP**
->Como el archivo symfony es ejecutable, los usuarios de Unix puede reemplazar todas las apariciones 
+>Como el archivo symfony es ejecutable, los usuarios de Unix puede reemplazar todas las apariciones
 >de 'php symfony' por './symfony' de  ahora en adelante.
 
 >En Windows puedes copiar el archivo 'symfony.bat' a tu proyecto y usar
@@ -208,7 +208,7 @@ Una vez más, la tarea `generate:app` crea por defecto la estructura necesaria d
 
 | Directorio | Descripción
 | ---------- | -------------------------------------
-| config/    | Los archivos de configuración de la aplicación 
+| config/    | Los archivos de configuración de la aplicación
 | lib/       | Las bibliotecas y clases de la aplicación
 | modules/   | El código de la aplicación (MVC)
 | templates/ | La plantilla global
@@ -222,7 +222,7 @@ Una vez más, la tarea `generate:app` crea por defecto la estructura necesaria d
 >Security
 >
 >Por defecto, la tarea `generate:app` ha asegurado nuestro futuro desarrollo
->de las dos vulnerabilidades más extendidas se encuentran en la web. Así es, Symfony 
+>de las dos vulnerabilidades más extendidas se encuentran en la web. Así es, Symfony
 >automáticamente toma las medidas de seguridad por nosotros.
 >
 >Para evitar ataques XSS, el escapar la salida ha sido habilitado; y para prevenir
@@ -250,7 +250,7 @@ La opción `-V` también muestra la ruta de acceso al directorio de instalación
 
 
 Para mejorar la portabilidad, cambia la ruta absoluta a la instalación de Symfony por una relativa:
-   
+
     [php]
     // config/ProjectConfiguration.class.php
     require_once dirname(__FILE__).'/../lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
@@ -261,11 +261,11 @@ De esta manera, puedes mover el directorio del proyecto Jobeet a cualquier lugar
 >**SIDEBAR**
 >Autoloading
 >
->La clase `sfCoreAutoload` es un 
+>La clase `sfCoreAutoload` es un
 >[~autoloader|Autoload~](http://www.php.net/autoload) de PHP usado para cargar
->el nucléo de clases de Symfony a pedido (on demand). Por defecto, Symfony 
+>el nucléo de clases de Symfony a pedido (on demand). Por defecto, Symfony
 >también registra otros autoloader para automáticamente cargar las clases
->guardadas en el directorio `lib/`. Esto significa que nunca necesitarás 
+>guardadas en el directorio `lib/`. Esto significa que nunca necesitarás
 >usar un `require` en tu código. Este es uno de las numerosas cosas que
 >Symfony automatiza por el desarrollador.
 
@@ -292,9 +292,9 @@ En el entorno de la producción, la aplicación deberá mostrar mensajes de erro
 
 ![Una excepción en el entorno de producción](http://www.symfony-project.org/images/jobeet/1_4/01/exception_prod.png)
 
-Un entorno symfony es un conjunto único de ajustes de configuración. El 
-framework Symfony incluye tres de ellos: `dev`, `test`, y `prod`. En el 
-capítulo 21, aprenderás como crear nuevos ambientes, tales como el 
+Un entorno symfony es un conjunto único de ajustes de configuración. El
+framework Symfony incluye tres de ellos: `dev`, `test`, y `prod`. En el
+capítulo 21, aprenderás como crear nuevos ambientes, tales como el
 `staging`.
 
 Si abres los archivos de los controladores frontales, verás que la única diferencia es el ajuste del entorno:
@@ -401,9 +401,9 @@ Reinicia Apache, y comprueba que ahora tienes acceso a la nueva aplicación abri
 
 ![Felicitaciones](http://www.symfony-project.org/images/jobeet/1_4/01/congratulations.png)
 
->**Note**: 
->Si tienes el módulo Apache `mod_rewrite` instalado, puedes remover la parte /index.php/ 
->de todas las URL. Esto es posible gracias a las reglas de reescritura configuradas en el archivo 
+>**Note**:
+>Si tienes el módulo Apache `mod_rewrite` instalado, puedes remover la parte /index.php/
+>de todas las URL. Esto es posible gracias a las reglas de reescritura configuradas en el archivo
 >`web/.htaccess`.
 
 Deberías tratar de acceder a la aplicación en el entorno de desarrollo. Escribe la siguiente URL:
@@ -498,7 +498,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

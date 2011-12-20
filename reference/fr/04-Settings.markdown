@@ -209,12 +209,12 @@ paramètre.
 
 Le paramètre `default_timezone` définit le fuseau horaire par défaut utilisé par PHP. Il
 peut avoir n'importe quel [fuseau horaire](http://www.php.net/manual/en/class.datetimezone.php)
-reconnu par PHP. 
+reconnu par PHP.
 
 >**NOTE**
 >Si vous ne définissez pas de fuseau horaire, il est conseillé d'en définir un dans le
 >fichier `php.ini`. Sinon, symfony va essayer de deviner le meilleur fuseau horaire
->en appelant la fonction 
+>en appelant la fonction
 >[`date_default_timezone_get()`](http://www.php.net/date_default_timezone_get)
 >de PHP.
 
@@ -273,7 +273,7 @@ Templates (nom du groupe de Helper sans le suffixe `Helper`).
 Le paramètre `no_script_name` détermine si le nom du script du contrôleur frontal
 est ajouté ou non dans l'URL générée. Par défaut il est réglé sur `true` par
 la tâche `generate:app` pour l'environnement de `prod` de la première application
-créée. 
+créée.
 
 De toute évidence, un seul couple application/environnement peut avoir le paramètre à
 `true`, dans le cas où tous les contrôleurs frontaux sont dans le même répertoire (`web/`). Si vous voulez

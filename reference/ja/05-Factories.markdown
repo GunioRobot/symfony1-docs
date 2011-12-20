@@ -22,7 +22,7 @@ factories.yml 設定ファイル
 
     # ...
 
-サポートされているファクトリの名前は次のとおりです: 
+サポートされているファクトリの名前は次のとおりです:
 `controller`、`logger`、`i18n`、`request`、`response`、`routing`、`storage`、
 `user`、`view_cache` と `view_cache_manager`
 
@@ -666,6 +666,6 @@ HTTP リクエストにおけるユーザーデータの一貫性を保つため
 
 もっとも重要なのは `prefix` オプションで、異なる環境/アプリケーション/プロジェクトのあいだでキャッシュを共有するもしくは分離することができます。
 
-*組み込みのキャッシュクラス*: 
+*組み込みのキャッシュクラス*:
 `sfAPCCache`、`sfEAcceleratorCache`、`sfFileCache`、`sfMemcacheCache`、
 `sfNoCache`、`sfSQLiteCache` と `sfXCachCache`

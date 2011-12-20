@@ -1,7 +1,7 @@
 Annexe A - Code JavaScript du Widget sfWidgetFormGMapAddress
 ============================================================
 
-Le code ci-dessous correspond au JavaScript nécessaire au bon fonctionnement du 
+Le code ci-dessous correspond au JavaScript nécessaire au bon fonctionnement du
 widget `sfWidgetFormGMapAddress` :
 
     [js]

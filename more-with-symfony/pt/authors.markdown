@@ -28,7 +28,7 @@ Jonathan H. Wage
 ----------------
 
 Jonathan Wage tem trabalhado com várias tecnologias web por quase 10
-anos construindo software para internet. Anteriormente ele era o desenvolvedor líder 
+anos construindo software para internet. Anteriormente ele era o desenvolvedor líder
 e arquiteto de aplicações na [CentreSource](http://www.centresource.com).
 Hoje você vai encontrá-lo na [Sensio Labs](http://www.sensiolabs.com), empresa
 criadora do framework MVC symfony. Suas principais responsabilidades são
@@ -77,11 +77,11 @@ Hugo Hamon
 ----------
 
 Hugo Hamon é um autodidata em tecnologias Web desde 2000 e agora
-trabalha na Sensio Labs como desenvolvedor web e gerente de treinamento. Apaixonado por 
-PHP, tem utilizado por 8 anos e construiu o site francês de tutorais 
-[Apprendre-PHP.com](http://www.apprendre-php.com). Hugo está envolvido em duas 
-associações francesas: a [AFUP](http://www.afup.org) como membro e do 
-[AFSY](http://www.afsy.fr), o grupo de usuários symfony, como fundador e 
+trabalha na Sensio Labs como desenvolvedor web e gerente de treinamento. Apaixonado por
+PHP, tem utilizado por 8 anos e construiu o site francês de tutorais
+[Apprendre-PHP.com](http://www.apprendre-php.com). Hugo está envolvido em duas
+associações francesas: a [AFUP](http://www.afup.org) como membro e do
+[AFSY](http://www.afsy.fr), o grupo de usuários symfony, como fundador e
 presidente. Ele é o co-autor do livro _Mieux Programmer en PHP avec symfony 1.2 et Doctrine_
 da [Eyrolles publishing](http://www.editions-eyrolles.com/Livre/9782212124941/symfony) e outros artigos para a revista PHP Solutions.
 
@@ -93,7 +93,7 @@ da [Eyrolles publishing](http://www.editions-eyrolles.com/Livre/9782212124941/sy
 Thomas Rabaix
 -------------
 
-Thomas é um fã do symfony desde os primeiros dias. Ele está atualmente trabalhando como desenvolvedor em PHP e symfony 
+Thomas é um fã do symfony desde os primeiros dias. Ele está atualmente trabalhando como desenvolvedor em PHP e symfony
 (desenvolvedor, consultor e instrutor) e é muito ativo na comunidade symfony.
 
 Thomas também ajuda as empresas com questões de Quality Assurance e Arquitetura
@@ -130,14 +130,14 @@ Fabrice Bernhard
 Fabrice Bernhard descobriu a felicidade do desenvolvimento web em 1996. Seu primeiro
 website felizmente desapareceu para sempre nos cantos escuros da Internet,
 mas o vírus foi capturado. Depois de estudar Matemática e Ciência da Computação
-em Paris e Zurique, ele se tornou um empresário web em 2007, com o 
+em Paris e Zurique, ele se tornou um empresário web em 2007, com o
 [Allomatch.com](http://www.allomatch.com), site para encontrar locais mostrando
 eventos desportivos na França. Ele então foi co-fundador da [Theodo](http://www.theodo.fr)
-em 2008, uma empresa de consultoria focada em desenvolvimento especializado em qualidade web 
+em 2008, uma empresa de consultoria focada em desenvolvimento especializado em qualidade web
 e soluções de código aberto, com uma forte preferência pelo symfony.
 
 Fabrice é fã do symfony e esta é sua filosofia desde o final de 2007. Ele contribui
-para a comunidade com os plugins sfEasyGMap e sfFacebookConnect e está 
+para a comunidade com os plugins sfEasyGMap e sfFacebookConnect e está
 buscando contribuir ainda mais para o desenvolvimento da qualidade nos projetos web
 de código aberto.
 
@@ -176,13 +176,13 @@ Se juntou ao mundo do desenvolvimento em 1994 para encabeçar o programa Regiona
 onde ele recrutou integradores especializados para representar a Microsoft em
 seminários e conferências de desenvolvedores, e pulou para o bonde da internet no início de 1996
 como gerente de produtos do Visual Studio / Visual InterDev e Internet Explorer.
-Em 1998 e 1999 foi o representante francês da Microsoft no 
+Em 1998 e 1999 foi o representante francês da Microsoft no
 AFNOR (orgão nacional francês da ISO), onde participou do
 processo de padronização do Java. Laurent mudou para uma posição internacional em 2000 para
 desenvolver infra-estruturas para o Microsoft Commercial Internet System, uma solução eCommerce
 de portal altamente escalonável co-desenvolvido com a CompuServe, visando Telcos
 e Hosters. Retornando à Microsoft Francesa, em 2004, ele arriscou uma nova atividade
-dirigida aos hosters e comunidades na web, e que ainda está em negociação há 6 anos, 
+dirigida aos hosters e comunidades na web, e que ainda está em negociação há 6 anos,
 ajudando os principais hosters da França a aproveitar soluções e produtos baseados em Windows
 e, mais recentemente, aborda o segmento de baixo custo que é
 pioneiro mundial na França.

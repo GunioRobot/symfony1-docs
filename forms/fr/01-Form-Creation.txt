@@ -31,7 +31,7 @@ Les Widgets
 
 ### Les classes `sfForm` et `sfWidget`
 
-Un formulaire est composé de champs représentants les différentes informations que nous demandons à l'internaute de remplir. Dans symfony, un formulaire se matérialise sous la forme d'un objet héritant de la classe `sfForm`. Dans notre cas, nous allons donc créer une classe `ContactForm` qui hérite de la classe `sfForm`. 
+Un formulaire est composé de champs représentants les différentes informations que nous demandons à l'internaute de remplir. Dans symfony, un formulaire se matérialise sous la forme d'un objet héritant de la classe `sfForm`. Dans notre cas, nous allons donc créer une classe `ContactForm` qui hérite de la classe `sfForm`.
 
 >**Note**
 >`sfForm`, classe de base de tous les formulaires, permet de faciliter la gestion de la configuration et du cycle de vie du formulaire.
@@ -130,7 +130,7 @@ Listing 1-4 reproduit le code généré par le Template.
     [html]
     <form action="/frontend_dev.php/contact/submit" method="POST">
       <table>
-        
+
         <!-- Début du code généré par <?php echo $form ?> -->
         <tr>
           <th><label for="name">Name</label></th>
@@ -161,7 +161,7 @@ Nous constatons que le formulaire est représenté par trois lignes `<tr>` d'un 
 Les labels de chaque champ ont été générés de façon automatique. Par défaut, les labels
 sont une transformation du nom du champ en capitalisant la première lettre et en
 remplaçant les éventuels caractères blancs soulignés (`_`) par des espaces,
-Si le nom du champs se termine avec "_id", le suffixe est enlevé du label. 
+Si le nom du champs se termine avec "_id", le suffixe est enlevé du label.
 
 Exemple :
 
@@ -171,7 +171,7 @@ Exemple :
       'last_name'  => new sfWidgetFormInputText(), // generated label: "Last name"
       'author_id'  => new sfWidgetFormInputText(), // generated label: "Author"
     ));
- 
+
 Même si la génération automatique des labels est très pratique, le framework permet la définition de labels personnalisés grâce à l'utilisation de la méthode `setLabels()` :
 
     [php]
@@ -373,7 +373,7 @@ Listing 1-8 - Fusion des deux Actions gérant le Formulaire
       }
     }
 
-Il faut prendre en compte cette modification dans le Template `indexSuccess.php` en modifiant l'URL du tag `form` : 
+Il faut prendre en compte cette modification dans le Template `indexSuccess.php` en modifiant l'URL du tag `form` :
 
     [php]
     <form action="<?php echo url_for('contact/index') ?>" method="POST">
@@ -542,7 +542,7 @@ Listing 1-14 - Valeurs par défaut des Widgets via le construteur de `sfForm`
 >       'value' => 'Hello "World!"',
 >       'class' => '<script>alert("foo")</script>',
 >     ));
->     
+>
 >     // HTML généré
 >     <input
 >       value="Hello &quot;World!&quot;"

@@ -23,7 +23,7 @@ file di configurazione `factories.yml` ed è sempre disponibile tramite le conte
     $mailer = sfContext::getInstance()->getMailer();
 
 >**TIP**
->Diversamente da altre factory, il mailer è inizializzato e caricato solo su richiesta. 
+>Diversamente da altre factory, il mailer è inizializzato e caricato solo su richiesta.
 >Quindi se non usato non inficierà le performance in nessun modo.
 
 Questo tutorial spiega l'integrazione di SwiftMailer in symfony. Se si vuole conoscere ogni
@@ -85,7 +85,7 @@ metodo, per inviare l'email a più destinatari contemporaneamente;
 
 Se si cerca la flessibilità, si può usare anche il metodo ~`sfAction::compose()`~
 per creare un messaggio, personalizzarlo ed eventualmente spedirlo.
-Questo metodo è molto utile quando è necessario aggiungere un ~allegato|email attachment~ 
+Questo metodo è molto utile quando è necessario aggiungere un ~allegato|email attachment~
 così come mostrato nel codice successivo:
 
     [php]
@@ -100,7 +100,7 @@ così come mostrato nel codice successivo:
 
 ### La via espressiva
 
-È anche possibile creare un oggetto message direttamente dalla classe sfMailerMessage per ottenere 
+È anche possibile creare un oggetto message direttamente dalla classe sfMailerMessage per ottenere
 ulteriore flessibilità:
 
     [php]
@@ -151,7 +151,7 @@ nel file di configurazione `factories.yml`. La configurazione predefinita è la 
             password:   ~
 
 Quando viene creata una nuova applicazione, il file di configurazione `factories.yml` locale
-sovrascrive quello predefinito modificando alcune variabili associate agli ambienti predefiniti 
+sovrascrive quello predefinito modificando alcune variabili associate agli ambienti predefiniti
 `prod`, `env` e `test`:
 
     [yml]
@@ -180,7 +180,7 @@ e possono sopperire a tutte le comuni necessità:
  * `spool`:          I messaggi sono salvati in una lista.
  * `none`:           I messaggi sono semplicemente ignorati.
 
-### La strategia ~`realtime`~ 
+### La strategia ~`realtime`~
 
 La strategia `realtime` è quella predefinita ed è la più semplice da configurare,
 in quanto non c'è nulla da fare.
@@ -306,7 +306,7 @@ lo stesso transport usato per la stategia `realtime`.
 -
 
 >**NOTE**
->L'implementazione predefinita della gestione della coda è molto semplice. 
+>L'implementazione predefinita della gestione della coda è molto semplice.
 >Invia le email senza gestione degli errori, così come succederebbe nella
 >strategia `realtime`. Ovviamente, le classi predefinite di gestione delle
 >code possono essere estese per implementare logiche personalizzate e
@@ -322,7 +322,7 @@ Entrambi i parametri possono essere usati insieme:
 
   $ php symfony project:send-emails --message-limit=10 --time-limit=20
 
-Il comando precedente bloccherà l'invio dei messaggio quando saranno spediti 
+Il comando precedente bloccherà l'invio dei messaggio quando saranno spediti
 10 messaggi o saranno passati 20 secondi.
 
 Usando la strategia `spool` potrebbe essere necessario inviare un messaggio immediatamente
@@ -332,7 +332,7 @@ senza salvarlo il lista di attesa. Questo è possibile usando il metodo speciale
     [php]
     $this->getMailer()->sendNextImmediately()->send($message);
 
-Nel precedente esempio il `$message` non sarà salvato in lista e sarà spedito immediatamente. 
+Nel precedente esempio il `$message` non sarà salvato in lista e sarà spedito immediatamente.
 Questo significa, che il metodo `sendNextImmediately()`, è utilizzato per spedire il solo
 messaggio passato.
 
@@ -347,7 +347,7 @@ a veri utenti. I messaggi sono disponibili all'interno della web debug toolbar
 (maggiori informazioni nella sezione succesiva riguardante il pannello di
 gestione del mailer nella web debug toolbar).
 
-È anche la migliore strategia per gli altri ambienti, dove l'oggetto 
+È anche la migliore strategia per gli altri ambienti, dove l'oggetto
 `sfTesterMailer` permette di analizzare il messaggio senza necessariamente
 spedirlo (ulteriori informazioni saranno presenti nella sezione relativa ai test).
 
@@ -438,7 +438,7 @@ Il metodo ~`hasSent()`~ controlla il numero di email inviate da una azione:
 
 Il codice precedente controlla che l'URL `/foo` invii solo una email.
 
-Ogni email inviata può essere testata ulteriormente usando i metodi 
+Ogni email inviata può essere testata ulteriormente usando i metodi
 ~`checkHeader()`~ e ~`checkBody()`~:
 
     [php]
@@ -583,7 +583,7 @@ Ricette
 
 ### Inviare una email con ~Gmail~
 
-Se non si ha a disposizione un server SMTP ma solo un account Gmail, 
+Se non si ha a disposizione un server SMTP ma solo un account Gmail,
 è possibile usare quest'ultimo per inviare e archiviare i messaggi:
 
     [yml]
@@ -667,7 +667,7 @@ o per limitare il numero di messaggi da spedire:
     $spool->setMessageLimit(10);
     $spool->setTimeLimit(10);
 
-In questa sezione si implementerà un sistema di priorità per le spedizioni. Questo darà le basi 
+In questa sezione si implementerà un sistema di priorità per le spedizioni. Questo darà le basi
 necessarie per implementare logiche personalizzate.
 
 Per prima cosa, aggiungere una colonna `priority` allo schema:
@@ -768,7 +768,7 @@ email verrà spedita in base alla propria priorità.
 >**SIDEBAR**
 >Personalizzare lo Spool con un qualsiasi criterio
 >
->Il precedente esempio usa un header standard dei messaggi, la priorità. Ma 
+>Il precedente esempio usa un header standard dei messaggi, la priorità. Ma
 >se bisogna utilizzare un qualsiasi criterio, o se non si può
 >modificare il messaggio inviato, si può anche salvare il criterio come header
 >personalizzato, per poi rimuoverlo subito prima di inviare il messaggio.
@@ -781,25 +781,25 @@ email verrà spedita in base alla propria priorità.
 >       $message = $this->getMailer()
 >         ->compose('john@doe.com', 'foo@example.com', 'Subject', 'Body')
 >       ;
->     
+>
 >       $message->getHeaders()->addTextHeader('X-Queue-Criteria', 'foo');
->     
+>
 >       $this->getMailer()->send($message);
 >     }
 >
->Poi si ottiene il valore dall'header durante la fase di salvataggio in 
+>Poi si ottiene il valore dall'header durante la fase di salvataggio in
 >lista d'attesa e si rimuove immediatamente:
 >
 >     [php]
 >     public function setMessage($message)
 >     {
 >       $msg = unserialize($message);
->     
+>
 >       $headers = $msg->getHeaders();
 >       $criteria = $headers->get('X-Queue-Criteria')->getFieldBody();
 >       $this->setCriteria($criteria);
 >       $headers->remove('X-Queue-Criteria');
->     
+>
 >       return parent::_set('message', serialize($msg));
 >     }
 

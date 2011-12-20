@@ -2,9 +2,9 @@ Giorno 2: Il progetto
 =====================
 
 Non abbiamo scritto ancora una sola linea di codice, ma ieri
-abbiamo impostato l'ambiente di sviluppo, creato una struttura vuota di progetto e 
+abbiamo impostato l'ambiente di sviluppo, creato una struttura vuota di progetto e
 ci siamo assicurati di partire con buone impostazioni di default riguardanti la sicurezza.
-Se avete seguito tutti i passaggi, state guardando il monitor estasiati, visto che 
+Se avete seguito tutti i passaggi, state guardando il monitor estasiati, visto che
 vi mostra la bellissima pagina di default che symfony propone per le nuove applicazioni.
 
 ![Pagina di congratulazioni](http://www.symfony-project.org/images/jobeet/1_4/01/congratulations.png)
@@ -39,8 +39,8 @@ integrare nei propri siti. Supporta diverse lingue di default e certamente usa l
 tecnologie in fatto di Web 2.0 per rendere migliore l'esperienza dell'utente.
 Inoltre mette a disposizione feed e API per interagire con essa.
 
-Esiste già? Come utente si possono trovare diverse bacheche per gli annunci di 
-lavoro simili a Jobeet su Internet. Ma provate a trovarne una Open-Source e ricca 
+Esiste già? Come utente si possono trovare diverse bacheche per gli annunci di
+lavoro simili a Jobeet su Internet. Ma provate a trovarne una Open-Source e ricca
 di funzionalità come quella che proponiamo qui.
 
 
@@ -122,7 +122,7 @@ Un utente può inserire un'offerta di lavoro. Un'offerta è composta da molte in
 Non è necessario creare un account per inserire un'offerta di lavoro.
 
 Il processo è semplice con due soli passi: il primo è quello dove l'utente
-compila il form con tutte le informazioni necessarie per descrivere il lavoro, 
+compila il form con tutte le informazioni necessarie per descrivere il lavoro,
 il secondo è rappresentato dal controllo dei dati inseriti nell'anteprima della
 pagina finale.
 
@@ -130,7 +130,7 @@ Anche se l'utente non ha un account, un'offerta può essere modificata in seguit
 a un URL specifico (protetto da un token dato all'utente quando l'inserzione viene creata).
 
 Ogni annuncio di lavoro rimane online per 30 giorni (questo parametro è configurabile
-dagli amministratori - vedi *storia B2*). Un utente può tornare per riattivare o estendere la 
+dagli amministratori - vedi *storia B2*). Un utente può tornare per riattivare o estendere la
 validità di un lavoro per ulteriori 30 giorni solo quando l'inserzione starà per scadere
 in meno di 5 giorni.
 
@@ -146,7 +146,7 @@ le API di Jobeet. Per proporsi deve fornire le seguenti informazioni:
   * URL del sito web
 
 L'account dell'affiliato deve essere attivato da un amministratore (*storia B3*).
-Una volta che sarà stato attivato, l'affiliato riceverà via mail un token da usare 
+Una volta che sarà stato attivato, l'affiliato riceverà via mail un token da usare
 con le API.
 
 Quando si candida, l'affiliato può anche scegliere di ottenere un lavoro da
@@ -180,7 +180,7 @@ Un amministratore può editare o cancellare ogni offerta di lavoro inserita.
 
 ### Storia B3: un amministratore gestisce gli affiliati
 
-L'amministratore può creare o modificare gli affiliati. È responsabile per l'attivazione e 
+L'amministratore può creare o modificare gli affiliati. È responsabile per l'attivazione e
 la disattivazione degli affiliati.
 
 Quando l'amministratore attiva un nuovo affiliato il sistema crea un token univoco

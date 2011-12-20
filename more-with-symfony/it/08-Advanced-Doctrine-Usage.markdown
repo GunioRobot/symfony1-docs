@@ -411,7 +411,7 @@ Ora sono stati cancellati tutti i post presenti e `num_posts` dovrebbe essere ze
     doctrine -   Posts: {  }
 
 Questo è tutto! La speranza è che questo capitolo possa aver insegnato qualcosa
-sui comportamenti e che il comportamento stesso possa tornare utile! 
+sui comportamenti e che il comportamento stesso possa tornare utile!
 
 Utilizzo della cache nei risultati di Doctrine
 ----------------------------------------------
@@ -496,7 +496,7 @@ Definire un metodo `configureDoctrine()`:
     }
 
 Ora che il gestore dei risultati della cache è configurato, si può iniziare a utilizzare
-realmente questo driver, per mettere in cache i risultati delle query. 
+realmente questo driver, per mettere in cache i risultati delle query.
 
 ### Esempio di query
 
@@ -559,7 +559,7 @@ Per il momento ci si limita a mostrare le API grezze del gestore della cache,
 prima di implementarle in un evento.
 
 >**TIP**
->Per poter accedere all'istanza con i risultati del gestore della cache, si può utilizzare 
+>Per poter accedere all'istanza con i risultati del gestore della cache, si può utilizzare
 >l'istanza della classe `Doctrine_Manager`.
 >
 >     [php]
@@ -703,7 +703,7 @@ in modo che symfony possa caricarla automaticamente:
       }
     }
 
-	
+
 Il codice di cui sopra, per come è ora, restituirebbe i dati esattamente come
 vengono forniti da PDO. Questo non è esattamente quello che si vuole. Si vogliono
 trasformare i dati in una struttura di coppie chiave => valore. Quindi bisogna
@@ -763,7 +763,7 @@ istranze di `Doctrine_Query`. Ecco un esempio:
     print_r($results);
 
 L'esecuzione della query di cui sopra, con le fixture dei dati definiti in precedenza
-ottiene il seguente risultato: 
+ottiene il seguente risultato:
 
     Array
     (

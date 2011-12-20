@@ -29,7 +29,7 @@ Il front controller si occupa di distribuire le richieste, questo però signific
   2. Crea la configurazione dell'applicazione e il contesto di symfony.
   3. Carica e inizializza le classi del core del framework.
   4. Carica la configurazione.
-  5. Interpreta l'URL della richiesta per determinare l'azione da eseguire e i parametri della richiesta. 
+  5. Interpreta l'URL della richiesta per determinare l'azione da eseguire e i parametri della richiesta.
   6. Se l'azione non esiste redirige all'azione d'errore 404.
   7. Attiva i filtri (per esempio se la richiesta richiede autenticazione).
   8. Esegue i filtri, primo passaggio.
@@ -305,7 +305,7 @@ Se l'azione dev'essere presentata da un template specifico ignorare la dichiaraz
     {
       $this->setTemplate('myCustomTemplate');
     }
-    
+
 Con questo codice symfony cercherà un file `myCustomTemplateSuccess.php` invece che `indexSuccess.php`.
 
 ### Saltare a un'altra azione
@@ -342,10 +342,10 @@ Listing 6-11 - Utilizzo del metodo `forward404()`
     {
       // Doctrine
       $article = Doctrine::getTable('Article')->find($request->getParameter('id'));
-      
+
       // Propel
       $article = ArticlePeer::retrieveByPK($request->getParameter('id'));
-      
+
       if (!$article)
       {
         $this->forward404();
@@ -353,7 +353,7 @@ Listing 6-11 - Utilizzo del metodo `forward404()`
     }
 
 >**TIP**
->Se siete in cerca dell'azione e del template per l'errore 404, sappiate che si trova nella cartella `$sf_symfony_ lib_dir/controller/default/`. 
+>Se siete in cerca dell'azione e del template per l'errore 404, sappiate che si trova nella cartella `$sf_symfony_ lib_dir/controller/default/`.
 >È possibile personalizzare questa pagina creando un nuovo modulo `default` nell'applicazione, sovrascrivendo quella proposta dal framework e definendo al suo interno un'azione `error404` e un template error404Success. Altrimenti è possibile impostare le costanti `error_404_module` e `error_404_action` nel file `settings.yml` per utilizzare un'azione esistente.
 
 L'esperienza insegna che, la maggior parte delle volte, un'azione esegue un redirect o un forward dopo aver verificato qualcosa, come nel Listato 6-12. Questo è il motivo per cui la classe `sfActions` ha alcuni metodi aggiuntivi chiamati `forwardIf()`, `forwardUnless()`, `forward404If()`, `forward404Unless()`, `redirectIf()`, e `redirectUnless()`. Questi parametri prendono semplicemente un parametro aggiuntivo che rappresenta una condizione in grado di scatenare l'esecuzione se verificato positivamente (per i metodi `xxxIf()`) o negativamente (per i metodi `xxxUnless()`), come illustrato nel Listato 6-12.

@@ -289,12 +289,12 @@ y usa Doctrine, su código PHP es el siguiente:
      *
      * @property clob $message
      * @property integer $priority
-     * 
+     *
      * @method clob        getMessage()  Returns the current record's "message" value
      * @method integer     getPriority() Returns the current record's "priority" value
      * @method MailMessage setMessage()  Sets the current record's "message" value
      * @method MailMessage setPriority() Sets the current record's "priority" value
-     * 
+     *
      * @package    ##PACKAGE##
      * @subpackage ##SUBPACKAGE##
      * @author     ##NAME## <##EMAIL##>
@@ -439,7 +439,7 @@ cuando estás depurando una aplicación.
 >también se pueden pinchar cuando se configura la opción `sf_file_link_format`.
 
 Por defecto la opción `sf_file_link_format` no tiene ningún valor, por lo que
-se hace uso, si está disponible, del valor de la opción de configuración 
+se hace uso, si está disponible, del valor de la opción de configuración
 [`xdebug.file_link_format`](http://xdebug.org/docs/all_settings#file_link_format)
 de PHP. La opción `xdebug.file_link_format` en el archivo `php.ini` permite a
 las versiones más recientes de XDebug añadir enlaces a todos los nombres de

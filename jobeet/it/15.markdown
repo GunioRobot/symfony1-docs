@@ -102,7 +102,7 @@ essere generato:
         {
           $this->setToken(sha1($this->getEmail().rand(11111, 99999)));
         }
-        
+
         return parent::save($conn);
       }
 
@@ -560,7 +560,7 @@ Creiamo il template `waitSuccess.php`:
     <h1>Your affiliate account has been created</h1>
 
     <div style="padding: 20px">
-      Thank you! 
+      Thank you!
       You will receive an email with your affiliate token
       as soon as your account will be activated.
     </div>
@@ -606,8 +606,8 @@ Apriamo il file `JobeetAffiliateForm` per personalizzare il ~form|Form~:
       public function configure()
       {
         $this->useFields(array(
-          'url', 
-          'email', 
+          'url',
+          'email',
           'jobeet_categories_list'
         ));
 <propel>

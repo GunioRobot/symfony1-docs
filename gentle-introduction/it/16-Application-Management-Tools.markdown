@@ -73,7 +73,7 @@ Listato 16-4 - Configurazione predefinita del log, in `frontend/config/factories
           level: err
 
 Per impostazione predefinita, in tutti gli ambienti escluso quello di produzione, tutti i messaggi vengono registrati nel log (fino al livello meno importante, il livello `debug`). Nell'ambiente di produzione, per impostazione predefinita il log è disabilitato; se in `settings.yml` si cambia `logging_enabled` a `true`, nei log verranno registrati solo i messaggi più importanti (da `crit` a `emerg`)
-		  
+
 Nel file `factories.yml` si può cambiare il livello dei log per ciascun ambiente per limitare il tipo dei messaggi registrati.
 
 >**TIP**
@@ -435,7 +435,7 @@ Listato 16-14 - Un esempio di task più completo, in `lib/task/mioSecondoTask.cl
       protected function execute($arguments = array(), $options = array())
       {
         // aggiungere qua il codice
-        
+
       }
     }
 
@@ -475,9 +475,9 @@ Listato 16-15 - Esempio di un file fixture, in `data/fixtures/import_data.yml`
           lei che era fuori di casa per le strade, attraversando vie occupate, attraversando vie trafficate,
           dalla mattina alla sera.
 
-Symfony traduce le chiavi delle colonne in metodi setter utilizzando un convertitore camelCase (`setTitle()`, `setContent()`). Ciò significa che è possibile definire una chiave `password`, anche se la tabella attuale non dispone di un campo `password`; basta definire un metodo `setPassword()` nell'oggetto `User` e si possono popolare le altre colonne con un algoritmo basato sulla password (ad esempio, una versione hash della password). 
-		  
-La colonna della chiave primaria non ha bisogno di essere definita. Poiché si tratta di un campo a incremento automatico, il livello del database sa come calcolarlo. 
+Symfony traduce le chiavi delle colonne in metodi setter utilizzando un convertitore camelCase (`setTitle()`, `setContent()`). Ciò significa che è possibile definire una chiave `password`, anche se la tabella attuale non dispone di un campo `password`; basta definire un metodo `setPassword()` nell'oggetto `User` e si possono popolare le altre colonne con un algoritmo basato sulla password (ad esempio, una versione hash della password).
+
+La colonna della chiave primaria non ha bisogno di essere definita. Poiché si tratta di un campo a incremento automatico, il livello del database sa come calcolarlo.
 
 Anche le colonne `created_at` non devono essere impostate, perché symfony sa che i campi chiamati in questo modo, quando vengono creati devono essere impostati all'ora corrente del sistema.
 
@@ -518,7 +518,7 @@ Listing 16-16 - Aggiungere un record a una tabella collegata, in `data/fixtures/
         content:      La tua prosa è troppo prolissa. Scrivere frasi più brevi.
 
 Il task `propel:data-load` riconosce l'etichetta che è stata data precedentemente a un articolo nel file `import_data.yml` e prende la chiave primaria del corrispondente record di `Article` per impostare il campo `article_id`. Non si vedranno mai gli ID dei record, è sufficiente collegarli alle loro etichette.
-		
+
 L'unico vincolo per i record collegati è che gli oggetti chiamati in una chiave esterna devono essere definiti in precedenza nel file; il che è come si farebbe se si definissero uno per uno. I file di dati vengono analizzati dall'alto verso il basso e l'ordine in cui sono scritti i record è importante.
 
 Questo metodo funziona anche per le relazioni molti a molti, dove due classi sono collegate attraverso una terza classe. Ad esempio, un `Article` può avere molti `Authors` e un `Author` può avere molti `Articles`. Di solito per fare questo si utilizza la classe `ArticleAuthor`, corrispondente a una tabella `article_author` con una colonna `article_id` e una colonna `author_id`.
@@ -532,7 +532,7 @@ Listato 16-17 - Aggiungere un record a una tabella collegata con una relazione m
         article_authors: [first_post, second_post]
 
 Un file di dati può contenere dichiarazioni di più classi. Ma quando si ha la necessità di inserire molti dati per numerose tabelle, il file con le fixture potrebbe divenare troppo grosso per essere gestito con facilità.
-		
+
 Il task `propel:data-load` analizza tutti i file che vengono trovati nella cartella `fixtures/` , quindi nessuno impedisce di suddividere un file YAML con le fixture in file più piccoli. La cosa importante da ricordare è che le le chiavi esterne impongono un ordine di elaborazione per le tabelle. Per essere sicuri che vengano analizzati nel giusto ordine, prefissare i nomi dei file con un numero ordinale.
 
     100_article_import_data.yml
@@ -551,7 +551,7 @@ Symfony offre comandi manuali per sincronizzare due versioni di un sito web. Que
 
 ### L'utilizzo di `rsync` per il trasferimento incrementale di file
 
-L'invio della cartella principale di un progetto tramite FTP va bene per il primo trasferimento, ma quando si ha bisogno di caricare un aggiornamento dell'applicazione, in cui sono cambiati solo alcuni file, l'FTP non è l'ideale. È necessario trasferire nuovamente l'intero progetto, il che è uno spreco di tempo e di larghezza di banda. In alternativa si può passare alla directory in cui si sa che alcuni file sono stati modificati e trasferire solo quelli con certe date di modifica. Questo è un lavoro che richiede tempo ed è suscettibile di errori. Inoltre, il sito web può diventare non disponibile o restituire errori durante il tempo del trasferimento. 
+L'invio della cartella principale di un progetto tramite FTP va bene per il primo trasferimento, ma quando si ha bisogno di caricare un aggiornamento dell'applicazione, in cui sono cambiati solo alcuni file, l'FTP non è l'ideale. È necessario trasferire nuovamente l'intero progetto, il che è uno spreco di tempo e di larghezza di banda. In alternativa si può passare alla directory in cui si sa che alcuni file sono stati modificati e trasferire solo quelli con certe date di modifica. Questo è un lavoro che richiede tempo ed è suscettibile di errori. Inoltre, il sito web può diventare non disponibile o restituire errori durante il tempo del trasferimento.
 
 La soluzione supportata da symfony è la sincronizzazione rsync attraverso SSH. [Rsync] (http://samba.anu.edu.au/rsync/) è una utility a riga di comando che consente il trasferimento incrementale di file in modo veloce ed è open source. Con il trasferimento incrementale, solo i dati modificati verranno inviati. Se un file non è stato modificato, non sarà inviato all'host. Se un file è stato modificato solo in parte, sarà inviata solo la parte cambiata. Il vantaggio principale è che la sincronizzazione con rsync trasferire solo una piccola quantità di dati ed è molto veloce.
 
@@ -604,13 +604,13 @@ Non dimenticarsi di cancellare la cache nel server di produzione dopo la sincron
 >
 >Il meccanismo di gestione della sessione utilizza un cookie lato client e questo cookie in modalità predefinita si chiama `symfony`. Prima di distribuire l'applicazione, si dovrebbe rinominarlo, in modo da evitare la divulgazione del fatto che l'applicazione utilizza symfony. Fare riferimento al Capitolo 6 per vedere come personalizzare il nome del cookie nel file `factories.yml`.
 >
-> Il file `robots.txt` che si trova nella cartella `web/` del progetto, in modalità predefinita è vuoto. Si consiglia di personalizzarlo per informare spider web e robot web su quali parti del sito web possono navigare e quali dovrebbero ignorare. Il più delle volte, questo file viene utilizzato per escludere alcune URL dall'indicizzazione; per esempio le pagine di risorse che non hanno bisogno di indicizzazione (come l'archivio dei bug), o gli infiniti URL in cui i robot potrebbero rimanere bloccati. 
+> Il file `robots.txt` che si trova nella cartella `web/` del progetto, in modalità predefinita è vuoto. Si consiglia di personalizzarlo per informare spider web e robot web su quali parti del sito web possono navigare e quali dovrebbero ignorare. Il più delle volte, questo file viene utilizzato per escludere alcune URL dall'indicizzazione; per esempio le pagine di risorse che non hanno bisogno di indicizzazione (come l'archivio dei bug), o gli infiniti URL in cui i robot potrebbero rimanere bloccati.
 >
 >I browser moderni cercano un file `favicon.ico` quando un utente visualizza per la prima volta l'applicazione, in modo da rappresentare l'applicazione con un'icona nella barra degli indirizzi e nella cartella con i segnalibri. Aggiungendo questo file non solo renderà l'applicazione più carina, ma eviterà anche la comparsa di numerosi errori 404 nei log del server.
 
 ### Ignorare i file irrilevanti
 
-Quando si sincronizza il progetto symfony con un host di produzione, alcuni file e cartelle non dovrebbero essere trasferiti: 
+Quando si sincronizza il progetto symfony con un host di produzione, alcuni file e cartelle non dovrebbero essere trasferiti:
 
   * Tutte le cartelle del controllo di versione (`.svn/`, `CVS/` e così via) e il loro contenuto, sono necessari solo per lo sviluppo.
   * Il front controller dell'ambiente di sviluppo non deve essere disponibile all'utente finale. Gli strumenti per il debug e i log disponibili quando si usa l'applicazione attraverso questo front controller rallentano l'applicazione e forniscono informazioni sulle variabili delle azioni. È qualcosa da tenere lontano dal pubblico dominio.

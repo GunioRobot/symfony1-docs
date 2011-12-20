@@ -40,11 +40,11 @@ in your project's `lib/debug/` directory (you'll need to create this directory):
       {
         return 'Documentation';
       }
-      
+
       public function getPanelContent()
       {
         $content = 'Placeholder Panel Content';
-        
+
         return $content;
       }
     }

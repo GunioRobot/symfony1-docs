@@ -223,7 +223,7 @@ history:
             ->execute()
           ;
         }
-        
+
         return array();
       }
 </doctrine>
@@ -313,9 +313,9 @@ symfony forwards the request to the `login` action configured in `settings.yml`:
 -
 
 >**TIP**
->As we saw during day 4, the same configuration file can be defined in 
->several places. This is also the case for `security.yml`. To only 
->~secure or un-secure|Access Restriction~ a single action or a whole module, 
+>As we saw during day 4, the same configuration file can be defined in
+>several places. This is also the case for `security.yml`. To only
+>~secure or un-secure|Access Restriction~ a single action or a whole module,
 >create a ~`security.yml`~ in the `config/` directory of the module:
 >
 >     [yml]
@@ -450,9 +450,9 @@ from the symfony website and unarchive it, or alternatively make an
 <doctrine>
 The [plugin page](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin?tab=plugin_all_releases) lists all available version grouped by symfony versions.
 
-As a plugin is self-contained into a directory, you can also 
-[download the package](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin?tab=plugin_installation) 
-from the symfony website and unarchive it, or alternatively make an `svn:externals` link to its 
+As a plugin is self-contained into a directory, you can also
+[download the package](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin?tab=plugin_installation)
+from the symfony website and unarchive it, or alternatively make an `svn:externals` link to its
 [Subversion repository](http://svn.symfony-project.com/plugins/sfDoctrineGuardPlugin).
 </doctrine>
 
@@ -472,7 +472,7 @@ enable it by hand in `ProjectConfiguration.class.php`:
 </propel>
 <doctrine>
         $this->enablePlugins(array(
-          'sfDoctrinePlugin', 
+          'sfDoctrinePlugin',
           'sfDoctrineGuardPlugin'
         ));
 </doctrine>
@@ -569,7 +569,7 @@ The last step is to create an administrator user:
 
 >**TIP**
 >The `sfGuardPlugin` provides tasks to manage users, groups, and permissions
->from the ~command line|Command Line~. Use the `list` task to list all tasks 
+>from the ~command line|Command Line~. Use the `list` task to list all tasks
 >belonging to the `guard` namespace:
 >
 >     $ php symfony list guard
@@ -601,7 +601,7 @@ And when the user is authenticated, we need to add a logout link in the menu:
 
 <doctrine>
 >**TIP**
->To list all routes provided by `sfDoctrineGuardPlugin`, use the `app:routes` 
+>To list all routes provided by `sfDoctrineGuardPlugin`, use the `app:routes`
 >task.
 </doctrine>
 

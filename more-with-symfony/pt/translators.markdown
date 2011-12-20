@@ -4,9 +4,9 @@ Sobre os Tradutores
 Andréia Bohner
 --------------
 
-Entusiasta do framework symfony, com o qual trabalha desenvolvendo desde 2005, na época com a versão 0.4.3. Iniciou a contribuir para sua divulgação aqui no Brasil com a publicação de cheat-sheets, tradução da documentação oficial e a criação do grupo de discussões symfony-pt. 
+Entusiasta do framework symfony, com o qual trabalha desenvolvendo desde 2005, na época com a versão 0.4.3. Iniciou a contribuir para sua divulgação aqui no Brasil com a publicação de cheat-sheets, tradução da documentação oficial e a criação do grupo de discussões symfony-pt.
 
-Desenvolvedora web desde 2003. Possui graduação em Ciência da Computação. Apaixonada por tecnologias livres, open-source e web-standards com as quais trabalha e contribui. 
+Desenvolvedora web desde 2003. Possui graduação em Ciência da Computação. Apaixonada por tecnologias livres, open-source e web-standards com as quais trabalha e contribui.
 Também gosta de dança, e, acima de tudo, está seu amor pelo seu maravilhoso filho Davi.
 
 **Seu site** : *http://andreiabohner.wordpress.com*
@@ -69,9 +69,9 @@ Além de symfony, curte open source, e soluções inteligentes para sites com ca
 Márcio Albuquerque
 ------------------
 
-Desenvolvedor PHP há uns 10 anos, passou por várias versões do PHP. Já estuda as mudanças que estão chegando na nova versão, PHP 6. 
+Desenvolvedor PHP há uns 10 anos, passou por várias versões do PHP. Já estuda as mudanças que estão chegando na nova versão, PHP 6.
 
-Márcio Albuquerque estudou e usou vários frameworks em PHP. Se encontrou com o symfony desde a versão 0.7, produzindo e gerenciando novos sistemas com este framework. Hoje, usa e dissemina conhecimento com relação ao symfony 1.4 e já estuda a nova versão do framework, Symfony 2.0. Já fez alguns poucos plugins (versão 1.0) e participa da comunidade symfony-pt. 
+Márcio Albuquerque estudou e usou vários frameworks em PHP. Se encontrou com o symfony desde a versão 0.7, produzindo e gerenciando novos sistemas com este framework. Hoje, usa e dissemina conhecimento com relação ao symfony 1.4 e já estuda a nova versão do framework, Symfony 2.0. Já fez alguns poucos plugins (versão 1.0) e participa da comunidade symfony-pt.
 
 Tem grande interesse em desenvolvimento e gestão ágil com qualidade.
 
@@ -89,7 +89,7 @@ Recentemente Licenciada em Novas Tecnologias da Comunicação, procura constante
 Rafael Goulart
 --------------
 
-Graduado em Administração, é desenvolvedor PHP há 8 anos e 2,5 anos desenvolvedor symfony, ZCE, especialista em sistemas CRM , leciona PHP e symfony. 
+Graduado em Administração, é desenvolvedor PHP há 8 anos e 2,5 anos desenvolvedor symfony, ZCE, especialista em sistemas CRM , leciona PHP e symfony.
 
 Trabalha como consultor e desenvolvedor freelancer para vários clientes em todo Brasil.
 

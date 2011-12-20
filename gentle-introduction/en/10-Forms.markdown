@@ -269,7 +269,7 @@ The `choice` widget expects at least a `choices` parameter with an associative a
       <option value="uk" selected="selected">UK</option>
       <option value="0">other</option>
     </select>
-    
+
     // Dropdown list with multiple choices
     $form->setWidget('languages', new sfWidgetFormChoice(array(
       'multiple' => 'true',
@@ -296,7 +296,7 @@ The `choice` widget expects at least a `choices` parameter with an associative a
       <li><input type="radio" name="gender" id="gender_m" value="m"><label for="gender_m">Male</label></li>
       <li><input type="radio" name="gender" id="gender_f" value="f"><label for="gender_f">Female</label></li>
     </ul>
-    
+
     // List of checkboxes
     $form->setWidget('interests', new sfWidgetFormChoice(array(
       'multiple' => 'true',
@@ -382,7 +382,7 @@ Date and time widgets output a set of drop-down lists, populated with the availa
       ...
       <option value="1990">1990</option>
     </select>
-    
+
     // Time
     $form->setWidget('start', new sfWidgetFormTime(array('default' => '12:00')));
     // symfony renders the widget in HTML as
@@ -420,7 +420,7 @@ In multilingual applications, dates must be displayed in a format according to t
     $years = range(1950, 1990);
     $form->setWidget('dob', new sfWidgetFormI18nDate(array(
       'culture'      => $this->getUser()->getCulture(),
-      'month_format' => 'name',   // Use any of 'name' (default), 'short_name', and 'number' 
+      'month_format' => 'name',   // Use any of 'name' (default), 'short_name', and 'number'
       'label'        => 'Date of birth',
       'default'      => '01/01/1950',
       'years'        => array_combine($years, $years)
@@ -489,7 +489,7 @@ Dealing with file input tags is not more complicated than dealing with other wid
     <label for="picture">Picture</label>
     <input id="picture" type="file" name="picture"/>
     // Whenever a form has a file widget, renderFormTag() outputs a <form> tag with the multipart option
-    
+
     // Editable input file
     $form->setWidget('picture', new sfWidgetFormInputFileEditable(array('default' => '/images/foo.png')));
     // symfony renders the widget in HTML as a file input tag, together with a preview of the current file
@@ -781,7 +781,7 @@ Symfony offers quite a lot of validators. Remember that each validator accepts a
       'min_length' => 'Please post a longer message',
       'max_length' => 'Please be less verbose',
     )));
-    
+
     // Number validator
     $form->setValidator('age', new sfValidatorNumber(array( // use 'sfValidatorInteger' instead if you want to force integer values
       'min'  => 18,
@@ -791,13 +791,13 @@ Symfony offers quite a lot of validators. Remember that each validator accepts a
       'min' => 'You must be 18 or more to use this service',
       'max' => 'Are you kidding me? People over 30 can\'t even use the Internet',
     )));
-    
+
     // Email validator
     $form->setValidator('email', new sfValidatorEmail());
-    
+
     // URL validator
     $form->setValidator('website', new sfValidatorUrl());
-    
+
     // Regular expression validator
     $form->setValidator('IP', new sfValidatorRegex(array(
       'pattern' => '^[0-9]{3}\.[0-9]{3}\.[0-9]{2}\.[0-9]{3}$'
@@ -808,12 +808,12 @@ Even though some form controls (like drop-down lists, checkboxes, radio button g
     [php]
     // Boolean validator
     $form->setValidator('has_signed_terms_of_service', new sfValidatorBoolean());
-    
+
     // Choice validator (to restrict values in a list)
     $form->setValidator('subject', new sfValidatorChoice(array(
       'choices' => array('Subject A', 'Subject B', 'Subject C')
     )));
-    
+
     // Multiple choice validator
     $form->setValidator('languages', new sfValidatorChoice(array(
       'multiple' => true,
@@ -830,7 +830,7 @@ The `sfValidatorChoice` validator is often used to validate a `sfWidgetFormChoic
       'model'  => 'Section',
       'column' => 'name'
     )));
-    
+
     // Doctrine choice validator
     $form->setValidator('section_id', new sfValidatorDoctrineChoice(array(
       'model'  => 'Section',
@@ -842,12 +842,12 @@ Another useful Model-related validator is the `sfValidatorPropelUnique` validato
     [php]
     // Propel unique validator
     $form->setValidator('nickname', new sfValidatorPropelUnique(array(
-      'model'  => 'User', 
+      'model'  => 'User',
       'column' => 'login'
     )));
-    
+
     $form->setValidator('nickname', new sfValidatorDoctrineUnique(array(
-      'model'  => 'User', 
+      'model'  => 'User',
       'column' => 'login'
     )));
 
@@ -870,9 +870,9 @@ To make your forms even more secure and avoid [Cross-Site Request Forgery](http:
 The multiple validators work with the whole form, rather than a single input. Here is a list of available multiple validators:
 
     [php]
-    // compare validator - compare two fields 
+    // compare validator - compare two fields
     $form->setPostValidator(new sfValidatorSchemaCompare('password1', '==', 'password2'));
-    
+
     // Extra field validator: looks for fields in the request not present in the form
     $form->setOption('allow_extra_fields', false);
     $form->setOption('filter_extra_fields', true);
@@ -1011,7 +1011,7 @@ A custom widget is simply a class extending `sfWidgetForm`, and providing a `con
       public function render($name, $value = null, $attributes = array(), $errors = array())
       {
         return $this->renderTag('input', array_merge(
-          array('type' => $this->getOption('type'), 'name' => $name, 'value' => $value), 
+          array('type' => $this->getOption('type'), 'name' => $name, 'value' => $value),
           $attributes
         ));
       }
@@ -1133,7 +1133,7 @@ A form to edit an `Article` object should use a hidden widget for the `id`, a te
 
     // propel
     $ php symfony propel:build-forms
-    
+
     // doctrine
     $ php symfony doctrine:build-forms
 
@@ -1198,12 +1198,12 @@ Here is an example of model form handling in an action. In this form, the `slug`
     {
       $c = new Criteria();
       $c->add(AuthorPeer::ACTIVE, true);
-      
+
       $this->form = new ArticleForm(
         ArticlePeer::retrieveByPk($request->getParameter('id')),
         array('criteria' => $c)
       );
-      
+
       if ($request->isMethod('post'))
       {
         $this->form->bind($request->getParameter('article'));

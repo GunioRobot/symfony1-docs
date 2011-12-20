@@ -46,14 +46,14 @@ de sistemas operacionais Microsoft Windows, especialmente Windows Server 2008
 >Planejamento de Extensão para este tutorial
 >
 >Uma seção complementar deste capítulo está em construção e será liberada
->no site do symfony projeto web logo após a publicação 
+>no site do symfony projeto web logo após a publicação
 >deste livro. Abrange a conexão com MS SQL Server através do PDO, algo que a
 >Microsoft planeja melhorias em breve.
 >
 >[PHP_PDO_MSSQL]
 >extension=php_pdo_mssql.dll
 >
->Atualmente, o melhor desempenho na execução de código é obtido pelo 
+>Atualmente, o melhor desempenho na execução de código é obtido pelo
 >driver nativo do Microsoft SQL Server para PHP 5, um driver open-source disponível no Windows
 >e atualmente disponível na versão 1.1. Isso é implementado como uma
 >nova extensão DLL do PHP:
@@ -67,7 +67,7 @@ de sistemas operacionais Microsoft Windows, especialmente Windows Server 2008
 
 ### Como utilizar este tutorial em diferentes sistemas Windows, incluindo 32-bit
 
-Este documento foi escrito especificamente para edições do Windows Server 2008 de 64-bits 
+Este documento foi escrito especificamente para edições do Windows Server 2008 de 64-bits
 . Entretanto, você deve ser capaz de usar as outras versões, sem quaisquer complicações.
 
 >**NOTE**
@@ -108,7 +108,7 @@ O servidor web utilizado é o Microsoft Internet Information Server versão 7.0,
 que é incluído em todas as edições como parte do Windows Server 2008. Começamos o
 tutorial com um servidor Windows Server 2008 totalmente funcional e instalamos o IIS
 a partir do zero. As etapas de instalação usam as opções padrões, bastando adicionar dois
-módulos específicos que vem com o design modular do IIS 7.0: **FastCGI** e 
+módulos específicos que vem com o design modular do IIS 7.0: **FastCGI** e
 **URL Rewrite**.
 
 ### Bancos de Dados
@@ -131,16 +131,16 @@ Claro que você pode trabalhar diretamente em uma máquina existente, mas você 
 diferenças devido aos softwares instalados, tempo de execução, e as configurações regionais.
 
 A fim de obter as mesmas telas que aparecem no
-tutorial, é recomendável a obtenção de um Windows Server dedicado em um 
+tutorial, é recomendável a obtenção de um Windows Server dedicado em um
 ambiente virtual, disponível gratuitamente na Internet por um período de 30 dias.
 
->**SIDEBAR** 
+>**SIDEBAR**
 >Como obter um Windows Server Trial gratuito?
 >
 >É claro que é possível utilizar qualquer servidor dedicado com acesso à Internet. Um
 > servidor físico ou mesmo servidor virtual dedicado (VDS) vai funcionar perfeitamente.
 >
->Um servidor disponível para avaliação por 30 dias com o Windows está no Ikoula, um provedor francês, 
+>Um servidor disponível para avaliação por 30 dias com o Windows está no Ikoula, um provedor francês,
 >que oferece uma lista abrangente de serviços para os desenvolvedores e
 >designers. Esta avaliação começa em 0  / mês para uma máquina virtual Windows
 >sendo executado em um ambiente Microsoft Hyper-V. Sim, você pode obter uma
@@ -150,7 +150,7 @@ ambiente virtual, disponível gratuitamente na Internet por um período de 30 di
 >Para solicitar, basta abrir no navegador http://www.ikoula.com/flex_server e
 >clique no botão "Testez gratuitement".
 >
->A fim de obter as mesmas mensagens descritas neste documento, o sistema operacional 
+>A fim de obter as mesmas mensagens descritas neste documento, o sistema operacional
 >que solicitamos ao servidor Flex é: "Windows Server 2008 Enterprise Edition
 >64 bits". Esta é uma distribuição x64, entregues com as línguas fr-FR
 >e en-US. É fácil mudar de `fr-FR` para `en-US` e vice-versa
@@ -186,7 +186,7 @@ exceções que devem ser verificadas são:
 
 ![Verifique as configurações de firewall, diretamente no painel de controle.](http://www.symfony-project.org/images/more-with-symfony/windows_02.png)
 
-Então, é sempre bom para executar o Windows Update para garantir que todos os pacotes do software 
+Então, é sempre bom para executar o Windows Update para garantir que todos os pacotes do software
 estão instalados com as últimas correções, patches e documentação.
 
 ![Verificar status do Windows Update, diretamente no Painel de controle.](http://www.symfony-project.org/images/more-with-symfony/windows_03.png)
@@ -208,13 +208,13 @@ instalar primeiro o Microsoft Web Platform Installer 2.0, denominada Web PI
 nas seções seguintes.
 
 Web PI toma cuidado de instalar todas as dependências necessárias para a execução de PHP
-em qualquer Windows / sistema do IIS. Então, ele instala o IIS com o mínimo de Role Services 
+em qualquer Windows / sistema do IIS. Então, ele instala o IIS com o mínimo de Role Services
 para o servidor Web, e também oferece opções mínimas para o PHP runtime.
 
 ![http://www.microsoft.com/web - Faça o download agora.](http://www.symfony-project.org/images/more-with-symfony/windows_05.png)
 
 A instalação do Microsoft Web Platform Installer 2.0 contém um
-analisador de configuração, verifica módulos existentes, propõe as atualizações de módulos necessárias, 
+analisador de configuração, verifica módulos existentes, propõe as atualizações de módulos necessárias,
 e ainda permite que você faça um beta-teste de extensões ainda não lançadas da
 Microsoft Web Platform.
 
@@ -223,7 +223,7 @@ Microsoft Web Platform.
 Web PI 2.0 oferece a instalação do PHP runtime em um clique. A seleção
 instala a implementação Win32 "non-thread safe" do PHP, que é
 melhor associada ao IIS 7 e FastCGI. Também oferece o mais recente
-runtime testado, aqui 5.2.11. Para encontrá-lo, basta selecionar a guia "Frameworks and 
+runtime testado, aqui 5.2.11. Para encontrá-lo, basta selecionar a guia "Frameworks and
 Runtimes" à esquerda:
 
 ![PI Web 2.0 - Guia Frameworks e Runtimes.](http://www.symfony-project.org/images/more-with-symfony/windows_07.png)
@@ -238,7 +238,7 @@ IIS 7.0 roles services:
 
 ![PI Web 2.0 - Dependências automaticamente adicionadas - 3 / 3.](http://www.symfony-project.org/images/more-with-symfony/windows_10.png)
 
-Em seguida, clique em Install, em seguida, no botão "I Accept". A instalação dos componentes IIS 
+Em seguida, clique em Install, em seguida, no botão "I Accept". A instalação dos componentes IIS
 começará enquanto, paralelamente, o PHP é transferido
 [runtime](http://windows.php.net) e alguns módulos são atualizados (atualização para um
 IIS FastCGI 7,0 por exemplo).
@@ -261,13 +261,13 @@ Agora, para verificar que o PHP está instalado corretamente, e disponível a pa
 criamos um pequeno arquivo `phpinfo.php` a ser acessado pelo servidor web padrão
 na porta 80, em `C:\inetpub\wwwroot`.
 
-Antes de fazer isso, garantimos que, no Windows Explorer, podemos ver as 
+Antes de fazer isso, garantimos que, no Windows Explorer, podemos ver as
 extensões corretas dos arquivos. Selecione "Unhide Extensions for Known Files Types".
 
 ![Windows Explorer - Unhide Extensions for Known Files Types.](http://www.symfony-project.org/images/more-with-symfony/windows_14.png)
 
 Abra o Windows Explorer e vá para "C:\inetpub\wwwroot`. Clique com o botão direito do mouse e selecione
-"New Text Document". Renomeie para `phpinfo.php` e copie a chamada de função 
+"New Text Document". Renomeie para `phpinfo.php` e copie a chamada de função
 usual:
 
 ![Windows Explorer - Criar phpinfo.php.](http://www.symfony-project.org/images/more-with-symfony/windows_15.png)
@@ -295,10 +295,10 @@ Por fim, reabra o navegador web uma última vez para agora, e coloque
 Executando o PHP na interface de linha de comando
 ---------------------------------------------
 
-Para depois executar as tarefas da linha de comando com o symfony, precisamos assegurar que o 
+Para depois executar as tarefas da linha de comando com o symfony, precisamos assegurar que o
 PHP.EXE é acessível a partir do prompt de comando e é executad corretamente.
 
-Abra um prompt de comando para `C:\inetpub\wwwroot` e digite 
+Abra um prompt de comando para `C:\inetpub\wwwroot` e digite
 
     PHP phpinfo.php
 
@@ -306,12 +306,12 @@ A seguinte mensagem de erro deve aparecer:
 
 ![PHP - MSVCR71.DLL não foi encontrado.](http://www.symfony-project.org/images/more-with-symfony/windows_20.png)
 
-Se não fizermos nada, a execução de PHP.EXE trava na ausência do 
-MSVCR71.DLL. Então, temos de encontrar o arquivo DLL e instalá-lo no local 
+Se não fizermos nada, a execução de PHP.EXE trava na ausência do
+MSVCR71.DLL. Então, temos de encontrar o arquivo DLL e instalá-lo no local
 correto.
 
 Este `MSVCR71.DLL` é uma versão do Microsoft Visual C + + runtime, que
-remonta à época de 2003. Ele está contido no pacote redistribuível 
+remonta à época de 2003. Ele está contido no pacote redistribuível
 .NET Framework 1.1.
 
 O pacote redistribuível .NET Framework 1.1, pode ser baixado em
@@ -322,7 +322,7 @@ O arquivo que estamos procurando é instalado no seguinte diretório:
 
 Basta copiar o para `MSVCR71.DLL` para o seguinte destino:
 
-* Em sistemas x64: o diretório `C:\windows\syswow64` 
+* Em sistemas x64: o diretório `C:\windows\syswow64`
 * Em sistemas x86: o diretório `C:\windows\system32`
 
 Podemos agora desisntalar o .Net Framework 1.1.
@@ -336,7 +336,7 @@ Por exemplo:
 Mais tarde, nós vamos verificar que symfony.bat (a partir da distribuição Sandbox) também
 dá a resposta esperada, que é a sintaxe do comando symfony.
 
-Instalação e Uso do Sandbox do symfony 
+Instalação e Uso do Sandbox do symfony
 --------------------------------------
 
 O parágrafo seguinte é um trecho do "Guia de Introdução ao symfony",
@@ -349,19 +349,19 @@ melhores práticas da web".
 O sandbox é pré-configurado para usar o SQLite como banco de dados. No Windows,
 não há nada específico para instalar: O SQLite é diretamente implementado na
 extensão PDO do PHP para o SQLite, que é instalado juntamente com
-o PHP. Nós já realizamos isto antes, quando o PHP runtime 
+o PHP. Nós já realizamos isto antes, quando o PHP runtime
 foi instalado através do Microsoft Web PI.
 
-Basta verificar se a extensão SQLite está corretamente referida no arquivo 
+Basta verificar se a extensão SQLite está corretamente referida no arquivo
 PHP.INI, que reside no diretório `C:\Program Files (x86)\PHP`, e que
-a DLL que implementa o suporte PDO para SQLite está definida como 
+a DLL que implementa o suporte PDO para SQLite está definida como
 `C:\Program Files (x86)\PHP\ext\php_pdo_sqlite.dll`.
 
 ![PHP - Localização do arquivo de configuração php.ini.](http://www.symfony-project.org/images/more-with-symfony/windows_21.png)
 
 ### Baixar, criar Diretório, copiar todos os Arquivos
 
-O projeto sandbox do symfony está "pronto para instalar e executar", e vem em um 
+O projeto sandbox do symfony está "pronto para instalar e executar", e vem em um
 arquivo `.zip`.
 
 Baixe o [arquivo](http://www.symfony-project.org/get/sf_sandbox_1_3.zip)
@@ -404,7 +404,7 @@ Isso deve retornar o mesmo resultado:
 ### A criação de aplicativos Web
 
 Para criar uma aplicação Web no servidor local, utilize o gerenciador do IIS7,
-que é o painel de controle da interface gráfica do usuário para todas as atividades relacionadas com 
+que é o painel de controle da interface gráfica do usuário para todas as atividades relacionadas com
 o IIS. Todas as ações realizadas a partir da interface do usuário que são efetivamente realizadas por trás dos bastidores
 através da interface de linha de comando.
 
@@ -418,7 +418,7 @@ Queremos garantir que apenas o nosso symfony sandbox está respondendo na porta 
 
 ![*IIS Manager* - Editar *Binding* para "Default Web Site".](http://www.symfony-project.org/images/more-with-symfony/windows_26.png)
 
-Observe que, se o Firewall do Windows estiver ativo, você poderá ter de criar uma 
+Observe que, se o Firewall do Windows estiver ativo, você poderá ter de criar uma
 exceção para a porta 8080 para continuar a ser capaz de atingir o "Default Web Site". Para
 esse efeito, vá para Windows Control Panel, selecione Windows Firewall, clique em
 *"Allow a program through Windows Firewall"* e clique em *"Add port"* para criar
@@ -430,13 +430,13 @@ esta exceção. Marque a caixa para ativá-lo após a criação.
 
 Abra o *IIS Manager* a partir *Administration Tools*. No painel esquerdo, selecione o ícone "Sites"
 e clique com o botão direito. Selecione *Add Web Site* a partir do menu de contexto. Digite, por
-exemplo, "symfony Sandbox" como o nome do site, `D:\dev\sfsandbox` para a Physical 
+exemplo, "symfony Sandbox" como o nome do site, `D:\dev\sfsandbox` para a Physical
 Path, e deixe os outros campos inalterados. Você verá esta caixa de diálogo:
 
 ![IIS Manager - Adicionando o Web Site.](http://www.symfony-project.org/images/more-with-symfony/windows_28.png)
 
 Clique em OK. Se um pequeno `X` aparece no ícone do site (em Features View /
-Sites), não deixe de clicar em "Restart" no painel direito para fazê-lo 
+Sites), não deixe de clicar em "Restart" no painel direito para fazê-lo
 desaparecer.
 
 #### Verifique se o Site está Respondendo
@@ -451,7 +451,7 @@ Você deverá receber uma mensagem de erro explícita, isso não é inesperado:
 O servidor Web está configurado para não listar o conteúdo deste diretório.
 
 Isto é originado a partir da configuração padrão do servidor web, que especifica
-que o conteúdo deste diretório não deve ser listado. Uma vez que nenhum arquivo 
+que o conteúdo deste diretório não deve ser listado. Uma vez que nenhum arquivo
 padrão como `index.php` ou `index.html` existe em `D:\dev\sfsandbox`, o
 servidor retorna corretamente a mensagem de erro "Forbidden". Não tenha medo.
 
@@ -463,7 +463,7 @@ Explorer, exibindo "symfony Project Created":
 
 ![IIS Manager - Digite http://localhost/web na URL. Sucesso!](http://www.symfony-project.org/images/more-with-symfony/windows_31.png)
 
-A propósito, você pode ver uma faixa amarela no topo dizendo 
+A propósito, você pode ver uma faixa amarela no topo dizendo
 "Intranet settings are now turned off by default". Configurações de Intranet são menos seguras do que
 Configurações de Internet. Clique para ver opções. Não tenha medo desta mensagem.
 
@@ -514,7 +514,7 @@ A diferença é que, neste seção "projeto", vamos nos concentrar na
 configuração da aplicação Web para fazer funcionar de qualquer lugar
 Internet.
 
-Como o sandbox, o projeto symfony vem pré-configurado para usar o SQLite como 
+Como o sandbox, o projeto symfony vem pré-configurado para usar o SQLite como
 motor de base de dados. Este foi instalado e configurado no início deste capítulo.
 
 ### Baixar, criar um diretório e copiar os arquivos
@@ -583,7 +583,7 @@ Para iniciar o projeto, basta executar o seguinte linha de comando PHP:
 
     PHP lib\vendor\symfony\data\bin\symfony generate:project sfproject
 
-Isso deve retornar uma lista de operações de arquivo, incluindo alguns comandos 
+Isso deve retornar uma lista de operações de arquivo, incluindo alguns comandos
 `chmod 777`:
 
 ![Windows Explorer - Inicialização do Projeto OK.](http://www.symfony-project.org/images/more-with-symfony/windows_40.png)
@@ -593,7 +593,7 @@ seguinte comando:
 
     PHP lib\vendor\symfony\data\bin\symfony generate:app sfapp
 
-Novamente, este deve retornar uma lista de operações de arquivo, incluindo alguns 
+Novamente, este deve retornar uma lista de operações de arquivo, incluindo alguns
 comandos `chmod 777`.
 
 A partir deste ponto, ao invés de digitar `PHP lib\vendor\symfony\data\bin\symfony`
@@ -614,8 +614,8 @@ para obter a resposta clássica:
 
 ### A criação de aplicativos Web
 
-Nas linhas que se segue, vamos supor que você já leu em "Sandbox: Criação do Front-end Web" 
-os passos preliminares para reconfigurar o" Default Web Site" para 
+Nas linhas que se segue, vamos supor que você já leu em "Sandbox: Criação do Front-end Web"
+os passos preliminares para reconfigurar o" Default Web Site" para
 que não interfira na porta 80.
 
 #### Adicione um novo Web Site para o Projeto
@@ -623,12 +623,12 @@ que não interfira na porta 80.
 Abra o IIS Manager a partir do Administration Tools. No painel esquerdo, selecione o icone "Sites"
 e clique com o botão direito do mouse. Selecione "Add Web Site" do menu popup. Digite, por
 exemplo, "symfony Project" como o nome do site, `D:\dev\sfproject` para a
-"Physical Path", e deixar os outros campos inalterados; você verá esta caixa 
+"Physical Path", e deixar os outros campos inalterados; você verá esta caixa
 de diálogo:
 
 ![IIS Manager - Add Web Site.](http://www.symfony-project.org/images/more-with-symfony/windows_41.png)
 
-Clique em OK. Se um pequeno `x` aparece no ícone do site (em Features View / 
+Clique em OK. Se um pequeno `x` aparece no ícone do site (em Features View /
 Sites), não deixe de clicar em "Restart" no painel direito para faze-lo
 desaparecer.
 
@@ -644,7 +644,7 @@ Você deve obter a mesma mensagem de erro explícita como você tinha quando se 
 O servidor Web está configurado para não listar o conteúdo deste diretório.
 
 Digite `http://localhost/web` na barra de endereços do seu navegador, você deve agora
-ver a página "*Symfony Project Created*", mas com uma discreta diferença da 
+ver a página "*Symfony Project Created*", mas com uma discreta diferença da
 mesma página resultante de inicialização do sandbox: não existem imagens:
 
 ![Internet Explorer - *symfony Project Created* - sem imagens.](http://www.symfony-project.org/images/more-with-symfony/windows_42.png)
@@ -672,14 +672,14 @@ funcional.
 
 ![Internet Explorer - Página de logs está OK a partir de localhost.](http://www.symfony-project.org/images/more-with-symfony/windows_46.png)
 
-### Configuração da Aplicação para Aplicações Prontas para Internet 
+### Configuração da Aplicação para Aplicações Prontas para Internet
 
 Nosso projeto symfony genérico está agora trabalhando localmente, como o sandbox, a partir da
 servidor host local, localizado em `http://localhost` ou `http://127.0.0.1`.
 
 Agora, nós gostaríamos de ser capazes de acessar o aplicativo da Internet.
 
-A configuração padrão do projeto protege a aplicação de 
+A configuração padrão do projeto protege a aplicação de
 ser executada de um local remoto, embora, na realidade, tudo deve estar ok
 para acessar os arquivos `index.php` e `sfapp_dev.php`. Vamos executar o
 projeto a partir do navegador da Web, usando o endereço IP do servidor externo

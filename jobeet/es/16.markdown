@@ -2,8 +2,8 @@ Día 16: El Correo Electrónico
 =============================
 
 Ayer, agregamos un servicio de solo lectura a Jobeet. Los Afiliados pueden ahora
-crear una cuenta pero esta necesita ser activada por el administrador antes de 
-poder usarla. Para que el afiliado consiga su token, aún necesitaremos 
+crear una cuenta pero esta necesita ser activada por el administrador antes de
+poder usarla. Para que el afiliado consiga su token, aún necesitaremos
 implementar la notificación por email. Eso es lo que haremos el dia de hoy.
 
 El framework Symfony viene con una de las mejores soluciones PHP de correo:
@@ -67,7 +67,7 @@ El método `compose()` toma cuatro argumentos y devuelve un objeto de mensaje de
  * el asunto del mensaje;
  * el cuerpo del mensaje;
 
-El enviar el mensaje es entonces tan simple como llamar al método `send()` 
+El enviar el mensaje es entonces tan simple como llamar al método `send()`
 desde la instancia mailer y pasarle el mensaje como un argumento. Como un atajo, puedes
 solo escribir y enviar un email en un método usando `composeAndSend()`.
 
@@ -81,7 +81,7 @@ Configuración
 -------------
 
 Por defecto, el método `send()` intenta usar el servidor local SMTP para el
-envio del mensaje al destinatario. Por supuesto, como muchas cosas en Symfony, 
+envio del mensaje al destinatario. Por supuesto, como muchas cosas en Symfony,
 esto es totalmente configurable.
 
 ### ~Factorias~
@@ -93,8 +93,8 @@ son siempre accesibles desde el objeto `sfContext`, y como muchas cosas del
 framework, ellas son configurables via un archivo de configuración:
 ~`factories.yml`~. Este archivo es configurable por entorno.
 
-Cuando `sfContext` inicializa las factorias del núcleo, este lee al archivo 
-`factories.yml` por los nombres de clases (`class`) y los parámetros 
+Cuando `sfContext` inicializa las factorias del núcleo, este lee al archivo
+`factories.yml` por los nombres de clases (`class`) y los parámetros
 (`param`) a pasar al constructor:
 
     [yml]
@@ -103,11 +103,11 @@ Cuando `sfContext` inicializa las factorias del núcleo, este lee al archivo
       param:
         send_http_headers: false
 
-En código anterior, para crear un response factory, symfony instancia un objeto 
+En código anterior, para crear un response factory, symfony instancia un objeto
 `sfWebResponse` y pasa la opción `send_http_headers` como un parámetro.
 
 >**SIDEBAR**
->La clase `sfContext` 
+>La clase `sfContext`
 >
 >El objeto `sfContext` contiene referencias a los objetos del núcleo symfony como el
 >request, response, user, y así. Como `sfContext` actua como un
@@ -118,7 +118,7 @@ En código anterior, para crear un response factory, symfony instancia un objeto
 >     $mailer = sfContext::getInstance()->getMailer();
 >
 >Si quieres usar `sfContext::getInstance()` en una de tus clases,
->piensalo dos veces ya que este hace un ~strong coupling|Strong Coupling~. Esto es 
+>piensalo dos veces ya que este hace un ~strong coupling|Strong Coupling~. Esto es
 >simpre bastante mejor a pasar el objeto que necesitas como un argumento.
 >
 >Puedes aún usar `sfContext` como un registro y agregar tus propios objetos usando los
@@ -151,8 +151,8 @@ se lee asi:
             username:   ~
             password:   ~
 
-Cuando se crea una nueva aplicación, el archivo de configuración `factories.yml` 
-sobreescribe la configuración predeterminada con algunos sensibles valores para 
+Cuando se crea una nueva aplicación, el archivo de configuración `factories.yml`
+sobreescribe la configuración predeterminada con algunos sensibles valores para
 los entornos `env` y `test`:
 
     [yml]
@@ -180,7 +180,7 @@ disponibles en el panel "mailer" del web debug toolbar.
 ### ~Mail Transport~
 
 Los mensajes de correo son siempre enviados por un transport. El transport es configurado
-en el archivo de configuración `factories.yml`, y la configuración por defecto usa el servidor 
+en el archivo de configuración `factories.yml`, y la configuración por defecto usa el servidor
 SMTP del equipo local:
 
     [yml]
@@ -266,15 +266,15 @@ Finally, replace the `affiliate` functional test file for the backend applicatio
       end()
     ;
 
-Cada email enviado puede ser probado con la ayuda de los métodos `checkHeader()` y 
-`checkBody()`. El segundo argumento de `checkHeader()` y el primer argumento de 
+Cada email enviado puede ser probado con la ayuda de los métodos `checkHeader()` y
+`checkBody()`. El segundo argumento de `checkHeader()` y el primer argumento de
 `checkBody()` puede ser lo siguiente:
 
  * una cadena para comprobar que coincide exactamente;
 
  * una expresión regular para comprobar el valor;
 
- * una expresión regular negativa (es una que empieza con un `!`) para comprobar 
+ * una expresión regular negativa (es una que empieza con un `!`) para comprobar
    que el valor no coincide.
 
 >**NOTE**

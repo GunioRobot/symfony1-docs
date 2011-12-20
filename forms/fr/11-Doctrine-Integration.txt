@@ -360,7 +360,7 @@ Listing 4-6 - Le template `_form`
 
 >**TIP**
 >L'option `--with-show` nous permet de générer une action et un template utilisables pour
->voir un objet (en lecture seule). 
+>voir un objet (en lecture seule).
 
 Vous pouvez maintenant ouvrir l'URL `/frontend_dev.php/author` dans un navigateur pour voir le
 module généré (Figure 4-1 et Figure 4-2). Prenez le temps de jouer avec l'interface. Grâce au
@@ -546,7 +546,7 @@ Listing 4-12 - Refactorisation de `Query` dans le modèle
       public function configure()
       {
         // ...
-      
+
         $authorQuery = Doctrine::getTable('Author')->getActiveAuthorsQuery();
         $this->widgetSchema['author_id']->setOption('query', $authorQuery);
         $this->validatorSchema['author_id']->setOption('query', $authorQuery);
@@ -644,7 +644,7 @@ Listing 4-17 - Changement du widget pour le champ `status`
       public function configure()
       {
         // ...
-        
+
         $this->widgetSchema['status'] = new sfWidgetFormSelect(array('choices' => ArticleTable::getStatuses()));
       }
     }
@@ -660,9 +660,9 @@ Listing 4-18 - Modification du validateur du champ `status`
       public function configure()
       {
         // ...
-        
+
         $statuses = ArticleTable::getStatuses();
-        
+
         $this->widgetSchema['status']    = new sfWidgetFormSelect(array('choices' => $statuses));
         $this->validatorSchema['status'] = new sfValidatorChoice(array('choices' => array_keys($statuses)));
       }
@@ -684,7 +684,7 @@ Listing 4-19 - Suppression d'un champ
       public function configure()
       {
         // ...
-      
+
         unset($this->validatorSchema['created_at']);
         unset($this->widgetSchema['created_at']);
 
@@ -708,7 +708,7 @@ Listing 4-20 - Suppression d'un champ en utilisant le formulaire comme un tablea
       public function configure()
       {
         // ...
-      
+
         unset($this['created_at'], $this['updated_at'], $this['published_at']);
       }
     }
@@ -841,7 +841,7 @@ Listing 4-23 - Les méthodes `executeNew`, `executeEdit`, `executeCreate` et
         $this->forward404Unless($author = Doctrine::getTable('Author')->find($request->getParameter('id')), sprintf('Object author does not exist (%s).', $request->getParameter('id')));
         $this->form = new AuthorForm($author);
       }
-      
+
       protected function processForm(sfWebRequest $request, sfForm $form)
       {
         $form->bind($request->getParameter($form->getName()));
@@ -1030,18 +1030,18 @@ Listing 4-27 - Surcharge de la méthode `save()` de la classe `ArticleForm`
     class ArticleForm extends BaseFormDoctrine
     {
       // ...
-     
+
       public function save($con = null)
       {
         if (file_exists($this->getObject()->getFile()))
         {
           unlink($this->getObject()->getFile());
         }
-   
+
         $file = $this->getValue('file');
         $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-   
+
         return parent::save($con);
       }
     }
@@ -1097,7 +1097,7 @@ Listing 4-28 - Surcharge de la méthode `doSave()` dans le formulaire `ArticleFo
     class ArticleForm extends BaseFormDoctrine
     {
       // ...
-     
+
       protected function doSave($con = null)
       {
         if (file_exists($this->getObject()->getFile()))

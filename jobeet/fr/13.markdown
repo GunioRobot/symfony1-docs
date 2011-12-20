@@ -222,7 +222,7 @@ l'historique des emplois actuels :
             ->execute()
           ;
         }
-        
+
         return array();
       }
 </doctrine>
@@ -335,7 +335,7 @@ Pour gérer l'authentification utilisateur, utilisez les méthodes
 
 ### Autorisation
 
-Lorsqu'un utilisateur est authentifié, l'accès à certaines actions peuvent être 
+Lorsqu'un utilisateur est authentifié, l'accès à certaines actions peuvent être
 encore plus limité en définissant les **~credentials|Credentials~**. Un utilisateur doit
 disposer des droits nécessaires pour accéder à la page :
 
@@ -476,7 +476,7 @@ l'activer à la main dans `ProjectConfiguration.class.php` :
 </propel>
 <doctrine>
         $this->enablePlugins(array(
-          'sfDoctrinePlugin', 
+          'sfDoctrinePlugin',
           'sfDoctrineGuardPlugin'
         ));
 </doctrine>

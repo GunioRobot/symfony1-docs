@@ -15,7 +15,7 @@ Antes de implementar el proyecto en producción, hay que asegurarse de que el se
 En esta sección, se supone que ya ha instalado el servidor web, servidor de bases de datos, y PHP 5.2.4 o posterior.
 
 >**NOTE**
->Si no dispones de un acceso SSH al servidor web, pasa a la parte en que 
+>Si no dispones de un acceso SSH al servidor web, pasa a la parte en que
 >necesitas tener acceso a la línea de comandos.
 
 ### Configuración del Servidor
@@ -181,10 +181,10 @@ Como para el método `setWebDir()` , `setCacheDir()` y `setLogDir()` toman una r
 Personalizando los Objetos del Núcloe Symfony (factorias)
 ---------------------------------------------------------
 
-Durante el día 16, hablamos un poco acerca de las factorias symfony. Poder 
+Durante el día 16, hablamos un poco acerca de las factorias symfony. Poder
 personalizar las factorias significa que puedes usar una clase personalizada para
-los objetos del núcleo symfony en lugar de usar la predeterminada. Puedes también 
-cambiar el comportamiento predeterminado de esas clases modificando los parámetros 
+los objetos del núcleo symfony en lugar de usar la predeterminada. Puedes también
+cambiar el comportamiento predeterminado de esas clases modificando los parámetros
 enviados a ellos.
 
 Demos un vistazo a algunas personalizaciones clásicas que puedes querer hacer.
@@ -253,7 +253,7 @@ Por ejemplo, puedes permitir hacer log sobre el sistema de archivos cambiando el
 
 >**NOTE**
 >En el archivo de configuración `factories.yml`, las cadenas de tipo `%XXX%` son reemplazadas con
->su correspondiente valor del objeto `sfConfig`. Por eso, `%SF_APP%` en 
+>su correspondiente valor del objeto `sfConfig`. Por eso, `%SF_APP%` en
 >un archivo de configuración es equivalente a `sfConfig::get('sf_app')` en el código PHP.
 >Esta notación se puede utilizar también en el archivo de configuración `app.yml`. Esto es
 >muy útil cuando necesitas para hacer referencia a una ruta en un archivo de configuración sin
@@ -356,7 +356,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

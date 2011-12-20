@@ -33,7 +33,7 @@ aprender os pequenos detalhes da biblioteca *Swift Mailer*, veja a
 Enviando e-mails a partir de uma ação
 -----------------------------
 
-Em uma ação, é simples recuperar a instância do *mailer* 
+Em uma ação, é simples recuperar a instância do *mailer*
 utilizando o método atalho `getMailer()`:
 
     [php]
@@ -131,7 +131,7 @@ Configuração
 -------------
 
 Como qualquer outra *factory* do symfony, o *mailer* pode ser configurado no
-arquivo de configuração `factories.yml`. A configuração padrão é a 
+arquivo de configuração `factories.yml`. A configuração padrão é a
 seguinte:
 
     [yml]
@@ -150,7 +150,7 @@ seguinte:
             username: ~
             password: ~
 
-Ao criar uma nova aplicação, o arquivo local de configuração `factories.yml` 
+Ao criar uma nova aplicação, o arquivo local de configuração `factories.yml`
 substitui a configuração padrão com alguns padrões sensíveis aos
 ambientes `prod`, `env` e `test`:
 
@@ -171,7 +171,7 @@ A Estratégia de Entrega
 Uma das características mais úteis da integração do *Swift Mailer* no symfony é
 a estratégia de entrega. A estratégia de entrega permite-lhe dizer como o symfony
 entregará as mensagens de e-mail e, é configurado através da configuração ~`delivery_strategy`~
-no `factories.yml`. A estratégia muda a forma do comportamento do 
+no `factories.yml`. A estratégia muda a forma do comportamento do
 método ~`send()`|`sfMailer::send()`~. Por padrão, quatro estratégias estão disponíveis,
 que deverá atender todas as necessidades comuns:
 
@@ -334,7 +334,7 @@ método especial `sendNextImmediately()` do *mailer*:
     [php]
     $this->getMailer()->sendNextImmediately()->send($mensagem);
 
-No exemplo anterior, a `$mensagem` não será armazenada na fila e 
+No exemplo anterior, a `$mensagem` não será armazenada na fila e
 será enviada imediatamente. Como o próprio nome sugere, o método `sendNextImmediately()`
 afeta somente a próxima mensagem a ser enviada.
 
@@ -395,7 +395,7 @@ passar a opção `--application` (veja no capítulo sobre tarefas para mais
 informações sobre esse assunto).
 
 Observe que a tarefa usa a mesma configuração dos controladores (*controllers*). Assim, se
-deseja forçar a entrega quando a estratégia `spool` é usada, utilize o 
+deseja forçar a entrega quando a estratégia `spool` é usada, utilize o
 `sendNextImmediately()`:
 
     [php]
@@ -480,7 +480,7 @@ O `withMessage()` tem um destinatário como seu primeiro argumento. Ele também 
 segundo argumento para indicar qual a mensagem que você deseja testar se várias
 foram enviadas para o mesmo destinatário.
 
-Por último, mas não menos importante, o método ~`debug()`~ descarrega as mensagens enviadas para verificar 
+Por último, mas não menos importante, o método ~`debug()`~ descarrega as mensagens enviadas para verificar
 os problemas quando um teste falhar:
 
     [php]
@@ -498,7 +498,7 @@ ação. Esta é provavelmente a maneira mais fácil de enviar e-mails em uma apl
 e, provavelmente, a melhor quando você só precisa enviar poucas
 mensagens simples.
 
-Mas quando sua aplicação precisa gerenciar um grande número de diferentes mensagens de e-mail, 
+Mas quando sua aplicação precisa gerenciar um grande número de diferentes mensagens de e-mail,
 você provavelmente utilizará uma estratégia diferente.
 
 >**NOTE**
@@ -760,7 +760,7 @@ da fila (*queue*):
     [yml]
     spool_arguments: [MailMessage, message, getSpooledMessages]
 
-E isto resume todo o processo. Agora, cada vez que você executar a tarefa `project:send-mails`, 
+E isto resume todo o processo. Agora, cada vez que você executar a tarefa `project:send-mails`,
 cada e-mail será enviado de acordo com a sua prioridade.
 
 >**SIDEBAR**
@@ -779,9 +779,9 @@ cada e-mail será enviado de acordo com a sua prioridade.
 >       $mensagem = $this->getMailer()
 >         ->compose('john@doe.com', 'foo@example.com', 'Assunto', 'Corpo')
 >       ;
->     
+>
 >       $mensagem->getHeaders()->addTextHeader('X-Queue-Criteria', 'foo');
->     
+>
 >       $this->getMailer()->send($mensagem);
 >     }
 >
@@ -792,11 +792,11 @@ cada e-mail será enviado de acordo com a sua prioridade.
 >     public function setMensagem($mensagem)
 >     {
 >       $msg = unserialize($mensagem);
->     
+>
 >       $headers = $msg->getHeaders();
 >       $criteria = $headers->get('X-Queue-Criteria')->getFieldBody();
 >       $this->setCriteria($criteria);
 >       $headers->remove('X-Queue-Criteria');
->    
+>
 >       return parent::_set('message', serialize($msg));
 >     }

@@ -1,7 +1,7 @@
 Giorno 9: I test funzionali
 ===========================
 
-Ieri abbiamo visto come realizzare test unitari per le classi di Jobeet 
+Ieri abbiamo visto come realizzare test unitari per le classi di Jobeet
 usando la libreria per i test lime distribuita con symfony.
 
 Oggi scriveremo test funzionali per le feature già implementate nei
@@ -22,10 +22,10 @@ altre parole, eseguite lo scenario relativo al caso d'uso appena implementato.
 Visto che il processo è manuale, può risultare noioso e fonte di errori. Ogni
 volta che cambiate qualcosa nel codice, dovete passare attraverso tutti gli
 scenari, per assicurarvi che quello che avete fatto non abbia rotto qualcosa.
-Non va bene. I test funzionali in symfony mettono a disposizione una via per 
-descrivere in modo semplice gli scenari. Ogni scenario può essere eseguito 
+Non va bene. I test funzionali in symfony mettono a disposizione una via per
+descrivere in modo semplice gli scenari. Ogni scenario può essere eseguito
 automaticamente più e più volte per simulare la user experience di un utente
-attraverso il suo browser. Come i test unitari, vi danno la possibilità di 
+attraverso il suo browser. Come i test unitari, vi danno la possibilità di
 scrivere codice in tranquillità.
 
 >**NOTE**
@@ -96,7 +96,7 @@ disposizione una via migliore.
 I metodi di test sono forniti da un'altra classe,
 [`sfTestFunctional`](http://www.symfony-project.org/api/1_4/sfTestFunctional)
 che accetta un'istanza di `sfBrowser` nel suo costruttore. La classe `sfTestFunctional`
-delega i test agli oggetti **~tester|Tester~**. Svariati tester sono distribuiti con 
+delega i test agli oggetti **~tester|Tester~**. Svariati tester sono distribuiti con
 symfony, inoltre se ne possono realizzarne altri.
 
 Come abbiamo visto ieri, i test funzionali vengono memorizzati nella cartella
@@ -161,7 +161,7 @@ con `with('TESTER NAME')->begin()` e termina con `end()`:
       end()
     ;
 
-Il codice verifica che il parametro `module` della richiesta sia uguale a 
+Il codice verifica che il parametro `module` della richiesta sia uguale a
 `category` e che `action` sia uguale a `index`.
 
 >**TIP**
@@ -198,7 +198,7 @@ per analizzare e testare gli oggetti `sfWebResponse`:
  | `isValid()`        | Controlla se una risposta è in XML ben formato (passando `true` come parametro, si valida la risposta anche su come deve essere il tipo di documento)
 
 >**NOTE**
->Descriveremo altre classi tester nei prossimi giorni 
+>Descriveremo altre classi tester nei prossimi giorni
 >(per form, user, cache, ...).
 
 Eseguire Test funzionali
@@ -423,7 +423,7 @@ si comporta come una ~classe per il test|Tester~ specifica per Jobeet:
 
       // ...
     }
-    
+
 Ora possiamo sostituire il codice precedente del test con il nuovo:
 
     [php]
@@ -436,7 +436,7 @@ Ora possiamo sostituire il codice precedente del test con il nuovo:
           $browser->getMostRecentProgrammingJob()->getId()))->
       end()
     ;
-    
+
 ### Ogni lavoro nella homepage è cliccabile
 
     [php]
@@ -694,7 +694,7 @@ La prima volta che si lancia il task, tutti i test sono eseguiti come al solito.
 le successive esecuzioni dei test, solo i test che sono falliti l'ultima volta sono
 eseguiti. A poco a poco che si corregge il codice, alcuni test passeranno e saranno
 rimossi dalla successiva esecuzione. Quando tutti i test passano nuovamente, viene
-eseguita l'intera suite di test... 
+eseguita l'intera suite di test...
 
 >**TIP**
 >Se si desidera integrare la propria suite di test in un processo di continuous integration,

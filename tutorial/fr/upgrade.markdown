@@ -22,7 +22,7 @@ Avant de passer en 1.4, vous pouvez également vérifier que votre projet n'util
 de classe, de méthode, de fonction, de paramètres ou d'autres choses de dépréciés, en exécutant la
 tâche `project:validate` :
 
-    $ php symfony project:validate 
+    $ php symfony project:validate
 
 La tâche liste tous les fichiers que vous devez modifier avant de passer à symfony
 1.4.
@@ -52,7 +52,7 @@ Pour mettre à jour un projet:
 
   * Actualisez vos plugins vers leur version 1.3
 
-  * Lancez la tâche `project:upgrade1.3` depuis le répertoire de votre projet 
+  * Lancez la tâche `project:upgrade1.3` depuis le répertoire de votre projet
     pour réaliser une mise à jour automatique :
 
         $ php symfony project:upgrade1.3
@@ -74,7 +74,7 @@ Pour mettre à jour un projet:
 
         $ php symfony cache:clear
 
-Les prochaines sections expliquent les principaux changements réalisés dans symfony 1.3 
+Les prochaines sections expliquent les principaux changements réalisés dans symfony 1.3
 qui nécessitent une mise à jour automatique ou manuelle.
 
 Composants obsolètes
@@ -118,7 +118,7 @@ Le Routing
 ----------
 
 Les méthodes `sfPatternRouting::setRoutes()`, `sfPatternRouting::prependRoutes()`,
-`sfPatternRouting::insertRouteBefore()`, et `sfPatternRouting::connect()` ne 
+`sfPatternRouting::insertRouteBefore()`, et `sfPatternRouting::connect()` ne
 retournent plus les routes sous forme de tableaux comme c'était le cas dans les pécédentes versions.
 
 L'option `lazy_routes_deserialize` a été supprimée car elle n'est plus
@@ -134,12 +134,12 @@ correspond à la configuration par défaut de Symfony 1.2 que vous pouvez dans v
     [yml]
     routing:
       param:
-        cache: 
-          class: sfFileCache 
-          param: 
-            automatic_cleaning_factor: 0 
-            cache_dir:                 %SF_CONFIG_CACHE_DIR%/routing 
-            lifetime:                  31556926 
+        cache:
+          class: sfFileCache
+          param:
+            automatic_cleaning_factor: 0
+            cache_dir:                 %SF_CONFIG_CACHE_DIR%/routing
+            lifetime:                  31556926
             prefix:                    %SF_APP_DIR%/routing
 
 JavaScripts et Feuilles de Styles
@@ -183,13 +183,13 @@ Comment mettre à jour ?
 
   * Vous avez besoin d'ajouter les appels aux helpers `include_stylesheets()` et
     `include_javascripts()` dans vos layouts afin d'obtenir le même comportement
-    qu'avant (ceci est automatiquement pris en charge par la tâche `project:upgrade1.3` 
+    qu'avant (ceci est automatiquement pris en charge par la tâche `project:upgrade1.3`
     pour tous les layouts HTML situés dans le répertoire `templates/` de chaque
     application, à condition que ces derniers disposent d'un tag <head>. Tous les autres
     layouts ou pages qui nécessitent des fichiers JavaScripts ou des feuilles de styles
     doivent être mis à jour manuellement).
 
->**NOTE** 
+>**NOTE**
 >La classe 'sfCommonFilter' est toujours incluse avec symfony 1.3 et donc vous pouvez
 >toujours l'utiliser dans votre `filters.yml` si vous en avez besoin.
 
@@ -220,7 +220,7 @@ Echappement des Données
 
 Le helper `esc_js_no_entities()` relatif à la constante `ESC_JS_NO_ENTITIES` a été mis à jour
 afin de prendre en charge les caractères non ANSI. Avant ce changement, tous les caractères dont
-la valeur ANSI est comprise entre `37` et `177` étaient échappés. Désormais,c'est seulement le caractère `\`, les apostrophes et 
+la valeur ANSI est comprise entre `37` et `177` étaient échappés. Désormais,c'est seulement le caractère `\`, les apostrophes et
 guillemets (`'` & `"`) ainsi que les retours à la ligne (`\n` & `\r`). Cependant il est peu probable que vous ayez précédemment
 compté sur ce mauvais comportement.
 
@@ -230,7 +230,7 @@ Intégration de l'ORM Doctrine
 ### Version Minimale de Doctrine
 
 Le lien externe de Doctrine a été mis à jour afin d'utiliser la toute dernière et incroyable
-version 1.2 de Doctrine. Vous pouvez aussi consulter les dernières nouveautés de Doctrine 1.2 
+version 1.2 de Doctrine. Vous pouvez aussi consulter les dernières nouveautés de Doctrine 1.2
 [here](http://www.doctrine-project.org/upgrade/1_2).
 
 ### Suppression en Masse dans le Génération d'Administration
@@ -242,7 +242,7 @@ de leur suppression.
 
 ### Redéfinition des Schémas de Données dans les Plugins
 
-Vous pouvez désormais surcharger le model inclus dans le schéma de données YAML 
+Vous pouvez désormais surcharger le model inclus dans le schéma de données YAML
 d'un plugin en définissant simplement ce même modèle dans votre schéma local. Par exemple, pour ajouter une
 colonne "email" au modèle `sfGuardUser` de sfDoctrineGuardPlugin, ajoutez ceci à
 `config/doctrine/schema.yml`:
@@ -254,7 +254,7 @@ colonne "email" au modèle `sfGuardUser` de sfDoctrineGuardPlugin, ajoutez ceci 
 
 >**NOTE**
 >L'option `package` est une nouveauté de Doctrine et utilisée pour les schémas des
->plugins Symfony. Cela ne veut pas dire que l'option `package` peut être utilisée indépendamment 
+>plugins Symfony. Cela ne veut pas dire que l'option `package` peut être utilisée indépendamment
 >pour paqueter vos modèles. Elle doit être utilisée directement et uniquement avec les plugins symfony.
 
 ### Enregistrement des Requêtes SQL
@@ -262,7 +262,7 @@ colonne "email" au modèle `sfGuardUser` de sfDoctrineGuardPlugin, ajoutez ceci 
 Doctrine enregistre les logs des requêtes exécutées à l'aide `sfEventDispatcher` au lie
 d'accéder directement à l'objet logger. De plus, le sujet de
 ces évènements est soit la connexion ou bien l'objet (statement) qui exécute la requête.
-L'enregistrement est délégué à la nouvelle classe `sfDoctrineConnectionProfiler`, qui peut 
+L'enregistrement est délégué à la nouvelle classe `sfDoctrineConnectionProfiler`, qui peut
 être atteinte depuis un objet `sfDoctrineDatabase`.
 
 Les Plugins
@@ -293,11 +293,11 @@ fichier `factories.yml` avec la configuration suivante pour ces environnements:
         delivery_strategy: none
 
 Avec la configuration précédente, les emails ne seront pas envoyés. Bien entendu, ils
-resteront enregistrés, et le testeur `mailer` continuera de fonctionner dans 
+resteront enregistrés, et le testeur `mailer` continuera de fonctionner dans
 vos tests fonctionnels.
 
-Si vous souhaitez plutôt recevoir tous vos les emails à une même adresse, vous 
-pouvez spécifier la valeur `single_address` en guise de stratégie d'envoi des 
+Si vous souhaitez plutôt recevoir tous vos les emails à une même adresse, vous
+pouvez spécifier la valeur `single_address` en guise de stratégie d'envoi des
 emails (pour l`environnements `dev` par exemple):
 
     [yml]
@@ -326,8 +326,8 @@ vous utilisiez un ou plusieurs des mots alternatives suivants, vous devrez les
 La tâche automatique `project:upgrade` vous informe des endroits où vous utilisez l'ancienne syntaxe mais ne les corrige pas
 à votre place (afin d'éviter de perdre des commentaires par exemple). Vous devez les corriger vous même manuellement.
 
-Si vous souhaitez vérifier tous vos fichiers YAML, vous pouvez forcer 
-l'analyseur syntaxique YAML à utiliser les spécifications YAML 1.1 en 
+Si vous souhaitez vérifier tous vos fichiers YAML, vous pouvez forcer
+l'analyseur syntaxique YAML à utiliser les spécifications YAML 1.1 en
 utilisant la méthode `sfYaml::setSpecVersion()` :
 
     [php]

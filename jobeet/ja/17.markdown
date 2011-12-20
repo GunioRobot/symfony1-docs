@@ -257,7 +257,7 @@ Zend Lucene は既存のエントリを更新できないので、インデッ�
     public function delete(PropelPDO $con = null)
     {
       $index = JobeetJobPeer::getLuceneIndex();
-   
+
       foreach ($index->find('pk:'.$this->getId()) as $hit)
       {
         $index->delete($hit->id);

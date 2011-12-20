@@ -89,7 +89,7 @@ En el archivo de datos, los tokens están hardcodeados para simplificar las prue
         {
           $this->setToken(sha1($this->getEmail().rand(11111, 99999)));
         }
-        
+
         return parent::save($conn);
       }
 
@@ -293,7 +293,7 @@ En lugar de pasar un array de objetos `JobeetJob` a las plantillas, se pasa un a
       // ...
     }
 
-### El Formato `xml` 
+### El Formato `xml`
 
 Soportar el formato `xml` es tan simple como crear una plantilla:
 
@@ -310,7 +310,7 @@ Soportar el formato `xml` es tan simple como crear una plantilla:
     <?php endforeach ?>
     </jobs>
 
-### El Formato `json` 
+### El Formato `json`
 
 Soportar el formato [JSON](http://json.org/) es similar:
 
@@ -476,7 +476,7 @@ Lo sabes. La ruta es la primera cosa a crear:
       options:
         model: JobeetAffiliate
         actions: [new, create]
-        object_actions: { wait: get 
+        object_actions: { wait: get
 
 Se trata de una clásica colección de rutas ##ORM## con una nueva opción de configuración: `actions`. Como no necesitamos todas las siete acciones definidas por defecto para la ruta, la opción `actions` instruye a la ruta para sólo coincidir con las acciones `new` y `create` . La ruta adicional `wait` se utilizarán para dar al inminente afiliado algunos comentarios acerca de su cuenta.
 
@@ -569,8 +569,8 @@ El afiliado no puede elegir su token, ni puede activar su cuenta inmediatamente.
       public function configure()
       {
         $this->useFields(array(
-          'url', 
-          'email', 
+          'url',
+          'email',
           'jobeet_categories_list'
         ));
 <propel>
@@ -874,15 +874,15 @@ Si te acuerdas de los requisitos del día 2:
 
 La implementación de esta función es tan fácil que te permitiremos hacerlo esta noche.
 
-Cuando una cuenta de afiliado es activada por el administrador, un mensaje 
-de correo electrónico debe enviarse al afiliado para confirmar su suscripción 
+Cuando una cuenta de afiliado es activada por el administrador, un mensaje
+de correo electrónico debe enviarse al afiliado para confirmar su suscripción
 y darle su token. El envío de correo electrónico es un tema que hablaremos mañana.
 
 Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

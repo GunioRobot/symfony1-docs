@@ -377,7 +377,7 @@ task:
     $ php symfony project:deploy production
 
 >**NOTE**
->Before running the `project:deploy` task for the first time, you need to 
+>Before running the `project:deploy` task for the first time, you need to
 >connect to the server manually to add the key in the known hosts file.
 
 -

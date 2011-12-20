@@ -3,27 +3,27 @@ Gesteigerte Produktivität
 
 *von Fabien Potencier*
 
-Das Nutzen von Symfony selbst ist eine gute Wahl, um als Web Entwickler 
-produktiver zu arbeiten. Natürlich weiß bereits jeder, wie einen Symfony 
-durch die Webdebug-Toolbar und die ausführlichen Fehlermeldungen beim 
-Entwickeln unterstützt. Dieses Kapitel wird einige neue oder weniger 
-bekannte Funktionen von Symfony vorstellen, die euch bei der täglichen 
+Das Nutzen von Symfony selbst ist eine gute Wahl, um als Web Entwickler
+produktiver zu arbeiten. Natürlich weiß bereits jeder, wie einen Symfony
+durch die Webdebug-Toolbar und die ausführlichen Fehlermeldungen beim
+Entwickeln unterstützt. Dieses Kapitel wird einige neue oder weniger
+bekannte Funktionen von Symfony vorstellen, die euch bei der täglichen
 Arbeit unterstützen werden.
 
 Schnellstart: Individuelle Projekterstellung
 --------------------------------------------
 
-Dank der Funktionen in der der Kommandozeile lässt sich ein neues Projekt 
+Dank der Funktionen in der der Kommandozeile lässt sich ein neues Projekt
 schnell und ohne Aufwand erstellen:
 
     $ php /path/to/symfony generate:project foo --orm=Doctrine
 
-Der `generate:project` Task erstellt die Verzeichnisstruktur und 
-Konfigurationsdateien mit den empfohlenen Voreinstellungen. Mit weiteren 
-Befehlen lassen sich dann u.a. Applikationen erstellen, Plugins installieren 
+Der `generate:project` Task erstellt die Verzeichnisstruktur und
+Konfigurationsdateien mit den empfohlenen Voreinstellungen. Mit weiteren
+Befehlen lassen sich dann u.a. Applikationen erstellen, Plugins installieren
 und die Model Klassen generieren.
 
-In der Regel sind die Schritte, die man beim Erstellen eines neuen Projekts 
+In der Regel sind die Schritte, die man beim Erstellen eines neuen Projekts
 durchführt, immer ähnlich: Ersellen der Applikation, Installation von Plugins,
 das Anpassen der Standardkonfiguration und so weiter.
 
@@ -31,18 +31,18 @@ Seit Symfony 1.3 lässt sich das Erstellen eines Projekts automatisieren.
 
 >**NOTE**
 >Da alle Symfony Tasks Klassen sind, ist es leicht diese zu modifizieren und
->zu erweitern. Einzig der `generate:project` Task kann nicht ohne weiteres 
+>zu erweitern. Einzig der `generate:project` Task kann nicht ohne weiteres
 >modifiziert werden, da zum Ausführungszeitpung noch kein Projekt existiert.
 
 
-Der `generate:project` Task akzeptiert den Parameter `--installer`. So lässt 
+Der `generate:project` Task akzeptiert den Parameter `--installer`. So lässt
 sich ein PHP-Skript beim Initialisieren des Projekts ausführen:
 
     $ php /path/to/symfony generate:project --installer=/irgendwo/mein_installer.php
 
 Das `/irgendwo/mein_installer.php` Skript wird im Kontext der `sfGenerateProjectTask`
-Instanz ausgeführt, und kann somit auf dessen Methoden über das Objekt `$this` 
-zugreifen. Der folgende Abschnitt beschreibt alle Methoden die uns zur 
+Instanz ausgeführt, und kann somit auf dessen Methoden über das Objekt `$this`
+zugreifen. Der folgende Abschnitt beschreibt alle Methoden die uns zur
 Verfügung stehen, um in das Erstellen von Projekten einzugreifen.
 
 >**TIP**
@@ -64,7 +64,7 @@ in das neue Projekt:
 ### `runTask()`
 
 Die `runTask()` Methode führt einen Task aus. Sie erwartet den Namen des Tasks und
-einen String, der die Argumente und Optionen enthält, welche dem Task übergeben 
+einen String, der die Argumente und Optionen enthält, welche dem Task übergeben
 werden.
 
     [php]
@@ -92,13 +92,13 @@ Um eine bestimmte Version eines Plugins zu installieren, reicht es die entsprech
     $this->runTask('plugin:install', 'sfDoctrineGuardPlugin', array('release' => '10.0.0', 'stability' => beta'));
 
 >**TIP**
->Um einen Task eines gerade installierten Plugins auszuführen, müssen die Tasks erst neu 
+>Um einen Task eines gerade installierten Plugins auszuführen, müssen die Tasks erst neu
 >initialisiert werden:
 >
 >     [php]
 >     $this->reloadTasks();
 
-Um eine neue Applikation zu erstellen und Tasks ausführen zu können, die explizit eine 
+Um eine neue Applikation zu erstellen und Tasks ausführen zu können, die explizit eine
 Applikation voraussetzen - wie z.B. `generate:module` - muss die Konfiguration angepasst
 werden.
 
@@ -107,7 +107,7 @@ werden.
 
 ### Loggers
 
-Während dem Ausführen des Installationsskriptes können Meldungen ganz leicht ausgegeben 
+Während dem Ausführen des Installationsskriptes können Meldungen ganz leicht ausgegeben
 werden:
 
     [php]
@@ -122,7 +122,7 @@ werden:
 
 ### User Interaction
 
-Die `askConfirmation()`, `askAndValidate()`, und `ask()` Methoden erlauben es Eingaben 
+Die `askConfirmation()`, `askAndValidate()`, und `ask()` Methoden erlauben es Eingaben
 abzufragen und den Installations Prozess dynamisch zu gestalten
 
 Wenn nur eine Bestätigung benötigt wird, verwendet man die Methode `askConfirmation()`:
@@ -148,7 +148,7 @@ Mit der Methode `askAndValidate()` lässt sich die Eingabe zusätzlich überprü
 
 ### Filesystem Operations
 
-Wenn Änderungen am Dateisystem vorgenommen werden sollen, kann hierfür das Symfony-Filesystem-Objekt 
+Wenn Änderungen am Dateisystem vorgenommen werden sollen, kann hierfür das Symfony-Filesystem-Objekt
 verwendet werden:
 
     [php]
@@ -166,9 +166,9 @@ verwendet werden:
 >ein lauffähiges Installationsskript.
 
 Ein Installationsskript ist eine gewöhnliche PHP Datei und kann daher nach belieben an die
-Bedürfnisse angepasst werden. Anstatt die gleichen Tasks beim Erstellen eines neuen Projekts 
+Bedürfnisse angepasst werden. Anstatt die gleichen Tasks beim Erstellen eines neuen Projekts
 wieder und wieder auszuführen, kann man sich ein eigenes Installationsskript für diese Aufgaben erstellen.
-Man ist schneller und läuft nicht Gefahr einen Task zu vergessen, wenn man seine Projekte mit einem 
+Man ist schneller und läuft nicht Gefahr einen Task zu vergessen, wenn man seine Projekte mit einem
 Installationsskript initialisiert. Man kann die Skripte natürlich mit anderen Entwicklern tauschen.
 
 >**TIP**
@@ -190,23 +190,23 @@ Das bedeutet, dass es meistens reicht die ersten paar Buchstaben eines Methoden 
 Außerdem unterstützt einen das System, falls man nicht den genauen Namen der Methode kennt. Anstatt
 in der API nachlesen zu müssen, führt die IDE alle Methoden des aktuellen Objekts auf.
 
-Zusätzlich bieten manche IDEs wie PHPEdit oder Netbeans eine umfassendere Integration von Symfony 
+Zusätzlich bieten manche IDEs wie PHPEdit oder Netbeans eine umfassendere Integration von Symfony
 in den Projekten.
 
 >**SIDEBAR**
 >Text Editors
 >
->Manche Nutzer bevorzugen die Verwendung eines Text Editor beim Programmieren, da diese 
->schneller als jede IDE sind. Natürlich bieten die Text Editoren nur wenige der Funktionen, wie 
+>Manche Nutzer bevorzugen die Verwendung eines Text Editor beim Programmieren, da diese
+>schneller als jede IDE sind. Natürlich bieten die Text Editoren nur wenige der Funktionen, wie
 >wir sie von den IDEs kennen. Jedoch bieten die meisten Editoren Plugins bzw. Erweiterungen an,
 >die den Editor an die Bedüfnisse anpassen und die Arbeit mit PHP und Symfony erleichtern.
 >
 >Unter Linux Nutzern ist VIM sehr verbreitet und wird für nahezu alle Aufgaben verwendet.
 >Für diese Entwickler könnte die [vim-symfony](http://github.com/geoffrey/vim-symfony)
->Erweiterung interessant sein. VIM-symfony ist eine Sammlung von VIM Skripten, welche 
+>Erweiterung interessant sein. VIM-symfony ist eine Sammlung von VIM Skripten, welche
 >Symfony in den Editor integrieren. Mit vim-symfony kann man Macros und Befehle erstellen, um
 >eine bei der Entwicklung mit Symfony zu unterstützen. Enthalten ist bereits eine Sammlung an
->Befehlen, welche die gängigen Konfigurationsdateien (Schema, Routing, etc.) erstellen und es einem 
+>Befehlen, welche die gängigen Konfigurationsdateien (Schema, Routing, etc.) erstellen und es einem
 >erlauben, zwischen einer Action und dem Template zu wechseln.
 >
 >Einige MacOS X Nutzer verwenden TextMate. Für diese Entwickler steht das Symfony
@@ -223,14 +223,14 @@ interagiert und wie er einen bei seiner Arbeit unterstützen kann.
 
 #### Helping the IDE
 
-Die PHP Autovervollständigung in IDEs funktioniert nur, wenn die Methoden explizit im PHP Code 
+Die PHP Autovervollständigung in IDEs funktioniert nur, wenn die Methoden explizit im PHP Code
 definiert sind. Falls im Code so genannte "Magic Methods" wie `__call()` oder `__get()` verwendet werden,
 haben die IDEs keine Möglichkeit die verfügbaren Methoden und Eigenschaften vorzuschlagen. Den meisten IDEs
-kann man aber unter die Arme greifen, indem die Methoden und/oder Eigenschaften mittels PHPDoc definiert 
+kann man aber unter die Arme greifen, indem die Methoden und/oder Eigenschaften mittels PHPDoc definiert
 werden (per `@method` bzw. `@property`).
 
 Angenommen wir haben die Klasse `Message` mit einer dynamischen Eigenschaft (`message`) und einer dynamischen
-Methode (`getMessage()`). Der folgende Code zeigt, wie man einer IDE über deren Existenz informiert, ohne dass 
+Methode (`getMessage()`). Der folgende Code zeigt, wie man einer IDE über deren Existenz informiert, ohne dass
 sie im Code definiert sind:
 
     [php]
@@ -310,7 +310,7 @@ wie man am schnellsten die Antwort auf eine Frage findet.
 
 ### Online API
 
-Der schnellste Weg zur Dokumentation von Klassen und Methoden ist die Online 
+Der schnellste Weg zur Dokumentation von Klassen und Methoden ist die Online
 [API](http://www.symfony-project.org/api/1_3/).
 
 Sehr hilfreich ist dabei die bereitgestellte Suche, welche einem durch wenige
@@ -340,12 +340,12 @@ Die API-Suche lässt sich auch in den Browser integrieren, somit spart man sich 
 Aufrufen der symfony Webseite um etwas zu suchen. Dies wird möglich durch die Unterstützung
 von [OpenSearch](http://www.opensearch.org/) für die symfony API.
 
-Bei dem Firefox Browser wird die Such-Erweiterung automatisch in der Suchbox angezeigt. 
+Bei dem Firefox Browser wird die Such-Erweiterung automatisch in der Suchbox angezeigt.
 Ansonsten lässt sie sich durch einen Klick auf den Link "API OpenSearch" in der API Dokumentation
 zu dem verwendeten Browser hinzufügen.
 
 >**NOTE**
->Dieses kurze Video-Tutorial im symfony 
+>Dieses kurze Video-Tutorial im symfony
 [Blog](http://www.symfony-project.org/blog/2009/02/24/opensearch-support-for-the-symfony-api) zeigt, wie die
 >Suche in den Firefox Browser integriert werden kann.
 
@@ -370,13 +370,13 @@ um sich einen schnellen Überblick zu verschaffen:
 
 Fragen zur Konfiguration werden am Besten im symfony Referenz-Handbuch beantwortet, welches man
 während der Entwicklung immer griffbereit haben sollte. Dank des umfangreichen Inhaltsverzeichnis,
-dem Stichwortverzeichnis, Querverweisen und zahlreichen Tabellen ist das Buch ist die schnellste Art 
+dem Stichwortverzeichnis, Querverweisen und zahlreichen Tabellen ist das Buch ist die schnellste Art
 jede verfügbare Konfiguration einzusehen.
 
-Dieses Buch kann 
-[online](http://www.symfony-project.org/reference/1_3/en/), als 
+Dieses Buch kann
+[online](http://www.symfony-project.org/reference/1_3/en/), als
 [gedruckte](http://books.sensiolabs.com/book/the-symfony-1-3-reference-guide)
-Version oder als 
+Version oder als
 [PDF](http://www.symfony-project.org/get/pdf/reference-1.3-en.pdf) zum Download gelesen werden.
 
 ### Online Tools
@@ -386,17 +386,17 @@ Hilfsmitteln um einem die Arbeit zu erleichtern. Wenn das Projekt abgeschlossen 
 es Zeit es zu veröffentlichen.
 
 Um sicherzugehen, dass das Projekt dafür bereit ist lohnt sich ein Blick auf folgende
-[Checkliste](http://symfony-check.org/). Diese Seite führt alle Punkte auf, die man beachten 
+[Checkliste](http://symfony-check.org/). Diese Seite führt alle Punkte auf, die man beachten
 sollte wenn man ein Projekt im produktiv einsetzen will.
 
 Schnelleres Debuging
 --------------------
 
 Wenn in der Entwicklungs Umgebung ein Fehler auftritt, zeigt symfony eine Fehlerseite
-mit nützlichen Informationen wie z.B. einen `stack !!!!  trace` und die zuvor aufgerufenen 
+mit nützlichen Informationen wie z.B. einen `stack !!!!  trace` und die zuvor aufgerufenen
 Dateien. Wenn in der `settings.yml` die Einstellung  ~`sf_file_link_format`~ konfiguriert
 ist, lässt sich die entsprechende Datei mit einem Klick direkt im bevorzugten Editor öffnen.
-Dies ist ein weiteres Beispiel für ein kleines Feature welches eine enorme Zeitersparnis 
+Dies ist ein weiteres Beispiel für ein kleines Feature welches eine enorme Zeitersparnis
 bei der Fehlerbehebung bietet.
 
 >**NOTE**
@@ -404,7 +404,7 @@ bei der Fehlerbehebung bietet.
 >(sofern xDebug aktiviert ist) die klickbar werden, sobald die `sf_file_link_format` Einstellung
 >gesetzt ist.
 
-Standardmäßig ist `sf_file_link_format` leer und symfony verwendet stattdessen den Wert 
+Standardmäßig ist `sf_file_link_format` leer und symfony verwendet stattdessen den Wert
 [`xdebug.file_link_format`](http://xdebug.org/docs/all_settings#file_link_format) aus der PHP
 Konfiguration, falls dieser gesetzt ist (das definieren des `xdebug.file_link_format` in der
 `php.ini` erlaubt es den aktuellen Versionen von xDebug alle Dateinamen in Links umzuwandeln).
@@ -420,7 +420,7 @@ Zum Beispiel, wenn die Dateien in  ~TextMate~ geöffnet werden sollen, wählt ma
 Der Platzhalter `%f` wird von symfony durch den absoluten Dateipfad der Datei ersetzt, der `%l`
 Platzhalter durch die Zeilennummer.
 
-Bei VIM ist die Konfiguration etwas umfangreicher und online abrufbar für 
+Bei VIM ist die Konfiguration etwas umfangreicher und online abrufbar für
 [symfony](http://geekblog.over-blog.com/article-symfony-open-exceptions-files-in-remote-vim-sessions-37895120.html)
 und [XDebug](http://www.koch.ro/blog/index.php?/archives/77-Firefox,-VIM,-Xdebug-Jumping-to-the-error-line.html).
 
@@ -438,15 +438,15 @@ Mit funktionellen Tests kann man Interaktionen durch Benutzer simulieren und som
 sicherstellen, dass alle Teile des Projekts korrekt zusammenarbeitenn.
 Das Schreiben von funktionellen Tests ist leicht, aber zeitaufwendig. Da jedoch jeder
 Test ein Szenario darstellt, worin ein User sich die Webseite betrachtet, und das Betrachten
-der Seiten schneller ist als PHP Code zu schreiben - was wäre wenn man die Browsersession 
+der Seiten schneller ist als PHP Code zu schreiben - was wäre wenn man die Browsersession
 aufzeichnen könnte und diese automatisch in entsprechenden PHP Code konvertiert würde?
-Zum Glück bietet symfony solch ein Plugin. Es heisst 
+Zum Glück bietet symfony solch ein Plugin. Es heisst
 [swFunctionalTestGenerationPlugin](http://www.symfony-project.org/plugins/swFunctionalTestGenerationPlugin)
 und generiert aus der Browsersession eine Vorlage für einen funktionellen Test. Es ist nur noch ein
 geringer Aufwand nötig um diese Vorlage soweit anzupassen, dass sie in die Test-Suite aufgenommen werden kann.
 
 Das Plugin fügt einen weiteren Filter hinzu, der alle Requests aufzeichnet und daraus den entsprechenden
-Code für einen funktionellen Test generiert. Nach der Installation des Plugins muss dessen Filter noch in 
+Code für einen funktionellen Test generiert. Nach der Installation des Plugins muss dessen Filter noch in
 der `filters.yml` hinzugefügt werden:
 
     [php]
@@ -467,7 +467,7 @@ Als nächstes wird das Plugin in der  `ProjectConfiguration` Klasse aktiviert:
       }
     }
 
-	
+
 As the plugin uses the web debug toolbar as its main user interface, be sure
 to have it enabled (which the case in the development environment by default).
 When enabled, a new menu named "Functional Test" is made available. In this
@@ -488,6 +488,6 @@ the task to only re-execute tests that failed during the previous run:
     $ php symfony test:all --only-failed
 
 Bei der ersten Ausführung werden wie gewohnt alle Tests ausgeführt. Jedoch werden bei den weiteren Durchläufen nur diejenigen
-ausgeführt, welche zuletzt fehlschlugen. Durch das beheben der Fehler werden weitere Tests erfolgreich durchlaufen und 
-daher im nächsten Durchgang auch übergangen. Sobald alle Tests fehlerfrei durchlaufen, wird wieder die komplette Test-Suite 
+ausgeführt, welche zuletzt fehlschlugen. Durch das beheben der Fehler werden weitere Tests erfolgreich durchlaufen und
+daher im nächsten Durchgang auch übergangen. Sobald alle Tests fehlerfrei durchlaufen, wird wieder die komplette Test-Suite
 ausgeführt... diese Schleife fährt man dann wieder und wieder.

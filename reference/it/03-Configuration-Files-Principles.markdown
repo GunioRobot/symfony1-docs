@@ -1,7 +1,7 @@
 I principi dei file di configurazione
 =====================================
 
-I file di configurazione di symfony si basano su un insieme di principi comuni 
+I file di configurazione di symfony si basano su un insieme di principi comuni
 e condividono alcune proprietà. Questa sezione descrive tali principi in dettaglio
 e si propone come riferimento per le altre sezioni che descrivono i file di
 configurazione YAML.
@@ -18,15 +18,15 @@ sola volta, quando il file YAML viene processato e interpretato per la prima
 volta.
 
 >**TIP**
->Nell'ambiente `dev`, dove `is_debug` è impostato a `true` in modalità predefinita, 
+>Nell'ambiente `dev`, dove `is_debug` è impostato a `true` in modalità predefinita,
 >i file di configurazione vengono processati ogni volta che si registrano
 >delle modifiche (symfony verifica la data dell'ultima modifica).
 
 Il parsing e l'inserimento in cache di ogni file di configurazione viene eseguito
-da classi specializzate, configurate in 
+da classi specializzate, configurate in
 [`config_handler.yml`](#chapter_14_config_handlers_yml).
 
-Nelle sezioni seguenti, quando parleremo di "compilazione", intenderemo che la prima 
+Nelle sezioni seguenti, quando parleremo di "compilazione", intenderemo che la prima
 volta un file YAML viene convertito in un file PHP e memorizzato nella cache.
 
 >**TIP**
@@ -48,7 +48,7 @@ al momento della compilazione.
 
 ### Impostazioni della configurazione
 
-Una costante può essere una qualsiasi impostazione definita nel file di 
+Una costante può essere una qualsiasi impostazione definita nel file di
 configurazione `settings.yml`. La chiave segnaposto è quindi la versione maiuscola
 dell'impostazione con prefisso `SF_`:
 
@@ -56,18 +56,18 @@ dell'impostazione con prefisso `SF_`:
     logging: %SF_LOGGING_ENABLED%
 
 Quando symfony compila i file di configurazione, si occupa di sostituire tutte le
-occorrenze dei segnaposto `%SF_XXX%` con i corrispondenti valori contenuti in 
+occorrenze dei segnaposto `%SF_XXX%` con i corrispondenti valori contenuti in
 `settings.yml`. Nell'esempio qui sotto, sostituirà il segnaposto `SF_LOGGING_ENABLED`
 con il valore dell'impostazione `logging_enabled` definita in `settings.yml`.
 
 ### Impostazioni dell'applicazione
 
-Si possono utilizzare anche le impostazioni definite nel file di configurazione 
+Si possono utilizzare anche le impostazioni definite nel file di configurazione
 `app.yml` utilizzando il prefisso `APP_`.
 
 ### Costanti speciali
 
-Per impostazione predefinita, symfony definisce quattro costanti in relazione al front controller 
+Per impostazione predefinita, symfony definisce quattro costanti in relazione al front controller
 corrente:
 
  | Costanti               | Descrizione                        | Metodo di configurazione |
@@ -153,8 +153,8 @@ ambienti predefiniti: `prod`, `test` e `dev`:
 
 Quando symfony necessita di un valore da un file di configurazione, procede facendo
 la fusione della configurazione per l'ambiente corrente con la sezione
-di configurazione definita in `all`. La sezione speciale `all` descrive la 
-configurazione predefinita per tutti gli ambienti. Se la sezione di un ambiente 
+di configurazione definita in `all`. La sezione speciale `all` descrive la
+configurazione predefinita per tutti gli ambienti. Se la sezione di un ambiente
 specifico non è definita, symfony ricade sulla configurazione `all`.
 
 Configurazione a cascata
@@ -182,7 +182,7 @@ ed eventualmente dalla configurazione predefinita contenuta nel framework stesso
 (`lib/config/config/settings.yml`).
 
 >**TIP**
->Quando un file di configurazione dipende dall'ambiente e può essere definito in 
+>Quando un file di configurazione dipende dall'ambiente e può essere definito in
 >diverse cartelle, si applica la seguente lista di priorità:
 >
 > 1. Modulo

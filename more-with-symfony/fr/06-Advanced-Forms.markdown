@@ -3,7 +3,7 @@ Formulaires Avancés
 
 *Par Ryan Weaver, Fabien Potencier*
 
-Le framework de formulaires de symfony équipe le développeur des outils nécessaires à l'affichage et à la validation des données dans un problème orienté objet. Grâce aux classes ~`sfFormDoctrine`~ et ~`sfFormPropel`~ proposées par chaque ORM, le framework de formulaires peut facilement afficher et sauvegarder des formulaires liés au modèle de données. 
+Le framework de formulaires de symfony équipe le développeur des outils nécessaires à l'affichage et à la validation des données dans un problème orienté objet. Grâce aux classes ~`sfFormDoctrine`~ et ~`sfFormPropel`~ proposées par chaque ORM, le framework de formulaires peut facilement afficher et sauvegarder des formulaires liés au modèle de données.
 
 Toutefois, des situations courantes demandent au développeur de personnaliser et d'étendre des formulaires. Ce chapitre présentera et résoudra quelques uns des problèmes complexes récurrents liés aux formulaires. L'objet ~`sfForm`~ sera quant à lui disséqué afin de lever une partie du mystère.
 
@@ -30,7 +30,7 @@ Le premier problème concerne l'édition d'un produit individuel et d'un nombre 
           foreignAlias: Photos
           onDelete:     cascade
 
-Lorsqu'il sera terminé, le formulaire ressemblera à la capture d'écran ci-après. 
+Lorsqu'il sera terminé, le formulaire ressemblera à la capture d'écran ci-après.
 
 ![Formulaire d'ajout de produit et de photos](http://www.symfony-project.org/images/more-with-symfony/advanced_forms_01.png "Formulaire Product et ProductPhoto embarqués")
 
@@ -46,8 +46,8 @@ Grâce à la fonctionnalité `--installer` de [symfony](#chapter_03), le framewo
 Cette commande crée un projet complet et fonctionnel à partir du schéma de base de données étudié dans la section précédente.
 
 >**NOTE**
->Dans ce chapitre, les chemins des fichiers correspondent à un projet symfony 
->utilisant Doctrine dans la mesure où il a été généré par la commande 
+>Dans ce chapitre, les chemins des fichiers correspondent à un projet symfony
+>utilisant Doctrine dans la mesure où il a été généré par la commande
 >précédente.
 
 Configuration de Base des Formulaires
@@ -71,8 +71,8 @@ Puisque les besoins entraînent des changements sur deux modèles différents, `
 Pour ce formulaire, les deux champs `caption` et `filename` sont requis par défaut, mais pour des raisons différentes. Le champ `caption` est obligatoire car la colonne relative en base de données a été définie avec la propriété `notnull` à `true`. Le champ `filename` est quant à lui obligatoire par défaut car un objet validateur a toujours l'option `required` à `true` par défaut.
 
 >**NOTE**
->~`sfForm::useFields()`~ est une nouvelle méthode de symfony 1.3 qui permet au 
->développeur de spécifier exactement les champs que le formulaire devra utiliser 
+>~`sfForm::useFields()`~ est une nouvelle méthode de symfony 1.3 qui permet au
+>développeur de spécifier exactement les champs que le formulaire devra utiliser
 >et l'ordre dans lequel ils seront affichés. Tous les autres champs non affichés
 >seront retirés du formulaire.
 
@@ -110,9 +110,9 @@ A ce stade, il s'agit de vérifier que les enregistrements ont été correctemen
 Il est intéressant de remarquer les noms des photos dans la table `ProductPhoto`. Tout fonctionne comme prévu à condition de trouver des fichiers avec les mêmes noms que ceux de la base de données dans le répertoire `web/uploads/products/`.
 
 >**NOTE**
->Etant donnés que les champs `filename` et `caption` sont requis dans 
->`ProductPhotoForm`, la validation du formulaire principal échouera tout le 
->temps tant que l'utilisateur n'enverra pas deux nouvelles photos. La suite de 
+>Etant donnés que les champs `filename` et `caption` sont requis dans
+>`ProductPhotoForm`, la validation du formulaire principal échouera tout le
+>temps tant que l'utilisateur n'enverra pas deux nouvelles photos. La suite de
 >ce chapitre explique comment résoudre ce problème.
 
 Remaniement
@@ -145,7 +145,7 @@ Tout d'abord, il s'agit de créer un nouveau formulaire qui représente une coll
       }
     }
 
-Ce formulaire nécessite deux options : 
+Ce formulaire nécessite deux options :
 
  * `product` : le produit pour lequel la collection d'objets `ProductPhotoForm` doit être créée ;
  * `size`: le nombre d'objets `ProductPhotoForm` à créer, deux par défaut.
@@ -167,18 +167,18 @@ La méthode `configure()` de la classe `ProductForm` peut être alors être modi
 Dissection de l'Objet sfForm
 ----------------------------
 
-En réalité, un formulaire web est une collection de champs qui sont affichés et envoyés au serveur. Dans le même esprit, l'objet ~`sfForm`~ est essentiellement un tableau de *champs* de formulaire. Alors que ~`sfForm`~ s'occupe du processus, les champs individuels sont responsables de définir comment chacun doit s'afficher et être validé. 
+En réalité, un formulaire web est une collection de champs qui sont affichés et envoyés au serveur. Dans le même esprit, l'objet ~`sfForm`~ est essentiellement un tableau de *champs* de formulaire. Alors que ~`sfForm`~ s'occupe du processus, les champs individuels sont responsables de définir comment chacun doit s'afficher et être validé.
 
-Dans symfony, chaque *champ* de formulaire est défini à l'aide de deux objets distincts : 
+Dans symfony, chaque *champ* de formulaire est défini à l'aide de deux objets distincts :
 
   * Un *widget* qui affiche le code XHTML du champ ;
-  
+
   * Un *validateur* qui nettoie et valide les données envoyées.
 
 >**TIP**
->Dans symfony, un *widget* est défini comme n'importe quel objet dont la seule 
->finalité est d'afficher du code XHTML. Bien qu'ils soient couramment utilisés 
->dans les formulaires, les widgets peuvent être créés pour afficher n'importe 
+>Dans symfony, un *widget* est défini comme n'importe quel objet dont la seule
+>finalité est d'afficher du code XHTML. Bien qu'ils soient couramment utilisés
+>dans les formulaires, les widgets peuvent être créés pour afficher n'importe
 >quelle balise.
 
 ### Un Formulaire est un Tableau
@@ -195,8 +195,8 @@ Pour ajouter un champ au formulaire, il suffit d'ajouter simplement le widget du
     }
 
 >**NOTE**
->Les tableaux `widgetSchema` et `validatorSchema` sont en réalité des classes 
->spéciales appelées ~`sfWidgetFormSchema`~ et ~`sfValidatorSchema`~ qui 
+>Les tableaux `widgetSchema` et `validatorSchema` sont en réalité des classes
+>spéciales appelées ~`sfWidgetFormSchema`~ et ~`sfValidatorSchema`~ qui
 >implémentent l'interface `ArrayAccess`.
 
 ### Dissection de la Classe `ProductForm`
@@ -244,10 +244,10 @@ Comme la classe `ProductForm` étend fatalement la classe `sfForm`, elle abrite 
 
 >**TIP**
 >Comme les objets `widgetSchema` et `validatorSchema` se comportent tels des
->tableaux, les tableaux ci-dessus définis par les clés `newPhotos`, `0` et `1` 
+>tableaux, les tableaux ci-dessus définis par les clés `newPhotos`, `0` et `1`
 >sont aussi des objets `sfWidgetSchema` et `sfValidatorSchema`.
 
-Comme prévu, les champs basiques (`id`, `name` et `price`) sont représentés au premier niveau de chaque tableau. Dans un formulaire sans formulaire imbriqué, les tableaux `widgetSchema` et `validatorSchema` ont un seul niveau qui représente les champs de base du formulaire. Les widgets et validateurs de n'importe quel formulaire embarqué sont représentés comme des sous-tableaux dans `widgetSchema` et `validatorSchema` comme cela a été démontré précédemment. La méthode qui s'occupe de ce processus est expliquée après. 
+Comme prévu, les champs basiques (`id`, `name` et `price`) sont représentés au premier niveau de chaque tableau. Dans un formulaire sans formulaire imbriqué, les tableaux `widgetSchema` et `validatorSchema` ont un seul niveau qui représente les champs de base du formulaire. Les widgets et validateurs de n'importe quel formulaire embarqué sont représentés comme des sous-tableaux dans `widgetSchema` et `validatorSchema` comme cela a été démontré précédemment. La méthode qui s'occupe de ce processus est expliquée après.
 
 ### La Méthode ~`sfForm::embedForm()`~ en Coulisses
 
@@ -366,10 +366,10 @@ Comme son nom l'indique, la méthode `renderHiddenFields()` génère tous les
 champs cachés du formulaire.
 
 >**NOTE**
->Le code des actions n'a pas été exposé volontairement car il ne nécessite pas 
->d'attention particulière. Il suffit de regarder le fichier d'actions 
->`apps/frontend/modules/product/actions/actions.class.php` pour s'en persuader. 
->Il ressemble en effet à n'importe quel CRUD et peut être généré automatiquement 
+>Le code des actions n'a pas été exposé volontairement car il ne nécessite pas
+>d'attention particulière. Il suffit de regarder le fichier d'actions
+>`apps/frontend/modules/product/actions/actions.class.php` pour s'en persuader.
+>Il ressemble en effet à n'importe quel CRUD et peut être généré automatiquement
 >à l'aide de la tâche `doctrine:generate-module`.
 
 La classe `sfForm` abrite désormais les tableaux `widgetSchema` et `validatorSchema` qui définissent les champs. De plus, la classe `sfForm` implémente la classe native `ArrayAccess` de PHP 5, ce qui signifie que les champs du formulaire sont directement accessibles par l'intermédiaire de la syntaxe des clés de tableaux vue précédemment.
@@ -378,7 +378,7 @@ L'affichage des champs un par un nécessite d'accéder à un champ de manière u
 
 ### Afficher chaque Champ du Formulaire avec ~`sfFormField`~
 
-En utilisant les tableaux `widgetSchema` et `validatorSchema` définis dans chaque classe de formulaire, `sfForm` génère automatiquement un troisième tableau appelé `sfFormFieldSchema`. Ce tableau contient un objet spécial pour chaque champ qui agit comme une classe helper responsable de l'affichage du champ. L'objet, de type ~`sfFormField`~, est une combinaison d'un widget et d'un validateur pour chaque champ, et est créé automatiquement. 
+En utilisant les tableaux `widgetSchema` et `validatorSchema` définis dans chaque classe de formulaire, `sfForm` génère automatiquement un troisième tableau appelé `sfFormFieldSchema`. Ce tableau contient un objet spécial pour chaque champ qui agit comme une classe helper responsable de l'affichage du champ. L'objet, de type ~`sfFormField`~, est une combinaison d'un widget et d'un validateur pour chaque champ, et est créé automatiquement.
 
     [php]
     <?php echo $form['name']->renderRow() ?>
@@ -392,19 +392,19 @@ Chaque objet de type `sfFormField` peut être utilisé pour générer le rendu d
  * `sfFormField->render()` génère le champ du formulaire (par exemple
    `input`, `select`) avec les bonnes valeurs en utilisant l'objet widget du
    champ ;
-   
+
  * `sfFormField->renderError()` génère toutes les erreurs de validation sur
     le champ en utilisant l'objet validateur du champ ;
-   
- * `sfFormField->renderRow()` est une méthode englobante qui affiche le label, 
+
+ * `sfFormField->renderRow()` est une méthode englobante qui affiche le label,
    le champ du formulaire, l'erreur et le message d'aide.
 
 >**NOTE**
->En réalité, chaque méthode d'affichage de la classe `sfFormField` utilise 
->également des informations de la propriété `widgetSchema` du formulaire. C'est 
->le cas par exemple de l'objet `sfWidgetFormSchema` qui abrite tous les widgets 
->du formulaire. Cette classe aide à la génération des attributs `name` et `id` 
->de chaque champ, garde une trace du label pour chaque champ et définit la 
+>En réalité, chaque méthode d'affichage de la classe `sfFormField` utilise
+>également des informations de la propriété `widgetSchema` du formulaire. C'est
+>le cas par exemple de l'objet `sfWidgetFormSchema` qui abrite tous les widgets
+>du formulaire. Cette classe aide à la génération des attributs `name` et `id`
+>de chaque champ, garde une trace du label pour chaque champ et définit la
 >balise XHTML utilisée avec `renderRow()`.
 
 Il est important de noter que le tableau `formFieldSchema` reflète toujours la structure des tableaux `widgetSchema` et `validatorSchema` du formulaire. Par exemple, le tableau `formFieldSchema` d'un objet `ProductForm` complet aura la structure suivante, qui est la clé du rendu de chaque champ dans la vue.
@@ -448,30 +448,30 @@ Sauvegarder des Formulaires d'Objets
 Dans la plupart des cas, un formulaire repose directement sur une ou plusieurs tables de la base de données, et entraîne des changements sur les données dans ces tables en fonction des valeurs envoyées. Symfony génère automatiquement un objet de formulaire pour chaque modèle du schéma, qui étend soit `sfFormDoctrine` ou `sfFormPropel` en fonction de l'ORM choisi. Chaque classe de formulaire est similaire et permet finalement aux valeurs transmises de rester en base de données.
 
 >**NOTE**
->~`sfFormObject`~ est une nouvelle classe ajoutée dans symfony 1.3 pour gérer 
->toutes les tâches communes de `sfFormDoctrine` et `sfFormPropel`. Chaque classe 
->étend `sfFormObject`, qui s'occupe maintenant du processus de sauvegarde du 
+>~`sfFormObject`~ est une nouvelle classe ajoutée dans symfony 1.3 pour gérer
+>toutes les tâches communes de `sfFormDoctrine` et `sfFormPropel`. Chaque classe
+>étend `sfFormObject`, qui s'occupe maintenant du processus de sauvegarde du
 >formulaire décrit ci-dessous.
 
-### Le Processus de Sauvegarde du Formulaire 
+### Le Processus de Sauvegarde du Formulaire
 
-Dans cet exemple, symfony sauvegarde automatiquement les informations de l'objet `Product` et des nouveaux objets `ProductPhoto` sans autre intervention du développeur. C'est la méthode ~`sfFormObject::save()`~ qui exécute une multitude de méthodes en arrière plan. La compréhension de ce processus est la clé pour étendre ce traitement à des cas plus complexes. 
+Dans cet exemple, symfony sauvegarde automatiquement les informations de l'objet `Product` et des nouveaux objets `ProductPhoto` sans autre intervention du développeur. C'est la méthode ~`sfFormObject::save()`~ qui exécute une multitude de méthodes en arrière plan. La compréhension de ce processus est la clé pour étendre ce traitement à des cas plus complexes.
 
-Le processus de sauvegarde du formulaire est une suite de méthodes exécutées en interne, qui se déclenchent après l'appel de la méthode  ~`sfFormObject::save()`~. La  majorité du travail est située dans la méthode  ~`sfFormObject::updateObject()`~ qui est appelée récursivement sur tous les formulaires imbriqués. 
+Le processus de sauvegarde du formulaire est une suite de méthodes exécutées en interne, qui se déclenchent après l'appel de la méthode  ~`sfFormObject::save()`~. La  majorité du travail est située dans la méthode  ~`sfFormObject::updateObject()`~ qui est appelée récursivement sur tous les formulaires imbriqués.
 
 ![Processus de sauvegarde du formulaire](http://www.symfony-project.org/images/more-with-symfony/advanced_forms_06.png "Processus détaillé de sauvegarde du formulaire")
 
 >**NOTE**
->La majorité du processus de sauvegarde intervient dans la méthode 
-~`sfFormObject::doSave()`~, qui est appelée par `sfFormObject::save()` et 
->entourée par une transaction. Si le processus de sauvegarde lui-même doit être 
->surchargé, c'est alors dans la méthode `sfFormObject::doSave()` que ce travail 
+>La majorité du processus de sauvegarde intervient dans la méthode
+~`sfFormObject::doSave()`~, qui est appelée par `sfFormObject::save()` et
+>entourée par une transaction. Si le processus de sauvegarde lui-même doit être
+>surchargé, c'est alors dans la méthode `sfFormObject::doSave()` que ce travail
 >doit être réalisé.
 
 Ignorer les Formulaires Imbriqués
 ---------------------------------
 
-L'implémentation actuelle de `ProductForm` a un inconvénient majeur. Etant donnés que les champs `filename` et `caption` sont nécessaires dans `ProductPhotoForm`, la validation du formulaire principal échouera à chaque fois tant que l'utilisateur n'enverra pas deux nouvelles photos. En d'autres termes, l'utilisateur ne peut alors changer le prix du produit sans envoyer deux nouvelles photos. 
+L'implémentation actuelle de `ProductForm` a un inconvénient majeur. Etant donnés que les champs `filename` et `caption` sont nécessaires dans `ProductPhotoForm`, la validation du formulaire principal échouera à chaque fois tant que l'utilisateur n'enverra pas deux nouvelles photos. En d'autres termes, l'utilisateur ne peut alors changer le prix du produit sans envoyer deux nouvelles photos.
 
 ![Echec de la validation du formulaire du produit](http://www.symfony-project.org/images/more-with-symfony/advanced_forms_04.png "Echec de la validation du formulaire du produit")
 
@@ -566,30 +566,30 @@ Heureusement, la création d'un validateur personnalisé est en fait simple. Il 
     }
 
 >**TIP**
->Tous les validateurs étendent la classe abstraite `sfValidatorBase` qui les 
->oblige à implémenter la méthode `doClean()`, déclarée abstraite. La méthode 
->`configure()` peut également être utilisée pour ajouter des options ou messages 
->d'erreur au validateur. Dans l'exemple précédent, deux messages ont été ajoutés 
->au validateur. D'autres options peuvent également être définies à l'aide de la 
+>Tous les validateurs étendent la classe abstraite `sfValidatorBase` qui les
+>oblige à implémenter la méthode `doClean()`, déclarée abstraite. La méthode
+>`configure()` peut également être utilisée pour ajouter des options ou messages
+>d'erreur au validateur. Dans l'exemple précédent, deux messages ont été ajoutés
+>au validateur. D'autres options peuvent également être définies à l'aide de la
 >méthode `addOption()`.
 
 La méthode `doClean()` est responsable du nettoyage et de la validation des valeurs envoyées. La logique du validateur est quant à elle triviale.
 
- * Si une photo est envoyée uniquement avec un fichier ou une légende, alors 
+ * Si une photo est envoyée uniquement avec un fichier ou une légende, alors
    une erreur est générée (`sfValidatorErrorSchema`) avec le message approprié ;
 
- * Si une photo est soumise sans fichier et sans légende, alors les valeurs sont 
+ * Si une photo est soumise sans fichier et sans légende, alors les valeurs sont
    supprimées afin d'éviter de sauvegarder une photo vide ;
-   
+
  * Si aucune erreur de validation n'a été produite, la méthode retourne un
    tableau de valeurs nettoyées.
 
 >**TIP**
->Dans cette situation, étant donné que le validateur personnalisé doit être 
->utilisé comme un validateur global, la méthode `doClean()` attend un tableau 
->des valeurs soumises et retourne un tableau des valeurs nettoyées. Cependant 
->les validateurs personnalisés peuvent être créés pour des champs individuels. 
->Dans ce cas, la méthode `doClean()` n'attendra qu'une seule valeur (la valeur 
+>Dans cette situation, étant donné que le validateur personnalisé doit être
+>utilisé comme un validateur global, la méthode `doClean()` attend un tableau
+>des valeurs soumises et retourne un tableau des valeurs nettoyées. Cependant
+>les validateurs personnalisés peuvent être créés pour des champs individuels.
+>Dans ce cas, la méthode `doClean()` n'attendra qu'une seule valeur (la valeur
 >du champ) et ne retournera qu'une seule valeur nettoyée.
 
 La dernière étape consiste à surcharger la méthode `saveEmbeddedForms()` de la classe `ProductForm` afin de supprimer les formulaires de photos vides, et ainsi éviter de sauvegarder une photo vide en base de données. Une exception serait en effet levée car le champ `caption` est requis.
@@ -613,7 +613,7 @@ La dernière étape consiste à surcharger la méthode `saveEmbeddedForms()` de 
       return parent::saveEmbeddedForms($con, $forms);
     }
 
-Imbriquer Facilement des Formulaires Doctrine 
+Imbriquer Facilement des Formulaires Doctrine
 ---------------------------------------------
 
 Une nouveauté de symfony 1.3 est la méthode ~`sfFormDoctrine::embedRelation()`~ qui offre au développeur la possibilité d'imbriquer automatiquement des relations n-à-plusieurs dans un formulaire. Dans l'exemple de ce chapitre, il serait alors intéressant de permettre à l'utilisateur de pouvoir à la fois télécharger deux nouvelles photos, mais aussi de le rendre capable de modifier les objets `ProductPhoto` existants rattachés à l'objet `Product`.
@@ -629,7 +629,7 @@ Pour ce faire, il suffit d'utiliser la méthode `embedRelation()` afin d'ajouter
       $this->embedRelation('Photos');
     }
 
-En interne, ~`sfFormDoctrine::embedRelation()`~ fait quasiment la même chose 
+En interne, ~`sfFormDoctrine::embedRelation()`~ fait quasiment la même chose
 que le processus décrit plus tôt pour imbriquer deux nouveaux objets `ProductPhotoForm`. Si deux relations `ProductPhoto` existent déjà, alors les objets `widgetSchema` et `validatorSchema` résultants seront de la forme suivante.
 
     [php]
@@ -790,7 +790,7 @@ Ajouter le code suivant à la classe `ProjectConfiguration` suffit à utiliser l
       }
     }
 
-L'objectif est ici d'attribuer une classe `form_row_error` à l'élément `div` `form_row` seulement si un champ échoue à la validation. Pour ce faire, il suffit d'inclure un jeton `%row_class%` à la propriété `$rowFormat`, puis de  surcharger la méthode ~`sfWidgetFormSchemaFormatter::formatRow()`~ comme suit. 
+L'objectif est ici d'attribuer une classe `form_row_error` à l'élément `div` `form_row` seulement si un champ échoue à la validation. Pour ce faire, il suffit d'inclure un jeton `%row_class%` à la propriété `$rowFormat`, puis de  surcharger la méthode ~`sfWidgetFormSchemaFormatter::formatRow()`~ comme suit.
 
     [php]
     class sfWidgetFormSchemaFormatterAc2009 extends sfWidgetFormSchemaFormatter

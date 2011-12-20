@@ -23,7 +23,7 @@ Figura 1-1 - Form di contatto
 ![Form di contatto](http://www.symfony-project.org/images/forms_book/en/01_01.png "Form di contatto")
 
 Creeremo tre campi per questa form: il nome dell'utente, l'email
-dell'utente e il messaggio che l'utente vuole inviare. Mostreremo 
+dell'utente e il messaggio che l'utente vuole inviare. Mostreremo
 semplicemente le informazioni inviate nel form per lo scopo di
 questo esercizio, come mostrato in Figura 1-2.
 
@@ -120,7 +120,7 @@ Listato 1-2 - Classe `Actions` del modulo `contact`
         $this->form = new ContactForm();
       }
     }
- 
+
 Quando si crea un form, il metodo `configure()`, definito prima,
 sarà chiamato automaticamente.
 
@@ -178,7 +178,7 @@ Listato 1-4 - Codice generato dal template
 
     <form action="/frontend_dev.php/contact/submit" method="post">
       <table>
-     
+
         <!-- Inizio del codice generato da <?php echo $form ?>
      -->
         <tr>
@@ -195,7 +195,7 @@ Listato 1-4 - Codice generato dal template
         </tr>
         <!-- Fine del codice generato da <?php echo $form ?>
      -->
-     
+
         <tr>
           <td colspan="2">
             <input type="submit" />
@@ -203,7 +203,7 @@ Listato 1-4 - Codice generato dal template
         </tr>
       </table>
     </form>
- 
+
 Possiamo vedere che il form viene mostrato con tre righe `<tr>` di
 una tabella HTML. Per questo abbiamo dovuto racchiuderla in un tag
 `<table>`. Ogni riga comprende un tag `<label>` e un tag `<input>`
@@ -259,7 +259,7 @@ template per personalizzare ulteriormente il form.
 >     )));
 >
 >     // quasi equivalente a :
->     
+>
 >     $this->widgetSchema = new sfWidgetFormSchema(array(
 >       'name'    => new sfWidgetFormInputText(),
 >       'email'   => new sfWidgetFormInputText(),
@@ -291,7 +291,7 @@ Si può anche usare il formato lista:
           'email'   => new sfWidgetFormInputText(),
           'message' => new sfWidgetFormTextarea(),
         ));
-     
+
         $this->widgetSchema->setFormFormatterName('list');
       }
     }
@@ -315,27 +315,27 @@ Listato 1-5 - Uso dell'azione `submit` nel modulo `contact`
     public function executeSubmit($request)
     {
       $this->forward404Unless($request->isMethod('post'));
-     
+
       $params = array(
         'name'    => $request->getParameter('name'),
         'email'   => $request->getParameter('email'),
         'message' => $request->getParameter('message'),
       );
-     
+
       $this->redirect('contact/thankyou?'.http_build_query($params));
     }
-     
+
     public function executeThankyou()
     {
     }
-     
+
     // apps/frontend/modules/contact/templates/thankyouSuccess.php
     <ul>
       <li>Name:    <?php echo $sf_params->get('name') ?></li>
       <li>Email:   <?php echo $sf_params->get('email') ?></li>
       <li>Message: <?php echo $sf_params->get('message') ?></li>
     </ul>
- 
+
 >**NOTE**
 >`http_build_query` è una funzione di libreria di PHP che genera una
 >query string URL-encoded da un array di parametri.
@@ -352,7 +352,7 @@ Il metodo `executeSubmit()` esegue tre azioni:
       $this->forward404Unless($request->isMethod('post'));
   * Poi prendiamo i valori inviati dall'utente per salvarli nella
     tabella dei parametri:
-  
+
       [php]
       $params = array(
         'name'    => $request->getParameter('name'),
@@ -372,7 +372,7 @@ migliore redirigere sempre l'utente dopo una richiesta con metodo `POST`:
   * Questo previene il reinvio del form, se l'utente ricarica la pagina
   * L'utente può anche cliccare sul bottone "indietro" senza vedere l'avviso
     che gli chiede di inviare nuovamente il form.
-  
+
 >**TIP**
 >Forse avete notato che `executeSubmit()` è diverso da `executeIndex()`.
 >Quando chiama questi metodi, symfony passa l'oggetto `sfRequest`
@@ -416,7 +416,7 @@ Listato 1-6 - Modifica dell'attributo HTML `name` nei widget
           'email'   => new sfWidgetFormInputText(),
           'message' => new sfWidgetFormTextarea(),
         ));
-     
+
         $this->widgetSchema->setNameFormat('contact[%s]');
       }
     }
@@ -438,7 +438,7 @@ Listato 1-7 - Nuovo formato degli attributi `name` nei widget dell'azione
     public function executeSubmit($request)
     {
       $this->forward404Unless($request->isMethod('post'));
-     
+
       $this->redirect('contact/thankyou?'.http_build_query($request->getParameter('contact')));
     }
 
@@ -487,14 +487,14 @@ Listato 1-8 - Fondere le due azioni usate nel form
       public function executeIndex($request)
       {
         $this->form = new ContactForm();
-     
+
         if ($request->isMethod('post'))
         {
           $this->redirect('contact/thankyou?'.http_build_query($request->getParameter('contact')));
         }
       }
     }
- 
+
 Si può anche aver bisogno di cambiare l'attributo `action` del form
 nel template `indexSuccess.php`:
 
@@ -524,7 +524,7 @@ Listato 1-9 - Aggiungere un campo `subject` al form
     class ContactForm extends sfForm
     {
       protected static $subjects = array('Subject A', 'Subject B', 'Subject C');
-     
+
       public function configure()
       {
         $this->setWidgets(array(
@@ -533,11 +533,11 @@ Listato 1-9 - Aggiungere un campo `subject` al form
           'subject' => new sfWidgetFormSelect(array('choices' => self::$subjects)),
           'message' => new sfWidgetFormTextarea(),
         ));
-     
+
         $this->widgetSchema->setNameFormat('contact[%s]');
       }
     }
- 
+
 >**SIDEBAR**
 >L'opzione `choices` del widget `sfWidgetFormSelect`
 >
@@ -572,7 +572,7 @@ Listato 1-9 - Aggiungere un campo `subject` al form
 >       <option value="B">Subject B</option>
 >       <option value="C">Subject C</option>
 >     </select>
-     
+
 Il widget `sfWidgetFormSelect`, come tutti i widget, prende una
 lista di opzioni come primo parametro. Un'opzione può essere
 obbligatoria od opzionale. `sfWidgetFormSelectwidget` ha un'opzione
@@ -605,10 +605,10 @@ Listato 1-10 - Definire attributi per un widget
 
     [php]
     $emailWidget = new sfWidgetFormInputText(array(), array('class' => 'email'));
-     
+
     // HTML generato
     <input type="text" name="contact[email]" class="email" id="contact_email" />
- 
+
 Gli attributi HTML permettono anche di sovrascrivere l'identificatore
 generato automaticamente, come mostrato nel Listato 1-11.
 
@@ -616,7 +616,7 @@ Listato 1-11 - Sovrascrivere l'attributo `id`
 
     [php]
     $emailWidget = new sfWidgetFormInputText(array(), array('class' => 'email', 'id' => 'email'));
-     
+
     // HTML generato
     <input type="text" name="contact[email]" class="email" id="email" />
 
@@ -627,7 +627,7 @@ Listato 1-12 - Valori predefiniti per i widget usando gli attributi HTML
 
     [php]
     $emailWidget = new sfWidgetFormInputText(array(), array('value' => 'Your Email Here'));
-     
+
     // HTML generato
     <input type="text" name="contact[email]" value="Your Email Here" id="contact_email" />
 
@@ -658,9 +658,9 @@ Listato 1-13 - Valori predefiniti dei widget usando i metodi `setDefault()` e `s
       public function configure()
       {
         // ...
-     
+
         $this->setDefault('email', 'Your Email Here');
-     
+
         $this->setDefaults(array('email' => 'La tua email', 'name' => 'Il tuo nome'));
       }
     }
@@ -677,7 +677,7 @@ Listato 1-14 - Valori predefiniti dei widget usando il costruttore di `sfForm`
     public function executeIndex($request)
     {
       $this->form = new ContactForm(array('email' => 'Your Email Here', 'name' => 'Your Name Here'));
-     
+
       // ...
     }
 
@@ -701,7 +701,7 @@ Listato 1-14 - Valori predefiniti dei widget usando il costruttore di `sfForm`
 >       'value' => 'Hello "World!"',
 >       'class' => '<script>alert("foo")</script>',
 >     ));
->     
+>
 >     // HTML generato
 >     <input
 >       value="Hello &quot;World!&quot;"

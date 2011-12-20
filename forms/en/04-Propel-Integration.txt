@@ -206,7 +206,7 @@ The `propel:generate-crud` takes three arguments:
 
   * `frontend` : name of the application you want to create the module in
   * `author`  : name of the module you want to create
-  * `Author`  : name of the model class you want to create the module for 
+  * `Author`  : name of the model class you want to create the module for
 
 >**Note**
 >CRUD stands for Creation / Retrieval / Update / Deletion and sums up the four basic operations we can carry out with the model datas.
@@ -338,7 +338,7 @@ Listing 4-6 - The `editSuccess` Template
     </form>
 
 >**TIP**
->The `--with-show` option let us generate an action and a template we can use to view an object (read only). 
+>The `--with-show` option let us generate an action and a template we can use to view an object (read only).
 
 You can now open the URL `/frontend_dev.php/author` in a browser to view the generated module (Figure 4-1 and Figure 4-2). Take time to play with the interface. Thanks to the generated module you can list the authors, add a new one, edit, modify, and even delete. You will also notice that the validation rules are also working.
 
@@ -591,7 +591,7 @@ Listing 4-18 - Modifying the `status` Field Validator
       public function configure()
       {
         $statuses = ArticlePeer::getStatuses();
-        
+
         $this->widgetSchema['status'] = new sfWidgetFormSelect(array('choices' => $statuses));
 
         $this->validatorSchema['status'] = new sfValidatorChoice(array('choices' => array_keys($statuses)));
@@ -788,7 +788,7 @@ In order to certify a consistent serialization, the `save()` method includes eve
 >**SIDEBAR**
 >Using the `bindAndSave()` method
 >
->The `bindAndSave()` method binds the input data the user submitted to the form, validates this form and updates the related object in the database, all in one operation: 
+>The `bindAndSave()` method binds the input data the user submitted to the form, validates this form and updates the related object in the database, all in one operation:
 >
 >     [php]
 >     class articleActions extends sfActions
@@ -885,18 +885,18 @@ Listing 4-27 - Overriding the `save()` Method of the `ArticleForm` Class
     class ArticleForm extends BaseFormPropel
     {
       // ...
-     
+
       public function save(PropelPDO $con = null)
       {
         if (file_exists($this->getObject()->getFile()))
         {
           unlink($this->getObject()->getFile());
         }
-   
+
         $file = $this->getValue('file');
         $filename = sha1($file->getOriginalName()).$file->getExtension($file->getOriginalExtension());
         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename);
-   
+
         return parent::save($con);
       }
     }
@@ -937,7 +937,7 @@ After moving the code to the form, the `edit` action is identical to the code in
 
 We observed that the saving of an object was made within a transaction in order to guarantee that each operation related to the saving is processed correctly. When overriding the `save()`method as we did in the previous section in order to save the uploaded file, the executed code is independent from this transaction.
 
-Listing 4-28 shows how to use the `doSave()` method to insert in the global transaction our code saving the uploaded file. 
+Listing 4-28 shows how to use the `doSave()` method to insert in the global transaction our code saving the uploaded file.
 
 Listing 4-28 - Overriding the `doSave()` Method in the `ArticleForm` Form
 
@@ -945,7 +945,7 @@ Listing 4-28 - Overriding the `doSave()` Method in the `ArticleForm` Form
     class ArticleForm extends BaseFormPropel
     {
       // ...
-     
+
       protected function doSave($con = null)
       {
         if (file_exists($this->getObject()->getFile()))
@@ -965,7 +965,7 @@ The `doSave()` method being called in the transaction created by the `save()` me
 
 ### Customizing the `updateObject()` Method
 
-It is sometimes necessary to modify the object connected to the form between the update and the saving in database. 
+It is sometimes necessary to modify the object connected to the form between the update and the saving in database.
 
 In our file upload example, instead of storing the absolute path to the uploaded file in the `file` column, we wish to store the path relative to the `sfConfig::get('sf_upload_dir')` directory.
 

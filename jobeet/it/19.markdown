@@ -270,8 +270,8 @@ aggiungiamo i seguenti test:
 
       info('  6.1 - For the first request, symfony guesses the best culture')->
       get('/')->
-      with('response')->isRedirected()-> 
-      followRedirect()-> 
+      with('response')->isRedirected()->
+      followRedirect()->
       with('user')->isCulture('fr')->
 
       info('  6.2 - Available cultures are en and fr')->
@@ -284,8 +284,8 @@ aggiungiamo i seguenti test:
       info('  6.3 - The culture guessing is only for the first request')->
 
       get('/')->
-      with('response')->isRedirected()-> 
-      followRedirect()-> 
+      with('response')->isRedirected()->
+      followRedirect()->
       with('user')->isCulture('fr')
     ;
 
@@ -307,7 +307,7 @@ Installiamo il plugin con il task `plugin:install`:
     $ php symfony plugin:install sfFormExtraPlugin
 
 >**NOTE**
->`sfFormExtraPlugin` contiene widget che richiedono dipendenze esterne, 
+>`sfFormExtraPlugin` contiene widget che richiedono dipendenze esterne,
 >come librerie JavaScript. C'è un widget per un selezionatore di
 >date in formato grafico, uno per un editor visuale e molto altro.
 >Consultare la documentazione, perché vi si possono trovare molte cose utili.
@@ -723,7 +723,7 @@ La ~serie|Serie (I18n)~ può descrivere qualsiasi serie di numeri:
   * `[1,2]`:     Accetta valori tra 1 e 2, estremi inclusi
   * `(1,2)`:     Accetta valori tra 1 e 2, estremi esclusi
   * `{1,2,3,4}`: Accetta solo i valori elencati
-  * `[-Inf,0)`:  Accetta valori maggiori o uguali di meno infinito e 
+  * `[-Inf,0)`:  Accetta valori maggiori o uguali di meno infinito e
                  strettamente minori di 0
   * `{n: n % 10 > 1 && n % 10 < 5}`: Accetta valori come 2, 3, 4, 22, 23, 24
 
@@ -773,7 +773,7 @@ Aggiorniamo di conseguenza il file ~`schema.yml`|`schema.yml` (I18n)~:
       id:           ~
 
     jobeet_category_i18n:
-      id:           { type: integer, required: true, primaryKey: true, 
+      id:           { type: integer, required: true, primaryKey: true,
       ➥ foreignTable: jobeet_category, foreignReference: id }
       culture:      { isCulture: true, type: varchar, size: 7,
       ➥ required: true, primaryKey: true }
@@ -851,7 +851,7 @@ Dobbiamo anche aggiustare il metodo `getForSlug()` in `JobeetCategoryPeer`:
           type: string(255)
           notnull:  true
 
-Abilitando il comportamento `I18n`, un modello chiamato `JobeetCategoryTranslation` 
+Abilitando il comportamento `I18n`, un modello chiamato `JobeetCategoryTranslation`
 sarà automaticamente creato e i `fields` specificati spostati in quel
 modello.
 
@@ -990,7 +990,7 @@ Siccome la rotta `category` è legata alla classe del modello
 poiché `slug` è ora parte di `JobeetCategoryI18n`,
 </propel>
 <doctrine>
-poiché `slug` è ora parte di `JobeetCategoryTranslation`, 
+poiché `slug` è ora parte di `JobeetCategoryTranslation`,
 </doctrine>
 la rotta non è in grado di recuperare automaticamente l'oggetto
 `Category`. Per aiutare il sistema delle rotte, creiamo un metodo
@@ -1010,7 +1010,7 @@ che si occuperà di recuperare l'oggetto:
 
         return self::doSelectOne($criteria);
       }
-      
+
       // ...
     }
 </propel>
@@ -1127,7 +1127,7 @@ Nella chiamata a `__()` qui sopra, symfony cercherà la stringa
 
 Aggiustare i ~test|I18n (Test)~ è parte integrante della migrazione all'internazionalizzazione.
 Innanzitutto, aggiorniamo le fixture dei test per le categorie, copiando
-le fixture che abbiamo definito sopra in 
+le fixture che abbiamo definito sopra in
 <propel>
 `test/fixtures/010_categories.yml`.
 </propel>

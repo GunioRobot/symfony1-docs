@@ -87,7 +87,7 @@ Jobeet プラグイン
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -162,7 +162,7 @@ Remove the `plugins/sfJobeetPlugin/lib/form/BaseForm.class.php` file.
         {
           $this->setToken(sha1($object->getEmail().rand(11111, 99999)));
         }
-        
+
         parent::save($conn);
       }
 
@@ -197,7 +197,7 @@ Remove the `plugins/sfJobeetPlugin/lib/form/BaseForm.class.php` file.
 
 このディレクトリはスキーマから生成されたトップレベルのモデルと基底クラスを含みます。たとえば `JobeetJob` モデルは次のようなクラス構造を持ちます:
 
-  * `JobeetJob` (`PluginJobeetJob` を継承) 
+  * `JobeetJob` (`PluginJobeetJob` を継承)
     `lib/model/doctrine/sfJobeetPlugin/JobeetJob.class.php`:
     すべてのプロジェクトの機能が設定できるトップレベルのクラスです。ここは機能を追加したりプラグインモデルに付属する機能をオーバーライドできる場所です。
 
@@ -230,7 +230,7 @@ Remove the `plugins/sfJobeetPlugin/lib/form/BaseForm.class.php` file.
 >       {
 >         parent::setup();
 >       }
->       
+>
 >       // ...
 >     }
 </doctrine>
@@ -565,7 +565,7 @@ symfony が初期化されるときにプラグインのコンフィギュレー
             ->whereIn('a.id', $ids)
             ->execute();
         }
-        
+
         return array();
 </doctrine>
       }

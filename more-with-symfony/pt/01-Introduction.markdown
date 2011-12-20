@@ -70,7 +70,7 @@ livro.
 Agradecimentos
 ---------------
 
-Quando eu comecei a pensar em escrever outro livro sobre symfony, em agosto de 
+Quando eu comecei a pensar em escrever outro livro sobre symfony, em agosto de
 2009, imediatamente tive uma idéia maluca: que tal escrever um livro em dois meses
 e publicá-lo em cinco línguas simultaneamente! Claro, envolver
 a comunidade em um projeto deste tamanho era quase obrigatório. Comecei a falar

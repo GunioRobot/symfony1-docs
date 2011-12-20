@@ -38,7 +38,7 @@ IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH TERMS AND CONDITIONS.
   are assembled into a collective whole. A work that constitutes a Collection
   will not be considered an Adaptation (as defined below) for the purposes of
   this License.
-  
+
    c. **"Creative Commons Compatible License"** means a license that is listed
   at http://creativecommons.org/compatiblelicenses that has been approved by
   Creative Commons as being essentially equivalent to this License, including,

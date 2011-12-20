@@ -46,7 +46,7 @@ User オブジェクトの `setCulture()` と `getCulture()` メソッドを呼�
         default_culture: it_IT
 
 >**TIP**
->カルチャは User オブジェクトによって管理されるので、これは~ユーザーセッション|セッション~に保存されます。開発期間に、~デフォルトカルチャ~ を変更する場合、ブラウザで新しい設定を有効にするためにセッション ~Cookie~ をクリアしなければなりません 
+>カルチャは User オブジェクトによって管理されるので、これは~ユーザーセッション|セッション~に保存されます。開発期間に、~デフォルトカルチャ~ を変更する場合、ブラウザで新しい設定を有効にするためにセッション ~Cookie~ をクリアしなければなりません
 
 ユーザーが Jobeet の Web サイトでセッションを始めるとき、~HTTP ヘッダー~の ~`Accept-Language`~ によって提供される情報にもとづいてベストなカルチャを決めることもできます。
 
@@ -135,7 +135,7 @@ Jobeet の Web サイトは英語とフランス語の両方で利用できま�
       {
         return $this->getAttribute('first_request', true);
       }
-      
+
       $this->setAttribute('first_request', $boolean);
     }
 
@@ -246,7 +246,7 @@ Or via Subversion with the following command:
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin'
       ));
@@ -730,7 +730,7 @@ Jobeet の Web サイトのために、~すべてのテーブルを国際化|Mod
           fr:
             name: Administrateur
 
-`JobeetCategoryTable` の `findOneBySlug()` メソッドをオーバーライドすることも必要です。Doctrine はモデルのすべてのカラム用のマジックファインダーを提供するので、Doctrine が提供するデフォルトのマジック機能をオーバーライドするために `findOneBySlug()` メソッドを作ることが必要です。 
+`JobeetCategoryTable` の `findOneBySlug()` メソッドをオーバーライドすることも必要です。Doctrine はモデルのすべてのカラム用のマジックファインダーを提供するので、Doctrine が提供するデフォルトのマジック機能をオーバーライドするために `findOneBySlug()` メソッドを作ることが必要です。
 
 カテゴリが `JobeetCategoryTranslation` テーブルの英語のスラッグにもとづいて検索されるように少しの変更を行う必要があります。
 

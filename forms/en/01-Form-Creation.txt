@@ -130,7 +130,7 @@ Listing 1-4 Shows the generated code by the template.
     [html]
     <form action="/frontend_dev.php/contact/submit" method="POST">
       <table>
-        
+
         <!-- Beginning of generated code by <?php echo $form ?> -->
         <tr>
           <th><label for="name">Name</label></th>
@@ -160,7 +160,7 @@ We can see that the form is displayed with three `<tr>` lines of an HTML table. 
 
 The labels of each field are automatically generated. By default, labels
 are a transformation of the field name following the two following rules:
-a capital first letter and underscores replaced by spaces. 
+a capital first letter and underscores replaced by spaces.
 If the field's name ends with "_id", the suffix is removed from label.
 
 Example:
@@ -171,7 +171,7 @@ Example:
       'last_name'  => new sfWidgetFormInputText(), // generated label: "Last name"
       'author_id'  => new sfWidgetFormInputText(), // generated label: "Author"
     ));
- 
+
 Even if the automatic generation of labels is very useful, the framework allows you to define personalized labels with the `setLabels()` method :
 
     [php]
@@ -511,11 +511,11 @@ Listing 1-13 - Default Values of the Widgets via the `setDefault()` and `setDefa
       }
     }
 
-The `setDefault()` and `setDefaults()` methods are very helpful to define 
+The `setDefault()` and `setDefaults()` methods are very helpful to define
 identical default values for every instance of the same form class. If we
-want to modify an existing object using a form, the default values will 
+want to modify an existing object using a form, the default values will
 depend on the instance, therefore they must be dynamic. Listing 1-14 shows
-the `sfForm` constructor has a first argument that sets default values 
+the `sfForm` constructor has a first argument that sets default values
 dynamically.
 
 Listing 1-14 - Default Values of the Widgets via the Constructor of `sfForm`
@@ -542,7 +542,7 @@ Listing 1-14 - Default Values of the Widgets via the Constructor of `sfForm`
 >       'value' => 'Hello "World!"',
 >       'class' => '<script>alert("foo")</script>',
 >     ));
->     
+>
 >     // Generated HTML
 >     <input
 >       value="Hello &quot;World!&quot;"

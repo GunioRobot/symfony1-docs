@@ -103,7 +103,7 @@ Admin ƒ‚ƒWƒ…[ƒ‹‚Í `generator.yml` ‚Æ‚¢‚¤–¼‘O‚Ì“Á•Ê‚Èİ’èƒtƒ@ƒCƒ‹‚ğ’Ê‚µ‚Äƒ‚ƒfƒ‹‚
 
     // Propel
     $ php symfony propel:generate-admin backend BlogArticle --module=article
-    
+
     // Doctrine
     $ php symfony doctrine:generate-admin backend BlogArticle --module=article
 
@@ -158,7 +158,7 @@ Admin ƒ‚ƒWƒ…[ƒ‹‚Í `generator.yml` ‚Æ‚¢‚¤–¼‘O‚Ì“Á•Ê‚Èİ’èƒtƒ@ƒCƒ‹‚ğ’Ê‚µ‚Äƒ‚ƒfƒ‹‚
     delete           // ƒŒƒR[ƒh‚ğíœ‚·‚é
     batch            // ‘I‘ğ‚³‚ê‚½ƒŒƒR[ƒh‚ÌƒŠƒXƒg‚ÅƒAƒNƒVƒ‡ƒ“‚ğÀs‚·‚é
     batchDelete      // ‘I‘ğ‚µ‚½ƒŒƒR[ƒh‚Ìˆê——‚ğíœ‚·‚éƒAƒNƒVƒ‡ƒ“‚ğÀs‚·‚é
-    
+
     // templates/‚Ì‚È‚©
     _assets.php
     _filters.php
@@ -216,7 +216,7 @@ Admin ƒ‚ƒWƒ…[ƒ‹‚Í `generator.yml` ‚Æ‚¢‚¤–¼‘O‚Ì“Á•Ê‚Èİ’èƒtƒ@ƒCƒ‹‚ğ’Ê‚µ‚Äƒ‚ƒfƒ‹‚
           filter:  ~
           form:    ~
           edit:    ~
-          new: 
+          new:
 
 ‚±‚ÌƒRƒ“ƒtƒBƒMƒ…ƒŒ[ƒVƒ‡ƒ“‚ÍŠî–{“I‚ÈŠÇ—‰æ–Ê‚ğ¶¬‚·‚é‚Ì‚É\•ª‚Å‚·BƒJƒXƒ^ƒ}ƒCƒY‚µ‚½“à—e‚Í `config` ƒL[‚Ì‰º‚É’Ç‰Á‚³‚ê‚Ü‚·BƒŠƒXƒg14-4‚Í `generator.yml` ‚ğƒJƒXƒ^ƒ}ƒCƒY‚µ‚½“TŒ^—á‚ğ¦‚µ‚Ä‚¢‚Ü‚·B
 
@@ -353,7 +353,7 @@ Admin ƒWƒFƒlƒŒ[ƒ^[‚Í `schema.yml` ƒtƒ@ƒCƒ‹‚ÌƒJƒ‰ƒ€‚²‚Æ‚É1‚Â‚ÌƒtƒB[ƒ‹ƒh‚ğì‚è‚
           NONE:     [blog_article_id]
           Editable: [author, content, created_at]
 
-}14-5‚Ì‚æ‚¤‚É `list` ‚Í3‚Â‚ÌƒJƒ‰ƒ€‚ğ•\¦‚µA}14-6‚Ì‚æ‚¤‚ÉA`new` ‚Æ `edit` ƒtƒH[ƒ€‚Í2‚Â‚ÌƒOƒ‹[ƒv‚ÉW‚ß‚ç‚ê‚½4‚Â‚ÌƒtƒB[ƒ‹ƒh‚ğ•\¦‚µ‚Ü‚·B 
+}14-5‚Ì‚æ‚¤‚É `list` ‚Í3‚Â‚ÌƒJƒ‰ƒ€‚ğ•\¦‚µA}14-6‚Ì‚æ‚¤‚ÉA`new` ‚Æ `edit` ƒtƒH[ƒ€‚Í2‚Â‚ÌƒOƒ‹[ƒv‚ÉW‚ß‚ç‚ê‚½4‚Â‚ÌƒtƒB[ƒ‹ƒh‚ğ•\¦‚µ‚Ü‚·B
 
 }14-5 - `comment` ƒ‚ƒWƒ…[ƒ‹‚Ì `list` ƒrƒ…[“à•”‚ÌƒJƒXƒ^ƒ€ƒJƒ‰ƒ€İ’è
 
@@ -412,7 +412,7 @@ Admin ƒWƒFƒlƒŒ[ƒ^[‚Í `schema.yml` ƒtƒ@ƒCƒ‹‚ÌƒJƒ‰ƒ€‚²‚Æ‚É1‚Â‚ÌƒtƒB[ƒ‹ƒh‚ğì‚è‚
 ƒŠƒXƒg14-13 - `list` ƒrƒ…[—p‚Ìƒp[ƒVƒƒƒ‹ƒeƒ“ƒvƒŒ[ƒg‚Ì—á (`modules/comment/templates/_article_link.php`)
 
     [php]
-    <?php echo link_to($BlogComment->getBlogArticle()->getTitle(), 'blog_article_edit', $BlogComment->getBlogArticle()) ?> 
+    <?php echo link_to($BlogComment->getBlogArticle()->getTitle(), 'blog_article_edit', $BlogComment->getBlogArticle()) ?>
 
 ƒp[ƒVƒƒƒ‹ƒtƒB[ƒ‹ƒh‚Ìƒeƒ“ƒvƒŒ[ƒg‚Å‚ÍA“Á’è‚Ì–¼‘O‚Ì•Ï”‚ÅŒ»İ‚ÌƒIƒuƒWƒFƒNƒg‚ÉƒAƒNƒZƒX‚Å‚«‚é•K—v‚ª‚ ‚è‚Ü‚·(‚±‚Ì—á‚Å‚Í `$BlogComment`)B
 

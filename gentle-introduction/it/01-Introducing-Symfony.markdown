@@ -149,7 +149,7 @@ Il repository pubblico del sorgente e il sistema di ticket offrono molti modi di
 contribuire e tutti i volontari sono benvenuti. Fabien è sempre il principale
 contribuente del codice e garantisce la qualità del codice.
 
-Oggi, il [forum](http://forum.symfony-project.org/) di symfony, le 
+Oggi, il [forum](http://forum.symfony-project.org/) di symfony, le
 [mailing](http://groups.google.com/group/symfony-users) [list](http://groups.google.com/group/symfony-devs)
 e il canale (IRC)[channel](irc://irc.freenode.net/symfony) offrono degli sbocchi
 ideali per il supporto, in cui pare che ogni risposta trovi in media quattro risposte.
@@ -215,7 +215,7 @@ essere visto come un insieme di unità individuali, o oggetti, che agiscono l'un
 sull'altro, in opposizione alla visione tradizionale in cui un programma possa essere
 visto come un insieme di funzioni o semplicemente come una lista di istruzioni al
 computer."
-  
+
 PHP implementa i paradigmi orientati agli oggetti di classe, oggetto, metodo,
 ereditarietà e molto altro. Chi non abbia familiarità con questi concetti dovrebbe
 leggere la relativa documentazione di PHP, disponibile su
@@ -241,7 +241,7 @@ personalizzato di visualizzazione:
     echo $myObject->__toString();
 
 Symfony usa i metodi magici, quindi occorre avere una buona conoscenza di essi.
-Sono descritti nella documentazione di PHP 
+Sono descritti nella documentazione di PHP
 ([http://www.php.net/manual/en/language.oop5.magic.php](http://www.php.net/manual/en/language.oop5.magic.php)).
 
 ### Object-Relational Mapping (ORM)

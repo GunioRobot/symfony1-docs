@@ -223,7 +223,7 @@ Listing 6-7 - `sfActions` Common Methods
 >
 >`sfDatabaseConnection`: The database connection (`->getDatabaseConnection()`)
 >
->All these core objects are available through the `sfContext::getInstance()` singleton from any part of the code. However, it's a really bad practice because this will create some hard dependencies making your code really hard to test, reuse and maintain. You will learn in this book how to avoid the usage of `sfContext::getInstance()`. 
+>All these core objects are available through the `sfContext::getInstance()` singleton from any part of the code. However, it's a really bad practice because this will create some hard dependencies making your code really hard to test, reuse and maintain. You will learn in this book how to avoid the usage of `sfContext::getInstance()`.
 
 ### Action Termination
 
@@ -305,7 +305,7 @@ If the action must be rendered by a specific template, ignore the `return` state
     {
       $this->setTemplate('myCustomTemplate');
     }
-    
+
 With this code, symfony will look for a `myCustomTemplateSuccess.php` file, instead of `indexSuccess.php`.
 
 ### Skipping to Another Action
@@ -342,10 +342,10 @@ Listing 6-11 - Use of the `forward404()` Method
     {
       // Doctrine
       $article = Doctrine::getTable('Article')->find($request->getParameter('id'));
-      
+
       // Propel
       $article = ArticlePeer::retrieveByPK($request->getParameter('id'));
-      
+
       if (!$article)
       {
         $this->forward404();

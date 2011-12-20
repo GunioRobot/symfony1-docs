@@ -176,7 +176,7 @@ Doctrine には DQL(*Doctrine Query Language*) と呼ばれる独自のクエリ
       ->createQuery('a')
       ->innerJoin('a.Author') // "a.Author" は "Author" へのリレーション
       ->execute();
-      
+
     // テンプレートのなか（変わらず）
     <ul>
     <?php foreach ($articles as $article): ?>
@@ -275,7 +275,7 @@ Propel を利用しているとき、すでにオブジェクトはハイドレ�
         return $results;
       }
     }
-    
+
     // Doctrine の場合
     class ArticleTable extends Doctrine_Table
     {
@@ -309,8 +309,8 @@ symfony を利用するかかかわらず適用できるデータベース固有
         id:
         author_id:
         title: { type: varchar(100), index: true }
-    
-    
+
+
     # Doctrine スキーマ
     Article:
      columns:
@@ -319,7 +319,7 @@ symfony を利用するかかかわらず適用できるデータベース固有
      indexes:
        title:
          fields: [title]
-     
+
 
 古典的なインデックスの代わりにユニークインデックスを定義するために代替の `index: unique` 構文を利用できます。`schema.yml` ファイルで複数のカラムインデックスを定義することもできます (インデックスの構文に関する詳細な情報は8章を参照)。この方法はしばし複雑なクエリを加速するのによいのでよく熟慮すべきです。
 

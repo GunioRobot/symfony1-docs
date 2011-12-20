@@ -7,15 +7,15 @@ Erstellen einer Doctrine Behavior
 ---------------------------------
 
 Dieser Abschnitt zeigt die Erstellung einer Behavior mit Doctrine 1.2.
-Das folgende Beispiel ermöglicht das einfache Zwischenspeichern des Wertes einer 
+Das folgende Beispiel ermöglicht das einfache Zwischenspeichern des Wertes einer
 Beziehung. Somit ist es nicht nötig, den Wert jedes mal neu abzufragen.
 
-Die Funktionalität ist sehr einfach. Für jede Beziehung, für die ein Wert benötigt 
+Die Funktionalität ist sehr einfach. Für jede Beziehung, für die ein Wert benötigt
 wird, erstellt die Behavior ein Feld im Modell, um den aktuellen Wert zu speichern.
 
 ### Das Schema
 
-Folgendes Schema wird für den Anfang genutzt. Später wird es modifiziert und die 
+Folgendes Schema wird für den Anfang genutzt. Später wird es modifiziert und die
 `actAs`-Definition für die Behavior hinzugefügt:
 
     [yml]
@@ -45,11 +45,11 @@ Nun kann alles für das Schema gebaut werden:
 
 ### Das Template
 
-Zunächst muss die Basis-`Doctrine_Template`-Kinderklasse erstellt werden. Diese 
-wird sich darum kümmern, dass die Felder dem Modell hinzugefügt werden, welche 
+Zunächst muss die Basis-`Doctrine_Template`-Kinderklasse erstellt werden. Diese
+wird sich darum kümmern, dass die Felder dem Modell hinzugefügt werden, welche
 die Werte speichern.
 
-Die Klasse kann einfach irgendwo im `lib/`-Verzeichnis des Projekts gespeichert 
+Die Klasse kann einfach irgendwo im `lib/`-Verzeichnis des Projekts gespeichert
 werden. Symfony lädt sie dann automatisch:
 
     [php]
@@ -75,7 +75,7 @@ Behaviour:
         CountCache: ~
       # ...
 
-Jetzt da das `Post`-Modell die `CountCache`-Behaviour nutzt, zeigt der nächste 
+Jetzt da das `Post`-Modell die `CountCache`-Behaviour nutzt, zeigt der nächste
 Abschnitt, was man damit machen kann.
 
 When the mapping information for a model is instantiated, any attached behaviors

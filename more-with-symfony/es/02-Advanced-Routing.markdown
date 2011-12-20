@@ -165,7 +165,7 @@ tareas:
  * Procesar las URL entrantes: a partir de la URL de una petición, cada ruta
    debe ser capaz de determinar si la URL cumple los requisitos de la ruta.
 
-La información de cada ruta individual normalmente se configura en el archivo 
+La información de cada ruta individual normalmente se configura en el archivo
 `app/mi_aplicacion/config/routing.yml` que se encuentra en el directorio de configuración
 de cada aplicación. Si una ruta es *"un objeto de tipo `sfRoute`"*, ¿cómo se transforma
 la configuración YAML en objetos `sfRoute`?
@@ -197,7 +197,7 @@ extracto de la ruta `page_show` completa:
 >El nombre de la clase de cada ruta se define en la clave `class` del archivo
 >`routing.yml`. Si no se especifica una clave `class`, por defecto se considera
 >que es una clase de tipo `sfRoute`. Otra clase de ruta común es `sfRequestRoute`
->que permite al programador crear rutas RESTful. El libro 
+>que permite al programador crear rutas RESTful. El libro
 >*[The symfony Reference Book](http://www.symfony-project.org/reference/1_3/en/10-Routing)*
 >incluye la lista completa de clases de ruta y todas sus opciones.
 
@@ -217,7 +217,7 @@ no coincide con la URL entrante.
 
 Cuando el patrón de la ruta coincide, el método `sfRoute::matchesUrl()` hace
 mucho más que devolver `true`. En este caso, la ruta devuelve un array de
-parámetros que se incluyen en el objeto de la petición. La URL 
+parámetros que se incluyen en el objeto de la petición. La URL
 `http://pete.sympalbuilder.com/location` por ejemplo está asociada con la ruta
 `page_show`, cuyo método `matchesUrl()` devolvería el siguiente array:
 

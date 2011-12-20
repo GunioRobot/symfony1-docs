@@ -77,7 +77,7 @@ In questo modo, si può spostare la cartella del progetto ovunque, senza
 problemi.
 
 >**TIP**
->Volendo sapere di più su questa riga di comando, digitare 
+>Volendo sapere di più su questa riga di comando, digitare
 >`symfony` per elencare le opzioni e i task disponibili:
 >
 >     $ php lib/vendor/symfony/data/bin/symfony
@@ -87,7 +87,7 @@ problemi.
 >     c:\> php lib\vendor\symfony\data\bin\symfony
 >
 >La riga di comando di symfony è il migliore amico dello sviluppatore. Mette
->a disposizione molti strumenti che migliorano la produttività per 
+>a disposizione molti strumenti che migliorano la produttività per
 >attività giornaliere come pulizia della cache, generazione di codice e molto
 >altro.
 
@@ -163,7 +163,7 @@ per l'applicazione, nella cartella `apps/frontend/`:
 >lo sviluppo futuro da due delle più diffuse vulnerabilità del web. Già, symfony
 >si prende cura della sicurezza per noi.
 >
->Se si ignora cosa siano 
+>Se si ignora cosa siano
 >[XSS](http://it.wikipedia.org/wiki/Cross-site_scripting) e
 >[CSRF](http://it.wikipedia.org/wiki/CSRF), sarebbe meglio spendere un po' di tempo
 >per sapere di più su queste vulnerabilità.

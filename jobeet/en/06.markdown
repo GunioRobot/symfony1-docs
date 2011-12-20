@@ -129,15 +129,15 @@ You can see for yourself that Propel has generated a where clause for the
 >attacks.
 </propel>
 <doctrine>
-    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT 
-    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type, 
-    j.company AS j__company, j.logo AS j__logo, j.url AS j__url, 
-    j.position AS j__position, j.location AS j__location, 
-    j.description AS j__description, j.how_to_apply AS j__how_to_apply, 
-    j.token AS j__token, j.is_public AS j__is_public, 
-    j.is_activated AS j__is_activated, j.email AS j__email, 
-    j.expires_at AS j__expires_at, j.created_at AS j__created_at, 
-    j.updated_at AS j__updated_at FROM jobeet_job j 
+    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT
+    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type,
+    j.company AS j__company, j.logo AS j__logo, j.url AS j__url,
+    j.position AS j__position, j.location AS j__location,
+    j.description AS j__description, j.how_to_apply AS j__how_to_apply,
+    j.token AS j__token, j.is_public AS j__is_public,
+    j.is_activated AS j__is_activated, j.email AS j__email,
+    j.expires_at AS j__expires_at, j.created_at AS j__created_at,
+    j.updated_at AS j__updated_at FROM jobeet_job j
     WHERE j.created_at > ? (2008-11-08 01:13:35)
 
 You can see for yourself that Doctrine has a where clause for the `created_at`
@@ -677,7 +677,7 @@ Limit the Results
 
 There is still one requirement to implement for the homepage job list:
 
-  "For each category, the list only shows the first 10 jobs and a link allows 
+  "For each category, the list only shows the first 10 jobs and a link allows
   to list all the jobs for a given category."
 
 That's simple enough to add to the `getActiveJobs()` method:

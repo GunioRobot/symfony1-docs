@@ -20,7 +20,7 @@ L'objet Query de Doctrine
 Conditions du Jour 2 :
 
   "Quand un utilisateur arrive sur Jobeet, il doit voir la liste des emplois actifs."
-  
+
 Mais pour l'instant, tous les emplois sont affichés, qu'ils soient actifs ou non :
 
     [php]
@@ -104,7 +104,7 @@ optimisé pour le moteur de base choisi pendant la journée 3. Mais parfois,
 voir le SQL généré par ##ORM## est d'une grande aide, par exemple, pour
 ~déboguer|Déboguer~ une requête qui ne fonctionne pas comme prévu. Dans
 l'~environnement|Environnements~ de `dev`, symfony journalise ces requêtes (et plus encore)
-dans le répertoire `log/`. Il existe un fichier log pour chaque couple 
+dans le répertoire `log/`. Il existe un fichier log pour chaque couple
 application/environnement. Le fichier que nous recherchons est nommé
 `frontend_dev.log`:
 
@@ -121,7 +121,7 @@ application/environnement. Le fichier que nous recherchons est nommé
     ➥ at position :p1 w/ PDO type PDO::PARAM_STR
 
 Comme vous pouvez le voir, Propel a généré une clause WHERE pour la colonne
-`created_at` (`WHERE jobeet_job.CREATED_AT > :p1`).	
+`created_at` (`WHERE jobeet_job.CREATED_AT > :p1`).
 
 >**NOTE**
 >La chaine `:p1` dans la requête indique que Propel génère les ~instructions préparées~.
@@ -132,15 +132,15 @@ Comme vous pouvez le voir, Propel a généré une clause WHERE pour la colonne
 >[~injection SQL](http://en.wikipedia.org/wiki/Sql_injection).
 </propel>
 <doctrine>
-    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT 
-    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type, 
-    j.company AS j__company, j.logo AS j__logo, j.url AS j__url, 
-    j.position AS j__position, j.location AS j__location, 
-    j.description AS j__description, j.how_to_apply AS j__how_to_apply, 
-    j.token AS j__token, j.is_public AS j__is_public, 
-    j.is_activated AS j__is_activated, j.email AS j__email, 
-    j.expires_at AS j__expires_at, j.created_at AS j__created_at, 
-    j.updated_at AS j__updated_at FROM jobeet_job j 
+    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT
+    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type,
+    j.company AS j__company, j.logo AS j__logo, j.url AS j__url,
+    j.position AS j__position, j.location AS j__location,
+    j.description AS j__description, j.how_to_apply AS j__how_to_apply,
+    j.token AS j__token, j.is_public AS j__is_public,
+    j.is_activated AS j__is_activated, j.email AS j__email,
+    j.expires_at AS j__expires_at, j.created_at AS j__created_at,
+    j.updated_at AS j__updated_at FROM jobeet_job j
     WHERE j.created_at > ? (2008-11-08 01:13:35)
 
 Comme vous pouvez le voir, Doctrine a généré une clause WHERE pour la colonne
@@ -375,7 +375,7 @@ créer un nouveau fichier `app.yml` dans le répertoire `config` à la racine de
 Refactorisation
 ---------------
 
-Bien que notre code fonctionne correctement, il n'est pas encore parfait. 
+Bien que notre code fonctionne correctement, il n'est pas encore parfait.
 Etes-vous capable de repérer le problème ?
 
 <propel>
@@ -549,7 +549,7 @@ Modifiez l'action `index` en conséquence :
 </doctrine>
     }
 
-Dans le Template, nous devons rechercher les emplois actifs dans chaque catégorie et 
+Dans le Template, nous devons rechercher les emplois actifs dans chaque catégorie et
 les afficher.
 
     [php]
@@ -605,7 +605,7 @@ classe `JobeetCategory` qui retourne les emplois actifs pour l'objet category :
       return JobeetJobPeer::getActiveJobs($criteria);
     }
 
-Dans l'appel `add()`, nous avons omis le troisième argument car la valeur par 
+Dans l'appel `add()`, nous avons omis le troisième argument car la valeur par
 défaut est `Criteria::EQUAL`.
 
 La méthode `JobeetCategory::getActiveJobs()` utilise la méthode

@@ -6,7 +6,7 @@ Hace dos días, hemos añadido algunos feeds para mantener a los usuarios Jobeet
 La Tecnología
 -------------
 
-Antes de saltar de cabeza, en primer lugar, hablemos un poco sobre la historia de Symfony. Abogamos por un montón de buenas prácticas, como pruebas y refactoring, y también tratamos de aplicarlas al framework mismo. Por ejemplo, nos gusta el famoso lema "No reinventar la rueda". 
+Antes de saltar de cabeza, en primer lugar, hablemos un poco sobre la historia de Symfony. Abogamos por un montón de buenas prácticas, como pruebas y refactoring, y también tratamos de aplicarlas al framework mismo. Por ejemplo, nos gusta el famoso lema "No reinventar la rueda".
 
 Como cuestión de hecho, el framework Symfony comenzó su vida hace cuatro años como la unión entre dos existentes softwares Open-Source: Mojavi y Propel. Y cada vez que necesitamos hacer frente a un nuevo problema, buscamos una biblioteca que haga el trabajo mucho antes de hacer la codificación uno mismo desde cero.
 
@@ -16,7 +16,7 @@ la cual es un port del bien conocido proyecto Java Lucene. En lugar de crear un 
 En la página de la documentación de Zend Lucene, la biblioteca se describe de la siguiente manera:
 
 >... un  motor de búsqueda textual de propósito general escrito íntegramente en PHP 5. Como
->almacena sus índices en el sistema de archivos y no requiere de un 
+>almacena sus índices en el sistema de archivos y no requiere de un
 >servidor de bases de datos, éste puede añadir capacidades de búsqueda a casi cualquier sitio web PHP. Zend_Search_Lucene soporta las siguientes características:
 >
 >  * Búsqueda por Ranking - mostrará al principio los mejores resultados
@@ -32,16 +32,16 @@ En la página de la documentación de Zend Lucene, la biblioteca se describe de 
 >bibliotecas de terceros en un proyecto symfony. Si deseas más información
 >sobre esta tecnología, por favor visita la
 >[Documentación de Zend Lucene](http://framework.zend.com/manual/en/zend.search.lucene.html).
-  
+
 ### Instalación y Configuración del Zend Framework
 
-Las bibliotecas Zend Lucene son parte del Zend Framework. Como no necesitamos de todo del 
-Zend Framework, sólo se necesita instalar algunas partes en el directorio `lib/vendor/`, 
+Las bibliotecas Zend Lucene son parte del Zend Framework. Como no necesitamos de todo del
+Zend Framework, sólo se necesita instalar algunas partes en el directorio `lib/vendor/`,
 junto con el symfony framework.
 
 En primer lugar, la descarga
-[Zend Framework](http://framework.zend.com/download/overview) y descomprime los archivos 
-de modo que tengas un directorio `lib/vendor/Zend/`. 
+[Zend Framework](http://framework.zend.com/download/overview) y descomprime los archivos
+de modo que tengas un directorio `lib/vendor/Zend/`.
 
 >**NOTE**
 >Las siguientes explicaciones han sido probadas con la versión 1.8.0 de the Zend Framework.
@@ -116,7 +116,7 @@ Zend Lucene proporciona dos métodos para recuperar un índice en función de si
       return sfConfig::get('sf_data_dir').'/job.'.sfConfig::get('sf_environment').'.index';
     }
 
-### El Método `save()` 
+### El Método `save()`
 
 Cada vez que se crea un puesto de trabajo, es actualizado o borrado, el índice debe ser actualizado.
 Edita `JobeetJob` para actualizar el índice cada vez que un trabajo es guardado en la base de datos:
@@ -201,7 +201,7 @@ Como Zend Lucene no es capaz de actualizar una entrada existente, ésta se elimi
 La Indexación de los puestos de trabajo en sí es muy sencilla: la clave primaria se almacena para futuras referencias cuando hacemos búsquedas de puestos de trabajo y las principales columnas (`position`, `company`,
 `location`, y `description`) se indexan pero no se almacena en el índice ya que vamos a utilizar los objetos reales para mostrar los resultados.
 
-### Transacciones ##ORM## 
+### Transacciones ##ORM##
 
 ¿Qué pasa si hay un problema cuando procede la indexación de un puesto de trabajo (job) o si el puesto de trabajo (job) no se guarda en la base de datos? Ambas herramientas ##ORM## y Zend Lucene arrojarán una excepción. Pero en algunas circunstancias, podríamos tener un puesto de trabajo (job) guardado en la base de datos sin la correspondiente indexación. Para evitar que esto ocurra, podemos envolver los dos actualizaciones en una transacción y anularlas en caso de haber un error:
 
@@ -334,7 +334,7 @@ Ahora que tenemos todo en su lugar, puedes recargar los datos para indexarlos:
 
 >**NOTE**
 >Puedes tener algunas advertencias acerca de la clase `ZipArchive` si no tienes
->la extension `zip` compilada en tu PHP. Es un fallo conocido de la clase 
+>la extension `zip` compilada en tu PHP. Es un fallo conocido de la clase
 >`Zend_Loader`.
 
 Implementar la búsqueda en el frontend es pan comido. En primer lugar, crea una ruta:
@@ -367,7 +367,7 @@ Y la acción correspondiente:
     }
 
 >**NOTE**
->The new `forwardUnless()` method forwards the user to the `index` action of the 
+>The new `forwardUnless()` method forwards the user to the `index` action of the
 >`job` module if the `query` request parameter does not exist or is empty.
 >
 >It's just an alias for the following longer statement:
@@ -560,7 +560,7 @@ La tarea remueve todos los puestos de trabajo vencidos del índice y, a continua
 Nos vemos mañana
 ----------------
 
-Hoy, hemos implementado un completo motor de búsqueda con muchas características en menos de una hora. Cada vez que desees añadir una nueva función para tus proyectos, debes comprobar que todavía no se haya resuelto en algún otro lugar. En primer lugar, comprobar si es algo que no se haya implementado de forma nativa en el [framework Symfony](http://www.symfony-project.org/api/1_4/). Luego, busca en los 
+Hoy, hemos implementado un completo motor de búsqueda con muchas características en menos de una hora. Cada vez que desees añadir una nueva función para tus proyectos, debes comprobar que todavía no se haya resuelto en algún otro lugar. En primer lugar, comprobar si es algo que no se haya implementado de forma nativa en el [framework Symfony](http://www.symfony-project.org/api/1_4/). Luego, busca en los
 [plugins symfony](http://www.symfony-project.org/plugins/). Y no olvides visitar las [bibliotecas del Zend Framework ](http://framework.zend.com/manual/en/)
 y los [ezComponent](http://ezcomponents.org/docs) también.
 
@@ -571,7 +571,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

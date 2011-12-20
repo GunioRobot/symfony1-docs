@@ -726,7 +726,7 @@ Then, override the default `setMessage()` method to change the priority of the
       }
     }
 
-Notice that the message is serialized by the queue, so it has to be unserialized 
+Notice that the message is serialized by the queue, so it has to be unserialized
 before getting the priority value. Now, create a method that orders the
 messages by priority:
 
@@ -783,9 +783,9 @@ task, each email will be sent according to its priority.
 >       $message = $this->getMailer()
 >         ->compose('john@doe.com', 'foo@example.com', 'Subject', 'Body')
 >       ;
->     
+>
 >       $message->getHeaders()->addTextHeader('X-Queue-Criteria', 'foo');
->     
+>
 >       $this->getMailer()->send($message);
 >     }
 >
@@ -796,11 +796,11 @@ task, each email will be sent according to its priority.
 >     public function setMessage($message)
 >     {
 >       $msg = unserialize($message);
->     
+>
 >       $headers = $msg->getHeaders();
 >       $criteria = $headers->get('X-Queue-Criteria')->getFieldBody();
 >       $this->setCriteria($criteria);
 >       $headers->remove('X-Queue-Criteria');
->     
+>
 >       return parent::_set('message', serialize($msg));
 >     }

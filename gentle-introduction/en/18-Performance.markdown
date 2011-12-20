@@ -43,7 +43,7 @@ If your entire application doesn't require the use of the model layer, you can a
       .settings:
         use_database: false
 
-        
+
 ####Propel enhancements
 
 The generated model classes (in `lib/model/om/`) are already optimized--they don't contain comments, and they benefit from the autoloading system. Relying on autoloading instead of manually including files means that classes are loaded only if it is really necessary. So in case one model class is not needed, having classes autoloaded will save execution time, while the alternative method of using `include` statements won't. As for the comments, they document the use of the generated methods but lengthen the model files--resulting in a minor overhead on slow disks. As the generated method names are pretty explicit, the comments are turned off by default.
@@ -175,7 +175,7 @@ Doctrine comes with its own query language called DQL, for *Doctrine Query Langu
       ->createQuery('a')
       ->innerJoin('a.Author') // "a.Author" refers to the relation named "Author"
       ->execute();
-      
+
     // In the template (unchanged)
     <ul>
     <?php foreach ($articles as $article): ?>
@@ -275,7 +275,7 @@ Listing 18-9 - Using Direct PDO Access for Optimized Model Methods, in `lib/mode
         return $results;
       }
     }
-    
+
     // With Doctrine
     class ArticleTable extends Doctrine_Table
     {
@@ -309,8 +309,8 @@ Listing 18-10 - Adding a Single Column Index, in `config/schema.yml`
         id:
         author_id:
         title: { type: varchar(100), index: true }
-    
-    
+
+
     # Doctrine schema
     Article:
      columns:
@@ -319,7 +319,7 @@ Listing 18-10 - Adding a Single Column Index, in `config/schema.yml`
      indexes:
        title:
          fields: [title]
-     
+
 
 You can use the alternative `index: unique` syntax to define a unique index instead of a classic one. You can also define multiple column indices in `schema.yml` (refer to Chapter 8 for more details about the indexing syntax). You should strongly consider doing this, because it is often a good way to speed up a complex query.
 

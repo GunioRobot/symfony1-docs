@@ -23,7 +23,7 @@ symfony ~フレームワーク~は~オープンソース~プロジェクトと�
 
 askeet では、21日目は「get-a-symfony-guru-for-a-day」でした。私たちはノープランであり、コミュニティは askeet に追加する要素を提案しなければなりませんでした。21日目はすばらしい成功例であり、コミュニティはアプリケーションに検索エンジンを実装することが必要だと判断しました。そして私たちは実装しました。21日目のチュートリアルは askeet チュートリアルのなかでもっとも人気があります。
 
-Jobeet では、21日目に行われたデザインコンテストの優勝者を祝福しました。優勝したデザインは center{source} によるもので、このチュートリアルのデフォルトのデザインとして使用しています。また、実際の Jobeet の Web サイトでもこのデザインが採用されています。 
+Jobeet では、21日目に行われたデザインコンテストの優勝者を祝福しました。優勝したデザインは center{source} によるもので、このチュートリアルのデフォルトのデザインとして使用しています。また、実際の Jobeet の Web サイトでもこのデザインが採用されています。
 
 この本は一味違います
 -------------------
@@ -127,7 +127,7 @@ Windows では次のとおりです:
     c:\> mkdir c:\development\sfprojects\jobeet
     c:\> cd c:\development\sfprojects\jobeet
 
->**NOTE**: 
+>**NOTE**:
 >Windows ユーザーの方は symfony の新しいプロジェクトをスペースが含まれないパスでセットアップすることをおすすめします。`My Documents` より下の場所を含めて `Documents and Settings` ディレクトリを使うのは避けるべきです。
 
 -
@@ -153,7 +153,7 @@ symfony をグローバルで利用できるようにインストールする、
 
 #### アーカイブからインストールする
 
-symfony をインストールするもっとも簡単な方法は symfony の Web サイトからバージョンを選んだバージョンのアーカイブをダウンロードすることです。選んだバージョン、たとえば symfony [1.4](http://www.symfony-project.org/installation/1_4) のインストールページに移動します。 
+symfony をインストールするもっとも簡単な方法は symfony の Web サイトからバージョンを選んだバージョンのアーカイブをダウンロードすることです。選んだバージョン、たとえば symfony [1.4](http://www.symfony-project.org/installation/1_4) のインストールページに移動します。
 
 "**Source Download**" のセクションの下で、`.tgz` もしくは `.zip` フォーマットのアーカイブが見つかります。アーカイブをダウンロードし、新たに作られた `lib/vendor/` ディレクトリの下に置き、展開し、ディレクトリの名前を `symfony` に変更します:
 
@@ -399,7 +399,7 @@ Apache を再起動し、ブラウザを開き `http://localhost:8080/index.php/
 
 ![初期ページ](http://www.symfony-project.org/images/jobeet/1_2/01/congratulations.png)
 
->**NOTE**: 
+>**NOTE**:
 >Apache の ~`mod_rewrite`|mod_rewrite (Apache)~ モジュールをインストールした場合、URL の `index.php/` 部分を取り除くことができます。これは `web/~.htaccess|.htaccess (Apache)~` ファイルで設定される書き換えルールのおかげで可能です。
 
 開発環境のアプリケーションにもアクセスしてみることにします。次の URL を入力します:

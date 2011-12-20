@@ -64,7 +64,7 @@ Si solicitas la página `/job/show/id/1`, Symfony coincidirá con el último pat
   | id                    | 1     |
 
 >**NOTE**
->Las variables `módulo` y `acción` son especiales ya que son utilizados por Symfony 
+>Las variables `módulo` y `acción` son especiales ya que son utilizados por Symfony
 >para determinar la acción a ejecutar.
 
 La URL `/job/show/id/1` se pueden crear desde una plantilla utilizando la siguiente llamada al helper `url_for()`:
@@ -101,12 +101,12 @@ Puedes ahora cambiar el enlace al logo de Jobeet en el layout para usar la ruta
       </a>
     </h1>
 
-Eso fue fácil! 
+Eso fue fácil!
 
 >**TIP**
 >Cuando se actualiza la configuración del enrutamiento, los cambios son immediatamente
->tomados en cuenta en el entorno de desarrollo. Pero para hacerlos que 
->tambien funcionen en el entorno de producción, necesitas limpiar el cache 
+>tomados en cuenta en el entorno de desarrollo. Pero para hacerlos que
+>tambien funcionen en el entorno de producción, necesitas limpiar el cache
 >ejecutando la tarea `cache:clear`.
 
 Para algo un poco más aplicado, vamos a cambiar el la URL de la página job a algo más significativo:
@@ -182,7 +182,7 @@ Para restringir una ruta a sólo la coincidencia con algunos métodos, puedes mo
         sf_method: [get]
 
 >**NOTE**
->Exigir una ruta para solo algunos métodos HTTP no es totalmente 
+>Exigir una ruta para solo algunos métodos HTTP no es totalmente
 >equivalente a usar `sfWebRequest::isMethod()` en tus acciones.
 >Eso es porque el enrutamiento continuará buscando por una ruta coincidente
 >si el método no coincide con el esperado
@@ -321,7 +321,7 @@ Esto es así porque el error 404 ha sido lanzado de forma automática por el mé
     }
 
 >**TIP**
->Si no deseas que la ruta genere un error 404, puede establecer la opción 
+>Si no deseas que la ruta genere un error 404, puede establecer la opción
 >`allow_empty` a `true`.
 
 -
@@ -334,7 +334,7 @@ Esto es así porque el error 404 ha sido lanzado de forma automática por el mé
 El Enrutamiento en Acciones y Plantillas
 ----------------------------------------
 
-En una plantilla, el helper `url_for()` convierte una URI interna a una URL external. Algunos otros helpers symfony también toman una URI interna como un argumento, como el helper 
+En una plantilla, el helper `url_for()` convierte una URI interna a una URL external. Algunos otros helpers symfony también toman una URI interna como un argumento, como el helper
 `link_to()` el cual genera una etiqueta `<a>`:
 
     [php]
@@ -464,7 +464,7 @@ La ruta `job` anterior es en realidad un acceso directo que generará automátic
 
 >**NOTE**
 >Algunas rutas generadas por `sfPropelRouteCollection` tienen la misma URL. El
->enrutamiento está aún disponible para usarlas porque todas ellas tienen diferentes 
+>enrutamiento está aún disponible para usarlas porque todas ellas tienen diferentes
 >parámetro en el método HTTP.
 
 Las rutas `job_delete` y `job_update` require métodos HTTP que no son compatibles con los navegadores (`DELETE` y `PUT` respectivamente). Esto funciona porque los simula Symfony. Abre la plantilla `_form.php` Para ver un ejemplo:
@@ -503,8 +503,8 @@ También puedes tener una gran cantidad de información de depuración para una 
 Las Rutas por defecto
 ---------------------
 
-Es una buena práctica definir las rutas para todas tus URLs. Ya que la ruta `job` 
-define todas las rutas necesarias para describir la aplicación Jobeet, sigue adelante y 
+Es una buena práctica definir las rutas para todas tus URLs. Ya que la ruta `job`
+define todas las rutas necesarias para describir la aplicación Jobeet, sigue adelante y
 quita o comenta las rutas por defecto del archivo de configuración `routing.yml`:
 
     [yml]
@@ -529,7 +529,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

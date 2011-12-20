@@ -320,7 +320,7 @@ un emploi. Vous devez voir un message d'erreur vous avertissant d'une "attaque ~
 
 ![CSRF et Cache](http://www.symfony-project.org/images/jobeet/1_4/21/csrf.png)
 
-Pourquoi? Comme nous avons configuré un secret CSRF lorsque nous avons créé l'application 
+Pourquoi? Comme nous avons configuré un secret CSRF lorsque nous avons créé l'application
 frontend, symfony intègre un jeton CSRF dans toutes ses formulaires. Afin de vous protéger
 contre les attaques CSRF, ce jeton est unique pour un utilisateur donné et pour un formulaire donné.
 

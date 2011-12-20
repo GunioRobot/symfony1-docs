@@ -3,7 +3,7 @@ Tirer Profit de la Ligne de Commande
 
 *Par Geoffrey Bachelet*
 
-Symfony 1.1 a introduit un système d'exécution de tâches en ligne de commande moderne, puissant et flexible en remplacement de l'ancien système basé sur pake. De version en version, le système de tâches de symfony s'est enrichi afin d'être ce qu'il est aujourd'hui. 
+Symfony 1.1 a introduit un système d'exécution de tâches en ligne de commande moderne, puissant et flexible en remplacement de l'ancien système basé sur pake. De version en version, le système de tâches de symfony s'est enrichi afin d'être ce qu'il est aujourd'hui.
 
 De nombreux développeurs ne perçoivent pas toute la valeur ajoutée des tâches. Bien souvent, ces développeurs ne réalisent pas aussi la puissance de la ligne de commande. Ce chapitre plonge le lecteur dans l'univers des tâches automatiques, de leur usage le plus simple au plus avancé, en démontrant à la fois combien cet outil aide le développeur au quotidien, et de quelle manière en tirer le mieux profit.
 
@@ -140,24 +140,24 @@ Dans les tâches symfony, les options sont organisées en deux ensembles distinc
 
 ### Les Options
 
-Les options sont les données transmises à l'aide de traits d'union. Elles peuvent être ajoutées à la ligne de commande dans un ordre totalement arbitraire. 
+Les options sont les données transmises à l'aide de traits d'union. Elles peuvent être ajoutées à la ligne de commande dans un ordre totalement arbitraire.
 
 Les options acceptent ou non une valeur selon qu'elles agissent comme des valeurs booléennes ou non. Très souvent, les options possèdent une forme courte et longue. La forme la plus longue est généralement invoquée en spécifiant deux traits d'union tandis que sa forme courte en requiert seulement un.
 
 Il existe aussi des options récurrentes dans le système de tâches de symfony. C'est le cas par exemple des options d'aide (`--help` ou `-h`), de verbosité (`--quiet` ou `-q`) ou bien de version (`--version` ou `-V`).
 
 >**NOTE**
->Les options sont définies à l'aide de la classe `sfCommandOption` et stockées 
+>Les options sont définies à l'aide de la classe `sfCommandOption` et stockées
 >dans une classe `sfCommandOptionSet`.
 
 ### Les Arguments
 
-Les arguments constituent une suite de données ajoutées à la ligne de commande. Ils doivent obligatoirement être spécifiés dans l'ordre dans lequel ils ont été définis, et doivent être entourés de guillemets dans le cas où leur valeur contient un espace (les espaces peuvent être échappés). 
+Les arguments constituent une suite de données ajoutées à la ligne de commande. Ils doivent obligatoirement être spécifiés dans l'ordre dans lequel ils ont été définis, et doivent être entourés de guillemets dans le cas où leur valeur contient un espace (les espaces peuvent être échappés).
 
 Il existe deux types d'arguments : les obligatoires et les facultatifs. Tous les arguments déclarés comme étant facultatifs doivent accueillir une valeur par défaut.
 
 >**NOTE**
->Les arguments sont évidemment définis à l'aide d'une classe `sfCommandArgument` 
+>Les arguments sont évidemment définis à l'aide d'une classe `sfCommandArgument`
 >et stockés dans un objet `sfCommandArgumentSet`.
 
 ### Les Arguments et Options par Défaut
@@ -166,7 +166,7 @@ Chaque tâche symfony accueille un jeu d'options et d'arguments par défaut :
 
   * `--help` (-`H`) affiche un message d'aide ;
   * `--quiet` (`-q`) n'affiche aucun message sur la sortie standard ;
-  * `--trace` `(-t`) active la trace d'exécution en incluant la pile 
+  * `--trace` `(-t`) active la trace d'exécution en incluant la pile
   d'exceptions complète ;
   * `--version` (`-V`) affiche la version du programme ;
   * `--color` force une sortie avec les couleurs ANSI.
@@ -233,8 +233,8 @@ Comme d'habitude, une valeur par défaut peut être définie pour cette option. 
 >**NOTE**
 >Attention lorsqu'il s'agit de manipuler des objets de modèle d'ORM en masse
 >dans les tâches. En effet, les deux ORMs Propel et Doctrine souffrent d'un bug
->très connu de PHP relatif aux références cycliques et au ramasse miettes 
->(garbage collector). Ce bug provoque une fuite de mémoire et affecte toutes les 
+>très connu de PHP relatif aux références cycliques et au ramasse miettes
+>(garbage collector). Ce bug provoque une fuite de mémoire et affecte toutes les
 >versions strictement inférieures à la 5.3.
 
 Envoyer des Emails
@@ -252,15 +252,15 @@ Le système de tâches de symfony expose un objet d'envoi d'email, le `mailer`, 
     }
 
 >**NOTE**
->Comme la configuration du gestionnaire d'envoi d'emails est lue depuis la 
->configuration de l'application, la tâche doit obligatoirement accueillir une 
+>Comme la configuration du gestionnaire d'envoi d'emails est lue depuis la
+>configuration de l'application, la tâche doit obligatoirement accueillir une
 >option `application`.
 
 -
 
 >**NOTE**
->Si la stratégie de spool est configurée pour gérer l'envoi des emails dans un 
->projet, alors ces derniers ne seront envoyés qu'après l'exécution de la tâche 
+>Si la stratégie de spool est configurée pour gérer l'envoi des emails dans un
+>projet, alors ces derniers ne seront envoyés qu'après l'exécution de la tâche
 >`project:send-emails`.
 
 Dans la plupart des cas, le contenu du message ne se trouvera pas par magie dans la variable `$messageBody`, et devra donc être généré. Il n'existe pas de solution miracle pour générer le contenu destiné à alimenter des emails. En revanche, les développeurs ont la possibilité de s'appuyer sur quelques astuces en vue de se faciliter la vie.
@@ -386,12 +386,12 @@ Composer des emails implique généralement de générer des URLs basées sur la
     }
 
 >**NOTE**
->Dans la mesure où le routage est dépendant de l'application, il convient de 
->s'assurer que l'application dispose d'une configuration d'application 
->disponible ; autrement il sera impossible de générer des URLs en utilisant le 
+>Dans la mesure où le routage est dépendant de l'application, il convient de
+>s'assurer que l'application dispose d'une configuration d'application
+>disponible ; autrement il sera impossible de générer des URLs en utilisant le
 >routage.
 >
->Consultez la section concernant les *Options Spéciales* pour savoir comment 
+>Consultez la section concernant les *Options Spéciales* pour savoir comment
 >définir automatiquement une configuration d'application dans la tâche.
 
 Maintenant que la tâche possède une instance du routage, la génération des URLs s'en voit simplifiée grâce à la méthode `generate()`.
@@ -548,7 +548,7 @@ Pour corriger cela, la méthode `process()` doit être surchargée afin de ratta
 Exécuter une Tâche dans une Autre
 ---------------------------------
 
-Une manière alternative de factoriser les tâches consiste à embarquer une tâche dans une autre. Cette pratique est d'autant plus facilitée grâce aux méthodes `sfCommandApplicationTask::createTask()` et 
+Une manière alternative de factoriser les tâches consiste à embarquer une tâche dans une autre. Cette pratique est d'autant plus facilitée grâce aux méthodes `sfCommandApplicationTask::createTask()` et
 `sfCommandApplicationTask::runTask()`.
 
 La méthode `createTask()` instanciera la classe à la place du développeur en lui passant le nom de la tâche, de la même manière que la ligne de commande. En retour, cette méthode renverra une instance de la classe désirée prête à être exécutée.
@@ -648,8 +648,8 @@ A présent, il convient de remplacer les jetons du fichier `actions.class.php` :
 Et c'est finalement tout ce dont a besoin le corps de la commande pour générer le nouveau module en utilisant le remplacement de jetons.
 
 >**NOTE**
->La tâche native actuelle `generate:module` recherche dans `data/skeleton/` 
->d'autres squelettes alternatifs à utiliser au lieu de ceux par défaut. Donc 
+>La tâche native actuelle `generate:module` recherche dans `data/skeleton/`
+>d'autres squelettes alternatifs à utiliser au lieu de ceux par défaut. Donc
 >faites attention !
 
 Utiliser une Option Dry-Run
@@ -695,7 +695,7 @@ Ecrire des Tests Unitaires
 
 Dans la mesure où les tâches peuvent accomplir une variété de buts différents, les tester unitairement n'est pas une mince affaire non plus. En l'état, il n'existe pas de manière commune et uniforme de tester des tâches, mais il y'a pourtant quelques principes à suivre pour aider à rendre les classes de tests plus facilement testables.
 
-Tout d'abord, il est important de penser les tâches comme des contrôleurs. A cette occasion, il est bon de rappeler la règle d'or à propos des contrôleurs. 
+Tout d'abord, il est important de penser les tâches comme des contrôleurs. A cette occasion, il est bon de rappeler la règle d'or à propos des contrôleurs.
 
 *Des contrôleurs légers et fins mais des modèles lourds et chargés*. C'est tout ! Par conséquent, il convient de déplacer toute la logique métier à l'intérieur des classes de modèle. De cette manière, ce seront les classes de modèle qui devront être testées en priorité sur les classes de tâches, ce qui facilite les choses.
 
@@ -756,7 +756,7 @@ La plupart des systèmes UNIX et GNU / Linux supportent la planification de tâc
 Cette configuration indique au *cron* d'exécuter la tâche `project:send-emails` tous les jours à trois heures du matin et d'envoyer toutes les sorties possibles (ici les logs, erreurs, etc) à l'adresse email *you@example.org*.
 
 >**NOTE**
->Pour plus d'informations sur le format du fichier de configuration de la 
+>Pour plus d'informations sur le format du fichier de configuration de la
 >crontab, il suffit de taper `man 5 crontab` dans un terminal de commandes.
 
 Il est aussi possible, et ça devrait être le cas ici, de passer des arguments et des options.
@@ -765,9 +765,9 @@ Il est aussi possible, et ça devrait être le cas ici, de passer des arguments 
     0 3 * * *       /usr/bin/php /var/www/yourproject/symfony project:send-emails --env=prod --application=frontend
 
 >**NOTE**
->La valeur `/usr/bin/php` est à remplacer par le chemin absolu vers le binaire 
->PHP CLI. Si vous ne trouvez pas cette information, vous pouvez essayer la 
->commande `which php` sur les systèmes Linux ou bien `whereis php` sur la 
+>La valeur `/usr/bin/php` est à remplacer par le chemin absolu vers le binaire
+>PHP CLI. Si vous ne trouvez pas cette information, vous pouvez essayer la
+>commande `which php` sur les systèmes Linux ou bien `whereis php` sur la
 >plupart des autres systèmes UNIX.
 
 Bonus : Utiliser STDIN

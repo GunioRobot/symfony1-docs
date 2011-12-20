@@ -6,7 +6,7 @@ Uso avanzado de Doctrine
 Creando un comportamiento de Doctrine
 -------------------------------------
 
-En esta sección se explica cómo crear un nuevo comportamiento haciendo uso de 
+En esta sección se explica cómo crear un nuevo comportamiento haciendo uso de
 Doctrine 1.2. El ejemplo utilizado permitirá mantener una cache del número
 de relaciones de un registro para no tener que hacer esa consulta todo el rato.
 
@@ -49,7 +49,7 @@ Seguidamente se construyen todas las clases del esquema:
 En primer lugar se crea la clase básica de tipo `Doctrine_Template` que será
 la responsable de añadir las columnas al modelo que guardará los contadores.
 
-Añade la siguiente clase dentro de cualquier directorio `lib/` del proyecto 
+Añade la siguiente clase dentro de cualquier directorio `lib/` del proyecto
 para que symfony pueda cargarla de forma automática:
 
     [php]
@@ -78,7 +78,7 @@ A continuación se modifica el modelo `Post` para añadir el comportamiento
 Ahora que el modelo `Post` hace uso del comportamiento `CountCache`, su
 funcionamiento es el siguiente: cuando se instancia la información de mapeo de
 un modelo, se invocan los métodos `setTableDefinition()` y `setUp()` de todos
-sus comportamientos asociados. Esto es lo mismo que sucede con la clase 
+sus comportamientos asociados. Esto es lo mismo que sucede con la clase
 `BasePost` en `lib/model/doctrine/base/BasePost.class.php`. Esta característica
 permite añadir elementos de todo tipo a un modelo, como columnas, relaciones,
 eventos, etc.
@@ -114,8 +114,8 @@ interna del comportamiento `CountCache`:
 
 El código superior añade columnas para mantener los contadores de los modelos
 relacionados. Por tanto, en este caso se añade el comportamiento en el modelo
-`Post` para su relación `Thread`. De esta forma, el número de posts de cualquier 
-`Thread` se almacena en una columna llamada `num_posts`. A continuación, 
+`Post` para su relación `Thread`. De esta forma, el número de posts de cualquier
+`Thread` se almacena en una columna llamada `num_posts`. A continuación,
 modifica el esquema YAML para definir las opciones adicionales del comportamiento:
 
     [yml]
@@ -130,7 +130,7 @@ modifica el esquema YAML para definir las opciones adicionales del comportamient
               foreignAlias: Posts
       # ...
 
-Ahora el modelo `Thread` dispone de una columna llamada `num_posts` y que 
+Ahora el modelo `Thread` dispone de una columna llamada `num_posts` y que
 guardará de forma actualizada el número de posts que tiene cada hilo de discusión.
 
 ### El event listener
@@ -152,7 +152,7 @@ registros y cuando se borren registros de forma individual o en bloque.
       }
     }
 
-Antes de continuar es necesario definir la clase `CountCacheListener` que 
+Antes de continuar es necesario definir la clase `CountCacheListener` que
 extiende la clase `Doctrine_Record_Listener` y que acepta un array de opciones
 que simplemente se pasan al *listener* de la plantilla:
 
@@ -176,7 +176,7 @@ eventos:
 
  * **postDelete()**: decrementa el contador cuando se borra un objeto
 
- * **preDqlDelete()**: decrementa el contador cuando se borrar varios 
+ * **preDqlDelete()**: decrementa el contador cuando se borrar varios
    objetos mediante un borrado DQL.
 
 En primer lugar se define el método `postInsert()`:
@@ -204,8 +204,8 @@ En primer lugar se define el método `postInsert()`:
       }
     }
 
-El código anterior incrementa en una unidad, mediante una consulta de tipo 
-DQL UPDATE, los contadores de todas las relaciones configuradas cada vez que 
+El código anterior incrementa en una unidad, mediante una consulta de tipo
+DQL UPDATE, los contadores de todas las relaciones configuradas cada vez que
 se inserta un nuevo objeto, como por ejemplo el siguiente:
 
     [php]
@@ -253,7 +253,7 @@ el contador se actualiza correctamente:
     $post->delete();
 
 La última parte del comportamiento debe encargarse de los borrados masivos
-realizados con una consulta de tipo DQL. La solución consiste en crear un 
+realizados con una consulta de tipo DQL. La solución consiste en crear un
 método `preDqlDelete()`:
 
     [php]
@@ -288,7 +288,7 @@ método `preDqlDelete()`:
     }
 
 El código anterior clona la consulta de tipo `DQL DELETE` y la transforma en
-una consulta `SELECT` que permite obtener los `ID` de los registros que se 
+una consulta `SELECT` que permite obtener los `ID` de los registros que se
 van a borrar, de forma que se pueda actualizar correctamente el contador.
 
 Ahora ya es posible manejar consultas como la siguiente actualizando de forma
@@ -320,7 +320,7 @@ varios registros a la vez:
 >     [php]
 >     $manager->setAttribute(Doctrine_Core::ATTR_USE_DQL_CALLBACKS, true);
 
-¡Y eso es todo! El nuevo comportamiento ya está terminado. Lo último que falta 
+¡Y eso es todo! El nuevo comportamiento ya está terminado. Lo último que falta
 por hacer es añadir algunas pruebas unitarias.
 
 ### Pruebas
@@ -342,7 +342,7 @@ de prueba:
           post3:
             body: Ya it is pretty cool
 
-A continuación se ejecuta la siguiente tarea para volver a crear todas las 
+A continuación se ejecuta la siguiente tarea para volver a crear todas las
 clases y para cargar todos los datos de prueba:
 
     $ php symfony doctrine:build --all --and-load
@@ -393,7 +393,7 @@ Como se puede comprobar, el registro se ha borrado y el contador se ha actualiza
     doctrine -       thread_id: '1'
     doctrine -       body: 'Ya it is pretty cool'
 
-También funciona correctamente cuando se borran los otros dos registros 
+También funciona correctamente cuando se borran los otros dos registros
 restantes mediante una consulta de tipo DQL.
 
     [php]
@@ -420,13 +420,13 @@ Utilizando la cache de resultados de Doctrine
 ---------------------------------------------
 
 En los sitios web con mucho tráfico es necesario guardar la información en
-caches para aliviar algunos recursos de la CPU. En la última versión de 
+caches para aliviar algunos recursos de la CPU. En la última versión de
 doctrine 1.2 se han añadido muchas mejoras a la cache de resultados para tener
 un mejor control sobre el borrado de las entradas de la cache. Antes no se podía
 especificar la clave asociada con cada entrada de la cache, por lo que no era
 posible identificar correctamente la entrada que se quería borrar.
 
-En esta sección se muestra un ejemplo sencillo de cómo utilizar la cache de 
+En esta sección se muestra un ejemplo sencillo de cómo utilizar la cache de
 resultados para guardar en ella todas las consultas relacionadas con los
 usuarios, así como el uso de eventos para borrar todas las entradas cuya
 información haya sido modificada.
@@ -504,10 +504,10 @@ para almacenar en la cache el resultado de las búsquedas.
 ### Consultas de prueba
 
 Imagina que tu aplicación tiene varias consultas relacionadas con los usuarios
-y que quieres borrarlas de la cache cada vez que se modifica alguna información 
+y que quieres borrarlas de la cache cada vez que se modifica alguna información
 del usuario.
 
-La siguiente consulta se puede utilizar para mostrar una lista completa de 
+La siguiente consulta se puede utilizar para mostrar una lista completa de
 todos los usuarios ordenados alfabéticamente:
 
     [php]
@@ -535,7 +535,7 @@ directamente de la cache en vez de realizar la consulta en la base de datos:
     $usuarios = $q->execute();
 
 >**NOTE**
->La cache no sólo ahorra recursos en el servidor de base de datos, sino que 
+>La cache no sólo ahorra recursos en el servidor de base de datos, sino que
 >también evita todo el procesamiento de los registros, llamado *hidratación*.
 >Doctrine guarda en la cache los registros ya procesados, por lo que también
 >se liberan recursos del servidor web.
@@ -640,7 +640,7 @@ de los usuarios no existirá una cache con los resultados, por lo que se volver�
 a realizar las consultas en la base de datos. En las siguientes consultas,
 volverán a utilizarse las entradas guardadas en la cache.
 
-Aunque el ejemplo mostrado es muy sencillo, es útil para hacerse una idea de 
+Aunque el ejemplo mostrado es muy sencillo, es útil para hacerse una idea de
 cómo se puede utilizar esta característica de Doctrine para tener un control
 muy preciso de la forma en la que se guardan las consultas en la cache.
 
@@ -655,9 +655,9 @@ Ahora que ya es posible hacerlo, se puede desarrollar un *hydrator* propio para
 crear cualquier tipo de estructura a partir de los resultados obtenidos
 mediante `Doctrine_Query`.
 
-El siguiente ejemplo muestra cómo crear un *hydrator* muy sencillo y fácil de 
+El siguiente ejemplo muestra cómo crear un *hydrator* muy sencillo y fácil de
 entender, pero a la vez muy útil. El funcionamiento del *hydrator* consiste en
-seleccionar un par de columnas y transformarlas en un array asociativo en el 
+seleccionar un par de columnas y transformarlas en un array asociativo en el
 que la clave de cada elemento del array es el valor de la primera columna y
 el valor de cada elemento del array es el valor de la segunda columna.
 
@@ -714,7 +714,7 @@ Se crea una nueva clase llamada `KeyValuePairHydrator` y se coloca en el directo
       }
     }
 
-El código anterior por el momento sólo devuelve los datos tal y como los 
+El código anterior por el momento sólo devuelve los datos tal y como los
 devuelve PDO. Esto no es lo que queremos, ya que queremos transformar los
 datos en una estructura de tipo `clave => valor`. Modifica por tanto el método
 `hydrateResultSet()` para completar su funcionalidad:
@@ -742,7 +742,7 @@ exactamente lo que queríamos, así que vamos a probarlo.
 ### Utilizando el *hydrator*
 
 Antes de utilizar el *hydrator* es necesario registrarlo en Doctrine para que
-esté disponible cuando se ejecuten las consultas. Para ello, regístralo en la 
+esté disponible cuando se ejecuten las consultas. Para ello, regístralo en la
 instancia del `Doctrine_Manager` en la clase `ProjectConfiguration`:
 
     [php]
@@ -780,5 +780,5 @@ el resultado es el siguiente:
     )
 
 ¡Y eso es todo! Bastante fácil, ¿verdad? Esperamos que te haya sido útil y que
-te animes a crear *hydrators* interesantes y los compartas con el resto de la 
+te animes a crear *hydrators* interesantes y los compartas con el resto de la
 comunidad.

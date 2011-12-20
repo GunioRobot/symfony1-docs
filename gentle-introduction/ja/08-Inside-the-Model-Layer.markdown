@@ -80,7 +80,7 @@ symfony のスキーマ構文は YAML フォーマットを利用します。`sc
           autoincrement: true
         title:   string(255)
         content: clob
-    
+
     Comment:
       actAs: [Timestampable]
       tableName: blog_comment
@@ -459,15 +459,15 @@ Doctrine の SELECT 機能と同じように、PDO クエリを使い始めた�
 
 接続設定は環境に依存します。アプリケーションの `prod`、`dev`、と `test` 環境もしくは `env` オプションを使って別の環境に対して異なる設定を定義できます:
 
-    $ php symfony configure:database --env=dev "mysql:host=localhost;dbname=blog_dev" root mYsEcret 
+    $ php symfony configure:database --env=dev "mysql:host=localhost;dbname=blog_dev" root mYsEcret
 
 この設定はアプリケーションごとにオーバーライドすることもできます。たとえば、フロントエンドとバックエンドのアプリケーションに対して異なるセキュリティポリシーを適用し、データベースを扱うために1つのデータベースのなかで異なる権限を持つ複数のデータベースユーザーを定義するために、このアプローチを利用できます:
 
-    $ php symfony configure:database --app=frontend "mysql:host=localhost;dbname=blog" root mYsEcret 
+    $ php symfony configure:database --app=frontend "mysql:host=localhost;dbname=blog" root mYsEcret
 
 環境ごとに複数の接続を定義できます。それぞれの接続は同じ名前でラベルづけされたスキーマを参照します。デフォルトで使われる接続名は `doctrine` でこれはリスト8-3の `propel` スキーマを参照します。`name` オプションによって別の接続を作成することができます:
 
-    $ php symfony configure:database --name=main "mysql:host=localhost;dbname=example" root mYsEcret 
+    $ php symfony configure:database --name=main "mysql:host=localhost;dbname=example" root mYsEcret
 
 `config/` ディレクトリに設置される `databases.yml` ファイルのなかでこれらの接続設定を手動で入力することもできます。リスト8-17はファイルの例を示しリスト8-18は拡張記法による同じ例を示します。
 

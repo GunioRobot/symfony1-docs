@@ -165,7 +165,7 @@ della cartella config di ciascuna applicazione, collocata in
 *"un oggetto di tipo `sfRoute`"*. Allora, come fanno queste semplici voci YAML
 a diventare oggetti di tipo `sfRoute`?
 
-### Gestione della configurazione della cache per le rotte 
+### Gestione della configurazione della cache per le rotte
 
 Sebbene la maggior parte delle rotte siano definite in un file
 YAML, ciascuna voce di questo file al momento della richiesta è trasformata
@@ -190,7 +190,7 @@ ridotta del codice presente nella rotta `page_show`:
     ));
 
 >**TIP**
->Il nome della classe di ciascuna rotta è definito dalla chiave `class` presente 
+>Il nome della classe di ciascuna rotta è definito dalla chiave `class` presente
 >nel file `routing.yml`. Se non è specificata la chiave `class`, la rotta diventerà
 >per impostazione predefinita una classe `sfRoute`. Un'altra classe
 >di rotta comune è `sfRequestRoute`, che permette allo sviluppatore di creare delle
@@ -436,7 +436,7 @@ nuova rotta per creare un'area amministrativa specifica per il cliente.
 
 ### Generare la rotta corretta
 
-Resta un piccolo problema con il modo in cui la rotta è generata. 
+Resta un piccolo problema con il modo in cui la rotta è generata.
 Supponiamo di creare un link a una pagina con il seguente codice:
 
     [php]
@@ -474,7 +474,7 @@ permettercelo, in quanto l'informazione `Client` è contenuta nel sottodominio s
 >**TIP**
 >È possibile sovrascrivere interamente il processo `doConvertObjectToArray()`
 >e gestirlo da soli, aggiungendo un metodo `toParams()` alla classe del modello.
->Questo metodo dovrebbe restituire un array dei parametri che si vuole 
+>Questo metodo dovrebbe restituire un array dei parametri che si vuole
 >utilizzare durante la generazione della rotta.
 
 Collezioni di rotte
@@ -644,7 +644,7 @@ e metterlo nella cartella `lib/routing`. Il suo contenuto è incredibilmente sem
     }
 
 La proprietà `$routeClass` definisce la classe che sarà usata durante la creazione
-di ciascuna rotta sottostante. Ora che ciascuna di queste rotte sottostanti è 
+di ciascuna rotta sottostante. Ora che ciascuna di queste rotte sottostanti è
 una rotta `acClientObjectRoute`, l'implementazione è effettivamente fatta. Ad
 esempio, `http://pete.sympalbuilder.com/backend.php/pages` ora mostrerà solo *una* pagina:
 la pagina `location` del Pet Shop di Pete. Grazie alla classe di rotte
@@ -884,7 +884,7 @@ utilizza la colonna `slug` al posto della chiave primaria:
 
 Per impostazione predefinita, la rotta recupera tutti gli oggetti collegati
 per una collezione di rotte e interroga sulla `column` specificata, per le
-rotte dell'oggetto. Se si ha bisogno di sovrascriverle, aggiungere l'opzione 
+rotte dell'oggetto. Se si ha bisogno di sovrascriverle, aggiungere l'opzione
 `model_methods` alla rotta. In questo esempio, i metodi `fetchAll()` e
 `findForRoute` hanno bisogno di essere aggiunti alla classe `PageTable`. Entrambi
 i metodi riceveranno un array di parametri richiesta come parametro:

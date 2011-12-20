@@ -242,7 +242,7 @@ Ci sono altre opzioni disponibili per ogni widget: fare riferimento alla documen
 
 ### Widget di tipo lista
 
-Ogni volta che gli utenti devono fare una scelta tra una lista di valori, e se essi possono selezionare una o più opzioni in questa lista, un singolo widget risponde a tutte le esigenze: il widget `choice`. 
+Ogni volta che gli utenti devono fare una scelta tra una lista di valori, e se essi possono selezionare una o più opzioni in questa lista, un singolo widget risponde a tutte le esigenze: il widget `choice`.
 In base alle impostazioni di due parametri opzionali (`multiple` e `expanded`), questo widget genera l'HTML in maniera differente:
 
                       | multiple=false        | multiple=true
@@ -271,7 +271,7 @@ Il widget `choice` si attende come minimo un parametro `choices` costituito da u
       <option value="uk" selected="selected">UK</option>
       <option value="0">altro</option>
     </select>
-    
+
     // Dropdown box a scelta multipla
     $form->setWidget('languages', new sfWidgetFormChoice(array(
       'multiple' => 'true',
@@ -298,7 +298,7 @@ Il widget `choice` si attende come minimo un parametro `choices` costituito da u
       <li><input type="radio" name="gender" id="gender_m" value="m"><label for="gender_m">Maschile</label></li>
       <li><input type="radio" name="gender" id="gender_f" value="f"><label for="gender_f">Femminile</label></li>
     </ul>
-    
+
     // Lista di checkboxes
     $form->setWidget('interests', new sfWidgetFormChoice(array(
       'multiple' => 'true',
@@ -384,7 +384,7 @@ I widget per data e ora restituiscono un insieme di liste drop-down, popolate co
       ...
       <option value="1990">1990</option>
     </select>
-    
+
     // Ora
     $form->setWidget('start', new sfWidgetFormTime(array('default' => '12:00')));
     // symfony rende il widget in HTML come segue:
@@ -422,7 +422,7 @@ Nelle applicazioni multilingua, le date devono essere mostrare in un formato che
     $years = range(1950, 1990);
     $form->setWidget('dob', new sfWidgetFormI18nDate(array(
       'culture'      => $this->getUser()->getCulture(),
-      'month_format' => 'name',   // A scelta tra 'name' (default), 'short_name', e 'number' 
+      'month_format' => 'name',   // A scelta tra 'name' (default), 'short_name', e 'number'
       'label'        => 'Date of birth',
       'default'      => '01/01/1950',
       'years'        => array_combine($years, $years)
@@ -492,7 +492,7 @@ Trattare con gli input di tipo file non è più complicato che trattare con gli 
     <label for="picture">Picture</label>
     <input id="picture" type="file" name="picture"/>
     // Ogni volta che un form contiene un file widget, renderFormTag() restituisce un tag <form> con l'opzione multipart
-    
+
     // Input file modificabile
     $form->setWidget('picture', new sfWidgetFormInputFileEditable(array('default' => '/images/pippo.png')));
     // symfony rende il widget in HTML come un file input tag, insieme a una preview del file corrente
@@ -502,7 +502,7 @@ Trattare con gli input di tipo file non è più complicato che trattare con gli 
 Gestire le richieste dei form
 -----------------------------
 
-Quando gli utenti riempiono un form e lo inviano, il server deve recuperare i dati dalla richiesta e fare alcune cose con essi. La classe `sfForm` fornisce tutti i metodi necessari per fare questo in un paio di linee di codice. 
+Quando gli utenti riempiono un form e lo inviano, il server deve recuperare i dati dalla richiesta e fare alcune cose con essi. La classe `sfForm` fornisce tutti i metodi necessari per fare questo in un paio di linee di codice.
 
 ### Gestione semplice dei Form
 
@@ -745,7 +745,7 @@ Naturalmente, questi messaggi personalizzati vengono resi nei template attravers
 
 ### Applicare un validatore a più campi
 
-La sintassi usata sopra per definire i validatori in un form non consente di verificare che due campi siamo validi *contemporaneamente*. Ad esempio, in un form di registrazione, ci sono spesso due campi `password` che devono corrispondere, altrimenti la registrazione viene rifiutata. Ogni campo password non è valido per sè stesso, ma solo se associato con l'altro campo. 
+La sintassi usata sopra per definire i validatori in un form non consente di verificare che due campi siamo validi *contemporaneamente*. Ad esempio, in un form di registrazione, ci sono spesso due campi `password` che devono corrispondere, altrimenti la registrazione viene rifiutata. Ogni campo password non è valido per sè stesso, ma solo se associato con l'altro campo.
 
 Questo spiega perché sia possibile impostare un validatore 'multiplo' attraverso `setPostValidator()` per impostare i validatori che lavorano su diversi valori. Il post-validatore è eseguito dopo tutti gli altri validatori e riceve un array di valori ripuliti. Se si necessita di validare i dati grezzi provenienti dagli input del form, si può invece usare il metodo `setPreValidator()`.
 
@@ -784,7 +784,7 @@ Symfony un gran numero di validatori. Si ricordi che ogni validatore accetta un 
       'min_length' => 'Inserire un messaggio più lungo',
       'max_length' => 'Inserire un messaggio più sintetico',
     )));
-    
+
     // validatore numero
     $form->setValidator('age', new sfValidatorNumber(array( // usare 'sfValidatorInteger' se si desiderano solo valori interi
       'min'  => 18,
@@ -794,13 +794,13 @@ Symfony un gran numero di validatori. Si ricordi che ogni validatore accetta un 
       'min' => 'È necessario avere almeno 18 anni per accedere a questo servizio',
       'max' => 'Ti stai prendendo gioco di me? Le persone sopra i 100 anni non usano Internet',
     )));
-    
+
     // validatore email
     $form->setValidator('email', new sfValidatorEmail());
-    
+
     // validatore URL
     $form->setValidator('website', new sfValidatorUrl());
-    
+
     // validatore di espressioni regolari
     $form->setValidator('IP', new sfValidatorRegex(array(
       'pattern' => '^[0-9]{3}\.[0-9]{3}\.[0-9]{2}\.[0-9]{3}$'
@@ -811,12 +811,12 @@ Sebbene alcuni controlli form (come le liste drop-down, i checkbox, i gruppi di 
     [php]
     // validatore booleano
     $form->setValidator('has_signed_terms_of_service', new sfValidatorBoolean());
-    
+
     // validatore scelta (per restringere i valori a una lista)
     $form->setValidator('subject', new sfValidatorChoice(array(
       'choices' => array('Subject A', 'Subject B', 'Subject C')
     )));
-    
+
     // validatore scelta multipla
     $form->setValidator('languages', new sfValidatorChoice(array(
       'multiple' => true,
@@ -833,7 +833,7 @@ Il validatore `sfValidatorChoice` è usato spesso per validare un widget `sfWidg
       'model'  => 'Section',
       'column' => 'name'
     )));
-    
+
     // Validatore Doctrine
     $form->setValidator('section_id', new sfValidatorDoctrineChoice(array(
       'model'  => 'Section',
@@ -845,12 +845,12 @@ Un altro utile validatore legato al Modello è `sfValidatorPropelUnique`, che co
     [php]
     // Validatore Propel unique
     $form->setValidator('nickname', new sfValidatorPropelUnique(array(
-      'model'  => 'User', 
+      'model'  => 'User',
       'column' => 'login'
     )));
-    
+
     $form->setValidator('nickname', new sfValidatorDoctrineUnique(array(
-      'model'  => 'User', 
+      'model'  => 'User',
       'column' => 'login'
     )));
 
@@ -873,9 +873,9 @@ Per rendere i propri form ancora più sicuri ed evitare attacchi [Cross-Site Req
 I validatori multipli operano sull'intero form, anziché su un singolo input. Segue una lista dei validatori multipli disponibili:
 
     [php]
-    // validatore compare - confronta due campi 
+    // validatore compare - confronta due campi
     $form->setPostValidator(new sfValidatorSchemaCompare('password1', '==', 'password2'));
-    
+
     // Extra field validator: cerca altri campi nella richiesta non presenti nel form
     $form->setOption('allow_extra_fields', false);
     $form->setOption('filter_extra_fields', true);
@@ -1014,7 +1014,7 @@ Un widget personalizzato è semplicemente una classe che estende `sfWidgetForm`,
       public function render($name, $value = null, $attributes = array(), $errors = array())
       {
         return $this->renderTag('input', array_merge(
-          array('type' => $this->getOption('type'), 'name' => $name, 'value' => $value), 
+          array('type' => $this->getOption('type'), 'name' => $name, 'value' => $value),
           $attributes
         ));
       }
@@ -1137,7 +1137,7 @@ Un form per editare un oggetto `Article` dovrebbe usare un widget nascosto per l
 
     // propel
     $ php symfony propel:build-forms
-    
+
     // doctrine
     $ php symfony doctrine:build-forms
 
@@ -1202,12 +1202,12 @@ Segue un esempio di manipolazione del model form in un'azione. In questo form, i
     {
       $c = new Criteria();
       $c->add(AuthorPeer::ACTIVE, true);
-      
+
       $this->form = new ArticleForm(
         ArticlePeer::retrieveByPk($request->getParameter('id')),
         array('criteria' => $c)
       );
-      
+
       if ($request->isMethod('post'))
       {
         $this->form->bind($request->getParameter('article'));

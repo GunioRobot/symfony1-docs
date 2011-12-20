@@ -563,7 +563,7 @@ Listing 9-21 - Using the Rule Label Instead of the Module/Action
     <?php echo link_to('my article', '@article_by_id?id='.$article->getId()) ?>
     // or the fastest one (does not need extra parsing):
     <?php echo link_to('my article', 'article_by_id', array('id' => $article->getId())) ?>
-    
+
 
 There are pros and cons to this trick. The advantages are as follows:
 

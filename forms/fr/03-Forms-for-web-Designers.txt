@@ -163,7 +163,7 @@ Listing 3-3 - Personnalisation des Attributs HTML via la Méthode `render()`
 
     [php]
     <?php echo $form->render(array('email' => array('class' => 'email'))) ?>
-    
+
     // HTML généré
     <input type="text" name="contact[email]" value="" id="contact_email" class="email" />
 
@@ -204,7 +204,7 @@ Nous accédons ici à chaque champ en manipulant l'object `form` comme si c'éta
 >
 >     [php]
 >     <?php echo $form['email'] ?>
->     
+>
 >     // Syntaxe qu'on devrait utiliser si sfForm n'implémentait pas l'interface ArrayAccess
 >     <?php echo $form->getField('email') ?>
 >

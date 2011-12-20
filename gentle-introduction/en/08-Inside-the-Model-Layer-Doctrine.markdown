@@ -80,7 +80,7 @@ Listing 8-3 - Sample `schema.yml`
           autoincrement: true
         title:   string(255)
         content: clob
-    
+
     Comment:
       actAs: [Timestampable]
       tableName: blog_comment

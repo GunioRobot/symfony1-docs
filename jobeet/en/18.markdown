@@ -8,8 +8,8 @@ of the search engine, we will take advantage of
 one.
 
 As the form should work with and without JavaScript enabled, the live search
-feature will be implemented using 
-[unobtrusive JavaScript](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript). 
+feature will be implemented using
+[unobtrusive JavaScript](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript).
 ~Using unobtrusive|Unobstrusive JavaScript~ JavaScript also allows for a better
 separation of concerns in the client code between HTML, CSS, and the JavaScript
 behaviors.
@@ -169,9 +169,9 @@ You also need to update the layout to include this new file:
 >sometimes, you need to call some PHP code (to use the `url_for()` helper
 >for instance).
 >
->JavaScript is just another format like HTML, and as seen some in previous 
->days, symfony makes format management quite easy. As the JavaScript file 
->will contain behavior for a page, you can even have the same URL as the page 
+>JavaScript is just another format like HTML, and as seen some in previous
+>days, symfony makes format management quite easy. As the JavaScript file
+>will contain behavior for a page, you can even have the same URL as the page
 >for the JavaScript file, but ending with `.js`. For instance, if you want to
 >create a file for the search engine behavior, you can modify the `job_search`
 >route as follows and create a `searchSuccess.js.php` template:
@@ -250,7 +250,7 @@ no result, we need to display a message instead of a blank page. We will use the
         {
           return $this->renderText('No results.');
         }
-        
+
         return $this->renderPartial('job/list', array('jobs' => $this->jobs));
       }
     }

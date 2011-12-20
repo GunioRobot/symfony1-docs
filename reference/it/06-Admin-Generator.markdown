@@ -188,7 +188,7 @@ Ogni modello generato può essere sovrascritto:
  | `_form.php`                  | Visualizza il form
  | `_form_actions.php`          | Visualizza le azioni del form
  | `_form_field.php`            | Visualizza un singolo campo del form
- | `_form_fieldset.php`         | Visualizza il fieldset del form 
+ | `_form_fieldset.php`         | Visualizza il fieldset del form
  | `_form_footer.php`           | Visualizza il piè di pagina del form
  | `_form_header.php`           | Visualizza l'intestazione del form
  | `_list.php`                  | Visualizza l'elenco

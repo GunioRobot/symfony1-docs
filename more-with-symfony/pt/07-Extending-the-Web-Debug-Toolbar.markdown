@@ -12,18 +12,18 @@ e depuração de `e-mail` (*mail*).
 
 ![*Barra de Ferramenta para Debug Web*](http://www.symfony-project.org/images/more-with-symfony/web_debug_01.png "A *Barra de Ferramenta para Debug Web* com widgets padrão do symfony 1.3")
 
-Desde a versão 1.2 do symfony, os desenvolvedores podem criar facilmente seus próprios *painéis de debug web* e 
+Desde a versão 1.2 do symfony, os desenvolvedores podem criar facilmente seus próprios *painéis de debug web* e
 adicioná-los à *Barra de Ferramenta para Debug Web*. Neste capítulo, configuraremos um novo *painel de debug web*
 e, depois, utilizaremos todas as diferentes ferramentas e personalizações disponíveis.
 Além disso, o [ac2009WebDebugPlugin](http://www.symfony-project.org/plugins/ac2009WebDebugPlugin)
-contém vários painéis úteis e interessantes que empregam algumas das 
+contém vários painéis úteis e interessantes que empregam algumas das
 técnicas utilizadas neste capítulo.
 
 Criando um novo *Painel de Debug Web*
 -------------------------------------
 
 Os componentes individuais da *Barra de Ferramentas para Debug Web* são conhecidos como *painéis de debug web*
-e são classes especiais que estendem a classe ~`sfWebDebugPanel`~. Criar um novo 
+e são classes especiais que estendem a classe ~`sfWebDebugPanel`~. Criar um novo
 painel é realmente muito fácil. Crie um arquivo chamado `sfWebDebugPanelDocumentation.class.php`
 em seu diretorio `lib/debug/` (você precisa criar este diretório):
 
@@ -40,11 +40,11 @@ em seu diretorio `lib/debug/` (você precisa criar este diretório):
       {
         return 'Documentation';
       }
-      
+
       public function getPanelContent()
       {
         $content = 'Placeholder Panel Content';
-        
+
         return $content;
       }
     }
@@ -134,7 +134,7 @@ do painel vem do método `getTitle()`:
 
 ### O painel do tipo *Link*
 
-Como o painel *icon-only*, um painel *link* consiste de um painel sem conteúdo. No entanto, 
+Como o painel *icon-only*, um painel *link* consiste de um painel sem conteúdo. No entanto,
 ao contrário do painel *only-icon*, ao clicar em um painel *link* na barra de ferramentas
 você será direcionado à URL especificada através do método `getTitleUrl()` do painel. Para criar
 um painel *link*, configure o `getPanelContent()` para retornar uma seqüência vazia e adicione
@@ -159,7 +159,7 @@ um método `getTitleUrl()` na classe.
 
 De longe, o tipo mais comum de painel é um painel *content*. Estes painéis têm
 um corpo cheio de conteúdo HTML que é exibido quando você clica no painel
-na *Barra de Ferramentas para Debug Web*. Para criar esse tipo de painel, simplesmente 
+na *Barra de Ferramentas para Debug Web*. Para criar esse tipo de painel, simplesmente
 certifique-se que o `getPanelContent()` retorna mais do que uma string vazia.
 
 Personalizando o Painel *Content*
@@ -172,14 +172,14 @@ e utilizável.
 
 ### ~`SfWebDebugPanel::setStatus()`~
 
-Por padrão, cada painel é exibido na *Barra de Ferramentas para Debug Web* usando um 
+Por padrão, cada painel é exibido na *Barra de Ferramentas para Debug Web* usando um
 fundo padrão cinza. Mas você pode alterar para um fundo laranja ou vermelho quando se
 requer atenção especial algum conteúdo dentro do painel.
 
 ![*Barra de Ferramentas para Debug Web* com o erro](http://www.symfony-project.org/images/more-with-symfony/web_debug_05.png "A *Barra de Ferramentas para Debug Web* mostrando um estado de erro nos logs")
 
 Para alterar a cor de fundo do painel, basta utilizar o método `setStatus()`.
-Este método aceita qualquer constante `priority` da classe 
+Este método aceita qualquer constante `priority` da classe
 [sfLogger](http://www.symfony-project.org/api/1_3/sfLogger).
 Em particular, há três níveis de status diferentes, que correspondem
 as três diferentes cores de fundo de um painel (cinza, laranja e vermelho).
@@ -227,7 +227,7 @@ conteúdo em um painel:
     }
 
 O `getToggler` possui dois argumentos: o `id` do elemento e
-um `título` para definir como o atributo `title` do link *toggler*. Você é que deverá  
+um `título` para definir como o atributo `title` do link *toggler*. Você é que deverá
 criar o elemento DOM com o atributo `id`, bem como qualquer *label* descritiva
 (por exemplo "Os itens da lista") para o *toggler*.
 
@@ -316,7 +316,7 @@ como o texto do link.
 >**NOTE**
 >Antes de testar, verifique se você configurou o novo recurso de link de arquivo. Este
 >recurso pode ser configurado através da chave `sf_file_link_format` no settings.yml ou
->através da configuração `file_link_format` no 
+>através da configuração `file_link_format` no
 >[xdebug](http://xdebug.org/docs/stack_trace#file_link_format). O último
 >método garante que o projeto não está vinculado à uma IDE específica.
 
@@ -330,7 +330,7 @@ alguns truques mais a explorar.
 ### Removendo os Painéis Padrão
 
 Por padrão, o symfony automaticamente carrega vários painéis de debug web em sua
-*Barra de ferramentas para Debug Web*. Ao utilizar o evento `debug.web.load_panels`, estes painéis padrões 
+*Barra de ferramentas para Debug Web*. Ao utilizar o evento `debug.web.load_panels`, estes painéis padrões
 também podem ser facilmente removidos. Use a mesma função *listener* declarada
 anteriormente, mas substitua o corpo com a função `removePanel()`. O seguinte
 código irá remover o painel `memory` da barra de ferramentas:
@@ -345,7 +345,7 @@ código irá remover o painel `memory` da barra de ferramentas:
 
 Uma das coisas mais comumente necessárias dentro de um painel de debug são os parâmetros
 do pedido. Digamos, por exemplo, que você deseja exibir informações de
-um banco de dados sobre um objeto `Event` no banco de dados com base no parâmetro 
+um banco de dados sobre um objeto `Event` no banco de dados com base no parâmetro
 do pedido `event_id`:
 
     [php]

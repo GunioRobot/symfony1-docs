@@ -13,7 +13,7 @@ Los Plugins
 
 Un plugin ofrece una manera de empaquetar y distribuir un conjunto de archivos del proyecto. Al igual que un proyecto, un plugin puede tener clases, helpers, configuraciones, tareas, módulos, esquemas, e incluso recursos Web (CSS, JavaScript, etc.).
 
-### Plugins Privados 
+### Plugins Privados
 
 El primer uso de los plugins es facilitar el intercambio de código entre aplicaciones, o incluso entre distintos proyectos. Recuerda que las aplicaciones symfony sólo comparten el modelo. Los Plugins dan una manera de compartir más componentes entre aplicaciones.
 
@@ -89,7 +89,7 @@ Then, activate the `sfJobeetPlugin` in `config/ProjectConfiguration.class.php` f
     public function setup()
     {
       $this->enablePlugins(array(
-        'sfDoctrinePlugin', 
+        'sfDoctrinePlugin',
         'sfDoctrineGuardPlugin',
         'sfFormExtraPlugin',
         'sfJobeetPlugin'
@@ -170,7 +170,7 @@ Y el código debe ser actualizado:
         {
           $this->setToken(sha1($object->getEmail().rand(11111, 99999)));
         }
-        
+
         parent::save($conn);
       }
 
@@ -210,7 +210,7 @@ Este directorio contiene los modelos de nivel superior y la base de clases gener
 
   * `JobeetJob` (extiende de `PluginJobeetJob`) en
     `lib/model/doctrine/sfJobeetPlugin/JobeetJob.class.php`:
-    Nivel superior donde toda la funcionalidad del modélo puede guardarse. Esto 
+    Nivel superior donde toda la funcionalidad del modélo puede guardarse. Esto
     es donde puedas agregar y sobreescribir funcionalidades que ya vienen con los
     modelos del plugin.
 
@@ -228,19 +228,19 @@ Este directorio contiene los modelos de nivel superior y la base de clases gener
   * `JobeetJobTable` (extiende de `PluginJobeetJobTable`) en
     `lib/model/doctrine/sfJobeetPlugin/JobeetJobTable.class.php`:
     Lo mismo que para la clase `JobeetJob` excepto que esta e la instancia de
-    `Doctrine_Table` que obtendrás cuando llames a 
+    `Doctrine_Table` que obtendrás cuando llames a
     `Doctrine_Core::getTable('JobeetJob')`.
 
   * `PluginJobeetJobTable` (extiende de `Doctrine_Table`) en
     `lib/model/doctrine/sfJobeetPlugin/JobeetJobTable.class.php`:
     Esta clase contiene todas las funciones específicas para la instancia
-    de `Doctrine_Table` que obtendrás cuando llames a 
+    de `Doctrine_Table` que obtendrás cuando llames a
     `Doctrine_Core::getTable('JobeetJob')`.
 
 Con esta estructura que has generado tienes la posibilidad de personalizar los modelos de un plugin editando la clase de nivel superior `JobeetJob`. Puede personalizar el esquema y añadir columnas, añadir relaciones sobreescribiendo los métodos `setTableDefinition()` y `setUp()`.
 
 >**NOTE**
->Cuando mueves las clases classes, asegurate de modificar el método `configure()` al 
+>Cuando mueves las clases classes, asegurate de modificar el método `configure()` al
 >método `setup()` y que llame a `parent::setup()`. Debajo hay un ejemplo.
 >
 >     [php]
@@ -250,7 +250,7 @@ Con esta estructura que has generado tienes la posibilidad de personalizar los m
 >       {
 >         parent::setup();
 >       }
->       
+>
 >       // ...
 >     }</doctrine>
 
@@ -320,7 +320,7 @@ Para evitar colisiones con el nombre del módulo, siempre es una buena costumbre
     $ mv apps/frontend/modules/job plugins/sfJobeetPlugin/modules/sfJobeetJob
     $ mv apps/frontend/modules/language plugins/sfJobeetPlugin/modules/sfJobeetLanguage
 
-Por cada módulo, también tienes que cambiar el nombre de la clase en todo los archivos `actions.class.php` y `components.class.php` (por ejemplo, la clase 
+Por cada módulo, también tienes que cambiar el nombre de la clase en todo los archivos `actions.class.php` y `components.class.php` (por ejemplo, la clase
 `affiliateActions` necesiat ser renombrada a `sfJobeetAffiliateActions`).
 
 Las llamadas `include_partial()` y `include_component()` también deben ser modificadas en las siguientes plantillas:
@@ -596,7 +596,7 @@ Remueve todos los métodos de la clase `myUser` y crear la clase `JobeetUser`:
             ->whereIn('a.id', $ids)
             ->execute();
         }
-        
+
         return array();
 </doctrine>
       }
@@ -627,7 +627,7 @@ Utilizando la arquitectura de plugin te permite organizar el código de una mane
 Uso de Plugins
 --------------
 
-Al iniciar la aplicación de una nueva funcionalidad, o si tratas de resolver un problema clásico de la Web, hay probabilidad de que alguien ya ha resuelto el mismo problema y tal vez empaqueto la solución como un plugin symfony. Para buscar un plugin público symfony, ve a la sección  
+Al iniciar la aplicación de una nueva funcionalidad, o si tratas de resolver un problema clásico de la Web, hay probabilidad de que alguien ya ha resuelto el mismo problema y tal vez empaqueto la solución como un plugin symfony. Para buscar un plugin público symfony, ve a la sección
 [plugin](http://www.symfony-project.org/plugins/) del sitio web Symfony.
 
 Como un plugin esta auto-contenido en un directorio, hay varias manera de instalarlo:
@@ -668,7 +668,7 @@ El último paso es crear un archivo `package.xml` en la raíz del directorio del
 
 >**NOTE**
 >La mejor manera de aprender la sintaxis `package.xml` es ciertamente hacer una copia del
->usado por un 
+>usado por un
 >[plugin existente](http://svn.symfony-project.com/plugins/sfGuardPlugin/branches/1.2/package.xml).
 
 El archivo `package.xml` se compone de varias partes, como puedes ver en este ejemplo:
@@ -802,7 +802,7 @@ El `<changelog>` es opcional pero nos da información útil sobre lo que ha camb
       </release>
     </changelog>
 
-### Alojar un Plugin en el Sitio Web Symfony 
+### Alojar un Plugin en el Sitio Web Symfony
 
 Si desarrollas un Plugin útil y quiere compartirlo con la comunidad Symfony, [crea una cuenta symfony](http://www.symfony-project.org/user/new)
 si no tiene uno ya, entonces crear un
@@ -823,7 +823,7 @@ Feedback
 --------
 
 >**Tip**
->Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**. 
+>Este capítulo ha sido traducido por **Roberto Germán Puentes Díaz**.
 >Si encuentras algún error que deseas corregir o realizar algún comentario,
 >no dudes en enviarlo por correo a **puentesdiaz [arroba] gmail.com**
 

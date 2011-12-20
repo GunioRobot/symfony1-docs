@@ -1,8 +1,8 @@
 Giorno 5: Il routing
 ====================
 
-Se avete portato a termine il giorno 4, dovreste avere preso confidenza con il 
-pattern MVC e dovrebbe sembrarvi un modo più naturale di scrivere codice. 
+Se avete portato a termine il giorno 4, dovreste avere preso confidenza con il
+pattern MVC e dovrebbe sembrarvi un modo più naturale di scrivere codice.
 Investite un po' di tempo in più per conoscerlo meglio e non tornerete più indietro.
 Parlando di cose pratiche, ieri abbiamo personalizzato le pagine di Jobeet e
 allo stesso tempo abbiamo rivisto alcuni concetti di symfony come il layout, gli
@@ -17,20 +17,20 @@ Se cliccate su un'offerta di lavoro sulla homepage di Jobeet, l'URL apparirà
 come il seguente: `/job/show/id/1`. Se avete già sviluppato altri siti in PHP,
 sarete abituati a URL del tipo `/job.php?id=1`. Come fa symfony a farli funzionare?
 Come fa symfony a decidere l'azione da chiamare basandosi su quest'URL?
-Perché l'`id` dell'offerta di lavoro viene recuperata con  
+Perché l'`id` dell'offerta di lavoro viene recuperata con
 `$request->getParameter('id')`? Oggi risponderemo a tutte queste domande.
 
-Prima però parliamo un po' degli URL e di cosa siano esattamente. In un contesto 
+Prima però parliamo un po' degli URL e di cosa siano esattamente. In un contesto
 web, un URL è l'identificatore univoco di una risorsa. Quando visitate un URL,
 chiedete al browser di utilizzare una risorsa identificata da quell'URL.
-Perciò, siccome l'URL è l'interconnessione tra il sito web e l'utente, deve 
-comunicare significative informazioni riguardo alla risorsa che identifica. Ma 
-gli URL "tradizionali" non descrivono davvero una risorsa, essi mostrano la 
-struttura interna di un'applicazione. All'utente non interessa che il 
+Perciò, siccome l'URL è l'interconnessione tra il sito web e l'utente, deve
+comunicare significative informazioni riguardo alla risorsa che identifica. Ma
+gli URL "tradizionali" non descrivono davvero una risorsa, essi mostrano la
+struttura interna di un'applicazione. All'utente non interessa che il
 sito sia realizzato in PHP o che una particolare offerta di lavoro abbia un certo
 identificatore sul database. Mostrare il funzionamento interno dell'applicazione
 è piuttosto dannoso in termini di ~sicurezza|Sicurezza~: cosa succederebbe se l'utente
-provasse ad accedere a risorse per cui non ha il permesso? Sicuramente lo 
+provasse ad accedere a risorse per cui non ha il permesso? Sicuramente lo
 sviluppatore dovrebbe metterle in sicurezza in modo appropriato, ma è sempre meglio
 nascondere informazioni sensibili.
 
@@ -86,9 +86,9 @@ passato. La prima rotta corrispondente vince, perciò l'ordine nel file `routing
 funziona tutto questo.
 
 Quando si richiede l'homepage di Jobeet, che contiene l'URL `/job`, la prima rotta
-corrispondente è `default_index`. In uno schema, una parola ~preceduta|Prefisso~ dai 
+corrispondente è `default_index`. In uno schema, una parola ~preceduta|Prefisso~ dai
 due punti (`:`) è una variabile, quindi `/:module` significa: individua una `/`
-seguita da qualcosa. Nel nostro esempio, la variabile `module` ha come valore 
+seguita da qualcosa. Nel nostro esempio, la variabile `module` ha come valore
 `job`. Questo valore può essere recuperato con `$request->getParameter('module')`.
 Questa rotta definisce inoltre un valore di default per la variabile `action`.
 Quindi, per tutti gli URL corrispondenti a questa rotta, la richiesta avrà

@@ -53,7 +53,7 @@ Il modo migliore per imparare le tecniche avanzate è quello di seguire e testar
 gli esempi passo passo. Grazie alla funzionalità `--installer` di [symfony](#chapter_03),
 viene fornito un modo semplice per creare un progetto funzionante, con un database
 SQLite pronto per essere usato, lo schema del database di Doctrine, alcune fixture,
-una applicazione `frontend` e un modulo `product` con cui lavorare. 
+una applicazione `frontend` e un modulo `product` con cui lavorare.
 Scaricare lo script di installazione
 [script](http://www.symfony-project.org/images/more-with-symfony/advanced_form_installer.php.src)
 ed eseguire il seguente comando per creare il progetto symfony:
@@ -136,7 +136,7 @@ prodotto in una sola volta. Per fare questo, bisogna unire due oggetti
 Se si punta il browser al modulo `product`, si avrà la possibilità di caricare
 due `ProductPhoto` così come modificare l'oggetto stesso `Product`.
 Symfony salva automaticamente i nuovi oggetti `ProductPhoto` e li collega al
-corrispondente oggetto `Product`. Anche l'upload dei file, definito in 
+corrispondente oggetto `Product`. Anche l'upload dei file, definito in
 `ProductPhotoForm`, viene eseguito normalmente.
 
 Verificare che i record siano salvati correttamente nel database:
@@ -247,7 +247,7 @@ a un form:
     }
 
 >**NOTE**
->Gli array `widgetSchema` e `validatorSchema` in realtà sono classi speciali 
+>Gli array `widgetSchema` e `validatorSchema` in realtà sono classi speciali
 >chiamate ~`sfWidgetFormSchema`~ e ~`sfValidatorSchema`~, che implementano
 >l'interfaccia `ArrayAccess`.
 
@@ -438,7 +438,7 @@ Rimuovere questa riga, perché verrà sostituita in questa sezione.
 La cosa più importante da capire quando si visualizzano form incorporati nella
 vista è l'organizzazione dell'array multi livello `widgetSchema`, spiegato nel
 paragrafo precedente. Per questo esempio, si può iniziare visualizzando nella
-vista i campi di base `name` e `price` del `ProductForm`: 
+vista i campi di base `name` e `price` del `ProductForm`:
 
     [php]
     // apps/frontend/module/product/templates/_form.php
@@ -455,7 +455,7 @@ del form.
 >Il codice delle azioni non è stato volutamente mostrato qui, perché ha bisogno
 >di un'attenzione particolare. Si dia un'occhiata al file con le azioni
 >`apps/frontend/modules/product/actions/actions.class.php`. Assomiglia a un
->normale CRUD e può essere generato automaticamente attraverso il task 
+>normale CRUD e può essere generato automaticamente attraverso il task
 >`doctrine:generate-module`.
 
 Come si è già imparato, la classe `sfForm` ospita gli array `widgetSchema` e
@@ -464,10 +464,10 @@ l'interfaccia nativa di PHP 5 `ArrayAccess`, il che significa che si può accede
 direttamente ai campi del form, utilizzando la sintassi per le chiave degli array
 vista sopra.
 
-Per visualizzare i campi, si può accederci direttamente e chiamare il metodo 
+Per visualizzare i campi, si può accederci direttamente e chiamare il metodo
 `renderRow()`. Ma che tipo di oggetto è `$form['name']`? Anche se ci si potrebbe
 aspettare di rispondere che per il campo `name` possa essere il widget `sfWidgetFormInputText`,
-la risposta è in realtà qualcosa di leggermente diverso. 
+la risposta è in realtà qualcosa di leggermente diverso.
 
 ### Visualizzare ciascun campo del form con ~`sfFormField`~
 
@@ -871,7 +871,7 @@ espone i seguenti quattro eventi per i form:
 Utilizzando gli eventi dei form, è possibile aggiungere log personalizzati
 per errori di validazione su qualunque form del progetto. Questo potrebbe
 essere utile se si vuole tenere traccia di quali form e campi stanno causando
-confusione agli utenti. 
+confusione agli utenti.
 
 Si può iniziare la registrazione di un ascoltatore con il dispatcher di eventi, per
 l'evento `form.validation_error`. Aggiungere il codice seguente al metodo `setup()`

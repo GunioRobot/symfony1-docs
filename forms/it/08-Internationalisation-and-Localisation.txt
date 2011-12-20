@@ -111,7 +111,7 @@ Listato 8-4 - Internazionalizzazione dei messaggi di errore
       public function configure()
       {
         // ...
-        
+
         $this->validatorSchema['name'] = new sfValidatorEmail(
           array('min_length' => 2, 'max_length' => 45),
           array('min_length' => 'Name "%value%" must be at least %min_length% characters.',
@@ -173,11 +173,11 @@ Listato 8-6 - Classe I18N personalizzata
         'Email'   => 'Courrier électronique',
         'Subject' => 'Sujet',
         'Body'    => 'Message',
-      )); 
+      ));
 
       static public function translateText($text)
       {
-        $culture = isset($_SESSION['culture']) ? $_SESSION['culture'] : self::$default_culture; 
+        $culture = isset($_SESSION['culture']) ? $_SESSION['culture'] : self::$default_culture;
         if (array_key_exists($culture, self::$messages)
             && array_key_exists($text, self::$messages[$culture]))
         {
@@ -252,14 +252,14 @@ Questa è la versione aggiornata della classe `MyI18n` che supporta questi param
 
       static public function translateText($text, $arguments = array(), $catalogue = 'messages')
       {
-        $culture = isset($_SESSION['culture']) ? $_SESSION['culture'] : self::$default_culture; 
+        $culture = isset($_SESSION['culture']) ? $_SESSION['culture'] : self::$default_culture;
         if (array_key_exists($culture, self::$messages) &&
             array_key_exists($messages, self::$messages[$culture] &&
             array_key_exists($text, self::$messages[$culture][$messages]))
-        {   
+        {
           $text = self::$messages[$_SESSION['culture']][$messages][$text];
           $text = strtr($text, $arguments);
-        }   
+        }
         return $text;
       }
     }
@@ -325,7 +325,7 @@ Listato 8-8 - Form I18n per un oggetto di Propel internazionalizzato
       }
     }
 
-Si possono anche personalizzare le etichette della lingua di un form 
+Si possono anche personalizzare le etichette della lingua di un form
 aggiungendo il seguente codice al metodo `configure()`, come mostrato
 nel Listato 8-9.
 

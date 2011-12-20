@@ -36,7 +36,7 @@ e può includere [**costanti**](#chapter_03_costanti).
 
 >**NOTE**
 >Il file di configurazione `cache.yml` è memorizzato nella cache come file PHP; il
->processo è gestito automaticamente dalla [classe](#chapter_14_config_handlers_yml) 
+>processo è gestito automaticamente dalla [classe](#chapter_14_config_handlers_yml)
 >~`sfCacheConfigHandler`~.
 
 La configurazione predefinita dell'applicazione può essere sovrascritta per un modulo, con

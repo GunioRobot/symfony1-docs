@@ -107,7 +107,7 @@ symfony ‚Ìƒ†ƒjƒbƒgƒeƒXƒg‚Í `Test.php` ‚ÅI‚í‚éƒVƒ“ƒvƒ‹‚È PHP ƒtƒ@ƒCƒ‹‚ÅAƒAƒvƒŠƒ
 ƒŠƒXƒg15-2 - 1‚Â‚Ìƒ†ƒjƒbƒgƒeƒXƒg‚ðƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚ç‹N“®‚³‚¹‚é
 
     $ php symfony test:unit strtolower
-    
+
     1..7
     # strtolower()
     ok 1 - strtolower() ‚Í•¶Žš—ñ‚ð•Ô‚·
@@ -139,19 +139,19 @@ symfony ‚Ìƒ†ƒjƒbƒgƒeƒXƒg‚Í `Test.php` ‚ÅI‚í‚éƒVƒ“ƒvƒ‹‚È PHP ƒtƒ@ƒCƒ‹‚ÅAƒAƒvƒŠƒ
 `isnt($value1, $value2[, $msg])`              | ‚Q‚Â‚Ì’l‚ð”äŠr‚µA“™‚µ‚­‚È‚¢ê‡‚ÉƒpƒX‚·‚é
 `like($string, $regexp[, $msg])`              | ³‹K•\Œ»‚É‘Î‚µ‚Ä•¶Žš—ñ‚ðƒeƒXƒg‚·‚é
 `unlike($string, $regexp[, $msg])`            | •¶Žš—ñ‚ª³‹K•\Œ»‚Éƒ}ƒbƒ`‚µ‚È‚¢‚±‚Æ‚ðƒ`ƒFƒbƒN‚·‚é
-`cmp_ok($value1, $operator, $value2[, $msg])` | ‰‰ŽZŽq‚Åˆø”‚ð”äŠr‚·‚é 
-`isa_ok($variable, $type[, $msg])`            | ˆø”‚Ìƒ^ƒCƒv‚ðƒ`ƒFƒbƒN‚·‚é 
+`cmp_ok($value1, $operator, $value2[, $msg])` | ‰‰ŽZŽq‚Åˆø”‚ð”äŠr‚·‚é
+`isa_ok($variable, $type[, $msg])`            | ˆø”‚Ìƒ^ƒCƒv‚ðƒ`ƒFƒbƒN‚·‚é
 `isa_ok($object, $class[, $msg])`             | ƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚ðƒ`ƒFƒbƒN‚·‚é
-`can_ok($object, $method[, $msg])`            | ƒIƒuƒWƒFƒNƒg‚à‚µ‚­‚ÍƒNƒ‰ƒX‚Ì‚½‚ß‚Ìƒƒ\ƒbƒh‚ª—˜—p‚Å‚«‚é‚©ƒ`ƒFƒbƒN‚·‚é 
+`can_ok($object, $method[, $msg])`            | ƒIƒuƒWƒFƒNƒg‚à‚µ‚­‚ÍƒNƒ‰ƒX‚Ì‚½‚ß‚Ìƒƒ\ƒbƒh‚ª—˜—p‚Å‚«‚é‚©ƒ`ƒFƒbƒN‚·‚é
 `is_deeply($array1, $array2[, $msg])`         | “¯‚¶’l‚ðŽ‚Â2‚Â‚Ì”z—ñ‚ðƒ`ƒFƒbƒN‚·‚é
 `include_ok($file[, $msg])`                   | ƒtƒ@ƒCƒ‹‚ª‘¶Ý‚µA“KØ‚ÉŠÜ‚Ü‚ê‚é‚©‚ðƒoƒŠƒf[ƒg‚·‚é
 `fail([$msg])`                                | ‚Â‚Ë‚ÉŽ¸”s‚·‚é--ƒeƒXƒg‚Ì—áŠO‚É•Ö—˜‚Å‚ ‚é
 `pass([$msg])`                                | ‚Â‚Ë‚É¬Œ÷‚·‚é-- ƒeƒXƒg‚Ì—áŠO‚É•Ö—˜‚Å‚ ‚é
 `skip($msg, $nb_tests)`                       | `$nb_tests` Œ‚ÌƒeƒXƒg‚ðƒJƒEƒ“ƒg‚µ‚Ü‚·--ðŒ‚Â‚«‚ÌƒeƒXƒg‚É•Ö—˜‚Å‚·
 `todo([$msg])`                                | ƒeƒXƒg‚Æ‚µ‚ÄƒJƒEƒ“ƒg‚µ‚Ü‚·-- ‚Ü‚¾‘‚©‚ê‚Ä‚¢‚È‚¢ƒeƒXƒg‚É•Ö—˜‚Å‚·
-`comment($msg)`                               | ƒRƒƒ“ƒgƒƒbƒZ[ƒW‚Ío—Í‚·‚é‚ªƒeƒXƒg‚ÍŽÀŽ{‚µ‚È‚¢ 
+`comment($msg)`                               | ƒRƒƒ“ƒgƒƒbƒZ[ƒW‚Ío—Í‚·‚é‚ªƒeƒXƒg‚ÍŽÀŽ{‚µ‚È‚¢
 `error($msg)`                                 | ƒGƒ‰[ƒƒbƒZ[ƒW‚Ío—Í‚·‚é‚ªƒeƒXƒg‚ÍŽÀŽ{‚µ‚È‚¢
-`info($msg)`                                  | î•ñƒƒbƒZ[ƒW‚Ío—Í‚·‚é‚ªƒeƒXƒg‚ÍŽÀŽ{‚µ‚È‚¢ 
+`info($msg)`                                  | î•ñƒƒbƒZ[ƒW‚Ío—Í‚·‚é‚ªƒeƒXƒg‚ÍŽÀŽ{‚µ‚È‚¢
 
 
 \•¶‚Í‚Æ‚Ä‚à’P“’¼“ü‚Å‚·; ‚½‚¢‚Ä‚¢‚Ìƒƒ\ƒbƒh‚ÍƒƒbƒZ[ƒW‚ðÅŒã‚Ìƒpƒ‰ƒ[ƒ^[‚Æ‚µ‚ÄŽó‚¯‚Æ‚é‚±‚Æ‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B‚±‚ÌƒƒbƒZ[ƒW‚ÍƒeƒXƒg‚ª¬Œ÷‚µ‚½‚Æ‚«‚Éo—Í‚É•\Ž¦‚³‚ê‚Ü‚·B‚±‚ê‚ç‚Ìƒƒ\ƒbƒh‚ðŠw‚ÔƒxƒXƒg‚È•û–@‚Í‚±‚ê‚ç‚ðŽÀÛ‚ÉƒeƒXƒg‚·‚é‚±‚Æ‚Å‚·B‚Å‚·‚Ì‚ÅA‚±‚ê‚ç‚Ìƒƒ\ƒbƒh‚ð‚·‚×‚ÄŽg‚Á‚Ä‚¢‚éƒŠƒXƒg15-3‚ð‚²——‚­‚¾‚³‚¢B
@@ -322,7 +322,7 @@ symfony‚Ìƒ†ƒjƒbƒgƒeƒXƒg‚Ì‚È‚©‚É‚±‚ê‚ç‚Ìƒƒ\ƒbƒh‚ÌŽg‚¢‚©‚½‚Ì—á‚ª‘½‚­Œ©‚Â‚©‚è‚Ü‚·
     [php]
     require_once dirname(__FILE__).'/../../lib/WebService.class.php';
     require_once dirname(__FILE__).'/../../lib/MapAPI.class.php'
-    
+
     class testWebService extends WebService
     {
       public static function fetch()
@@ -378,7 +378,7 @@ symfony‚Ìƒ†ƒjƒbƒgƒeƒXƒg‚Ì‚È‚©‚É‚±‚ê‚ç‚Ìƒƒ\ƒbƒh‚ÌŽg‚¢‚©‚½‚Ì—á‚ª‘½‚­Œ©‚Â‚©‚è‚Ü‚·
     include(dirname(__FILE__).'/../bootstrap/unit.php');
     require_once sfConfig::get('sf_symfony_lib_dir').'/util/sfToolkit.class.php';
     require_once sfConfig::get('sf_symfony_lib_dir').'/yaml/sfYaml.class.php';
-    
+
     $testCases = sfYaml::load(dirname(__FILE__).'/fixtures.yml');
 
     $t = new lime_test(count($testCases), new lime_output_color());
@@ -421,7 +421,7 @@ Propel ‚Ü‚½‚Í Doctrine ‚Ì¶¬ƒIƒuƒWƒFƒNƒg‚Í’·‚¢ƒJƒXƒP[ƒhó‚ÌƒNƒ‰ƒX‚ÉˆË‘¶‚·‚é‚Ì‚
     $t->is($user->getLastName(), 'Potencier', '->retrieveByUsername() ‚Í”CˆÓ‚Ìƒ†[ƒU[–¼‚Ì‚½‚ß‚Ì User ‚ð•Ô‚·');
 
 “TŒ^“I‚È Doctrine ‚ÌƒeƒXƒgƒtƒ@ƒCƒ‹‚ðAƒŠƒXƒg 15-10 ‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B
-    
+
 ƒŠƒXƒg 15-10 - Doctrine ‚ÌƒNƒ‰ƒX‚ðƒeƒXƒg‚·‚é
 
     [php]
@@ -507,7 +507,7 @@ Propel ‚Ü‚½‚Í Doctrine ‚Ì¶¬ƒIƒuƒWƒFƒNƒg‚Í’·‚¢ƒJƒXƒP[ƒhó‚ÌƒNƒ‰ƒX‚ÉˆË‘¶‚·‚é‚Ì‚
 
     [php]
     include dirname(__FILE__).'/../../bootstrap/functional.php';
-    
+
     // V‚µ‚¢ƒuƒ‰ƒEƒU[‚ðì¬‚·‚é
     $b = new sfBrowser();
 
@@ -733,7 +733,7 @@ PHP ‚Ì DOM ƒƒ\ƒbƒh‚É‚æ‚é HTML ƒhƒLƒ…ƒƒ“ƒg‚Ì‰ðÍ‚Í\•ª‚È‘¬‚³‚Ås‚í‚ê‚¸‚Ü‚½ŠÈ’P‚
   * ƒu[ƒ‹’l‚Ìê‡ACSS ƒZƒŒƒNƒ^‚Éƒ}ƒbƒ`‚·‚é—v‘f‚ª‘¶Ý‚·‚é‚©ƒ`ƒFƒbƒN‚ð‚µ‚Ü‚·B
   * ®”‚Ìê‡ACSS ƒZƒŒƒNƒ^‚ª‚±‚Ì”‚ÌŒ‹‰Ê‚ð•Ô‚·‚Ì‚©ƒ`ƒFƒbƒN‚ð‚µ‚Ü‚·B
   * ³‹K•\Œ»‚Ìê‡ACSS ƒZƒŒƒNƒ^‚É‚æ‚Á‚ÄŒ©‚Â‚©‚éÅ‰‚Ì—v‘f‚ª‚»‚ê‚Éƒ}ƒbƒ`‚·‚é‚©ƒ`ƒFƒbƒN‚ð‚µ‚Ü‚·B
-  * !‚ÅŽn‚Ü‚é³‹K•\Œ»‚Ìê‡Aƒpƒ^[ƒ“‚Éƒ}ƒbƒ`‚µ‚È‚¢Å‰‚Ì—v‘f‚ðƒ`ƒFƒbƒN‚µ‚Ü‚·B 
+  * !‚ÅŽn‚Ü‚é³‹K•\Œ»‚Ìê‡Aƒpƒ^[ƒ“‚Éƒ}ƒbƒ`‚µ‚È‚¢Å‰‚Ì—v‘f‚ðƒ`ƒFƒbƒN‚µ‚Ü‚·B
   * ‚»‚Ì‚Ù‚©‚Ìê‡ACSS ƒZƒŒƒNƒ^‚ÅŒ©‚Â‚©‚éÅ‰‚Ì—v‘f‚Æ2”Ô–Ú‚Ìˆø”‚ð•¶Žš—ñ‚Æ‚µ‚Ä”äŠr‚µ‚Ü‚·B
 
 ƒƒ\ƒbƒh‚Í3”Ô–Ú‚ÌƒIƒvƒVƒ‡ƒ“ƒpƒ‰ƒ[ƒ^[‚ð˜A‘z”z—ñ‚ÌŒ`Ž®‚ÅŽó‚¯‚Æ‚è‚Ü‚·BƒŠƒXƒg15-23‚ÅŽ¦‚³‚ê‚é‚æ‚¤‚ÉA(ƒZƒŒƒNƒ^‚ª‚¢‚­‚Â‚©‚Ì—v‘f‚ð•Ô‚·ê‡)ƒZƒŒƒNƒ^‚É‚æ‚Á‚Ä•Ô‚³‚ê‚½Å‰‚Ì—v‘f‚Å‚Í‚È‚­A“Á’è‚ÌˆÊ’u‚Ì‚Ù‚©‚Ì—v‘f‚ÅƒeƒXƒg‚ªŽÀs‚³‚ê‚Ü‚·B

@@ -170,7 +170,7 @@ manière suivante :
 
  * Symfony cherche un message transmis lorsque le validator a été créé (par le
    second argument du constructeur du validator);
-   
+
  * Si il n'est pas défini, il recherche un message par défaut défini avec
    la méthode `setDefaultMessage()`;
 
@@ -218,7 +218,7 @@ de formulaire où vous ajoutez une nouvelle colonne liée à une table).
 Par défaut, le tableau des champs est aussi utilisé pour changer l'ordre des champs. Vous
 pouvez passer le second argument de `useFields()` à `false` pour désactiver
 la réorganisation automatique.
- 
+
 ### `sfForm::getEmbeddedForm($name)`
 
 Vous pouvez désormais accéder à un formulaire imbriqué en particulier en utilisant
@@ -411,13 +411,13 @@ argument :
     [php]
     $browser->with('response')->begin()->
       isValid(true)->
-    end(); 
+    end();
 
 Alternativement, si vous avez un schéma XSD ou RelaxNG à valider à nouveau, vous
 pouvez fournir le chemin de ce fichier :
 
-    [php] 
-    $browser->with('response')->begin()-> 
+    [php]
+    $browser->with('response')->begin()->
       isValid('/path/to/schema.xsd')->
     end();
 
@@ -431,7 +431,7 @@ Vous pouvez maintenant ajouter des écouteurs, pour vos tests fonctionnels, pour
 
 ### Un meilleur `->click()`
 
-Vous pouvez maintenant passer un sélecteur CSS à la méthode `->click()`, ceci permet de 
+Vous pouvez maintenant passer un sélecteur CSS à la méthode `->click()`, ceci permet de
 cibler beaucoup plus facilement l'élément que vous voulez sémantiquement.
 
     [php]
@@ -634,7 +634,7 @@ Si cela est possible, la barre d'outils web de débogage est maintenant égaleme
 d'exception dans l'environnement de développement.
 
 Intégration de Propel
------------------- 
+------------------
 
 Propel a été mis à niveau vers la version 1.4. Merci de visiter le site de Propel pour plus
 d'informations sur sa mise à jour
@@ -650,8 +650,8 @@ portées vers le nouveau système de' comportement de Propel 1.4.
 Avant de supprimer toutes les données d'une base de données, `propel:insert-sql` demande une
 confirmation. Comme cette tâche ne peut supprimer des données de plusieurs bases de données, il affiche désormais
 aussi le nom des connexions des bases de données liées.
- 
-### `propel:generate-module`, `propel:generate-admin`, `propel:generate-admin-for-route` 
+
+### `propel:generate-module`, `propel:generate-admin`, `propel:generate-admin-for-route`
 
 Les tâches `propel:generate-module`, `propel:generate-admin`, et
 `propel:generate-admin-for-route` prennent désormais l'option `--actions-base-class` qui permet
@@ -724,11 +724,11 @@ colonne non-numérique est spécifiée (par exemple `slug`).
 Une nouvelle option `default_params` a été ajoutée à `sfObjectRouteCollection`. Elle
 permet pour les paramètres par défaut d'être enregistrés pour chaque routage généré :
 
-    [yml] 
-    forum_topic: 
-      class: sfDoctrineRouteCollection 
-      options: 
-        default_params: 
+    [yml]
+    forum_topic:
+      class: sfDoctrineRouteCollection
+      options:
+        default_params:
           section: forum
 
 CLI
@@ -985,14 +985,14 @@ et en passant une instance `DateTime` valide.
     [php]
     $article->setDateTimeObject('created_at', new DateTime('09/01/1985'));
 
-### `doctrine:migrate --down` 
+### `doctrine:migrate --down`
 
 Le `doctrine:migrate` inclut maintenant les options `up` et `down` qui vont migrer
 votre schéma d'une étape dans la direction demandée.
 
-    $ php symfony doctrine:migrate --down 
+    $ php symfony doctrine:migrate --down
 
-### `doctrine:migrate --dry-run` 
+### `doctrine:migrate --dry-run`
 
 Si votre base de données supporte les instructions rollback DDL (MySQL ne le fait pas), vous
 pouvez profiter de la nouvelle option `dry-run`.
@@ -1020,10 +1020,10 @@ Maintenant l'exemple suivant est possible.
 
 ### Passer des paramètres de query à `doctrine:dql`
 
-La tâche `doctrine:dql` a aussi été améliorée pour accepter des paramètres de query comme 
+La tâche `doctrine:dql` a aussi été améliorée pour accepter des paramètres de query comme
 arguments :
 
-    $ php symfony doctrine:dql "FROM Article a WHERE name LIKE ?" John% 
+    $ php symfony doctrine:dql "FROM Article a WHERE name LIKE ?" John%
 
 ### Débogage des requêtes dans les tests fonctionnels
 
@@ -1111,9 +1111,9 @@ Vous pouvez maintenant écouter les événements `doctrine.configure` et
 de Doctrine peut être facilement personnalisés à partir d'un plugin, aussi longtemps que le plugin est
 activé pour `sfDoctrinePlugin`.
 
-### `doctrine:generate-module`, `doctrine:generate-admin`, `doctrine:generate-admin-for-route` 
+### `doctrine:generate-module`, `doctrine:generate-admin`, `doctrine:generate-admin-for-route`
 
-Les tâches `doctrine:generate-module`, `doctrine:generate-admin`, et 
+Les tâches `doctrine:generate-module`, `doctrine:generate-admin`, et
 `doctrine:generate-admin-for-route` prend désormais une option `--actions-base-class` qui permet
 la configuration de la classe de base des actions pour les modules générés.
 
@@ -1124,13 +1124,13 @@ maintenant représenté dans un entête de doc de chaque classe de base génér�
 supporte la complétion de code, vous devriez maintenant voir ces méthodes `getFooBar()` et
 `setFooBar()` apparaitre en haut des objets du modèle, où FooBar est un nom de champ
 noté en CamelCase.
- 
-### Utilisation d'une version différente de Doctrine 
+
+### Utilisation d'une version différente de Doctrine
 
 L'utilisation d'une version différente de Doctrine est facile à paramètrer avec
 `sf_doctrine_dir` dans `ProjectConfiguration` :
 
-    [php] 
+    [php]
     // config/ProjectConfiguration.class.php
     public function setup()
     {
@@ -1212,7 +1212,7 @@ Deux paramètres sont disponibles dans `factories.yml` :
     cache doit être dépendant du nom de l'hôte.
 
 ### Plus de mise en cache
- 
+
 Le manager de cache de la vue ne refuse plus de mettre en cache s'il y a des
 valeurs dans les tableaux de `$_GET` ou `$_POST`. La logique maintenant confirme simplement la
 requête courante de la méthode GET avant de vérifier le `cache.yml`. Cela signifie que

@@ -1,7 +1,7 @@
 1.3 で廃止予定になったもしくは削除された機能
 ==============================================
 
-このドキュメントでは symfony 1.3 で廃止予定になったもしくは削除されたすべての設定、クラス、メソッド、関数とタスクをひととおり説明します。 
+このドキュメントでは symfony 1.3 で廃止予定になったもしくは削除されたすべての設定、クラス、メソッド、関数とタスクをひととおり説明します。
 
 
 コアプラグイン
@@ -55,7 +55,7 @@
 
   * `sfWebRequest::getMethodName()`: 代わりに `getMethod()` を使います。
 
-  * `sfDomCssSelector::getTexts()`: `matchAll()->getValues()` を使います。 
+  * `sfDomCssSelector::getTexts()`: `matchAll()->getValues()` を使います。
 
   * `sfDomCssSelector::getElements()`: `matchAll()` を使います。
 

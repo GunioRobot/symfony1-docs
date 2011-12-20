@@ -107,15 +107,15 @@ Doctrine クエリオブジェクト
 
 </propel>
 <doctrine>
-    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT 
-    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type, 
-    j.company AS j__company, j.logo AS j__logo, j.url AS j__url, 
-    j.position AS j__position, j.location AS j__location, 
-    j.description AS j__description, j.how_to_apply AS j__how_to_apply, 
-    j.token AS j__token, j.is_public AS j__is_public, 
-    j.is_activated AS j__is_activated, j.email AS j__email, 
-    j.expires_at AS j__expires_at, j.created_at AS j__created_at, 
-    j.updated_at AS j__updated_at FROM jobeet_job j 
+    Dec 04 13:58:33 symfony [info] {sfDoctrineLogger} executeQuery : SELECT
+    j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type,
+    j.company AS j__company, j.logo AS j__logo, j.url AS j__url,
+    j.position AS j__position, j.location AS j__location,
+    j.description AS j__description, j.how_to_apply AS j__how_to_apply,
+    j.token AS j__token, j.is_public AS j__is_public,
+    j.is_activated AS j__is_activated, j.email AS j__email,
+    j.expires_at AS j__expires_at, j.created_at AS j__created_at,
+    j.updated_at AS j__updated_at FROM jobeet_job j
     WHERE j.created_at > ? (2008-11-08 01:13:35)
 
 Doctrine が `created_at` カラムに対して WHERE 句 (`WHERE j.created_at > ?`) を用意していることがわかります。
@@ -139,7 +139,7 @@ Doctrine が `created_at` カラムに対して WHERE 句 (`WHERE j.created_at >
 
 しかし上記のコードは `created_at` の値に依存するのと、このカラムは作成時の日付を保存するので上記の要件を満たすことができません。
 
-しかし3日目に記述したデータベーススキーマを覚えているのであれば、`expires_at` カラムも定義しました。フィクスチャデータに設定されていないので現在このデータの値は常に空です。 
+しかし3日目に記述したデータベーススキーマを覚えているのであれば、`expires_at` カラムも定義しました。フィクスチャデータに設定されていないので現在このデータの値は常に空です。
 
 しかし求人が作られるとき、これを現在の日付の後の30日に自動的に設定できます。
 
@@ -313,7 +313,7 @@ Jobeet のホームページをブラウザでリフレッシュしても、数�
     }
 </doctrine>
 
-~`app.yml`~ ファイルはアプリケーションの~グローバル設定~を集めるよい方法です。最後に、~プロジェクト規模での設定|グローバルコンフィギュレーション~が必要な場合、symfony プロジェクトルートの `config` フォルダで新しい `app.yml` ファイルを作るだけです。 
+~`app.yml`~ ファイルはアプリケーションの~グローバル設定~を集めるよい方法です。最後に、~プロジェクト規模での設定|グローバルコンフィギュレーション~が必要な場合、symfony プロジェクトルートの `config` フォルダで新しい `app.yml` ファイルを作るだけです。
 
 
 リファクタリング
@@ -624,7 +624,7 @@ index アクションを適宜変更します:
 適切な ~`LIMIT`~ 句は Model のなかで決め打ちされていますが、この値を設定可能にすることはよいことです。`app.yml` にセットした求人の最大件数をテンプレートに渡すように変更します:
 
     [php]
-    <!-- apps/frontend/modules/job/templates/indexSuccess.php --> 
+    <!-- apps/frontend/modules/job/templates/indexSuccess.php -->
     <?php foreach ($category->getActiveJobs(sfConfig::get('app_max_jobs_on_homepage')) as $i => $job): ?>
 
 加えて、`app.yml` 新しい設定に追加します。
